@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= violatesTrafficRule
+
+//Include information from owl files
+
+The following model provides an overview of :violatesTrafficRule
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|violatesTrafficRule
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#violatesTrafficRule
+
+|Has domain
+|:RuleViolatingEntity
+
+|Has range
+|:RuleViolatingEntity
+
+|Comment
+|This will probably be moved to domain ontology
+
+|===

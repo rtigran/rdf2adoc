@@ -1,0 +1,44 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SpatialRelation
+
+//Include information from owl files
+
+The following model provides an overview of :SpatialRelation
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SpatialRelation
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SpatialRelation
+
+|Subclass of
+|:DefinedRelationship
+
+|Restriction
+|hasRelationDirection **some** DirectionQuantity
+
+|Restriction
+|hasSpatialObject **some** PhysicalObjectState
+
+|Restriction
+|hasSpatialSubject **some** PhysicalObjectState
+
+|Disjoint with
+|:TemporalRelation
+
+|Comment
+|a relationship between two physical objects that gives the directional relationship only (and not the distance) – used for saying, e.g. A is in front of B
+
+|===

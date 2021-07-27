@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= rightConnectedTo
+
+//Include information from owl files
+
+The following model provides an overview of :rightConnectedTo
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|rightConnectedTo
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rightConnectedTo
+
+|Subproperty of
+|:latitudinalConnectedTo
+
+|Comment
+|= isEastAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as "leftOf"
+
+|===

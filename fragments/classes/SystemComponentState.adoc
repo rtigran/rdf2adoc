@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SystemComponentState
+
+//Include information from owl files
+
+The following model provides an overview of :SystemComponentState
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SystemComponentState
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SystemComponentState
+
+|Subclass of
+|:PhysicalObjectState
+
+|Comment
+|A PhysicalObjectState that is a WholeLifeSystemComponent or a temporalPartOf a WholeLifeSystemComponent.
+
+|===

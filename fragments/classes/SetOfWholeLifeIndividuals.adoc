@@ -1,0 +1,33 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SetOfWholeLifeIndividuals
+
+//Include information from owl files
+
+The following model provides an overview of :SetOfWholeLifeIndividuals
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SetOfWholeLifeIndividuals
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SetOfWholeLifeIndividuals
+
+|Subclass of
+|:SetOfStates
+
+|Comment
+|A SetOfState that is individual or any of its subsets.
+Note: Only classes that necessarily apply to an individual for the whole of its life are valid members. Others are members of SetOfState and apply to the state that is the individual for the period of time that the class applies for.
+
+|===

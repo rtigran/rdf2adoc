@@ -5,7 +5,7 @@ import sys
 config_ok = False
 
 try:
-    config_ok = f.load_config("./rdfdoc_config.yml")
+    config_ok = f.load_config("./rdf2adoc_config.yml")
     f.logprint("Rdfdoc start")
 except:
     if not config_ok:

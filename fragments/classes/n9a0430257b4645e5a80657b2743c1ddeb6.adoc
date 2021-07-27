@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= n9a0430257b4645e5a80657b2743c1ddeb6
+
+//Include information from owl files
+
+The following model provides an overview of :n9a0430257b4645e5a80657b2743c1ddeb6
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|n9a0430257b4645e5a80657b2743c1ddeb6
+
+|IRI
+|n9a0430257b4645e5a80657b2743c1ddeb6
+
+|Subclass of
+|owl:Thing
+
+|===

@@ -1,0 +1,46 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasYoffset
+
+//Include information from owl files
+
+The following model provides an overview of :hasYoffset
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasYoffset
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#hasYoffset
+
+|Subproperty of
+|:relationProperty
+
+|Has domain
+|:RelativeLocation
+
+|Has range
+|:RelativeLocation
+
+|Characteristic
+|Functional
+
+|Characteristic
+|Inverse Functional
+
+|Comment
+|specifies the length from the 0 coordinate in the Y direction of a physical object that is located on another physical object via a RelativeLocation.
+
+Depends on the coordinate system used
+
+|===

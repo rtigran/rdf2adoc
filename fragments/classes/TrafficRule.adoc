@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= TrafficRule
+
+//Include information from owl files
+
+The following model provides an overview of :TrafficRule
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|TrafficRule
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#TrafficRule
+
+|Subclass of
+|owl:Thing
+
+|Comment
+|subclass of IntentionallyConstructedObject?
+
+|===

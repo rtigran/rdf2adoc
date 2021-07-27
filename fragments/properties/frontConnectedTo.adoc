@@ -1,0 +1,37 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= frontConnectedTo
+
+//Include information from owl files
+
+The following model provides an overview of :frontConnectedTo
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|frontConnectedTo
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#frontConnectedTo
+
+|Subproperty of
+|:longitudinalConnectedTo
+
+|Comment
+|= isNorthAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as "leftOf"
+
+
+change to "topConnectedTo"?
+
+|===

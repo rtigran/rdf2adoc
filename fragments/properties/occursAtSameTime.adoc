@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= occursAtSameTime
+
+//Include information from owl files
+
+The following model provides an overview of :occursAtSameTime
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|occursAtSameTime
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#occursAtSameTime
+
+|Subproperty of
+|:hasRelativeTime
+
+|Characteristic
+|Symmetric
+
+|Comment
+|two events occur at the same time - means that the events are both parts of the same "pointInTime"
+
+|===

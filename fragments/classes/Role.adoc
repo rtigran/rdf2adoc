@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= Role
+
+//Include information from owl files
+
+The following model provides an overview of :Role
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|Role
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#Role
+
+|Subclass of
+|:Kind
+
+|Subclass of
+|:SetOfParticipants
+
+|Comment
+|A SetOfParticipants where each member participates in the same way in an Activity.
+
+|===

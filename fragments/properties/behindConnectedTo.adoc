@@ -1,0 +1,37 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= behindConnectedTo
+
+//Include information from owl files
+
+The following model provides an overview of :behindConnectedTo
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|behindConnectedTo
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#behindConnectedTo
+
+|Subproperty of
+|:longitudinalConnectedTo
+
+|Comment
+|= isSouthAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as "leftOf"
+
+
+change to "bottomConnectedTo"?
+
+|===

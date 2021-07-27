@@ -1,0 +1,40 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= Participant
+
+//Include information from owl files
+
+The following model provides an overview of :Participant
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|Participant
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#Participant
+
+|Subclass of
+|:PhysicalObjectState
+
+|Restriction
+|memberOf **only** SetOfParticipants
+
+|Restriction
+|participantOf **only** WholeLifeActivity
+
+|Comment
+|A State that is a participantIn an Activity.
+
+from text: 11.7: The participants in the activity are the states of the individuals whilst they are participating. The activity consists of these participants, where each participant is a member of the role in which it is participating.
+
+|===

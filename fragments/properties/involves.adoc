@@ -1,0 +1,44 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= involves
+
+//Include information from owl files
+
+The following model provides an overview of :involves
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|involves
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#involves
+
+|Subproperty of
+|:relationProperty
+
+|Has domain
+|:DefinedRelationship
+
+|Has range
+|:DefinedRelationship
+
+|Characteristic
+|Functional
+
+|Characteristic
+|Inverse Functional
+
+|Comment
+|A meta-relationship type where the classification of some thing in a role is involved in a relationship.
+
+|===

@@ -1,0 +1,44 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= whole
+
+//Include information from owl files
+
+The following model provides an overview of :whole
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|whole
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#whole
+
+|Subproperty of
+|:relationProperty
+
+|Has domain
+|:Aggregation
+
+|Has range
+|:Aggregation
+
+|Characteristic
+|Functional
+
+|Characteristic
+|Inverse Functional
+
+|Comment
+|From text 11.2: Each Aggregation has exactly one SpatioTemporalExtent that is the whole in the Aggregation.
+
+|===

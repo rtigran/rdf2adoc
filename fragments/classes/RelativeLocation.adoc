@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= RelativeLocation
+
+//Include information from owl files
+
+The following model provides an overview of :RelativeLocation
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|RelativeLocation
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#RelativeLocation
+
+|Subclass of
+|:SpatialLocation
+
+|Subclass of
+|:SpatialRelation
+
+|Comment
+|a spatial relationship where the subject is located somewhere on the object; reification of “locatedOn”
+
+|===

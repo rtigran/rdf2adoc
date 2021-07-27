@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= beginningOf
+
+//Include information from owl files
+
+The following model provides an overview of :beginningOf
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|beginningOf
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#beginningOf
+
+|Subproperty of
+|:temporalPartOf
+
+|Has domain
+|:Event
+
+|Inverse
+|:hasBeginning
+
+|Comment
+|A partOf relationship type where a SpatioTemporalExtent has exactly one event that is its beginning.
+
+|===

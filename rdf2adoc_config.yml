@@ -25,6 +25,6 @@ plantuml_jar: "./plantuml.jar"
 logging: True
 
 # Logging file name
-logfile: "rdfdoc.log"
+logfile: "rdf2adoc.log"
 
 

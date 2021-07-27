@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SetOfSpatioTemporalExtents
+
+//Include information from owl files
+
+The following model provides an overview of :SetOfSpatioTemporalExtents
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SetOfSpatioTemporalExtents
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SetOfSpatioTemporalExtents
+
+|Subclass of
+|:Set
+
+|Comment
+|A Set that is SpatioTemporalExtent or any of its subsets.
+
+|===

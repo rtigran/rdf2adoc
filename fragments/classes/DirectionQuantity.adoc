@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= DirectionQuantity
+
+//Include information from owl files
+
+The following model provides an overview of :DirectionQuantity
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|DirectionQuantity
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#DirectionQuantity
+
+|Subclass of
+|:PhysicalQuantity
+
+|Comment
+|DirectionQuantity: a PhysicalQuantity that is the direction in degrees, radians or compass coordinates of the heading of a PhysicalObject or a vector described by a SpatialRelation or SeparationDistance, etc.
+
+|===

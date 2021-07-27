@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= locatedOn
+
+//Include information from owl files
+
+The following model provides an overview of :locatedOn
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|locatedOn
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#locatedOn
+
+|Has domain
+|:PhysicalObjectState
+
+|Comment
+|object property version of "RelativeLocation"
+
+Note: when using "locatedOn", it is not possible to describe the actual position of the located object on the location object (you need a RelativeLocation for that)
+
+|===

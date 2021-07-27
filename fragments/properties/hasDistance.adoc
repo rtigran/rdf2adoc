@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasDistance
+
+//Include information from owl files
+
+The following model provides an overview of :hasDistance
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasDistance
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#hasDistance
+
+|Subproperty of
+|:hasLength
+
+|===

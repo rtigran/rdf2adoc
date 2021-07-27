@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeFunctionalObject
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeFunctionalObject
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeFunctionalObject
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#WholeLifeFunctionalObject
+
+|Subclass of
+|:FunctionalObjectState
+
+|Subclass of
+|:WholeLifeIntentionallyConstructedObject
+
+|Subclass of
+|:WholeLifePhysicalObject
+
+|Comment
+|An IntentionallyConstructedObject that is also a PhysicalObject that has an intendedRole.
+
+|===

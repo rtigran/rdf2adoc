@@ -1,0 +1,41 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= State
+
+//Include information from owl files
+
+The following model provides an overview of :State
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|State
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#State
+
+|Subclass of
+|:SpatioTemporalExtent
+
+|Restriction
+|temporalPartOf **some** WholeLifeIndividual
+
+|Restriction
+|memberOf **only** SetOfStates
+
+|Comment
+|A SpatioTemporalExtent that is a WholeLifeIndividual or a temporalPartOf some WholeLifeIndividual.
+
+>From the text 11.2: A state is something for a period of time. A state might be a state of a car or a state of a person, or a state of a factory. Now for some states, the period that they are for is the whole of the life of something. These I shall call individuals. Examples of individuals include cars, persons, atoms, activities and brooms.
+useful in two different ways. They are the temporal part of an individual to which some property applies, and they are the temporal part of an individual that participates in an activity or association.
+
+|===

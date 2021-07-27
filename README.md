@@ -1,5 +1,4 @@
 # rdf2adoc
-
 A python script used to generate adoc-fragments (classes and properties) and class diagrams by analysing ontology files.
 Used by the OpenXOntology project.
 `python rdf2adoc.py`

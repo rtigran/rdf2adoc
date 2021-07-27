@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= intendedRole
+
+//Include information from owl files
+
+The following model provides an overview of :intendedRole
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|intendedRole
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#intendedRole
+
+|Has domain
+|:FunctionalObjectState
+
+|Has range
+|:FunctionalObjectState
+
+|Comment
+|A relationship type where a FunctionalObject has one or more intended role(s)
+
+|===

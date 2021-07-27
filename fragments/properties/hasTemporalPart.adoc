@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasTemporalPart
+
+//Include information from owl files
+
+The following model provides an overview of :hasTemporalPart
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasTemporalPart
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#hasTemporalPart
+
+|Subproperty of
+|:hasPart
+
+|Inverse
+|:temporalPartOf
+
+|Comment
+|a spatio-temporal extent can have another spatio-temporal extent as a temporal part.  This implies that the temporal extent of the part is within the temporal extent of the whole.
+
+|===

@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= behindLeftOf
+
+//Include information from owl files
+
+The following model provides an overview of :behindLeftOf
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|behindLeftOf
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#behindLeftOf
+
+|Subproperty of
+|:hasRelativePosition
+
+|Inverse
+|:frontRightOf
+
+|===

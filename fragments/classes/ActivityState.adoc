@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= ActivityState
+
+//Include information from owl files
+
+The following model provides an overview of :ActivityState
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|ActivityState
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#ActivityState
+
+|Subclass of
+|:State
+
+|Restriction
+|memberOf **only** SetOfActivityStates
+
+|Restriction
+|temporalPartOf **only** WholeLifeActivity
+
+|Comment
+|A state that is a WholeLifeActivity or a temporalPartOf a WholeLifeActivity.
+
+|===

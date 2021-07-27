@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SystemState
+
+//Include information from owl files
+
+The following model provides an overview of :SystemState
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SystemState
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SystemState
+
+|Subclass of
+|:OrdinaryPhysicalObjectState
+
+|Comment
+|A OrdinaryPhysicalObjectState that is a WholeLifeSystem or a temporalPartOf a WholeLifeSystem.
+
+|===

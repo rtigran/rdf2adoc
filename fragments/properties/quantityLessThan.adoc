@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= quantityLessThan
+
+//Include information from owl files
+
+The following model provides an overview of :quantityLessThan
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|quantityLessThan
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#quantityLessThan
+
+|Subproperty of
+|:hasQuantityRelation
+
+|Has domain
+|:PhysicalQuantity
+
+|Has range
+|:PhysicalQuantity
+
+|Characteristic
+|Transitive
+
+|===

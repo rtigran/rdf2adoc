@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= ConnectionRelation
+
+//Include information from owl files
+
+The following model provides an overview of :ConnectionRelation
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|ConnectionRelation
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#ConnectionRelation
+
+|Subclass of
+|:DefinedRelationship
+
+|Comment
+|Relation between to things that are "connected" in any sense (not just touching).  Note that they do not need to be physically linked.
+
+|===

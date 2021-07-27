@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasAngle
+
+//Include information from owl files
+
+The following model provides an overview of :hasAngle
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasAngle
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#hasAngle
+
+|Subproperty of
+|:hasQuantity
+
+|===

@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= parallelTo
+
+//Include information from owl files
+
+The following model provides an overview of :parallelTo
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|parallelTo
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#parallelTo
+
+|Has domain
+|:DirectionQuantity
+
+|Has range
+|:DirectionQuantity
+
+|Characteristic
+|Symmetric
+
+|Comment
+|the value of the first direction quantity is approximately (+/- 10%?) the same as that of the second direction quantity
+
+|===

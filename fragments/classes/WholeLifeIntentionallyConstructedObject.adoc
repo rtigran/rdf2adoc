@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeIntentionallyConstructedObject
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeIntentionallyConstructedObject
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeIntentionallyConstructedObject
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#WholeLifeIntentionallyConstructedObject
+
+|Subclass of
+|:IntentionallyConstructedObjectState
+
+|Subclass of
+|:WholeLifeIndividual
+
+|Comment
+|A whole life individual that is what it is in part at least as an act of will.
+
+|===

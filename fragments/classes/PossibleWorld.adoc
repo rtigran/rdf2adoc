@@ -1,0 +1,37 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= PossibleWorld
+
+//Include information from owl files
+
+The following model provides an overview of :PossibleWorld
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|PossibleWorld
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#PossibleWorld
+
+|Subclass of
+|:PeriodOfTime
+
+|Subclass of
+|:WholeLifeIndividual
+
+|Comment
+|A WholeLifeIndividual that is a complete spatio-temporal history of some possible world.
+
+>From Text (10.2.3): used to model modality (modal realism rather than modal logic)
+
+|===

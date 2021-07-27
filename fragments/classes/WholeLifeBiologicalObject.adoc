@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeBiologicalObject
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeBiologicalObject
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeBiologicalObject
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#WholeLifeBiologicalObject
+
+|Subclass of
+|:BiologicalObjectState
+
+|Subclass of
+|:WholeLifePhysicalObject
+
+|Comment
+|A BiologicalObjectState that is also a PhysicalObject that sustains itself and reproduces.
+
+|===

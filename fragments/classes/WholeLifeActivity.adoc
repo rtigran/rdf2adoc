@@ -1,0 +1,41 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeActivity
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeActivity
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeActivity
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#WholeLifeActivity
+
+|Subclass of
+|:ActivityState
+
+|Subclass of
+|:WholeLifeIndividual
+
+|Restriction
+|causes **some** Event
+
+|Restriction
+|hasPart **only** Participant
+
+|Comment
+|A WholeLifeIndividual that consists of its participants and causes some event.
+
+|===

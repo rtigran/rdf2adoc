@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SpeedQuantity
+
+//Include information from owl files
+
+The following model provides an overview of :SpeedQuantity
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SpeedQuantity
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#SpeedQuantity
+
+|Subclass of
+|:PhysicalQuantity
+
+|===

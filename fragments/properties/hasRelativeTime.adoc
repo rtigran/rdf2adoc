@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasRelativeTime
+
+//Include information from owl files
+
+The following model provides an overview of :hasRelativeTime
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasRelativeTime
+
+|IRI
+|http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#hasRelativeTime
+
+|Has domain
+|:Event
+
+|Has range
+|:Event
+
+|Comment
+|occursAfter / occursBefore / occursAtSameTime - an event (marking the beginning or ending of some activity of physical object) occurs after (before, at the same this as) another event
+
+|===
