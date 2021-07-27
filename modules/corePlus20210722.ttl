@@ -1,0 +1,1389 @@
+@prefix : <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontology.asam.net/ontologies/OpenXCorePlusV1> .
+
+<http://ontology.asam.net/ontologies/OpenXCorePlusV1> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#aggregatedInto
+:aggregatedInto rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :SpatioTemporalExtent ;
+                rdfs:range :SpatioTemporalExtent ;
+                rdfs:comment """A relationship type where a SpatioTemporalExtent may be aggregated into one or more others.
+Note: This has the same meaning as, but different representation to, the Aggregation entity type""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#appliesTo
+:appliesTo rdf:type owl:ObjectProperty ;
+           rdfs:comment "domain can include TrafficRules" ,
+                        "used to describe something that is relevant for something else (?? - confirm with Till)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#approximatelyEqualTo
+:approximatelyEqualTo rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :hasQuantityRelation ;
+                      rdfs:domain :PhysicalQuantity ;
+                      rdfs:range :PhysicalQuantity ;
+                      rdfs:comment "second value is within the range of first value +/- 10%" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#beginningOf
+:beginningOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :temporalPartOf ;
+             owl:inverseOf :hasBeginning ;
+             rdfs:domain :Event ;
+             rdfs:comment "A partOf relationship type where a SpatioTemporalExtent has exactly one event that is its beginning." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#behind
+:behind rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasRelativePosition ;
+        owl:inverseOf :inFrontOf .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#behindConnectedTo
+:behindConnectedTo rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :longitudinalConnectedTo ;
+                   rdfs:comment """= isSouthAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as \"leftOf\"
+
+
+change to \"bottomConnectedTo\"?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#behindLeftOf
+:behindLeftOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasRelativePosition ;
+              owl:inverseOf :frontRightOf .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#behindRightOf
+:behindRightOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasRelativePosition ;
+               owl:inverseOf :frontLeftOf .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#causes
+:causes rdf:type owl:ObjectProperty ;
+        rdfs:domain :ActivityState ;
+        rdfs:range :Event ;
+        rdfs:comment "A relationship type where each activity is the cause of one or more event." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#classifier
+:classifier rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relationProperty ;
+            rdf:type owl:FunctionalProperty ,
+                     owl:InverseFunctionalProperty ;
+            rdfs:domain :Classification ;
+            rdfs:range :Set ;
+            rdfs:comment "from HQDM" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#componentOf
+:componentOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :partOf ;
+             owl:inverseOf :hasComponent ;
+             rdfs:domain :SystemComponentState ;
+             rdfs:range :SystemState ;
+             rdfs:comment "A partOf relationship type where each SystemComponent is partOf exactly one System." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#connectedTo
+:connectedTo rdf:type owl:ObjectProperty ,
+                      owl:SymmetricProperty ;
+             rdfs:domain :PhysicalObjectState ;
+             rdfs:range :PhysicalObjectState ;
+             rdfs:comment """object property version of SpatialConnection. 
+
+= \"aligned with\" (from Till)
+
+the two physical object states are \"touching\" each other
+
+but not necessary \"stuck\" to each other""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#controls
+:controls rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :appliesTo ;
+          rdfs:domain :ControllerObject ;
+          rdfs:range :SpatioTemporalExtent ;
+          rdfs:comment "used to describe that a controller object controls something else (can be physical object or activity)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#defines
+:defines rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty ;
+         rdfs:domain :PhysicalQuantity ;
+         rdfs:range :PhysicalQuantity ;
+         rdfs:comment "defines = isDeterminedBy / isDependentOn: used to relate numerical parameters >> dependsOn(Quantity, Quantity)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#driveableTo
+:driveableTo rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :connectedTo ;
+             rdfs:domain :RoadObject ;
+             rdfs:range :RoadObject ;
+             rdfs:comment "object property version of \"DrivableConnection\": a vehicle on the first RoadObject can drive to the second RoadObject" ,
+                          "will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#endingOf
+:endingOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :temporalPartOf ;
+          owl:inverseOf :hasEnding ;
+          rdfs:domain :Event ;
+          rdfs:comment """A partOf relationship type where a SpatioTemporalExtent has exactly one event that is its ending.
+
+from text 11.2: beginning and ending are examples of the TemporalComposition relationship""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#frontConnectedTo
+:frontConnectedTo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :longitudinalConnectedTo ;
+                  rdfs:comment """= isNorthAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as \"leftOf\"
+
+
+change to \"topConnectedTo\"?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#frontLeftOf
+:frontLeftOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasRelativePosition .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#frontRightOf
+:frontRightOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasRelativePosition .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasAngle
+:hasAngle rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasQuantity ;
+          rdfs:range :AngleQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasBeginning
+:hasBeginning rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasTemporalPart ;
+              rdfs:range :Event ;
+              rdfs:comment "inverse of beginningOf" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasColor
+:hasColor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasProperty ;
+          rdfs:comment "this object property added for illustration purposes" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasPart ;
+              rdfs:comment "inverse of componentOf" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasDirection
+:hasDirection rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasQuantity ;
+              rdfs:range :DirectionQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasDistance
+:hasDistance rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasLength .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasDrivingDirection
+:hasDrivingDirection rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasDirection ;
+                     rdfs:domain :RoadObject ;
+                     rdfs:comment "from OpenDRIVE - will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasEdgeAlignment
+:hasEdgeAlignment rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :relationProperty ;
+                  rdfs:domain :RelativeLocation ;
+                  rdfs:range :EdgeAlignmentType ;
+                  rdfs:comment "specifies the alignment of a physical object that is located on another physical object via a RelativeLocation" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasEnding
+:hasEnding rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasTemporalPart ;
+           rdfs:range :Event ;
+           rdfs:comment "inverse of endingOf" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasProperty ;
+             rdfs:range :Geometry ;
+             rdfs:comment """this object property added for illustration purposes
+Needs to be worked on""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasHeading
+:hasHeading rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasDirection ;
+            rdfs:domain :PhysicalObjectState .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasLength
+:hasLength rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasQuantity ;
+           rdfs:range :LengthQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasMarking
+:hasMarking rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasProperty ;
+            rdfs:comment """this object property added for illustration purposes
+Need to define \"marking\" (domain level concept?)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :memberOf ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:domain :Set ;
+           rdfs:comment "a set can have anything of the respective type as a member (so a SetOfActivities can have an Activity as a member)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasObject
+:hasObject rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasParticipant ;
+           owl:inverseOf :objectOf ;
+           rdfs:comment "hasObject / objectOf - an activity has as an object (non-actor participant) some physical object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :partOf ;
+         rdf:type owl:TransitiveProperty ;
+         rdfs:domain :SpatioTemporalExtent ;
+         rdfs:range :SpatioTemporalExtent ;
+         rdfs:comment """A relationship type where a SpatioTemporalExtent may consist of one or more others. 
+Note: This is the inverse of partOf""" ,
+                      "consistsOf in HQDM" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasParticipant
+:hasParticipant rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasPart ;
+                owl:inverseOf :participantOf ;
+                rdfs:domain :ActivityState ;
+                rdfs:range :Participant ;
+                rdfs:comment "A consistsOf relationship type where an Activity consistsOf one or more Participants." ,
+                             "HQDM consists_of_participant" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasPredecessor
+:hasPredecessor rdf:type owl:ObjectProperty ;
+                owl:inverseOf :hasSuccessor ;
+                rdfs:domain :RoadObject ;
+                rdfs:range :RoadObject ;
+                rdfs:comment "from OpenDRIVE - will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasProperty
+:hasProperty rdf:type owl:ObjectProperty ;
+             rdfs:domain :SpatioTemporalExtent ;
+             rdfs:range :PhysicalProperty ;
+             rdfs:comment "from HQDM - \"semantic sugar\" for \"is a member of the set of all things with a particular property\"" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasQuantity
+:hasQuantity rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasProperty ;
+             rdfs:range :PhysicalQuantity ;
+             rdfs:comment "from HQDM - \"semantic sugar\" for \"is a member of the set of all things having a particular quantity\"" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasQuantityRelation
+:hasQuantityRelation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :PhysicalQuantity ;
+                     rdfs:range :PhysicalQuantity ;
+                     rdfs:comment "basic arithmetic relationships between quantities" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasRelationDirection
+:hasRelationDirection rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :hasDirection ;
+                      rdfs:domain :SpatialRelation ;
+                      rdfs:range :DirectionQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasRelativePosition
+:hasRelativePosition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :PhysicalObjectState ;
+                     rdfs:range :PhysicalObjectState ;
+                     rdfs:comment "object properties derived from \"SpatialRelation\"" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasRelativeTime
+:hasRelativeTime rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Event ;
+                 rdfs:range :Event ;
+                 rdfs:comment "occursAfter / occursBefore / occursAtSameTime - an event (marking the beginning or ending of some activity of physical object) occurs after (before, at the same this as) another event" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSpatialObject
+:hasSpatialObject rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :relationProperty ;
+                  rdf:type owl:FunctionalProperty ,
+                           owl:InverseFunctionalProperty ;
+                  rdfs:domain :SpatialRelation ;
+                  rdfs:range :PhysicalObjectState ;
+                  rdfs:comment "basic object property designating the object, destination or \"recepient\" in a SpatialRelation" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSpatialSubject
+:hasSpatialSubject rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :relationProperty ;
+                   rdf:type owl:FunctionalProperty ,
+                            owl:InverseFunctionalProperty ;
+                   rdfs:domain :SpatialRelation ;
+                   rdfs:range :PhysicalObjectState ;
+                   rdfs:comment "basic object property designating the subject, origin or \"owner\" in a SpatialRelation" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSpeed
+:hasSpeed rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasQuantity ;
+          rdfs:range :SpeedQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSubject
+:hasSubject rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasParticipant ;
+            owl:inverseOf :subjectOf ;
+            rdfs:comment "hasSubject / subjectOf - an activity has as an subject (actor participant) some physical object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSuccessor
+:hasSuccessor rdf:type owl:ObjectProperty ;
+              rdfs:domain :RoadObject ;
+              rdfs:range :RoadObject ;
+              rdfs:comment "from OpenDRIVE - will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasTemporalPart
+:hasTemporalPart rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasPart ;
+                 owl:inverseOf :temporalPartOf ;
+                 rdfs:comment "a spatio-temporal extent can have another spatio-temporal extent as a temporal part.  This implies that the temporal extent of the part is within the temporal extent of the whole." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasXoffset
+:hasXoffset rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relationProperty ;
+            rdf:type owl:FunctionalProperty ,
+                     owl:InverseFunctionalProperty ;
+            rdfs:domain :RelativeLocation ;
+            rdfs:range :LengthQuantity ;
+            rdfs:comment """specifies the length from the 0 coordinate in the X direction of a physical object that is located on another physical object via a RelativeLocation.
+
+Depends on the coordinate system used""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasYoffset
+:hasYoffset rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relationProperty ;
+            rdf:type owl:FunctionalProperty ,
+                     owl:InverseFunctionalProperty ;
+            rdfs:domain :RelativeLocation ;
+            rdfs:range :LengthQuantity ;
+            rdfs:comment """specifies the length from the 0 coordinate in the Y direction of a physical object that is located on another physical object via a RelativeLocation.
+
+Depends on the coordinate system used""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#inFrontOf
+:inFrontOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasRelativePosition .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#intendedRole
+:intendedRole rdf:type owl:ObjectProperty ;
+              rdfs:domain :FunctionalObjectState ;
+              rdfs:range :Role ;
+              rdfs:comment "A relationship type where a FunctionalObject has one or more intended role(s)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#involves
+:involves rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :relationProperty ;
+          rdf:type owl:FunctionalProperty ,
+                   owl:InverseFunctionalProperty ;
+          rdfs:domain :DefinedRelationship ;
+          rdfs:range :Classification ;
+          rdfs:comment "A meta-relationship type where the classification of some thing in a role is involved in a relationship." ,
+                       "from HQDM" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#latitudinalConnectedTo
+:latitudinalConnectedTo rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :connectedTo ;
+                        rdfs:comment "a connectedTo where the connection is in the latitudinal (east west) direction with reference to the reference coordinate system" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#leftConnectedTo
+:leftConnectedTo rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :latitudinalConnectedTo ;
+                 rdfs:comment """= isWestAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as \"leftOf\"""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#leftOf
+:leftOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasRelativePosition ;
+        owl:inverseOf :rightOf .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#locatedOn
+:locatedOn rdf:type owl:ObjectProperty ;
+           rdfs:domain :PhysicalObjectState ;
+           rdfs:comment """object property version of \"RelativeLocation\"
+
+Note: when using \"locatedOn\", it is not possible to describe the actual position of the located object on the location object (you need a RelativeLocation for that)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#longitudinalConnectedTo
+:longitudinalConnectedTo rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :connectedTo ;
+                         rdfs:comment "a connectedTo where the connection is in the longitudinal (north south) direction with reference to the reference coordinate system" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#member
+:member rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :relationProperty ;
+        rdfs:domain :Classification ;
+        rdfs:comment "from HQDM" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#memberOf
+:memberOf rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ;
+          rdfs:range :Set ;
+          rdfs:comment "note that a set can be a memberOf a SetOfSets, etc." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#objectOf
+:objectOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :participantOf ;
+          rdfs:comment "an activity has as an object (non-actor participant) some physical object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#obstructedBy
+:obstructedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :Trajectory ;
+              rdfs:range :PhysicalObjectState ;
+              rdfs:comment "The trajectory is some how obstructed by the physical object (making the physical object an obstacle)" ,
+                           "maybe this (and trajectory) should be moved to the domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#occludedBy
+:occludedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relationProperty ;
+            rdfs:domain :SeparationDistance ;
+            rdfs:range :PhysicalObjectState ;
+            rdfs:comment "The SeparationDistance is somehow occluded by the physical object, so that the object of the SeparationDistance cannot be seen by the subject of the SeparationDistance" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#occursAfter
+:occursAfter rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :occursAtDifferentTime ;
+             owl:inverseOf :occursBefore ;
+             rdf:type owl:TransitiveProperty .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#occursAtDifferentTime
+:occursAtDifferentTime rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :hasRelativeTime ;
+                       rdfs:comment "an event (marking the beginning or ending of some activity of physical object) occurs at a different time (before or after) another event" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#occursAtSameTime
+:occursAtSameTime rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasRelativeTime ;
+                  rdf:type owl:SymmetricProperty ;
+                  rdfs:comment "two events occur at the same time - means that the events are both parts of the same \"pointInTime\"" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#occursBefore
+:occursBefore rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :occursAtDifferentTime ;
+              rdf:type owl:TransitiveProperty .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#oppositeOf
+:oppositeOf rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :DirectionQuantity ;
+            rdfs:range :DirectionQuantity ;
+            rdfs:comment "the value of the first direction quantity is approximately (+/- 10%?) 180 larger than that of the second direction quantity" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#parallelTo
+:parallelTo rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :DirectionQuantity ;
+            rdfs:range :DirectionQuantity ;
+            rdfs:comment "the value of the first direction quantity is approximately (+/- 10%?) the same as that of the second direction quantity" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#part
+:part rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :relationProperty ;
+      rdf:type owl:FunctionalProperty ,
+               owl:InverseFunctionalProperty ;
+      rdfs:domain :Aggregation ;
+      rdfs:range :SpatioTemporalExtent ;
+      rdfs:comment "from HQDM" ,
+                   "from text 11.2: Each Aggregation has exactly one spatioTemporalExtent that is the part in the Aggregation." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#partOf
+:partOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :aggregatedInto ;
+        rdfs:comment """An aggregatedInto relationship type where a SpatioTemporalExtent may be part of another and the whole has emergent properties and is more than just the sum of its parts
+Note: This relationship has the same meaning but is a different representation of the composition entity type.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#partOfPossibleWorld
+:partOfPossibleWorld rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :partOf ;
+                     rdfs:range :PossibleWorld ;
+                     rdfs:comment """A partOf relationship type where a SpatioTemporalExtent may be partOf one or more PossibleWorld.
+Note: The relationship is optional because a PossibleWorld is not partOf any other SpatioTemporalExtent.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#participantOf
+:participantOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :partOf ;
+               rdfs:domain :Participant ;
+               rdfs:range :ActivityState ;
+               rdfs:comment "from HQDM" ,
+                            "main relationship for stating the participation of a physical object in an activity"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityEqualTo
+:quantityEqualTo rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasQuantityRelation ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:domain :PhysicalQuantity ;
+                 rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityGreaterThan
+:quantityGreaterThan rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasQuantityRelation ;
+                     owl:inverseOf :quantityLessThanOrEqualTo ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain :PhysicalQuantity ;
+                     rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityGreaterThanOrEqualTo
+:quantityGreaterThanOrEqualTo rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf :hasQuantityRelation ;
+                              owl:inverseOf :quantityLessThan ;
+                              rdf:type owl:TransitiveProperty ;
+                              rdfs:domain :PhysicalQuantity ;
+                              rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityLessThan
+:quantityLessThan rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasQuantityRelation ;
+                  rdf:type owl:TransitiveProperty ;
+                  rdfs:domain :PhysicalQuantity ;
+                  rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityLessThanOrEqualTo
+:quantityLessThanOrEqualTo rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :hasQuantityRelation ;
+                           rdf:type owl:TransitiveProperty ;
+                           rdfs:domain :PhysicalQuantity ;
+                           rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#quantityNotEqualTo
+:quantityNotEqualTo rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :hasQuantityRelation ;
+                    rdf:type owl:SymmetricProperty ;
+                    rdfs:domain :PhysicalQuantity ;
+                    rdfs:range :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#relationProperty
+:relationProperty rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Relationship ;
+                  rdfs:comment "these properties are generally used only to define other properties, e.g. using SWRL" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#rightConnectedTo
+:rightConnectedTo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :latitudinalConnectedTo ;
+                  rdfs:comment """= isEastAlignedWith
+
+implement with SWRL rule analogous to RelativePositions such as \"leftOf\"""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#rightOf
+:rightOf rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :hasRelativePosition .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#subjectOf
+:subjectOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :participantOf ;
+           rdfs:comment "an activity has as an subject (actor participant) some physical object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#temporalPartOf
+:temporalPartOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :partOf ;
+                rdfs:comment "A partOf relationship type where a SpatioTemporalExtent may be a temporal part of one or more other SpatioTemporalExtent." ,
+                             "Note: this is TemporalComposition represented as a relationship instead of an entity type" ,
+                             "from text 11.2: not all properties (classes of states) of temporal wholes are inherited by temporal parts (ex. the property of being a whole life individual) - these classes  are not temporally dissective" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#violatesTrafficRule
+:violatesTrafficRule rdf:type owl:ObjectProperty ;
+                     rdfs:domain :RuleViolatingEntity ;
+                     rdfs:range :TrafficRule ;
+                     rdfs:comment "This will probably be moved to domain ontology" ,
+                                  "describes the traffic rule that a rule violating entity is violating" ,
+                                  "note that the rule violating entity could be an activity or a physical object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#whole
+:whole rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :relationProperty ;
+       rdf:type owl:FunctionalProperty ,
+                owl:InverseFunctionalProperty ;
+       rdfs:domain :Aggregation ;
+       rdfs:range :SpatioTemporalExtent ;
+       rdfs:comment "From text 11.2: Each Aggregation has exactly one SpatioTemporalExtent that is the whole in the Aggregation." ,
+                    "from HQDM" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :PhysicalQuantity ;
+          rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#AbstractObject
+:AbstractObject rdf:type owl:Class ;
+                owl:disjointWith :SpatioTemporalExtent ;
+                rdfs:comment "A thing that does not exist in space or time." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#ActivityState
+:ActivityState rdf:type owl:Class ;
+               rdfs:subClassOf :State ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :memberOf ;
+                                 owl:allValuesFrom :SetOfActivityStates
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :temporalPartOf ;
+                                 owl:allValuesFrom :WholeLifeActivity
+                               ] ;
+               rdfs:comment "A state that is a WholeLifeActivity or a temporalPartOf a WholeLifeActivity." ,
+                            "HQDM state_of_activity" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Aggregation
+:Aggregation rdf:type owl:Class ;
+             rdfs:subClassOf :Relationship ;
+             rdfs:comment "A relationship where the whole is at least the sum of the parts." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#AngleQuantity
+:AngleQuantity rdf:type owl:Class ;
+               rdfs:subClassOf :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#BiologicalObjectState
+:BiologicalObjectState rdf:type owl:Class ;
+                       rdfs:subClassOf :PhysicalObjectState ;
+                       rdfs:comment "A PhysicalObjectState that is a WholeLifeBiologicalObject or a temporalPartOf a WholeLifeBiologicalObject." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Classification
+:Classification rdf:type owl:Class ;
+                rdfs:subClassOf :Relationship ;
+                rdfs:comment """A Relationship where a thing is a member of a class.
+Note: This entity type is replicated as the memberOf relationship.
+
+basis for \"memberOf\" and \"hasMember\" object properties""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Composition
+:Composition rdf:type owl:Class ;
+             rdfs:subClassOf :Aggregation ;
+             rdfs:comment "An Aggregation where the whole is an arrangement of the parts that results in emergent properties." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#ConnectionRelation
+:ConnectionRelation rdf:type owl:Class ;
+                    rdfs:subClassOf :DefinedRelationship ;
+                    rdfs:comment "Relation between to things that are \"connected\" in any sense (not just touching).  Note that they do not need to be physically linked." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#ControllerObject
+:ControllerObject rdf:type owl:Class ;
+                  rdfs:subClassOf :State ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :controls ;
+                                    owl:someValuesFrom :SpatioTemporalExtent
+                                  ] ;
+                  rdfs:comment "State that is controlling some other state." ,
+                               "probably will move this to domain ontology" ,
+                               "subclass of HQDM Participant??" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#DefinedRelationship
+:DefinedRelationship rdf:type owl:Class ;
+                     rdfs:subClassOf :Relationship ;
+                     rdfs:comment "from HQDM: A relationship that is defined by a kind_of_relationship_with_signature." ,
+                                  "used in OxO as superclass for specific relationships, e.g. temporal, spatial and compositional" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#DirectionQuantity
+:DirectionQuantity rdf:type owl:Class ;
+                   rdfs:subClassOf :PhysicalQuantity ;
+                   rdfs:comment "DirectionQuantity: a PhysicalQuantity that is the direction in degrees, radians or compass coordinates of the heading of a PhysicalObject or a vector described by a SpatialRelation or SeparationDistance, etc." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#DrivableConnection
+:DrivableConnection rdf:type owl:Class ;
+                    rdfs:subClassOf :SpatialConnection ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSpatialObject ;
+                                      owl:someValuesFrom :RoadObject
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSpatialSubject ;
+                                      owl:someValuesFrom :RoadObject
+                                    ] ;
+                    rdfs:comment "DrivableConnection is a SpatialConnection that is between RoadObjects (Lanes, RoadSegments, Junctions etc.) where a vehicle on the subject RoadObject can drive to the object RoadObject; reification of “drivableTo”." ,
+                                 "will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#EdgeAlignmentType
+:EdgeAlignmentType rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:oneOf ( :east
+                                                     :north
+                                                     :northeast
+                                                     :northwest
+                                                     :south
+                                                     :southeast
+                                                     :southwest
+                                                     :west
+                                                   )
+                                       ] ;
+                   rdfs:subClassOf :PhysicalProperty ;
+                   rdfs:comment "EdgeAlignmentType: enumerated Class containing North, South, East, West, NorthEast, …" ,
+                                "make this a subclass of direction quantity??" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf :SpatioTemporalExtent ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :memberOf ;
+                         owl:allValuesFrom :SetOfEvents
+                       ] ;
+       rdfs:comment """A SpatioTemporalExtent that has zero temporal thickness and may bound some SpatioTemporalExtent.
+
+>From text 11.2: An event is the change in state, not what brings about the change. So event is used here for something instantaneous.""" ,
+                    "HQDM event" ,
+                    "note: events are (spatial) parts of some pointInTime right?" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#FunctionalObjectState
+:FunctionalObjectState rdf:type owl:Class ;
+                       rdfs:subClassOf :IntentionallyConstructedObjectState ,
+                                       :PhysicalObjectState ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :intendedRole ;
+                                         owl:someValuesFrom :Role
+                                       ] ;
+                       rdfs:comment "A IntentionallyConstructedObjectState and PhysicalObjectState that is a WholeLifeFunctionalObject or a temporalPartOf a WholeLifeFunctionalObject." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#FunctionalSystemComponentState
+:FunctionalSystemComponentState rdf:type owl:Class ;
+                                rdfs:subClassOf :FunctionalObjectState ,
+                                                :SystemComponentState ;
+                                rdfs:comment "An IntentionallyConstructedObjectState that is a WholeLifeSystemComponent or a temporalPartOf a WholeLifeSystemComponent." ,
+                                             "Note a FunctionalSystemComponent is defined as an IntentionallyConstructedObject that is a replaceable componentOf a FunctionalSystem." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#FunctionalSystemState
+:FunctionalSystemState rdf:type owl:Class ;
+                       rdfs:subClassOf :FunctionalObjectState ,
+                                       :SystemState ;
+                       rdfs:comment "Any OrdinaryFunctionalObjectState that is also a SystemState." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Geometry
+:Geometry rdf:type owl:Class ;
+          rdfs:subClassOf :PhysicalProperty ;
+          rdfs:comment """As a subclass of PhysicalProperty, this would be the SetOfPhysicalObjects that all have the particular geometry
+
+Alternative: Model as a spatio-temporal extent that is different from PhysicalObject in that it is not a distribution of matter and/or energy??""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#InstalledFunctionalSystemComponent
+:InstalledFunctionalSystemComponent rdf:type owl:Class ;
+                                    rdfs:subClassOf :FunctionalSystemComponentState ,
+                                                    :InstalledObject ;
+                                    rdfs:comment "Any InstalledObject that is also a OrdinaryFunctionalObjectState and a FunctionalSystemComponentState." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#InstalledObject
+:InstalledObject rdf:type owl:Class ;
+                 rdfs:subClassOf :OrdinaryPhysicalObjectState ;
+                 rdfs:comment """A OrdinaryPhysicalObjectState that is also a SystemComponentState that is a temporalPartOf an OrdinaryPhysicalObject from when it is installed as a SystemComponent to when it is removed.
+
+example: the temporal component actual tire that is installed on the right front wheel of my Prius (tire ABC) for the duration of the installation - same as the corresponding SystemComponentState""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#IntentionallyConstructedObjectState
+:IntentionallyConstructedObjectState rdf:type owl:Class ;
+                                     rdfs:subClassOf :State ;
+                                     rdfs:comment "A state that is an WholeLifeIntentionallyConstructedObject or a temporalPartOf an WholeLifeIntentionallyConstructedObject." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Kind
+:Kind rdf:type owl:Class ;
+      rdfs:subClassOf :Set ;
+      rdfs:comment "A Set all of whose members are of the same kind." ,
+                   "Meaning that they share some common characteristics." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#KindOfActivityStates
+:KindOfActivityStates rdf:type owl:Class ;
+                      rdfs:subClassOf :Kind ,
+                                      :SetOfActivityStates ;
+                      rdfs:comment "A SetOfActivity all of whose members are of the same kind." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#KindOfPhysicalObjectStates
+:KindOfPhysicalObjectStates rdf:type owl:Class ;
+                            rdfs:subClassOf :Kind ,
+                                            :SetOfPhysicalObjectStates ;
+                            rdfs:comment "A SetOfPhysicalObject that is also a KindOfIndividual where each PhysicalObject has members that are of the same kind." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#LengthQuantity
+:LengthQuantity rdf:type owl:Class ;
+                rdfs:subClassOf :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#OrdinaryPhysicalObjectState
+:OrdinaryPhysicalObjectState rdf:type owl:Class ;
+                             rdfs:subClassOf :PhysicalObjectState ;
+                             rdfs:comment "A PhysicalObjectState that is an WholeLifeOrdinaryPhysicalObject or a temporalPartOf one." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Participant
+:Participant rdf:type owl:Class ;
+             rdfs:subClassOf :PhysicalObjectState ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :memberOf ;
+                               owl:allValuesFrom :SetOfParticipants
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :participantOf ;
+                               owl:allValuesFrom :WholeLifeActivity
+                             ] ;
+             rdfs:comment """A State that is a participantIn an Activity.
+
+from text: 11.7: The participants in the activity are the states of the individuals whilst they are participating. The activity consists of these participants, where each participant is a member of the role in which it is participating.""" ,
+                          "HQDM participant" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Pedestrian
+:Pedestrian rdf:type owl:Class ;
+            rdfs:subClassOf :TrafficParticipant ;
+            rdfs:comment "this will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PeriodOfTime
+:PeriodOfTime rdf:type owl:Class ;
+              rdfs:subClassOf :State ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :temporalPartOf ;
+                                owl:allValuesFrom :PossibleWorld
+                              ] ;
+              rdfs:comment "A state that is a temporalPartOf some PossibleWorld." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PhysicalObjectState
+:PhysicalObjectState rdf:type owl:Class ;
+                     rdfs:subClassOf :State ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :memberOf ;
+                                       owl:allValuesFrom :SetOfPhysicalObjectStates
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :temporalPartOf ;
+                                       owl:allValuesFrom :WholeLifePhysicalObject
+                                     ] ;
+                     rdfs:comment "A state that is a WholeLifePhysicalObject or a temporalPartOf a WholeLifePhysicalObject." ,
+                                  "HQDM state_of_physical_object" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PhysicalProperty
+:PhysicalProperty rdf:type owl:Class ;
+                  rdfs:subClassOf :SetOfStates ;
+                  rdfs:comment """A SetOfState that is some characteristic that is the same for each state that possesses it (is a memberOf it).
+Example: The color red is a PhysicalProperty.""" ,
+                               "HQDM physical_property" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PhysicalQuantity
+:PhysicalQuantity rdf:type owl:Class ;
+                  rdfs:subClassOf :PhysicalProperty ;
+                  rdfs:comment "HQDM physical_quantity" ,
+                               """a PhysicalProperty that is a measurable quantity of a KindOfPhysicalQuantity.
+Example: The degree of hotness known as 20 Celsius is a PhysicalQuantity.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PointInTime
+:PointInTime rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "An event that is the whole of space at an instant from some viewpoint." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#PossibleWorld
+:PossibleWorld rdf:type owl:Class ;
+               rdfs:subClassOf :PeriodOfTime ,
+                               :WholeLifeIndividual ;
+               rdfs:comment """A WholeLifeIndividual that is a complete spatio-temporal history of some possible world.
+
+>From Text (10.2.3): used to model modality (modal realism rather than modal logic)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Relationship
+:Relationship rdf:type owl:Class ;
+              rdfs:subClassOf :AbstractObject ;
+              rdfs:comment "An AbstractObject that is what one thing has to do with one or more others." ,
+                           "HQDM relationship" ,
+                           "These are \"reified\" versions of what will be implemented in the Core ontology as object properties" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#RelativeLocation
+:RelativeLocation rdf:type owl:Class ;
+                  rdfs:subClassOf :SpatialLocation ,
+                                  :SpatialRelation ;
+                  rdfs:comment "a spatial relationship where the subject is located somewhere on the object; reification of “locatedOn”" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#RoadObject
+:RoadObject rdf:type owl:Class ;
+            rdfs:subClassOf :FunctionalSystemComponentState ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasDrivingDirection ;
+                              owl:someValuesFrom :DirectionQuantity
+                            ] ;
+            owl:disjointWith :TrafficParticipant ;
+            rdfs:comment "Includes all drivable surfaces (lanes, parking lots, bridges, junctions, etc.)" ,
+                         "This will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf :Kind ,
+                      :SetOfParticipants ;
+      rdfs:comment "A SetOfParticipants where each member participates in the same way in an Activity." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#RuleViolatingEntity
+:RuleViolatingEntity rdf:type owl:Class ;
+                     rdfs:subClassOf :State ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :violatesTrafficRule ;
+                                       owl:someValuesFrom :TrafficRule
+                                     ] ;
+                     rdfs:comment "A state that is violating some TrafficRule" ,
+                                  """subclass of HQDM participant?
+want to be able to include activities?
+Have a class \"AbnormalBehavior\"?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SeparationDistance
+:SeparationDistance rdf:type owl:Class ;
+                    rdfs:subClassOf :SpatialRelation ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDistance ;
+                                      owl:someValuesFrom :LengthQuantity
+                                    ] ;
+                    rdfs:comment """A SpatialRelation that also has a distance -> gives a complete description of a vector giving exact relative position
+
+should we add LongitudinalOffset and LatitudinalOffset?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Set
+:Set rdf:type owl:Class ;
+     rdfs:subClassOf :AbstractObject ;
+     rdfs:comment """An AbstractObject that has members and whose identity is defined by its membership.
+
+
+>From Text 10.2.4: 
+A class is an abstract thing that has members, as opposed to an individual (something that exists in space-time) that has parts. The members of a class may be other classes, or individuals (or both). The most useful classes tend to be those that group things by similarity, e.g. red cars.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfActivityStates
+:SetOfActivityStates rdf:type owl:Class ;
+                     rdfs:subClassOf :SetOfStates ;
+                     rdfs:comment "A SetOfState that is an ActivityState or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfEvents
+:SetOfEvents rdf:type owl:Class ;
+             rdfs:subClassOf :SetOfSpatioTemporalExtents ;
+             rdfs:comment "might be used to specify categories/kinds of events (e.g. conditional/triggered versus absolute, starting vs. ending, etc.) that could then be members of respective classes (so classes of categories or events)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfParticipants
+:SetOfParticipants rdf:type owl:Class ;
+                   rdfs:subClassOf :SetOfPhysicalObjectStates ;
+                   rdfs:comment "A SetOfPhysicalObjectStates that is participant or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfPhysicalObjectStates
+:SetOfPhysicalObjectStates rdf:type owl:Class ;
+                           rdfs:subClassOf :SetOfStates ;
+                           rdfs:comment "A SetOfStates that is PhysicalObjectState or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfSpatioTemporalExtents
+:SetOfSpatioTemporalExtents rdf:type owl:Class ;
+                            rdfs:subClassOf :Set ;
+                            rdfs:comment "A Set that is SpatioTemporalExtent or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfStates
+:SetOfStates rdf:type owl:Class ;
+             rdfs:subClassOf :SetOfSpatioTemporalExtents ;
+             rdfs:comment "A SetOfSpatioTemporalExtent that is state or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SetOfWholeLifeIndividuals
+:SetOfWholeLifeIndividuals rdf:type owl:Class ;
+                           rdfs:subClassOf :SetOfStates ;
+                           rdfs:comment """A SetOfState that is individual or any of its subsets.
+Note: Only classes that necessarily apply to an individual for the whole of its life are valid members. Others are members of SetOfState and apply to the state that is the individual for the period of time that the class applies for.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SpatialConnection
+:SpatialConnection rdf:type owl:Class ;
+                   rdfs:subClassOf :ConnectionRelation ,
+                                   :SpatialRelation ;
+                   rdfs:comment "A SpatialRelation where the objects are touching, providing a bridge for transfer of energy etc. between the objects; reification of “connectedTo”" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SpatialLocation
+:SpatialLocation rdf:type owl:Class ;
+                 rdfs:subClassOf :Geometry ;
+                 rdfs:comment """subclass of Geometry -> all Geometries that are \"occupied\" by physical objects (located there)
+
+Tough one - need to think about this.
+
+Not really necessary?
+
+Or model as subclass of SpatioTemporalExtent that is the location (contains) some other object?
+
+What about partial overlaps?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SpatialRelation
+:SpatialRelation rdf:type owl:Class ;
+                 rdfs:subClassOf :DefinedRelationship ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasRelationDirection ;
+                                   owl:someValuesFrom :DirectionQuantity
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSpatialObject ;
+                                   owl:someValuesFrom :PhysicalObjectState
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSpatialSubject ;
+                                   owl:someValuesFrom :PhysicalObjectState
+                                 ] ;
+                 owl:disjointWith :TemporalRelation ;
+                 rdfs:comment "a relationship between two physical objects that gives the directional relationship only (and not the distance) – used for saying, e.g. A is in front of B" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SpatioTemporalExtent
+:SpatioTemporalExtent rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :partOfPossibleWorld ;
+                                        owl:someValuesFrom :PossibleWorld
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :memberOf ;
+                                        owl:allValuesFrom :SetOfSpatioTemporalExtents
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasBeginning ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Event
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasEnding ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Event
+                                      ] ;
+                      rdfs:comment "A thing that exists in time and space." ,
+                                   "HQDM spatio-temporal_extent" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SpeedQuantity
+:SpeedQuantity rdf:type owl:Class ;
+               rdfs:subClassOf :PhysicalQuantity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#State
+:State rdf:type owl:Class ;
+       rdfs:subClassOf :SpatioTemporalExtent ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :temporalPartOf ;
+                         owl:someValuesFrom :WholeLifeIndividual
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :memberOf ;
+                         owl:allValuesFrom :SetOfStates
+                       ] ;
+       rdfs:comment """A SpatioTemporalExtent that is a WholeLifeIndividual or a temporalPartOf some WholeLifeIndividual.
+
+>From the text 11.2: A state is something for a period of time. A state might be a state of a car or a state of a person, or a state of a factory. Now for some states, the period that they are for is the whole of the life of something. These I shall call individuals. Examples of individuals include cars, persons, atoms, activities and brooms.
+useful in two different ways. They are the temporal part of an individual to which some property applies, and they are the temporal part of an individual that participates in an activity or association.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SystemComponentState
+:SystemComponentState rdf:type owl:Class ;
+                      rdfs:subClassOf :PhysicalObjectState ;
+                      rdfs:comment "A PhysicalObjectState that is a WholeLifeSystemComponent or a temporalPartOf a WholeLifeSystemComponent." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#SystemState
+:SystemState rdf:type owl:Class ;
+             rdfs:subClassOf :OrdinaryPhysicalObjectState ;
+             rdfs:comment "A OrdinaryPhysicalObjectState that is a WholeLifeSystem or a temporalPartOf a WholeLifeSystem." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#TemporalComposition
+:TemporalComposition rdf:type owl:Class ;
+                     rdfs:subClassOf :Composition ;
+                     rdfs:comment "A composition where the part is the entire whole spatially, but part of the whole temporally." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#TemporalRelation
+:TemporalRelation rdf:type owl:Class ;
+                  rdfs:subClassOf :DefinedRelationship ;
+                  rdfs:comment "The temporal relationship of two things, usually events. Used to define \"occursBefore\", etc." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#TrafficParticipant
+:TrafficParticipant rdf:type owl:Class ;
+                    rdfs:subClassOf :Participant ;
+                    rdfs:comment "this will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#TrafficRule
+:TrafficRule rdf:type owl:Class ;
+             rdfs:comment "subclass of IntentionallyConstructedObject?" ,
+                          "this will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Trajectory
+:Trajectory rdf:type owl:Class ;
+            rdfs:subClassOf :Geometry ;
+            rdfs:comment "this will probably be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:subClassOf :TrafficParticipant ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasHeading ;
+                           owl:someValuesFrom :DirectionQuantity
+                         ] ;
+         rdfs:comment "this will be moved to domain ontology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeActivity
+:WholeLifeActivity rdf:type owl:Class ;
+                   rdfs:subClassOf :ActivityState ,
+                                   :WholeLifeIndividual ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :causes ;
+                                     owl:someValuesFrom :Event
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasPart ;
+                                     owl:allValuesFrom :Participant
+                                   ] ;
+                   rdfs:comment "A WholeLifeIndividual that consists of its participants and causes some event." ,
+                                "HQDM activity" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeBiologicalObject
+:WholeLifeBiologicalObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BiologicalObjectState ,
+                                           :WholeLifePhysicalObject ;
+                           rdfs:comment "A BiologicalObjectState that is also a PhysicalObject that sustains itself and reproduces." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeFunctionalObject
+:WholeLifeFunctionalObject rdf:type owl:Class ;
+                           rdfs:subClassOf :FunctionalObjectState ,
+                                           :WholeLifeIntentionallyConstructedObject ,
+                                           :WholeLifePhysicalObject ;
+                           rdfs:comment "An IntentionallyConstructedObject that is also a PhysicalObject that has an intendedRole." ,
+                                        "Note: does this mean that an IntentionallyConstructedObject is usually a Participant?" ,
+                                        "from text 13.2: has a role as an intendedRole, where role is the usual term used for kind of participant" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeIndividual
+:WholeLifeIndividual rdf:type owl:Class ;
+                     rdfs:subClassOf :State ;
+                     rdfs:comment """A SpatioTemporalExtent that is not a proper temporalPartOf any other individual of the same kind.
+Note: In standard mereology a SpatioTemporalExtent is a part of itself. Parts of a WholeLifeIndividual excluding itself are called proper parts.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeIntentionallyConstructedObject
+:WholeLifeIntentionallyConstructedObject rdf:type owl:Class ;
+                                         rdfs:subClassOf :IntentionallyConstructedObjectState ,
+                                                         :WholeLifeIndividual ;
+                                         rdfs:comment "A whole life individual that is what it is in part at least as an act of will." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeOrdinaryPhysicalObject
+:WholeLifeOrdinaryPhysicalObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :OrdinaryPhysicalObjectState ,
+                                                 :WholeLifePhysicalObject ;
+                                 rdfs:comment "A PhysicalObject that does not survive changing all its parts at once." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifePhysicalObject
+:WholeLifePhysicalObject rdf:type owl:Class ;
+                         rdfs:subClassOf :PhysicalObjectState ,
+                                         :WholeLifeIndividual ;
+                         rdfs:comment "A whole life individual that consists of a distribution of matter and/or energy." ,
+                                      "HQDM physical_object: http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/physical_object.htm" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeSystem
+:WholeLifeSystem rdf:type owl:Class ;
+                 rdfs:subClassOf :SystemState ;
+                 rdfs:comment "An OrdinaryPhysicalObject that is an organized or connected group of PhysicalObject." ,
+                              "from text 14: A system is a complex physical object that consists of many components that play a role in how the system functions. Systems may be either naturally occurring, or intentionally constructed." ,
+                              "rename to \"WholeLifeConcreteSystem\"?" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeSystemComponent
+:WholeLifeSystemComponent rdf:type owl:Class ;
+                          rdfs:subClassOf :SystemComponentState ,
+                                          :WholeLifePhysicalObject ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :componentOf ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :WholeLifeSystem
+                                          ] ;
+                          rdfs:comment "A PhysicalObject that is a componentOf a System and that can be completely replaced without losing identity." ,
+                                       "From text 14: System components arise in systems, in particular in complex artifacts. In this case they are part of how we make things maintainable, and arise by design. For example, a system component means that when a part of the system fails, instead of the whole needing to be replaced, the part can be replaced by one that is identical, and the whole can be restored to use. Examples are engines on aircraft, pumps in process plant, and blades in rack mounted server farms." ,
+                                       "Note: A SystemComponent is existence dependent on the System it is a component of, unlike any OrdinaryPhysicalObject that may be installed as the component." ,
+                                       "note: vehicles and pedestrians are components of the traffic system" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#east
+:east rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#north
+:north rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#northeast
+:northeast rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#northwest
+:northwest rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#south
+:south rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#southeast
+:southeast rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#southwest
+:southwest rdf:type owl:NamedIndividual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXCorePlusV1#west
+:west rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActivityState
+                :Event
+                :PhysicalObjectState
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AngleQuantity
+                :DirectionQuantity
+                :LengthQuantity
+                :SpeedQuantity
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
