@@ -27,7 +27,7 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
   
 * **`puml_inpath: "./fragments/puml/"`**
 Path where the generated PlantUML files will be stored
-CAUTION: The content of this path will be deleted every time rdf2doc is started!!!
+CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
 *  **`logfile: "rdf2adoc.log"`**
 Logging file name.
@@ -35,4 +35,4 @@ Logging file name.
 * **`plantuml_jar: "./plantuml.jar"`**
 Path to the plantuml.jar for png diagram creation.
 
-Note: rdf2adoc uses 'rdflib' to analyze triplets in ontology. You may have to install pyyaml using `pip install rdflib`
+Note: rdf2adoc uses 'rdflib' to analyze RDF triplets in ontology. You may have to install rdflib using `pip install rdflib`
