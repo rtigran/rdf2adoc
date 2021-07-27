@@ -23,11 +23,11 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 
 * **`diag_outpath: "./fragments/diagrams/"`**
 Path where the generated class diagrams will be stored
-CAUTION: The content of this path will be deleted every time Rdfdoc is started!!!
+CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
 * **`puml_inpath: "./fragments/puml/"`**
 Path where the generated PlantUMl files will be stored
-CAUTION: The content of this path will be deleted every time Rdfdoc is started!!!
+CAUTION: The content of this path will be deleted every time rdf2doc is started!!!
   
 *  **`logfile: "rdf2adoc.log"`**
 Logging file name.
