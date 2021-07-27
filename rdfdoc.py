@@ -5,7 +5,7 @@ import sys
 config_ok = False
 
 try:
-    config_ok = f.load_config("C:\\Users\\tambarian\\Desktop\\ASAM_OxO_doc\\pyproj\\rdfdoc_config.yml")
+    config_ok = f.load_config("./rdfdoc_config.yml")
     f.logprint("Rdfdoc start")
 except:
     if not config_ok:
