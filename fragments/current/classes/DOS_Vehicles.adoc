@@ -1,0 +1,40 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= DOS_Vehicles
+
+//Include information from owl files
+
+The following model provides an overview of :DOS_Vehicles
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|DOS_Vehicles
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#DOS_Vehicles
+
+|Subclass of
+|:HQDM_participant
+
+|Subclass of
+|:HQDM_functional_system
+
+|Subclass of
+|:HQDM_system_component
+
+|Comment
+|Vehicles are functional systems in the sense that they are systems of components constructed with the intended role of transporting things.
+Vehicles are participants in traffic related activities.
+Vehicles are system components of the overall traffic system.
+
+|===

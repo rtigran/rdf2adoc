@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_person
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_person
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_person
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_person
+
+|Subclass of
+|:HQDM_biological_system
+
+|Subclass of
+|:HQDM_state_of_person
+
+|Subclass of
+|:HQDM_party
+
+|Comment
+|A biological_system that is also, a state_of_person, and a party that is a human being.
+
+|===

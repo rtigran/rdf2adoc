@@ -1,0 +1,38 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_beginning
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_beginning
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|HQDM_beginning
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_beginning
+
+|Subproperty of
+|:HQDM_temporal_part_of
+
+|Has domain
+|:HQDM_spatio_temporal_extent
+
+|Has range
+|:HQDM_spatio_temporal_extent
+
+|Comment
+|A part_of relationship type where a spatio_temporal_extent has exactly one event that is its beginning.
+
+|===

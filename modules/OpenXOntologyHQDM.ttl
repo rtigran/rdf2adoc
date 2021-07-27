@@ -1,0 +1,1211 @@
+@prefix : <http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl> .
+
+<http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl> rdf:type owl:Ontology ;
+                                                             rdfs:comment "Added main DOS concepts to the OXOXCore.owl file - 2021.05.03 Steven Kraines and Jason Zhang" ,
+                                                                          "First attempt to render Matthew West's HQDM in OWL using Protege - 2020.07.10 Steven Kraines" ,
+                                                                          "added HQDM_ header to concepts and properties from HQDM - 2020.08.15 Steven Kraines" ,
+                                                                          "major revision to focus on the classes and properties relevant for OXO - 2021.04.17 Steven Kraines" ;
+                                                             owl:versionInfo "Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_aggregated_into
+:HQDM_aggregated_into rdf:type owl:ObjectProperty ;
+                      rdfs:domain :HQDM_spatio_temporal_extent ;
+                      rdfs:range :HQDM_spatio_temporal_extent ;
+                      rdfs:comment """A relationship type where a spatio_temporal_extent may be aggregated into one or more others.
+Note: This has the same meaning as, but different representation to, the aggregation entity type""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_beginning
+:HQDM_beginning rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :HQDM_temporal_part_of ;
+                rdfs:domain :HQDM_spatio_temporal_extent ;
+                rdfs:range :HQDM_event ;
+                rdfs:comment "A part_of relationship type where a spatio_temporal_extent has exactly one event that is its beginning." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_causes
+:HQDM_causes rdf:type owl:ObjectProperty ;
+             rdfs:domain :HQDM_activity ;
+             rdfs:range :HQDM_event ;
+             rdfs:comment "A relationship type where each activity is the cause of one or more event." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_classifier
+:HQDM_classifier rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ,
+                          owl:InverseFunctionalProperty ;
+                 rdfs:domain :HQDM_classification ;
+                 rdfs:range :HQDM_class ;
+                 rdfs:comment "only used for reified classification relationships"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_component_of
+:HQDM_component_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :HQDM_part_of ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :HQDM_system_component ;
+                   rdfs:range :HQDM_system ;
+                   rdfs:comment "A part_of relationship type where each system_component is part_of exactly one system." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_consists_of
+:HQDM_consists_of rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :HQDM_part_of ;
+                  rdfs:comment """A relationship type where a spatio_temporal_extent may consist of one or more others.
+Note: This is the inverse of part__of""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_consists_of_participant
+:HQDM_consists_of_participant rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf :HQDM_consists_of ;
+                              owl:inverseOf :HQDM_participant_in ;
+                              rdfs:domain :HQDM_activity ;
+                              rdfs:range :HQDM_participant ;
+                              rdfs:comment "A consists_of relationship type where an activity consists_of one or more participants." ,
+                                           "note the domain should be the union of activity and association" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_determines
+:HQDM_determines rdf:type owl:ObjectProperty ;
+                 rdfs:domain :HQDM_activity ;
+                 rdfs:range owl:Thing ;
+                 rdfs:comment "A relationship type where an activity may determine one or more thing to be the case." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_ending
+:HQDM_ending rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :HQDM_temporal_part_of ;
+             rdfs:domain :HQDM_spatio_temporal_extent ;
+             rdfs:range :HQDM_event ;
+             rdfs:comment "A part_of relationship type where a spatio_temporal_extent has exactly one event that is its ending." ,
+                          "from text 11.2: beginning and ending are examples of the temporal_composition relationship" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_has_member
+:HQDM_has_member rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :HQDM_member_of ;
+                 rdfs:domain :HQDM_class .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_intended_role
+:HQDM_intended_role rdf:type owl:ObjectProperty ;
+                    rdfs:domain :HQDM_functional_object ;
+                    rdfs:range :HQDM_role ;
+                    rdfs:comment "A relationship type where a functional_object has one or more intended role(s)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_involves
+:HQDM_involves rdf:type owl:ObjectProperty ;
+               rdfs:domain :HQDM_defined_relationship ;
+               rdfs:range :HQDM_classification ;
+               rdfs:comment "A meta-relationship type where the classification of some thing in a role is involved in a relationship." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_member
+:HQDM_member rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ,
+                      owl:InverseFunctionalProperty ;
+             rdfs:domain :HQDM_classification ;
+             rdfs:range owl:Thing ;
+             rdfs:comment "only used for reified classification relationships"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_member_of
+:HQDM_member_of rdf:type owl:ObjectProperty ;
+                rdfs:domain owl:Thing ;
+                rdfs:range :HQDM_class ;
+                rdfs:comment "note that a class can be a member_of a class_of_class, etc." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_member_of_kind
+:HQDM_member_of_kind rdf:type owl:ObjectProperty ;
+                     rdfs:comment """A member_of relationship type where each defined_relationship is a member_of exactly one kind_of_relationship_with_signature.
+
+Note: member_of_kind is only for assigning kinds (sets of things that have common characteristics = concepts in ISO704) to  things (including relationships, so not just spatio-temporal extents)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_part
+:HQDM_part rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ,
+                    owl:InverseFunctionalProperty ;
+           rdfs:domain :HQDM_aggregation ;
+           rdfs:range :HQDM_spatio_temporal_extent ;
+           rdfs:comment "from text 11.2: Each aggregation has exactly one spatio_temporal_extent that is the part in the aggregation." ,
+                        "only used for reified whole-part relationships"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_part__of_by_class
+:HQDM_part__of_by_class rdf:type owl:ObjectProperty ;
+                        rdfs:domain :HQDM_spatio_temporal_extent ;
+                        rdfs:range :HQDM_spatio_temporal_extent ;
+                        rdfs:comment "A relationship type where a member_of a class_of_spatio_temporal_extent is part_of a member_of some class_of_spatio_temporal_extent." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_part_of
+:HQDM_part_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :HQDM_aggregated_into ;
+              rdfs:domain :HQDM_spatio_temporal_extent ;
+              rdfs:range :HQDM_spatio_temporal_extent ;
+              rdfs:comment """An aggregated_into relationship type where a spatio_temporal_extent may be part of another and the whole has emergent properties and is more than just the sum of its parts
+Note: This relationship has the same meaning but is a different representation of the composition entity type.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_participant_in
+:HQDM_participant_in rdf:type owl:ObjectProperty ;
+                     rdfs:domain :HQDM_participant ;
+                     rdfs:range :HQDM_activity ;
+                     rdfs:comment "main relationship for stating the participation of a physical object in an activity"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_references
+:HQDM_references rdf:type owl:ObjectProperty ;
+                 rdfs:domain :HQDM_activity ;
+                 rdfs:range owl:Thing ;
+                 rdfs:comment "A relationship type where an activity may reference one or more thing." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_temporal_part_of
+:HQDM_temporal_part_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :HQDM_part_of ;
+                       rdfs:comment """A part_of relationship type where a spatio_temporal_extent may be a temporal part of one or more other spatio_temporal_extent.
+
+Note: this is temporal_composition represented as a relationship instead of an entity type""" ,
+                                    "from text 11.2: not all properties (classes of states) of temporal wholes are inherited by temporal parts (ex. the property of being a whole life individual) - these classes  are not temporally dissective" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_whole
+:HQDM_whole rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:InverseFunctionalProperty ;
+            rdfs:domain :HQDM_aggregation ;
+            rdfs:range :HQDM_spatio_temporal_extent ;
+            rdfs:comment "From text 11.2: Each aggregation has exactly one spatio_temporal_extent that is the whole in the aggregation." ,
+                         "only used for reified whole-part relationships"^^xsd:string .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#part_of_possible_world
+:part_of_possible_world rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :HQDM_part_of ;
+                        rdfs:domain :HQDM_spatio_temporal_extent ;
+                        rdfs:range :HQDM_possible_world ;
+                        rdfs:comment """A part_of relationship type where a spatio_temporal_extent may be part_of one or more possible_world.
+Note: The relationship is optional because a possible_world is not part_of any other spatio_temporal_extent.""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_has_real_value
+:HQDM_has_real_value rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:range owl:real ;
+                     rdfs:comment """called value_ in HQDM
+A relationship type where an identification_of_physical_quantity consists of exactly one REAL as its value.
+Note 1: The members of the data type REAL provide an identification of a real number.
+Note 2: The relationship name has been renamed from consists of by class to value.""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_ActorActivities
+:CORE_ActorActivities rdf:type owl:Class ;
+                      rdfs:subClassOf :HQDM_activity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_HumanActivities
+:CORE_HumanActivities rdf:type owl:Class ;
+                      rdfs:subClassOf :CORE_ActorActivities ;
+                      rdfs:comment """Activities where the actor is a human.
+Includes pedestrian activities, driver activities, policeman activities, etc.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_InanimateObjectActivities
+:CORE_InanimateObjectActivities rdf:type owl:Class ;
+                                rdfs:subClassOf :CORE_ActorActivities ;
+                                rdfs:comment """Activities whose actor is some thing that is not living and not an animate machine.  
+Ex. a rock falling, a newspaper moving in the wind, a log falling off a truck...""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_LevelActivities
+:CORE_LevelActivities rdf:type owl:Class ;
+                      rdfs:subClassOf :HQDM_activity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_MachineActivities
+:CORE_MachineActivities rdf:type owl:Class ;
+                        rdfs:subClassOf :CORE_ActorActivities ;
+                        rdfs:comment """Activities whose actor is some kind machine.
+Includes vehicle activities, traffic infrastructure activities (lights, toll gates)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_MovingActivities
+:CORE_MovingActivities rdf:type owl:Class ;
+                       rdfs:subClassOf :CORE_StateChangingActivities ;
+                       rdfs:comment """Activities where the actor changes its position (location and/or orientation) during the activity.
+Includes translational moving (change in location) and rotational/anchored moving (changes of position \"in place\")
+Note: \"dynamic activities\" correspond to \"translationally moving activities\".
+Note: \"quasi static activities\" may include \"anchored moving activities\" - need to check""" ;
+                       rdfs:isDefinedBy "a changing activity for which the change of the recepient is in spatial location and/or orientation" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_MultiParticipantActivities
+:CORE_MultiParticipantActivities rdf:type owl:Class ;
+                                 rdfs:subClassOf :CORE_LevelActivities .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_NaturalPhenomenonActivities
+:CORE_NaturalPhenomenonActivities rdf:type owl:Class ;
+                                  rdfs:subClassOf :CORE_ActorActivities ;
+                                  rdfs:comment "Activities whose actor is a natural system, such as a weather system or sunlight." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_NonHumanAnimalActivities
+:CORE_NonHumanAnimalActivities rdf:type owl:Class ;
+                               rdfs:subClassOf :CORE_ActorActivities ;
+                               rdfs:comment "Activities whose actor is an animal that is not a human." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_SignalingActivities
+:CORE_SignalingActivities rdf:type owl:Class ;
+                          rdfs:subClassOf :CORE_StateChangingActivities ;
+                          rdfs:isDefinedBy "" ,
+                                           "activities whose purpose is to transfer information from the signaller to the recepient.  As such, normally \"signaling activities\" will involve more than one participant, but we can consider a single participant activity such as the case of a traffic signal changing colors even if there is no one around to observe that." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_SingleParticipantActivities
+:CORE_SingleParticipantActivities rdf:type owl:Class ;
+                                  rdfs:subClassOf :CORE_LevelActivities .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CORE_StateChangingActivities
+:CORE_StateChangingActivities rdf:type owl:Class ;
+                              rdfs:subClassOf :HQDM_activity ;
+                              rdfs:isDefinedBy "activities that result in the change of the state of the actor.  Can include changes in color, position, mass, size, shape, temperature, etc." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#CoreConcepts
+:CoreConcepts rdf:type owl:Class ;
+              rdfs:subClassOf :DOS .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#DOS
+:DOS rdf:type owl:Class .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#DOS_Vehicles
+:DOS_Vehicles rdf:type owl:Class ;
+              rdfs:subClassOf :HQDM_functional_system ,
+                              :HQDM_participant ,
+                              :HQDM_system_component ;
+              rdfs:comment """Vehicles are functional systems in the sense that they are systems of components constructed with the intended role of transporting things.
+Vehicles are participants in traffic related activities.
+Vehicles are system components of the overall traffic system.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM
+:HQDM rdf:type owl:Class .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_abstract_object
+:HQDM_abstract_object rdf:type owl:Class ;
+                      rdfs:subClassOf :HQDM ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :HQDM_member_of ;
+                                        owl:someValuesFrom :HQDM_class
+                                      ] ;
+                      owl:disjointWith :HQDM_spatio_temporal_extent ;
+                      rdfs:comment """abstract_object
+A thing that does not exist in space or time.
+member__of 	 :  	OPTIONAL SET [1:?] OF class;""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_activity
+:HQDM_activity rdf:type owl:Class ;
+               rdfs:subClassOf :CoreConcepts ,
+                               :HQDM_individual ,
+                               :HQDM_state_of_activity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :HQDM_causes ;
+                                 owl:allValuesFrom :HQDM_event
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :HQDM_consists_of ;
+                                 owl:allValuesFrom :HQDM_participant
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :HQDM_member_of ;
+                                 owl:allValuesFrom :HQDM_class_of_activity
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :HQDM_member_of_kind ;
+                                 owl:allValuesFrom :HQDM_kind_of_activity
+                               ] ;
+               rdfs:comment "An individual that consists of its participants and causes some event." ,
+                            """references 	 :  	A relationship type where an activity may reference one or more thing.
+determines 	 :  	A relationship type where an activity may determine one or more thing to be the case.
+causes 	 :  	A relationship type where each activity is the cause of one or more event.
+member_of 	 :  	A member_of relationship type where an activity may be a member_of one or more class_of_activity.
+part_of 	 :  	A part_of relationship type where one activity may be a part_of one or more others.
+member_of_kind 	 :  	A member_of_kind relationship type where each activity is a member_of one or more kind_of_activity.
+consists_of 	 :  	A consists_of relationship type where an activity may consists_of one or more other activity.
+consists_of_participant 	 :  	A consists_of relationship type where an activity consists_of one or more participants.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_aggregation
+:HQDM_aggregation rdf:type owl:Class ;
+                  rdfs:subClassOf :HQDM_relationship ;
+                  rdfs:comment "A relationship where the whole is at least the sum of the parts." ,
+                               "from text 11.2: same as aggregated_into" ,
+                               """whole 	 :  	A relationship type where an aggregation has exactly one spatio_temporal_extent as the whole.
+part 	 :  	A relationship type where an aggregation has exactly one spatio_temporal_extent as the part.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_asset
+:HQDM_asset rdf:type owl:Class ;
+            rdfs:subClassOf :HQDM_participant ;
+            rdfs:comment """A state_of_physical_object that is also a participant that is
+the participant_in an ownership that is owned.""" ,
+                         "participant_in 	 :  	A participant_in relationship type where an asset is a participant_in exactly one ownership." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_biological_object
+:HQDM_biological_object rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_physical_object ,
+                                        :HQDM_state_of_biological_object ;
+                        rdfs:comment """A state_of_biological_object that is also a physical_object
+that sustains itself and reproduces.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_biological_system
+:HQDM_biological_system rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_ordinary_biological_object ,
+                                        :HQDM_system ,
+                                        :HQMD_state_of_biological_system .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_biological_system_component
+:HQDM_biological_system_component rdf:type owl:Class ;
+                                  rdfs:subClassOf :HQDM_state_of_biological_system_component ,
+                                                  :HQDM_system_component .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class
+:HQDM_class rdf:type owl:Class ;
+            rdfs:subClassOf :HQDM_abstract_object ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :HQDM_member_of ;
+                              owl:allValuesFrom :HQDM_class_of_class
+                            ] ;
+            owl:disjointWith :HQDM_relationship ;
+            rdfs:comment "An abstract_object that has members and whose identity is defined by its membership." ,
+                         "From Text 10.2.4: A class11 is an abstract thing that has members, as opposed to an individual (something that exists in space-time) that has parts. The members of a class may be other classes, or individuals (or both). The most useful classes tend to be those that group things by similarity, e.g. red cars." ,
+                         """Note: I prefer to use category instead of class
+or alternatively \"kind\", \"type\" or \"set\"""" ,
+                         "Note: I think that it might not be necessary to differentiate between \"class/category\" and \"kind\"" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_abstract_object
+:HQDM_class_of_abstract_object rdf:type owl:Class ;
+                               rdfs:subClassOf :HQDM_class ;
+                               rdfs:comment """A class that is abstract_object or any its subsets.
+
+Note: should this be \"a class that consists of abstract_objects\"?""" ,
+                                            "These will probably not be used in the CoreOntology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_activity
+:HQDM_class_of_activity rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_class_of_individual ,
+                                        :HQDM_class_of_state_of_activity .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_class
+:HQDM_class_of_class rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_class_of_abstract_object ;
+                     rdfs:comment """A class that is class or any of its subsets.
+Note: More formally this means that any member_of the powerset of class is a valid member_of class_of_class.""" ,
+                                  "These will probably not be used in the CoreOntology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_class_of_spatio_temporal_extent
+:HQDM_class_of_class_of_spatio_temporal_extent rdf:type owl:Class ;
+                                               rdfs:subClassOf :HQDM_class_of_class ;
+                                               rdfs:comment "A class_of_class that is class_of_spatio_temporal_extent or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_event
+:HQDM_class_of_event rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_class_of_spatio_temporal_extent ;
+                     rdfs:comment """might be used to specify categories/kinds of events (e.g. conditional/triggered versus absolute, starting vs. ending, etc.) that could then be members of respective classes (so classes of categories or events)
+- this may not be necessary in the CoreOntology""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_individual
+:HQDM_class_of_individual rdf:type owl:Class ;
+                          rdfs:subClassOf :HQDM_class_of_state ;
+                          rdfs:comment """A class_of_state that is individual or any of its subsets.
+Note: Only classes that necessarily apply to an individual for the whole of its life are valid members. Others are members of class_of_state and apply to the state that is the individual for the period of time that the class applies for.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_participant
+:HQDM_class_of_participant rdf:type owl:Class ;
+                           rdfs:subClassOf :HQDM_class_of_state_of_physical_object ;
+                           rdfs:comment "A class_of_state_of_physical_object that is participant or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_physical_object
+:HQDM_class_of_physical_object rdf:type owl:Class ;
+                               rdfs:subClassOf :HQDM_class_of_individual ,
+                                               :HQDM_class_of_state_of_physical_object ;
+                               rdfs:comment "A class_of_individual and a class_of_state_of_physical_object that is physical_object or any of its subsets." ,
+                                            """might be used to specify categories/kinds of states (ex.  that could then be members of respective classes (so classes of categories or events)
+- the main usage of \"class_of_state\" in HQDM is for specifying physical properties, physical qualities, and roles (as classes of participants)
+- also used to specify \"currency (money)\", sign representations, etc. 
+- this may not be necessary in the CoreOntology""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_physical_property
+:HQDM_class_of_physical_property rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_class_of_class_of_spatio_temporal_extent ;
+                                 rdfs:comment "A class_of_class_of_spatio_temporal_extent that is physical_property or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_physical_quantity
+:HQDM_class_of_physical_quantity rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_class_of_physical_property ;
+                                 rdfs:comment "A class_of_physical_property that is physical_quantity or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_point_in_time
+:HQDM_class_of_point_in_time rdf:type owl:Class ;
+                             rdfs:subClassOf :HQDM_class_of_event ;
+                             rdfs:comment """might be used to specify categories/kinds of point_in_time (ex. relative v.s. absolute) that could then be members of respective classes (so classes of categories or events)
+- this may not be necessary in the CoreOntology""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_relationship
+:HQDM_class_of_relationship rdf:type owl:Class ;
+                            rdfs:subClassOf :HQDM_class_of_abstract_object ;
+                            rdfs:comment "A class that is relationship or any of its subsets." ,
+                                         "These will probably not be used in the CoreOntology" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_spatio_temporal_extent
+:HQDM_class_of_spatio_temporal_extent rdf:type owl:Class ;
+                                      rdfs:subClassOf :HQDM_class ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :HQDM_member_of ;
+                                                        owl:allValuesFrom :HQDM_class_of_class_of_spatio_temporal_extent
+                                                      ] ;
+                                      rdfs:comment """A class that is spatio_temporal_extent or any of its subsets.
+
+member_of_ 	 :  	A member_of relationship type where a class_of_spatio_temporal_extent may be a member of one or more class_of_class_of_spatio_temporal_extent.
+part__of_by_class 	 :  	A relationship type where a member_of a class_of_spatio_temporal_extent is part_of a member_of some class_of_spatio_temporal_extent.
+consists__of_by_class 	 :  	An inverse part__of_by_class relationship type where a member_of one class_of_spatio_temporal_extent consists_of another member_of a class_of_spatio_temporal_extent.""" ,
+                                                   """note that all \"class_of_x\" have subclasses that are \"kind_of_x\" where, e.g.
+kind_of_individual is:
+a class_of_individual where all the members possess attributes in common""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_state
+:HQDM_class_of_state rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_class_of_spatio_temporal_extent ;
+                     rdfs:comment "A class_of_spatio_temporal_extent that is state or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_state_of_activity
+:HQDM_class_of_state_of_activity rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_class_of_state .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_state_of_physical_object
+:HQDM_class_of_state_of_physical_object rdf:type owl:Class ;
+                                        rdfs:subClassOf :HQDM_class_of_state ;
+                                        rdfs:comment "A class_of_state that is state_of_physical_object or any of its subsets." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_classification
+:HQDM_classification rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_relationship ;
+                     owl:disjointWith :HQDM_defined_relationship ;
+                     rdfs:comment """A relationship where a thing is a member of a class.
+Note: This entity type is replicated as the member__of relationship.
+
+classifier 	 :  	A relationship type where a classification has exactly one classifier.
+member 	 :  	A relationship type where a classification has exactly one member.
+
+Note: this is the same as the member/classifies object properties, right?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_composition
+:HQDM_composition rdf:type owl:Class ;
+                  rdfs:subClassOf :HQDM_aggregation ;
+                  rdfs:comment "An aggregation where the whole is an arrangement of the parts that results in emergent properties." ,
+                               "from text 11.2: A composition is an aggregation where the parts are arranged in such a way that the whole is more than the sum of the parts. A car is an example of such a whole." ,
+                               "from text 11.2: same as the part_of object property" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_defined_relationship
+:HQDM_defined_relationship rdf:type owl:Class ;
+                           rdfs:subClassOf :HQDM_relationship ;
+                           rdfs:comment """A relationship that is defined by a kind_of_relationship_with_signature.
+
+member_of_kind 	 :  	A member_of relationship type where each defined_relationship is a member_of exactly one kind_of_relationship_with_signature.
+involves 	 :  	A meta-relationship type where the classification of some thing in a role is involved in a relationship.
+
+Note: use this to define specific types of relationships""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_employee
+:HQDM_employee rdf:type owl:Class ;
+               rdfs:subClassOf :HQDM_participant .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_employer
+:HQDM_employer rdf:type owl:Class ;
+               rdfs:subClassOf :HQDM_participant .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_enumerated_class
+:HQDM_enumerated_class rdf:type owl:Class ;
+                       rdfs:subClassOf :HQDM_class ;
+                       rdfs:comment """A class where each member__of the class is known.
+
+Note: use this for making sets of enumerations, such as \"front, back, left, right\"?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_event
+:HQDM_event rdf:type owl:Class ;
+            rdfs:subClassOf :CoreConcepts ,
+                            :HQDM_spatio_temporal_extent ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :HQDM_member_of ;
+                              owl:allValuesFrom :HQDM_class_of_event
+                            ] ;
+            rdfs:comment "A spatio_temporal_extent that has zero temporal thickness and may bound some spatio_temporal_extent." ,
+                         "From text 11.2: An event is the change in state, not what brings about the change. So event is used here for something instantaneous." ,
+                         "Note: What does it mean for an event to have a beginning/ending?" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_functional_object
+:HQDM_functional_object rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_intentionally_constructed_object ,
+                                        :HQDM_physical_object ,
+                                        :HQMD_state_of_functional_object ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :HQDM_intended_role ;
+                                          owl:someValuesFrom :HQDM_role
+                                        ] ;
+                        rdfs:comment "An intentionally_constructed_object that is also a physical_object that has an intended_role." ,
+                                     "from text 13.2: has a role as an intended_role, where role is the usual term used for kind of participant" ,
+                                     """member_of 	 :  	A member_of relationship type where a functional_object may be a member_of one or more class_of_functional_object.
+intended_role 	 :  	A relationship type where a functional_object has one or more intended role(s).
+member_of_kind 	 :  	A member_of_kind relationship type where a functional_object may be a member_of one or more kind_of_functional_object.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_functional_system
+:HQDM_functional_system rdf:type owl:Class ;
+                        rdfs:subClassOf :CoreConcepts ,
+                                        :HQDM_ordinary_functional_object ,
+                                        :HQDM_state_of_functional_system ,
+                                        :HQDM_system ;
+                        rdfs:comment """Any state_of_functional_system that is also an ordinary_functional_object and a system.
+
+Vehicles, traffic lights, road infrastructures, etc. will probably be “functional_systems”""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_functional_system_component
+:HQDM_functional_system_component rdf:type owl:Class ;
+                                  rdfs:subClassOf :HQDM_functional_object ,
+                                                  :HQDM_state_of_functional_system_component ,
+                                                  :HQDM_system_component ;
+                                  rdfs:comment """An intentionally_constructed_object that is a replaceable component_of a functional_system.
+(note, functional_object is a subclass of intentionally_constructed_object)
+
+
+Signs, engines, wheels, axles will be “functional_system_components”""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_individual
+:HQDM_individual rdf:type owl:Class ;
+                 rdfs:subClassOf :HQDM_state ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :HQDM_member_of ;
+                                   owl:allValuesFrom :HQDM_class_of_individual
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :HQDM_member_of_kind ;
+                                   owl:allValuesFrom :HQDM_kind_of_individual
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :HQDM_causes ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :HQDM_event
+                                 ] ;
+                 rdfs:comment """A spatio_temporal_extent that is not a proper temporal_part_of any other individual of the same kind.
+Note: In standard mereology a spatio_temporal_extent is a part of itself. Parts of an individual excluding itself are called proper parts.""" ,
+                              "From Text: By individuals I mean things that exist in space and time, and that are not set-like, i.e. they do not have members, for example, you and me, but not person." ,
+                              "Same as \"whole_life_individual\" from ISO15926-2" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_installed_functional_system_component
+:HQDM_installed_functional_system_component rdf:type owl:Class ;
+                                            rdfs:subClassOf :HQDM_installed_object ,
+                                                            :HQDM_state_of_functional_system_component ,
+                                                            :HQDM_state_of_ordinary_functional_object ,
+                                                            :HQMD_state_of_functional_object ;
+                                            rdfs:comment "Any installed_object that is also a state_of_ordinary_functional_object and a state_of_functional_system_component." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_installed_object
+:HQDM_installed_object rdf:type owl:Class ;
+                       rdfs:subClassOf :HQDM_state_of_ordinary_physical_object ,
+                                       :HQDM_state_of_system_component ;
+                       rdfs:comment "A state_of_ordinary_physical_object that is also a state_of_system_component that is a temporal_part_of an ordinary_physical_object from when it is installed as a system_component to when it is removed." ,
+                                    "example: the state of the right front wheel of my Toyota Prius when it is a particular wheel ABC" ,
+                                    "example: the temporal component actual tire that is installed on the right front wheel of my Prius (tire ABC) for the duration of the installation - same as the corresponding state_of_system_component" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_intentionally_constructed_object
+:HQDM_intentionally_constructed_object rdf:type owl:Class ;
+                                       rdfs:subClassOf :HQDM_individual ,
+                                                       :HQDM_state_of_intentionally_constructed_object ;
+                                       rdfs:comment "An intentionally_constructed_object is an individual that is what it is in part at least as an act of will." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_kind_of_activity
+:HQDM_kind_of_activity rdf:type owl:Class ;
+                       rdfs:subClassOf :HQDM_class_of_activity ,
+                                       :HQDM_kind_of_individual ;
+                       rdfs:comment """A class_of_activity all of whose members are of the same kind.
+
+determines_by_class 	 :  	A relationship type where a member_of the kind_of_activity determines a member_of the class.
+references_by_class 	 :  	A relationship type where a member_of the kind_of_activity references a member_of the class.
+causes_by_class 	 :  	A relationship type where a member_of the kind_of_activity causes a member_of the class_of_event.
+consists_of_by_class 	 :  	A consists_of_by_class relationship type where a member_of a kind_of_activity has a member_of a role as a participant.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_kind_of_individual
+:HQDM_kind_of_individual rdf:type owl:Class ;
+                         rdfs:subClassOf :HQDM_class_of_individual ;
+                         rdfs:comment "A class_of_individual where all the members possess attributes in common." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_kind_of_physical_object
+:HQDM_kind_of_physical_object rdf:type owl:Class ;
+                              rdfs:subClassOf :HQDM_class_of_physical_object ,
+                                              :HQDM_kind_of_individual .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_kind_of_physical_property
+:HQDM_kind_of_physical_property rdf:type owl:Class ;
+                                rdfs:subClassOf :HQDM_class_of_physical_property ;
+                                rdfs:comment """A class_of_physical_property where each member_of a kind_
+of_physical_property is of the same kind.
+Example: Color, with members including red, green, and blue.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_kind_of_physical_quantity
+:HQDM_kind_of_physical_quantity rdf:type owl:Class ;
+                                rdfs:subClassOf :HQDM_class_of_physical_quantity ,
+                                                :HQDM_kind_of_physical_property ;
+                                rdfs:comment """A class_of_physical_quantity that is also a kind_of_physical_
+property such that each member_of the same kind_of_physical_
+quantity is comparable to the others.
+Example: Temperature and pressure are members of
+kind_of_physical_quantity.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_ordinary_biological_object
+:HQDM_ordinary_biological_object rdf:type owl:Class ;
+                                 rdfs:subClassOf :CoreConcepts ,
+                                                 :HQDM_biological_object ,
+                                                 :HQDM_ordinary_physical_object ,
+                                                 :HQDM_state_of_ordinary_biological_object ;
+                                 rdfs:comment "A state_of_ordinary_biological_object, a biological_object, and an ordinary_physical_object that is a biological_object that does not survive the replacement of all of its parts." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_ordinary_functional_object
+:HQDM_ordinary_functional_object rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_functional_object ,
+                                                 :HQDM_ordinary_physical_object ,
+                                                 :HQDM_state_of_ordinary_functional_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_ordinary_physical_object
+:HQDM_ordinary_physical_object rdf:type owl:Class ;
+                               rdfs:subClassOf :CoreConcepts ,
+                                               :HQDM_physical_object ,
+                                               :HQDM_state_of_ordinary_physical_object ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :HQDM_member_of ;
+                                                 owl:allValuesFrom :HQDM_class_of_physical_object
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :HQDM_member_of_kind ;
+                                                 owl:allValuesFrom :HQDM_kind_of_physical_object
+                                               ] ;
+                               rdfs:comment "A physical_object that does not survive changing all its parts at once." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_organization
+:HQDM_organization rdf:type owl:Class ;
+                   rdfs:subClassOf :HQDM_socially_constructed_object ,
+                                   :HQDM_state_of_organization .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_organization_component
+:HQDM_organization_component rdf:type owl:Class ;
+                             rdfs:subClassOf :HQDM_socially_constructed_object ,
+                                             :HQDM_state_of_organization_component ,
+                                             :HQDM_system_component ;
+                             rdfs:comment "A state_of_organization_component, system_component, and socially_constructed_object that is a component_of an organization that can be completely replaced without losing its identity." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_owner
+:HQDM_owner rdf:type owl:Class ;
+            rdfs:subClassOf :HQDM_participant ;
+            rdfs:comment """A state_of_party that is also a participant that is a participant_
+in an ownership.""" ,
+                         "participant_in 	 :  	A participant_in relationship type where an owner is a participant_in exactly one ownership." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_participant
+:HQDM_participant rdf:type owl:Class ;
+                  rdfs:subClassOf :CoreConcepts ,
+                                  :HQDM_state_of_physical_object ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :HQDM_participant_in ;
+                                    owl:someValuesFrom :HQDM_activity
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :HQDM_member_of ;
+                                    owl:allValuesFrom :HQDM_class_of_participant
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :HQDM_member_of_kind ;
+                                    owl:allValuesFrom :HQDM_role
+                                  ] ;
+                  rdfs:comment """A state that is a participant_in an activity or association.
+
+member_of 	 :  	A member_of relationship type where a participant may be a member_of one or more class_of_participant.
+member_of_kind 	 :  	A member_of_kind relationship type where each participant is a member_of one or more role.""" ,
+                               """EXPRESS specification:
+ENTITY participant SUBTYPE OF (state_of_physical_object);
+SELF\\state_of_physical_object.member_of: OPTIONAL SET [1:?] OF class_of_participant;
+member_of_kind: SET [1:?] OF role;
+participant_in: OPTIONAL SET [1:?] OF participant_in_activity_or_association;
+END_ENTITY;
+
+participant_in_activity_or_association is a SELECT where a participant may be a participant_in an activity or an association.
+TYPE participant_in_activity_or_association = SELECT (activity,association);
+END_TYPE;
+note: so participant_in_activity_or_association is union of activity and association, right?""" ,
+                               "from text: 11.7: The participants in the activity are the states of the individuals whilst they are participating. The activity consists of these participants, where each participant is a member of the role in which it is participating." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_party
+:HQDM_party rdf:type owl:Class ;
+            rdfs:subClassOf :HQDM_state_of_party ,
+                            :HQDM_system .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_period_of_time
+:HQDM_period_of_time rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_state ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :HQDM_temporal_part_of ;
+                                       owl:allValuesFrom :HQDM_possible_world
+                                     ] ;
+                     rdfs:comment "A state that is a temporal_part_of some possible_world." ,
+                                  "from text 11.9: A period_of_time may be a temporal_part_of one or more possible_world." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_person
+:HQDM_person rdf:type owl:Class ;
+             rdfs:subClassOf :HQDM_biological_system ,
+                             :HQDM_party ,
+                             :HQDM_state_of_person ;
+             rdfs:comment "A biological_system that is also, a state_of_person, and a party that is a human being." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_person_in_position
+:HQDM_person_in_position rdf:type owl:Class ;
+                         rdfs:subClassOf :HQDM_installed_object ,
+                                         :HQDM_state_of_person ;
+                         rdfs:comment "A state_of_position, that is also a state_of_person, and an installed_object that is a person while they are in a position and also the position while it is filled by the person." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_physical_object
+:HQDM_physical_object rdf:type owl:Class ;
+                      rdfs:subClassOf :HQDM_individual ,
+                                      :HQDM_state_of_physical_object ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :HQDM_member_of ;
+                                        owl:allValuesFrom :HQDM_class_of_physical_object
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :HQDM_member_of_kind ;
+                                        owl:allValuesFrom :HQDM_kind_of_physical_object
+                                      ] ;
+                      rdfs:comment """An individual that consists of a distribution of matter and/or energy.
+
+member_of 	 :  	A member_of relationship type where a physical_object may be a member_of one or more class_of_physical_object.
+member_of_kind 	 :  	A member_of relationship type where a physical_object may be a member_of one or more kind_of_physical_object.""" ,
+                                   "Note: I am calling these WholeLifePhysicalObjects" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_physical_property
+:HQDM_physical_property rdf:type owl:Class ;
+                        rdfs:subClassOf :CoreConcepts ,
+                                        :HQDM_class_of_state .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_physical_property_range
+:HQDM_physical_property_range rdf:type owl:Class ;
+                              rdfs:subClassOf :CoreConcepts ,
+                                              :HQDM_class_of_state .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_physical_quantity
+:HQDM_physical_quantity rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_physical_property .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_point_in_time
+:HQDM_point_in_time rdf:type owl:Class ;
+                    rdfs:subClassOf :HQDM_event ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :HQDM_member_of ;
+                                      owl:allValuesFrom :HQDM_class_of_point_in_time
+                                    ] ;
+                    rdfs:comment "An event that is the whole of space at an instant from some viewpoint." ,
+                                 "Note: every event is a spatial part of a point in time (analogous to states and individuals), right?" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_possible_world
+:HQDM_possible_world rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_individual ,
+                                     :HQDM_period_of_time ;
+                     rdfs:comment "An individual that is a complete spatio-temporal history of some possible world." ,
+                                  "From Text (10.2.3): used to model modality (modal realism rather than modal logic)" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_relationship
+:HQDM_relationship rdf:type owl:Class ;
+                   rdfs:subClassOf :HQDM_abstract_object ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :HQDM_member_of ;
+                                     owl:allValuesFrom :HQDM_class_of_relationship
+                                   ] ;
+                   rdfs:comment "" ,
+                                "An abstract_object that is what one thing has to do with one or more others." ,
+                                "These are \"reified\" versions of what will be implemented in the Core ontology as object properties" ,
+                                """member_of 	 :  	A member_of relationship type where a relationship is a member_of a class_of_relationship
+
+Note: this means that \"class_of_relationship\" is same as relationship type?""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_requirement
+:HQDM_requirement rdf:type owl:Class ;
+                  rdfs:subClassOf :HQDM_spatio_temporal_extent ;
+                  rdfs:comment """A spatio_temporal_extent that is part_of_plan at least one plan and is defined_by exactly one requirement_specification.
+defined_by 	 :  	A member_of relationship type where a requirement is defined_by exactly one requirement_specification.
+part_of_plan 	 :  	A part_of relationship type where a requirement must be part_of one or more plans.""" ,
+                               "use this in ODD??" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_requirement_specification
+:HQDM_requirement_specification rdf:type owl:Class ;
+                                rdfs:subClassOf :HQDM_class_of_spatio_temporal_extent ;
+                                rdfs:comment "equivalent to class_of_requirement" ,
+                                             "might be useful if we want to use \"requirements\", e.g. for specifying ODDs..." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_role
+:HQDM_role rdf:type owl:Class ;
+           rdfs:subClassOf :HQDM_class_of_participant ;
+           rdfs:comment "A class_of_participant where each member participates in the same way in an activity or association." ,
+                        """part_of_by_class 	 :  	A part_of_by_class where a member_of a role is a participant in a member_of a class_of_activity.
+part_of_by_class_ 	 :  	A part_of_by_class where a member_of a role is a part_of a member_of the class.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_sign
+:HQDM_sign rdf:type owl:Class ;
+           rdfs:subClassOf :HQDM_participant ;
+           rdfs:comment """A state_of_sign, that is also a socially_constructed_object,
+and a participant that represents some thing for some community
+in one or more representations_by_sign.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_socially_constructed_activity
+:HQDM_socially_constructed_activity rdf:type owl:Class ;
+                                    rdfs:subClassOf :HQDM_activity ,
+                                                    :HQDM_socially_constructed_object ,
+                                                    :HQDM_state_of_socially_constructed_activity ;
+                                    rdfs:comment "Any socially_constructed_object that is also an activity." ,
+                                                 """part_of 	 :  	A part_of relationship type where a socially_constructed_activity may be a part_of one or more reaching_agreement.
+part_of_ 	 :  	A part_of relationship type where a socially_constructed_object may be a part_of one or more agreement_execution.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_socially_constructed_object
+:HQDM_socially_constructed_object rdf:type owl:Class ;
+                                  rdfs:subClassOf :HQDM_intentionally_constructed_object ,
+                                                  :HQDM_state_of_socially_constructed_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_spatio_temporal_extent
+:HQDM_spatio_temporal_extent rdf:type owl:Class ;
+                             rdfs:subClassOf :HQDM ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :HQDM_part_of ;
+                                               owl:someValuesFrom :HQDM_possible_world
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :HQDM_member_of ;
+                                               owl:allValuesFrom :HQDM_class_of_spatio_temporal_extent
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :HQDM_beginning ;
+                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass :HQDM_event
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :HQDM_ending ;
+                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass :HQDM_event
+                                             ] ;
+                             rdfs:comment "A thing that exists in time and space." ,
+                                          """from text 11.2: A spatio_temporal_extent may be part of one or more other spatio_temporal_extent. A spatio_temporal_extent may be part of one or more possible_world. In fact it must be part of a possible_world, unless it is a possible_world.
+so actually \"part_of some possible_world\" is actually incorrect""" ,
+                                          """part__of 	 :  	An aggregated_into relationship type where a spatio_temporal_extent may be part of another and the whole has emergent properties and is more than just the sum of its parts.
+Note: This relationship has the same meaning but is a different representation of the composition entity type.
+beginning 	 :  	A part_of relationship type where a spatio_temporal_extent has exactly one event that is its beginning.
+ending 	 :  	A part_of relationship type where a spatio_temporal_extent has exactly one event that is its ending.
+part_of_possible_world 	 :  	A part_of relationship type where a spatio_temporal_extent may be part_of one or more possible_world.
+Note: The relationship is optional because a possible_world is not part_of any other spatio_temporal_extent.
+member_of 	 :  	A member_of relationship type where a spatio_temporal_extent is a member_of a class_of_spatio_temporal_extent.
+temporal__part_of 	 :  	A part_of relationship type where a spatio_temporal_extent may be a temporal part of one or more other spatio_temporal_extent.
+Note: this is temporal_composition represented as a relationship instead of an entity type.
+aggregated_into 	 :  	A relationship type where a spatio_temporal_extent may be aggregated into one or more others.
+Note: This has the same meaning as, but different representation to, the aggregation entity type.
+consists__of 	 :  	A relationship type where a spatio_temporal_extent may consist of one or more others.
+Note: This is the inverse of part__of.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state
+:HQDM_state rdf:type owl:Class ;
+            rdfs:subClassOf :HQDM_spatio_temporal_extent ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :HQDM_temporal_part_of ;
+                              owl:someValuesFrom :HQDM_individual
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :HQDM_member_of ;
+                              owl:allValuesFrom :HQDM_class_of_state
+                            ] ;
+            rdfs:comment "A spatio_temporal_extent that is an individual or a temporal_part_of some individual." ,
+                         """From the text 11.2: A state is something for a period of time. A state might be a state of a car or a state of a person, or a state of a factory. Now for some states, the period that they are for is the whole of the life of something. These I shall call individuals. Examples of individuals include cars, persons, atoms, activities and brooms.
+useful in two different ways. They are the temporal part of an individual to which some property applies, and they are the temporal part of an individual that participates in an activity or association.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_activity
+:HQDM_state_of_activity rdf:type owl:Class ;
+                        rdfs:subClassOf :HQDM_state ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :HQDM_member_of ;
+                                          owl:allValuesFrom :HQDM_class_of_state_of_activity
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :HQDM_temporal_part_of ;
+                                          owl:allValuesFrom :HQDM_activity
+                                        ] ;
+                        rdfs:comment """A state that is an activity or a temporal_part_of an activity.
+
+temporal_part_of 	 :  	A temporal_part_of relationship type where a state_of_activity may be a temporal_part_of one or more activity.
+member_of 	 :  	A member_of relationship type where a state_of_activity may be a member_of one or more class_of_state_of_activity.""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_biological_object
+:HQDM_state_of_biological_object rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_state_of_physical_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_biological_system_component
+:HQDM_state_of_biological_system_component rdf:type owl:Class ;
+                                           rdfs:subClassOf :HQDM_state_of_system_component ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :HQDM_temporal_part_of ;
+                                                             owl:someValuesFrom :HQDM_biological_system_component
+                                                           ] .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_functional_system
+:HQDM_state_of_functional_system rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_state_of_ordinary_functional_object ,
+                                                 :HQDM_state_of_system ;
+                                 rdfs:comment "Any state_of_ordinary_functional_object that is also a state_of_system." .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_functional_system_component
+:HQDM_state_of_functional_system_component rdf:type owl:Class ;
+                                           rdfs:subClassOf :HQDM_state_of_intentionally_constructed_object ,
+                                                           :HQDM_state_of_system_component ;
+                                           rdfs:comment """A state_of_intentionally_constructed_object that is a system_component or a temporal_part_of a system_component.
+(meaning that it is a state_of_system_component, right?)""" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_intentionally_constructed_object
+:HQDM_state_of_intentionally_constructed_object rdf:type owl:Class ;
+                                                rdfs:subClassOf :HQDM_state .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_ordinary_biological_object
+:HQDM_state_of_ordinary_biological_object rdf:type owl:Class ;
+                                          rdfs:subClassOf :HQDM_state_of_biological_object ,
+                                                          :HQDM_state_of_ordinary_physical_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_ordinary_functional_object
+:HQDM_state_of_ordinary_functional_object rdf:type owl:Class ;
+                                          rdfs:subClassOf :HQDM_state_of_ordinary_physical_object ,
+                                                          :HQMD_state_of_functional_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_ordinary_physical_object
+:HQDM_state_of_ordinary_physical_object rdf:type owl:Class ;
+                                        rdfs:subClassOf :HQDM_state_of_physical_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_organization
+:HQDM_state_of_organization rdf:type owl:Class ;
+                            rdfs:subClassOf :HQDM_state_of_socially_constructed_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_organization_component
+:HQDM_state_of_organization_component rdf:type owl:Class ;
+                                      rdfs:subClassOf :HQDM_state_of_system_component .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_party
+:HQDM_state_of_party rdf:type owl:Class ;
+                     rdfs:subClassOf :HQDM_state_of_system .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_person
+:HQDM_state_of_person rdf:type owl:Class ;
+                      rdfs:subClassOf :HQMD_state_of_biological_system .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_physical_object
+:HQDM_state_of_physical_object rdf:type owl:Class ;
+                               rdfs:subClassOf :CoreConcepts ,
+                                               :HQDM_state ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :HQDM_member_of ;
+                                                 owl:allValuesFrom :HQDM_class_of_state_of_physical_object
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :HQDM_temporal_part_of ;
+                                                 owl:allValuesFrom :HQDM_physical_object
+                                               ] ;
+                               rdfs:comment "A state that is a physical_object or a temporal_part_of a physical_object." ,
+                                            "Note: I am calling these TemporalPartPhysicalObjects" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_socially_constructed_activity
+:HQDM_state_of_socially_constructed_activity rdf:type owl:Class ;
+                                             rdfs:subClassOf :HQDM_state_of_activity ,
+                                                             :HQDM_state_of_socially_constructed_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_socially_constructed_object
+:HQDM_state_of_socially_constructed_object rdf:type owl:Class ;
+                                           rdfs:subClassOf :HQDM_state_of_intentionally_constructed_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_system
+:HQDM_state_of_system rdf:type owl:Class ;
+                      rdfs:subClassOf :HQDM_state_of_ordinary_physical_object .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state_of_system_component
+:HQDM_state_of_system_component rdf:type owl:Class ;
+                                rdfs:subClassOf :HQDM_state_of_physical_object ;
+                                rdfs:comment "A state_of_physical_object that is a system_component or a temporal_part_of a system_component." ,
+                                             "example: this state of the right front wheel tire of my Toyota Prius when it is tire ABC" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_system
+:HQDM_system rdf:type owl:Class ;
+             rdfs:subClassOf :CoreConcepts ,
+                             :HQDM_ordinary_physical_object ,
+                             :HQDM_state_of_system ;
+             rdfs:comment "An ordinary_physical_object that is an organized or connected group of physical_object." ,
+                          "example: my Toyota Prius" ,
+                          "from text 14: A system is a complex physical object that consists of many components that play a role in how the system functions. Systems may be either naturally occurring, or intentionally constructed." ;
+             rdfs:label "Concrete System" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_system_component
+:HQDM_system_component rdf:type owl:Class ;
+                       rdfs:subClassOf :CoreConcepts ,
+                                       :HQDM_physical_object ,
+                                       :HQDM_state_of_system_component ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :HQDM_component_of ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :HQDM_system
+                                       ] ;
+                       rdfs:comment """A physical_object that is a component_of a system and that can be completely replaced without losing identity.
+Note: A system_component is existence dependent on the system it is a component of, unlike any ordinary_physical_object that may be installed as the component.""" ,
+                                    "From text 14: System components arise in systems, in particular in complex artifacts. In this case they are part of how we make things maintainable, and arise by design. For example, a system component means that when a part of the system fails, instead of the whole needing to be replaced, the part can be replaced by one that is identical, and the whole can be restored to use. Examples are engines on aircraft, pumps in process plant, and blades in rack mounted server farms." ,
+                                    "example: right front tire of my Toyota Prius" ;
+                       rdfs:isDefinedBy "note: vehicles and pedestrians are components of the traffic system" ;
+                       rdfs:label "System Component" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_temporal_composition
+:HQDM_temporal_composition rdf:type owl:Class ;
+                           rdfs:subClassOf :HQDM_composition ;
+                           rdfs:comment "A composition where the part is the entire whole spatially, but part of the whole temporally." ,
+                                        "From text 11.2: A temporal_composition is a composition where the part is the entire whole spatially, but only part of the whole temporally." ,
+                                        "from text 11.2: same as the temporal_part_of object property" .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_transferee
+:HQDM_transferee rdf:type owl:Class ;
+                 rdfs:subClassOf :HQDM_participant .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_transferor
+:HQDM_transferor rdf:type owl:Class ;
+                 rdfs:subClassOf :HQDM_participant .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQMD_state_of_biological_system
+:HQMD_state_of_biological_system rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_state_of_ordinary_biological_object ,
+                                                 :HQDM_state_of_system .
+
+
+###  http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQMD_state_of_functional_object
+:HQMD_state_of_functional_object rdf:type owl:Class ;
+                                 rdfs:subClassOf :HQDM_state_of_intentionally_constructed_object ,
+                                                 :HQDM_state_of_physical_object .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

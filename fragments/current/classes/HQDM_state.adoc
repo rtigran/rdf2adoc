@@ -1,0 +1,39 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_state
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_state
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_state
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_state
+
+|Subclass of
+|:HQDM_spatio_temporal_extent
+
+|Restriction
+|HQDM_temporal_part_of **some** HQDM_individual
+
+|Restriction
+|HQDM_member_of **only** HQDM_class_of_state
+
+|Comment
+|From the text 11.2: A state is something for a period of time. A state might be a state of a car or a state of a person, or a state of a factory. Now for some states, the period that they are for is the whole of the life of something. These I shall call individuals. Examples of individuals include cars, persons, atoms, activities and brooms.
+useful in two different ways. They are the temporal part of an individual to which some property applies, and they are the temporal part of an individual that participates in an activity or association.
+
+|===

@@ -1,0 +1,39 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= part_of_possible_world
+
+//Include information from owl files
+
+The following model provides an overview of :part_of_possible_world
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|part_of_possible_world
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#part_of_possible_world
+
+|Subproperty of
+|:HQDM_part_of
+
+|Has domain
+|:HQDM_spatio_temporal_extent
+
+|Has range
+|:HQDM_spatio_temporal_extent
+
+|Comment
+|A part_of relationship type where a spatio_temporal_extent may be part_of one or more possible_world.
+Note: The relationship is optional because a possible_world is not part_of any other spatio_temporal_extent.
+
+|===

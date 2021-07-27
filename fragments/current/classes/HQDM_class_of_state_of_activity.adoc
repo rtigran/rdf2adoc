@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_class_of_state_of_activity
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_class_of_state_of_activity
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_class_of_state_of_activity
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class_of_state_of_activity
+
+|Subclass of
+|:HQDM_class_of_state
+
+|===

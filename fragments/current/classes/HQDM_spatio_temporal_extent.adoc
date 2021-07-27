@@ -1,0 +1,45 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_spatio_temporal_extent
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_spatio_temporal_extent
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_spatio_temporal_extent
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_spatio_temporal_extent
+
+|Subclass of
+|:HQDM
+
+|Restriction
+|HQDM_ending **exactly** **1** HQDM_event
+
+|Restriction
+|HQDM_member_of **only** HQDM_class_of_spatio_temporal_extent
+
+|Restriction
+|HQDM_beginning **exactly** **1** HQDM_event
+
+|Restriction
+|HQDM_part_of **some** HQDM_possible_world
+
+|Comment
+|from text 11.2: A spatio_temporal_extent may be part of one or more other spatio_temporal_extent. A spatio_temporal_extent may be part of one or more possible_world. In fact it must be part of a possible_world, unless it is a possible_world.
+so actually "part_of some possible_world" is actually incorrect
+
+|===

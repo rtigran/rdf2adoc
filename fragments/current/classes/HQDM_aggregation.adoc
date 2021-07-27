@@ -1,0 +1,32 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_aggregation
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_aggregation
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_aggregation
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_aggregation
+
+|Subclass of
+|:HQDM_relationship
+
+|Comment
+|from text 11.2: same as aggregated_into
+
+|===

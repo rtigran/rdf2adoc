@@ -1,0 +1,35 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_installed_object
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_installed_object
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_installed_object
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_installed_object
+
+|Subclass of
+|:HQDM_state_of_ordinary_physical_object
+
+|Subclass of
+|:HQDM_state_of_system_component
+
+|Comment
+|A state_of_ordinary_physical_object that is also a state_of_system_component that is a temporal_part_of an ordinary_physical_object from when it is installed as a system_component to when it is removed.
+
+|===

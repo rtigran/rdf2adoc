@@ -1,0 +1,39 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_class
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_class
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_class
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_class
+
+|Subclass of
+|:HQDM_abstract_object
+
+|Restriction
+|HQDM_member_of **only** HQDM_class_of_class
+
+|Disjoint with
+|:HQDM_relationship
+
+|Comment
+|Note: I prefer to use category instead of class
+or alternatively "kind", "type" or "set"
+
+|===

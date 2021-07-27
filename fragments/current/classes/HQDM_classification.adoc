@@ -1,0 +1,41 @@
+// This file was created automatically by title Untitled Version 0.9  - 2021.05.03 Submitted by Steven Kraines and Jason Zhang.
+// DO NOT EDIT!
+
+= HQDM_classification
+
+//Include information from owl files
+
+The following model provides an overview of :HQDM_classification
+
+image::./images/{diagram_x}.png[alternative text]
+
+include::xx_yy_zz.adoc[]
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|HQDM_classification
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXOntologyHQDM.owl#HQDM_classification
+
+|Subclass of
+|:HQDM_relationship
+
+|Disjoint with
+|:HQDM_defined_relationship
+
+|Comment
+|A relationship where a thing is a member of a class.
+Note: This entity type is replicated as the member__of relationship.
+
+classifier 	 :  	A relationship type where a classification has exactly one classifier.
+member 	 :  	A relationship type where a classification has exactly one member.
+
+Note: this is the same as the member/classifies object properties, right?
+
+|===
