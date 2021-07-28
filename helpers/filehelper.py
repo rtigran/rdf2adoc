@@ -46,8 +46,8 @@ def prepare_filestructure() -> None:
         clean_filestructure(get_adoc_class_outpath())
     if get_adoc_prop_outpath():
         clean_filestructure(get_adoc_prop_outpath())
-    #if get_puml_inpath():
-    #    clean_filestructure(get_puml_inpath())
+    if get_puml_inpath():
+        clean_filestructure(get_puml_inpath())
     if get_diag_outpath():
         clean_filestructure(get_diag_outpath())
 

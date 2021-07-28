@@ -1,4 +1,7 @@
 from rdflib import Graph
+import os
+from os import listdir
+from os.path import isfile, join
 import subprocess
 from helpers import class_parser as cp
 from helpers import property_parser as pp
@@ -94,9 +97,11 @@ class RDF2adoc:
         try:
             if f.get_plantuml_jar():
                 f.logprint("plantuml starting...")
-                print(f.get_plantuml_jar(), f.get_puml_inpath(), f.get_diag_outpath())
-                #subprocess.run(["java", "-jar", f.get_plantuml_jar(), f.get_puml_inpath(), "-o", f.get_diag_outpath()])
-
+                path=f.get_puml_inpath()
+                for filename in os.listdir(path):
+                    puml_filename = os.path.join(path, filename)
+                    if os.path.isfile(puml_filename):
+                        subprocess.run(["java", "-jar", f.get_plantuml_jar(), puml_filename, "-o", f.get_diag_outpath()])
                 f.logprint("plantuml finished")
         except:
             f.logprint("no plantuml.jar defined or found")

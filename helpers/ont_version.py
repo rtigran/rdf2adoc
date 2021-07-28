@@ -1,5 +1,4 @@
-from rdflib import Graph, URIRef, BNode
-from rdflib.namespace import RDF, OWL, RDFS, DC
+from rdflib.namespace import RDF, OWL, RDFS
 
 
 def get_stat(g):
