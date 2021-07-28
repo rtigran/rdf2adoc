@@ -4,13 +4,13 @@ Used by the OpenXOntology project.
 `python rdf2adoc.py`
 
 ## Subfolder _'modules'_
-This folder contains ontology for test.
+This folder contains ontology file for test.
 
 ## Configuration
 The *configuration yaml* shall contain the following entries:
 
-* **`ont_inpath: "./modules/corePlus20210722.ttl" `**
-Path where the ontology file
+* **`ont_inpath: "./modules/" `**
+Path where the test ontology file reside
   
 * **`adoc_class_outpath: "./fragments/classes/"`**
 Path where the generated adoc-fragments for classes will be stored

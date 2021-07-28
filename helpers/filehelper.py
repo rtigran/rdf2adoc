@@ -1,4 +1,7 @@
 import os
+from os import listdir
+from os.path import isfile, join
+
 import yaml
 
 dic_config = {}
@@ -17,7 +20,9 @@ def load_config(configfile : str) -> bool:
 
 
 def get_ont_inpath() ->str:
-    return dic_config["ont_inpath"] if "ont_inpath" in dic_config else ""
+    path=dic_config["ont_inpath"]
+    ont_files=[f for f in listdir(path) if isfile(join(path,f))]
+    return join(path,ont_files[0])
 
 def get_adoc_class_outpath() -> str:
     return dic_config["adoc_class_outpath"] if "adoc_class_outpath" in dic_config else ""
