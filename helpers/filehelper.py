@@ -17,7 +17,6 @@ def load_config(configfile : str) -> bool:
 
 
 def get_ont_inpath() ->str:
-
     return dic_config["ont_inpath"] if "ont_inpath" in dic_config else ""
 
 def get_adoc_class_outpath() -> str:
@@ -26,6 +25,35 @@ def get_adoc_class_outpath() -> str:
 def get_adoc_prop_outpath() -> str:
     return dic_config["adoc_prop_outpath"] if "adoc_class_outpath" in dic_config else ""
 
+def get_puml_inpath() ->str:
+    return os.path.abspath(dic_config["puml_inpath"]) if "puml_inpath" in dic_config else ""
+
+def get_diag_outpath() -> str:
+    return os.path.abspath(dic_config["diag_outpath"]) if "diag_outpath" in dic_config else ""
+
+def get_plantuml_jar() -> str:
+    return os.path.abspath(dic_config["plantuml_jar"]) if "plantuml_jar" in dic_config else ""
+
+def prepare_filestructure() -> None:
+    if os.path.exists(dic_config["logfile"]):
+        os.remove(dic_config["logfile"])
+    if get_adoc_class_outpath():
+        clean_filestructure(get_adoc_class_outpath())
+    if get_adoc_prop_outpath():
+        clean_filestructure(get_adoc_prop_outpath())
+    #if get_puml_inpath():
+    #    clean_filestructure(get_puml_inpath())
+    if get_diag_outpath():
+        clean_filestructure(get_diag_outpath())
+
+def clean_filestructure(path : str) -> None:
+    if os.path.exists(path):
+        for filename in os.listdir(path):
+            fullfilename = os.path.join(path, filename)
+            if os.path.isfile(fullfilename):
+                os.remove(fullfilename)
+    else:
+        os.makedirs(path)
 
 def logprint(message : str, end=" ") -> None:
     try:
@@ -52,6 +80,6 @@ def log_error( message : str, file : str = "", line : int = -1,) -> None:
 
 def log_summary() -> None :
     if (errorcount):
-        logprint(f"Rdfdoc finished with {errorcount} WARNINGS")
+        logprint(f"rdf2adoc finished with {errorcount} WARNINGS")
     else:
-        logprint("Rdfdoc finished OK")
+        logprint("rdf2adoc finished OK")

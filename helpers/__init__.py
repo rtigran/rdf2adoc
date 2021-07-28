@@ -1,18 +1,22 @@
 from rdflib import Graph
+import subprocess
 from helpers import class_parser as cp
 from helpers import property_parser as pp
 from helpers import ont_version as v
+from helpers import filehelper as f
 
-class Rdfdoc:
-    def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, format='turtle'):
+class RDF2adoc:
+    def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, diag_outpath : str, format='turtle'):
         self.__filepath = filepath
         self.__class_outpath = class_outpath
         self.__prop_outpath = prop_outpath
+        self.__diag_outpath=diag_outpath
+
         self.g = Graph().parse(self.__filepath, format=format)
-        self.__version=v._get_version(self.g)
-        self.__stat=v._get_stat(self.g)
-        self.__classes = cp._get_classes(self.g)
-        self.__properties = pp._get_properties(self.g)
+        self.__version=v.get_version(self.g)
+        self.__stat=v.get_stat(self.g)
+        self.__classes = cp.get_classes(self.g)
+        self.__properties = pp.get_properties(self.g)
 
     @property
     def version(self):
@@ -31,10 +35,7 @@ class Rdfdoc:
                     fobj.write(f"= {class_name}\n\n")
                     fobj.write(f"//Include information from owl files\n\n")
                     fobj.write(f"The following model provides an overview of {prefix}:{class_name}\n\n")
-                    fobj.write("image::./images/{diagram_x}.png[alternative text]\n\n")
-                    fobj.write("include::xx_yy_zz.adoc[]\n\n")
                     fobj.write('|===\n|Element |Description\n\n')
-
                     fobj.write(f"|Type\n|owl:Class\n\n")
                     fobj.write(f"|Name\n|{class_name}\n\n")
                     fobj.write(f"|IRI\n|{class_uri}\n\n")
@@ -63,8 +64,6 @@ class Rdfdoc:
                     fobj.write(f"= {property_name}\n\n")
                     fobj.write(f"//Include information from owl files\n\n")
                     fobj.write(f"The following model provides an overview of {prefix}:{property_name}\n\n")
-                    fobj.write("image::./images/{diagram_x}.png[alternative text]\n\n")
-                    fobj.write("include::xx_yy_zz.adoc[]\n\n")
                     fobj.write('|===\n|Element |Description\n\n')
                     fobj.write(f"|Type\n|owl:ObjectProperty\n\n")
                     fobj.write(f"|Name\n|{property_name}\n\n")
@@ -91,4 +90,14 @@ class Rdfdoc:
 
                     fobj.write("|===")
 
+    def gen_diag(self):
+        try:
+            if f.get_plantuml_jar():
+                f.logprint("plantuml starting...")
+                print(f.get_plantuml_jar(), f.get_puml_inpath(), f.get_diag_outpath())
+                #subprocess.run(["java", "-jar", f.get_plantuml_jar(), f.get_puml_inpath(), "-o", f.get_diag_outpath()])
+
+                f.logprint("plantuml finished")
+        except:
+            f.logprint("no plantuml.jar defined or found")
 

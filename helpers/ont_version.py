@@ -2,10 +2,10 @@ from rdflib import Graph, URIRef, BNode
 from rdflib.namespace import RDF, OWL, RDFS, DC
 
 
-def _get_stat(g):
+def get_stat(g):
     return "Ontology has {} statements.".format(len(g))
 
-def _get_version(g):
+def get_version(g):
     version=_get_ontology_title(g) + _get_ontology_version(g)
     return version
 

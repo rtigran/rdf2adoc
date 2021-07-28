@@ -1,7 +1,7 @@
 from helpers import uri_parser as up
 from rdflib.namespace import RDF, OWL, RDFS, DC
 
-def _get_class_definition(g, owl_class):
+def get_class_definition(g, owl_class):
     parsed_uri = up._make_fragment_uri(g, owl_class)
     class_name = parsed_uri['name']
     prefix = parsed_uri['prefix']
@@ -14,12 +14,12 @@ def _get_class_definition(g, owl_class):
     f"{str(owl_class)}", f"{prefix}", f"{class_name}", f"{label}", f"{comment}", superclass, restrictions, disjoints)
 
 
-def _get_classes(g):
+def get_classes(g):
     classes = []
     for owl_class, _, _ in g.triples((None, RDF.type, OWL.Class)):
-        classes.append(_get_class_definition(g, owl_class))
+        classes.append(get_class_definition(g, owl_class))
         for _, _, equivalent_class in g.triples((owl_class, OWL.equivalentClass, None)):
-            classes.append(_get_class_definition(g, equivalent_class))
+            classes.append(get_class_definition(g, equivalent_class))
     return classes
 
 
@@ -55,9 +55,9 @@ def _convert_restriction(G, restriction_bn):
     for p2, o2 in G.predicate_objects(subject=restriction_bn):
         if p2 != RDF.type:
             if p2 == OWL.onProperty:
-                prop = up.get_last_segment_of_uri(o2)
+                prop = up._get_last_segment_of_uri(o2)
             elif p2 == OWL.onClass:
-                cls = up.get_last_segment_of_uri(o2)
+                cls = up._get_last_segment_of_uri(o2)
             elif p2 in [
                 OWL.cardinality,
                 OWL.qualifiedCardinality,
@@ -79,10 +79,10 @@ def _convert_restriction(G, restriction_bn):
                 else:  # p2 == OWL.someValuesFrom
                     card = "some"
 
-                card = '**{}** {}'.format(card, up.get_last_segment_of_uri(o2))
+                card = '**{}** {}'.format(card, up._get_last_segment_of_uri(o2))
 
             elif p2 == OWL.hasValue:
-                card = '**value** {}'.format(up.get_last_segment_of_uri(o2))
+                card = '**value** {}'.format(up._get_last_segment_of_uri(o2))
 
     restriction = prop + " " + card if card is not None else prop
     restriction = restriction + " " + cls if cls is not None else restriction

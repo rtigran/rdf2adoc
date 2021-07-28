@@ -7,10 +7,6 @@
 
 The following model provides an overview of :occursBefore
 
-image::./images/{diagram_x}.png[alternative text]
-
-include::xx_yy_zz.adoc[]
-
 |===
 |Element |Description
 
