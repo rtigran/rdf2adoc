@@ -12,8 +12,8 @@ The *configuration yaml* shall contain the following entries:
 * **`ont_inpath: "./modules/corePlus20210722.ttl" `**
 Path where the ontology file
   
-* **`adoc_prop_outpath: "./fragments/properties/"`**
-Path where the generated adoc-fragments for properties will be stored
+* **`adoc_class_outpath: "./fragments/classes/"`**
+Path where the generated adoc-fragments for classes will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
 * **`adoc_prop_outpath: "./fragments/properties/"`**
