@@ -1,12 +1,13 @@
 from helpers import RDF2adoc as r
 from helpers import filehelper as f
+from datetime import datetime
 import sys
 
 config_ok = False
 
 try:
     config_ok = f.load_config("./rdf2adoc_config.yml")
-    f.logprint("rdf2adoc start")
+    f.logprint("rdf2adoc start at ", datetime.now().strftime("%H:%M:%S"))
 except:
     if not config_ok:
         print("Please provide a config.yml file")
@@ -25,6 +26,7 @@ def main(ont_inpath, class_outpath, prop_outpath, diag_outpath):
     f.logprint(rdoc.stat)
     rdoc.gen_class_adoc()
     rdoc.gen_prop_adoc()
+    rdoc.gen_puml()
     rdoc.gen_diag()
 
 if __name__ == '__main__':

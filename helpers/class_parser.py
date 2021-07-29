@@ -10,8 +10,8 @@ def get_class_definition(g, owl_class):
     superclass = get_superclass(owl_class, g)
     restrictions = get_restrictions(owl_class, g)
     disjoints = get_disjoints(owl_class, g)
-    return (
-    f"{str(owl_class)}", f"{prefix}", f"{class_name}", f"{label}", f"{comment}", superclass, restrictions, disjoints)
+    properties = get_properties(owl_class, g)
+    return (owl_class, f"{prefix}", f"{class_name}", f"{label}", f"{comment}", superclass, restrictions, disjoints, properties)
 
 
 def get_classes(g):
@@ -33,10 +33,10 @@ def get_superclass(owl_class, g):
             parsed_uri = up._make_fragment_uri(g, super_class)
             super_class_prefix = parsed_uri['prefix']
             super_class_name = parsed_uri['name']
-            superclass.append(f"{super_class_prefix}:{super_class_name}")
+            superclass.append(f"{super_class_name}")
 
     if superclass == []:
-        superclass = ['owl:Thing']
+        superclass = ['Thing']
 
     return superclass
 
@@ -113,3 +113,28 @@ def get_disjoints(owl_class, g):
         disjoints.append(f"{disjoint_class_prefix}:{disjoint_class_name}")
 
     return disjoints
+
+def get_properties(owl_class, g):
+    plant_uml = ''
+
+    for rdf_property, _, _ in g.triples((None, RDF.type, OWL.ObjectProperty)):
+
+        for _, _, rdfs_range in g.triples((rdf_property, RDFS.range, None)):
+
+            for _, _, rdfs_domain in g.triples((rdf_property, RDFS.domain, None)):
+
+                if rdfs_domain ==owl_class:
+
+                    parsed_rdfs_range = up._make_fragment_uri(g, rdfs_range)
+                    parsed_rdfs_range_name = parsed_rdfs_range['name']
+
+                    parsed_rdfs_rdf_property = up._make_fragment_uri(g, rdf_property)
+                    parsed_rdfs_rdf_property_name = parsed_rdfs_rdf_property['name']
+
+                    plant_uml += f'- {parsed_rdfs_rdf_property_name} : {parsed_rdfs_range_name} \n'
+
+
+                break
+            break
+
+    return plant_uml

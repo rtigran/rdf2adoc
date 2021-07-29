@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 from os import listdir
 from os.path import isfile, join
@@ -87,4 +88,4 @@ def log_summary() -> None :
     if (errorcount):
         logprint(f"rdf2adoc finished with {errorcount} WARNINGS")
     else:
-        logprint("rdf2adoc finished OK")
+        logprint("rdf2adoc finished OK at ", datetime.now().strftime("%H:%M:%S"))
