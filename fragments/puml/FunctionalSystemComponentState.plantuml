@@ -1,0 +1,21 @@
+@startuml
+Title FunctionalSystemComponentState 
+
+Card FunctionalSystemComponentState #fff [
+FunctionalSystemComponentState
+]
+Card FunctionalObjectState #fff [
+FunctionalObjectState
+----
+- intendedRole : Role 
+
+]
+FunctionalObjectState --|> FunctionalSystemComponentState  #000 
+Card SystemComponentState #fff [
+SystemComponentState
+----
+- componentOf : SystemState 
+
+]
+SystemComponentState --|> FunctionalSystemComponentState  #000 
+@enduml

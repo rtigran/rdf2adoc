@@ -1,0 +1,14 @@
+@startuml
+Title Classification 
+
+Card Classification #fff [
+Classification
+----
+- classifier : Set 
+
+]
+Card Relationship #fff [
+Relationship
+]
+Relationship --|> Classification  #000 
+@enduml

@@ -1,0 +1,30 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= InstalledObject
+
+//Include information from owl files
+
+The following model provides an overview of :InstalledObject
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|InstalledObject
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#InstalledObject
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comment
+|A OrdinaryPhysicalObjectState that is also a SystemComponentState that is a temporalPartOf an OrdinaryPhysicalObject from when it is installed as a SystemComponent to when it is removed.
+
+example: the temporal component actual tire that is installed on the right front wheel of my Prius (tire ABC) for the duration of the installation - same as the corresponding SystemComponentState
+
+|===

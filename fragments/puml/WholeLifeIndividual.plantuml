@@ -1,0 +1,11 @@
+@startuml
+Title WholeLifeIndividual 
+
+Card WholeLifeIndividual #fff [
+WholeLifeIndividual
+]
+Card State #fff [
+State
+]
+State --|> WholeLifeIndividual  #000 
+@enduml

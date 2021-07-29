@@ -1,0 +1,11 @@
+@startuml
+Title InstalledObject 
+
+Card InstalledObject #fff [
+InstalledObject
+]
+Card OrdinaryPhysicalObjectState #fff [
+OrdinaryPhysicalObjectState
+]
+OrdinaryPhysicalObjectState --|> InstalledObject  #000 
+@enduml

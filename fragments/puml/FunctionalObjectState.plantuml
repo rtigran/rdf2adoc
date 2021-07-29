@@ -1,0 +1,22 @@
+@startuml
+Title FunctionalObjectState 
+
+Card FunctionalObjectState #fff [
+FunctionalObjectState
+----
+- intendedRole : Role 
+
+]
+Card IntentionallyConstructedObjectState #fff [
+IntentionallyConstructedObjectState
+]
+IntentionallyConstructedObjectState --|> FunctionalObjectState  #000 
+Card PhysicalObjectState #fff [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+
+]
+PhysicalObjectState --|> FunctionalObjectState  #000 
+@enduml

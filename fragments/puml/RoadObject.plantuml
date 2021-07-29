@@ -1,0 +1,16 @@
+@startuml
+Title RoadObject 
+
+Card RoadObject #fff [
+RoadObject
+----
+- driveableTo : RoadObject 
+- hasPredecessor : RoadObject 
+- hasSuccessor : RoadObject 
+
+]
+Card FunctionalSystemComponentState #fff [
+FunctionalSystemComponentState
+]
+FunctionalSystemComponentState --|> RoadObject  #000 
+@enduml

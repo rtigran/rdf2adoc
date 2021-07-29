@@ -1,0 +1,15 @@
+@startuml
+Title SpatioTemporalExtent 
+
+Card SpatioTemporalExtent #fff [
+SpatioTemporalExtent
+----
+- aggregatedInto : SpatioTemporalExtent 
+- hasPart : SpatioTemporalExtent 
+
+]
+Card Thing #fff [
+Thing
+]
+Thing --|> SpatioTemporalExtent  #000 
+@enduml

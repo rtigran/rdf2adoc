@@ -1,0 +1,18 @@
+@startuml
+Title SystemComponentState 
+
+Card SystemComponentState #fff [
+SystemComponentState
+----
+- componentOf : SystemState 
+
+]
+Card PhysicalObjectState #fff [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+
+]
+PhysicalObjectState --|> SystemComponentState  #000 
+@enduml

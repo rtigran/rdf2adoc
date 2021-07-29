@@ -1,0 +1,15 @@
+@startuml
+Title PhysicalObjectState 
+
+Card PhysicalObjectState #fff [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+
+]
+Card State #fff [
+State
+]
+State --|> PhysicalObjectState  #000 
+@enduml

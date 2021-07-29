@@ -1,0 +1,11 @@
+@startuml
+Title SetOfEvents 
+
+Card SetOfEvents #fff [
+SetOfEvents
+]
+Card SetOfSpatioTemporalExtents #fff [
+SetOfSpatioTemporalExtents
+]
+SetOfSpatioTemporalExtents --|> SetOfEvents  #000 
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+Title Vehicle 
+
+Card Vehicle #fff [
+Vehicle
+]
+Card TrafficParticipant #fff [
+TrafficParticipant
+]
+TrafficParticipant --|> Vehicle  #000 
+@enduml

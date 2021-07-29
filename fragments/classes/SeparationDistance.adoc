@@ -1,0 +1,33 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SeparationDistance
+
+//Include information from owl files
+
+The following model provides an overview of :SeparationDistance
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SeparationDistance
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#SeparationDistance
+
+|Subclass of
+|SpatialRelation
+
+|Restriction
+|hasDistance **some** LengthQuantity
+
+|Comment
+|A SpatialRelation that also has a distance -> gives a complete description of a vector giving exact relative position
+
+should we add LongitudinalOffset and LatitudinalOffset?
+
+|===

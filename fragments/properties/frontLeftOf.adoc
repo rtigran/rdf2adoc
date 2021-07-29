@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= frontLeftOf
+
+//Include information from owl files
+
+The following model provides an overview of :frontLeftOf
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|frontLeftOf
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#frontLeftOf
+
+|Subproperty of
+|:hasRelativePosition
+
+|Characteristic
+|Asymmetric
+
+|===

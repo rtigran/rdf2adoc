@@ -1,0 +1,19 @@
+@startuml
+Title WholeLifeActivity 
+
+Card WholeLifeActivity #fff [
+WholeLifeActivity
+]
+Card ActivityState #fff [
+ActivityState
+----
+- causes : Event 
+- hasParticipant : Participant 
+
+]
+ActivityState --|> WholeLifeActivity  #000 
+Card WholeLifeIndividual #fff [
+WholeLifeIndividual
+]
+WholeLifeIndividual --|> WholeLifeActivity  #000 
+@enduml

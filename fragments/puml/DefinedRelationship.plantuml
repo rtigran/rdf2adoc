@@ -1,0 +1,14 @@
+@startuml
+Title DefinedRelationship 
+
+Card DefinedRelationship #fff [
+DefinedRelationship
+----
+- involves : Classification 
+
+]
+Card Relationship #fff [
+Relationship
+]
+Relationship --|> DefinedRelationship  #000 
+@enduml

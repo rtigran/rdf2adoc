@@ -1,0 +1,11 @@
+@startuml
+Title PeriodOfTime 
+
+Card PeriodOfTime #fff [
+PeriodOfTime
+]
+Card State #fff [
+State
+]
+State --|> PeriodOfTime  #000 
+@enduml

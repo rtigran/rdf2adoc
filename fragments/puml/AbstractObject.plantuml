@@ -1,0 +1,11 @@
+@startuml
+Title AbstractObject 
+
+Card AbstractObject #fff [
+AbstractObject
+]
+Card Thing #fff [
+Thing
+]
+Thing --|> AbstractObject  #000 
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+Title SpatialLocation 
+
+Card SpatialLocation #fff [
+SpatialLocation
+]
+Card Geometry #fff [
+Geometry
+]
+Geometry --|> SpatialLocation  #000 
+@enduml

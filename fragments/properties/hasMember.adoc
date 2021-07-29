@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasMember
+
+//Include information from owl files
+
+The following model provides an overview of :hasMember
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasMember
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasMember
+
+|Has domain
+|:Set
+
+|Inverse
+|:memberOf
+
+|Characteristic
+|Asymmetric
+
+|Comment
+|a set can have anything of the respective type as a member (so a SetOfActivities can have an Activity as a member)
+
+|===

@@ -1,0 +1,14 @@
+@startuml
+Title RuleViolatingEntity 
+
+Card RuleViolatingEntity #fff [
+RuleViolatingEntity
+----
+- violatesTrafficRule : TrafficRule 
+
+]
+Card State #fff [
+State
+]
+State --|> RuleViolatingEntity  #000 
+@enduml

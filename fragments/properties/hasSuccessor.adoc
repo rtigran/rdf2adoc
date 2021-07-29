@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasSuccessor
+
+//Include information from owl files
+
+The following model provides an overview of :hasSuccessor
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasSuccessor
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasSuccessor
+
+|Has domain
+|:RoadObject
+
+|Has range
+|:RoadObject
+
+|Characteristic
+|Asymmetric
+
+|Comment
+|from OpenDRIVE - will be moved to domain ontology
+
+|===

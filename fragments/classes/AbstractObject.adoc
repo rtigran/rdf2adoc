@@ -1,0 +1,31 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= AbstractObject
+
+//Include information from owl files
+
+The following model provides an overview of :AbstractObject
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|AbstractObject
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#AbstractObject
+
+|Subclass of
+|Thing
+
+|Disjoint with
+|:SpatioTemporalExtent
+
+|Comment
+|A thing that does not exist in space or time.
+
+|===

@@ -1,0 +1,11 @@
+@startuml
+Title Pedestrian 
+
+Card Pedestrian #fff [
+Pedestrian
+]
+Card TrafficParticipant #fff [
+TrafficParticipant
+]
+TrafficParticipant --|> Pedestrian  #000 
+@enduml

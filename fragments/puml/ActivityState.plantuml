@@ -1,0 +1,15 @@
+@startuml
+Title ActivityState 
+
+Card ActivityState #fff [
+ActivityState
+----
+- causes : Event 
+- hasParticipant : Participant 
+
+]
+Card State #fff [
+State
+]
+State --|> ActivityState  #000 
+@enduml

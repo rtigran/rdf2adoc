@@ -1,0 +1,11 @@
+@startuml
+Title SetOfParticipants 
+
+Card SetOfParticipants #fff [
+SetOfParticipants
+]
+Card SetOfPhysicalObjectStates #fff [
+SetOfPhysicalObjectStates
+]
+SetOfPhysicalObjectStates --|> SetOfParticipants  #000 
+@enduml

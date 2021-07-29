@@ -1,0 +1,11 @@
+@startuml
+Title WholeLifeSystem 
+
+Card WholeLifeSystem #fff [
+WholeLifeSystem
+]
+Card SystemState #fff [
+SystemState
+]
+SystemState --|> WholeLifeSystem  #000 
+@enduml

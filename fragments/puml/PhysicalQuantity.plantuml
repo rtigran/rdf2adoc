@@ -1,0 +1,22 @@
+@startuml
+Title PhysicalQuantity 
+
+Card PhysicalQuantity #fff [
+PhysicalQuantity
+----
+- approximatelyEqualTo : PhysicalQuantity 
+- defines : PhysicalQuantity 
+- hasQuantityRelation : PhysicalQuantity 
+- quantityEqualTo : PhysicalQuantity 
+- quantityGreaterThan : PhysicalQuantity 
+- quantityGreaterThanOrEqualTo : PhysicalQuantity 
+- quantityLessThan : PhysicalQuantity 
+- quantityLessThanOrEqualTo : PhysicalQuantity 
+- quantityNotEqualTo : PhysicalQuantity 
+
+]
+Card PhysicalProperty #fff [
+PhysicalProperty
+]
+PhysicalProperty --|> PhysicalQuantity  #000 
+@enduml

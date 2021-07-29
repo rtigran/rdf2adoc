@@ -1,0 +1,14 @@
+@startuml
+Title Trajectory 
+
+Card Trajectory #fff [
+Trajectory
+----
+- obstructedBy : PhysicalObjectState 
+
+]
+Card Geometry #fff [
+Geometry
+]
+Geometry --|> Trajectory  #000 
+@enduml

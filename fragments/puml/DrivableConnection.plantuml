@@ -1,0 +1,11 @@
+@startuml
+Title DrivableConnection 
+
+Card DrivableConnection #fff [
+DrivableConnection
+]
+Card SpatialConnection #fff [
+SpatialConnection
+]
+SpatialConnection --|> DrivableConnection  #000 
+@enduml

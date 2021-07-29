@@ -1,0 +1,18 @@
+@startuml
+Title Participant 
+
+Card Participant #fff [
+Participant
+----
+- participantOf : ActivityState 
+
+]
+Card PhysicalObjectState #fff [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+
+]
+PhysicalObjectState --|> Participant  #000 
+@enduml

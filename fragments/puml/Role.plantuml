@@ -1,0 +1,15 @@
+@startuml
+Title Role 
+
+Card Role #fff [
+Role
+]
+Card Kind #fff [
+Kind
+]
+Kind --|> Role  #000 
+Card SetOfParticipants #fff [
+SetOfParticipants
+]
+SetOfParticipants --|> Role  #000 
+@enduml

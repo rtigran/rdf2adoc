@@ -1,0 +1,37 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= ActivityState
+
+//Include information from owl files
+
+The following model provides an overview of :ActivityState
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|ActivityState
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#ActivityState
+
+|Subclass of
+|State
+
+|Restriction
+|memberOf **only** SetOfActivityStates
+
+|Restriction
+|temporalPartOf **only** WholeLifeActivity
+
+|Disjoint with
+|:PhysicalObjectState
+
+|Comment
+|A state that is a WholeLifeActivity or a temporalPartOf a WholeLifeActivity.
+
+|===

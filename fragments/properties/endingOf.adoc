@@ -1,0 +1,36 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= endingOf
+
+//Include information from owl files
+
+The following model provides an overview of :endingOf
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|endingOf
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#endingOf
+
+|Subproperty of
+|:temporalPartOf
+
+|Has domain
+|:Event
+
+|Inverse
+|:hasEnding
+
+|Comment
+|A partOf relationship type where a SpatioTemporalExtent has exactly one event that is its ending.
+
+from text 11.2: beginning and ending are examples of the TemporalComposition relationship
+
+|===

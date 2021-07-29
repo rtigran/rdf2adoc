@@ -1,0 +1,11 @@
+@startuml
+Title PhysicalProperty 
+
+Card PhysicalProperty #fff [
+PhysicalProperty
+]
+Card SetOfStates #fff [
+SetOfStates
+]
+SetOfStates --|> PhysicalProperty  #000 
+@enduml

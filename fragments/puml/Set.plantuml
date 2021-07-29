@@ -1,0 +1,11 @@
+@startuml
+Title Set 
+
+Card Set #fff [
+Set
+]
+Card AbstractObject #fff [
+AbstractObject
+]
+AbstractObject --|> Set  #000 
+@enduml

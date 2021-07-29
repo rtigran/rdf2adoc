@@ -1,0 +1,15 @@
+@startuml
+Title Composition 
+
+Card Composition #fff [
+Composition
+]
+Card Aggregation #fff [
+Aggregation
+----
+- part : SpatioTemporalExtent 
+- whole : SpatioTemporalExtent 
+
+]
+Aggregation --|> Composition  #000 
+@enduml

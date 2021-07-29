@@ -1,0 +1,19 @@
+@startuml
+Title WholeLifePhysicalObject 
+
+Card WholeLifePhysicalObject #fff [
+WholeLifePhysicalObject
+]
+Card PhysicalObjectState #fff [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+
+]
+PhysicalObjectState --|> WholeLifePhysicalObject  #000 
+Card WholeLifeIndividual #fff [
+WholeLifeIndividual
+]
+WholeLifeIndividual --|> WholeLifePhysicalObject  #000 
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+Title TrafficParticipant 
+
+Card TrafficParticipant #fff [
+TrafficParticipant
+]
+Card Participant #fff [
+Participant
+----
+- participantOf : ActivityState 
+
+]
+Participant --|> TrafficParticipant  #000 
+@enduml

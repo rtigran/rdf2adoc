@@ -1,0 +1,31 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= ControllerObject
+
+//Include information from owl files
+
+The following model provides an overview of :ControllerObject
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|ControllerObject
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#ControllerObject
+
+|Subclass of
+|State
+
+|Restriction
+|controls **some** SpatioTemporalExtent
+
+|Comment
+|State that is controlling some other state.
+
+|===

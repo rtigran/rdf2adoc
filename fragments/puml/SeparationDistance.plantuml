@@ -1,0 +1,19 @@
+@startuml
+Title SeparationDistance 
+
+Card SeparationDistance #fff [
+SeparationDistance
+----
+- occludedBy : PhysicalObjectState 
+
+]
+Card SpatialRelation #fff [
+SpatialRelation
+----
+- hasRelationDirection : DirectionQuantity 
+- hasSpatialObject : PhysicalObjectState 
+- hasSpatialSubject : PhysicalObjectState 
+
+]
+SpatialRelation --|> SeparationDistance  #000 
+@enduml

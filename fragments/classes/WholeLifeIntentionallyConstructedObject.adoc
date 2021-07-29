@@ -1,0 +1,31 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeIntentionallyConstructedObject
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeIntentionallyConstructedObject
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeIntentionallyConstructedObject
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeIntentionallyConstructedObject
+
+|Subclass of
+|IntentionallyConstructedObjectState
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comment
+|A whole life individual that is what it is in part at least as an act of will.
+
+|===

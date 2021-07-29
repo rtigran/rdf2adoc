@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= WholeLifeFunctionalObject
+
+//Include information from owl files
+
+The following model provides an overview of :WholeLifeFunctionalObject
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|WholeLifeFunctionalObject
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#WholeLifeFunctionalObject
+
+|Subclass of
+|FunctionalObjectState
+
+|Subclass of
+|WholeLifeIntentionallyConstructedObject
+
+|Subclass of
+|WholeLifePhysicalObject
+
+|Comment
+|An IntentionallyConstructedObject that is also a PhysicalObject that has an intendedRole.
+
+|===

@@ -1,0 +1,15 @@
+@startuml
+Title WholeLifeBiologicalObject 
+
+Card WholeLifeBiologicalObject #fff [
+WholeLifeBiologicalObject
+]
+Card BiologicalObjectState #fff [
+BiologicalObjectState
+]
+BiologicalObjectState --|> WholeLifeBiologicalObject  #000 
+Card WholeLifePhysicalObject #fff [
+WholeLifePhysicalObject
+]
+WholeLifePhysicalObject --|> WholeLifeBiologicalObject  #000 
+@enduml

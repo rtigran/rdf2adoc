@@ -1,0 +1,19 @@
+@startuml
+Title SpatialRelation 
+
+Card SpatialRelation #fff [
+SpatialRelation
+----
+- hasRelationDirection : DirectionQuantity 
+- hasSpatialObject : PhysicalObjectState 
+- hasSpatialSubject : PhysicalObjectState 
+
+]
+Card DefinedRelationship #fff [
+DefinedRelationship
+----
+- involves : Classification 
+
+]
+DefinedRelationship --|> SpatialRelation  #000 
+@enduml

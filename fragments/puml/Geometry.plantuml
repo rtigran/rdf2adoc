@@ -1,0 +1,11 @@
+@startuml
+Title Geometry 
+
+Card Geometry #fff [
+Geometry
+]
+Card PhysicalProperty #fff [
+PhysicalProperty
+]
+PhysicalProperty --|> Geometry  #000 
+@enduml

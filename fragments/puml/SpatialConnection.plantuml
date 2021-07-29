@@ -1,0 +1,20 @@
+@startuml
+Title SpatialConnection 
+
+Card SpatialConnection #fff [
+SpatialConnection
+]
+Card ConnectionRelation #fff [
+ConnectionRelation
+]
+ConnectionRelation --|> SpatialConnection  #000 
+Card SpatialRelation #fff [
+SpatialRelation
+----
+- hasRelationDirection : DirectionQuantity 
+- hasSpatialObject : PhysicalObjectState 
+- hasSpatialSubject : PhysicalObjectState 
+
+]
+SpatialRelation --|> SpatialConnection  #000 
+@enduml

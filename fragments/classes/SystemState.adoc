@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= SystemState
+
+//Include information from owl files
+
+The following model provides an overview of :SystemState
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|SystemState
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#SystemState
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comment
+|A OrdinaryPhysicalObjectState that is a WholeLifeSystem or a temporalPartOf a WholeLifeSystem.
+
+|===

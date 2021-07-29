@@ -1,0 +1,11 @@
+@startuml
+Title IntentionallyConstructedObjectState 
+
+Card IntentionallyConstructedObjectState #fff [
+IntentionallyConstructedObjectState
+]
+Card State #fff [
+State
+]
+State --|> IntentionallyConstructedObjectState  #000 
+@enduml

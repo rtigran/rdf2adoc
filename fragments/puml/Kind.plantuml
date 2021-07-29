@@ -1,0 +1,11 @@
+@startuml
+Title Kind 
+
+Card Kind #fff [
+Kind
+]
+Card Set #fff [
+Set
+]
+Set --|> Kind  #000 
+@enduml

@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= hasHeading
+
+//Include information from owl files
+
+The following model provides an overview of :hasHeading
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|hasHeading
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#hasHeading
+
+|Subproperty of
+|:hasDirection
+
+|Has domain
+|:PhysicalObjectState
+
+|===

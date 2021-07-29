@@ -1,0 +1,22 @@
+@startuml
+Title WholeLifeFunctionalObject 
+
+Card WholeLifeFunctionalObject #fff [
+WholeLifeFunctionalObject
+]
+Card FunctionalObjectState #fff [
+FunctionalObjectState
+----
+- intendedRole : Role 
+
+]
+FunctionalObjectState --|> WholeLifeFunctionalObject  #000 
+Card WholeLifeIntentionallyConstructedObject #fff [
+WholeLifeIntentionallyConstructedObject
+]
+WholeLifeIntentionallyConstructedObject --|> WholeLifeFunctionalObject  #000 
+Card WholeLifePhysicalObject #fff [
+WholeLifePhysicalObject
+]
+WholeLifePhysicalObject --|> WholeLifeFunctionalObject  #000 
+@enduml

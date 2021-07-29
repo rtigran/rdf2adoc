@@ -1,0 +1,15 @@
+@startuml
+Title Aggregation 
+
+Card Aggregation #fff [
+Aggregation
+----
+- part : SpatioTemporalExtent 
+- whole : SpatioTemporalExtent 
+
+]
+Card Relationship #fff [
+Relationship
+]
+Relationship --|> Aggregation  #000 
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+Title TrafficRule 
+
+Card TrafficRule #fff [
+TrafficRule
+]
+Card Thing #fff [
+Thing
+]
+Thing --|> TrafficRule  #000 
+@enduml

@@ -1,0 +1,31 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= violatesTrafficRule
+
+//Include information from owl files
+
+The following model provides an overview of :violatesTrafficRule
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|violatesTrafficRule
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#violatesTrafficRule
+
+|Has domain
+|:RuleViolatingEntity
+
+|Has range
+|:RuleViolatingEntity
+
+|Comment
+|This will probably be moved to domain ontology
+
+|===

@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= PhysicalQuantity
+
+//Include information from owl files
+
+The following model provides an overview of :PhysicalQuantity
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|PhysicalQuantity
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#PhysicalQuantity
+
+|Subclass of
+|PhysicalProperty
+
+|Comment
+|HQDM physical_quantity
+
+|===

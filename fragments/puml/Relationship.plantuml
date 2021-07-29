@@ -1,0 +1,11 @@
+@startuml
+Title Relationship 
+
+Card Relationship #fff [
+Relationship
+]
+Card AbstractObject #fff [
+AbstractObject
+]
+AbstractObject --|> Relationship  #000 
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+Title PossibleWorld 
+
+Card PossibleWorld #fff [
+PossibleWorld
+]
+Card PeriodOfTime #fff [
+PeriodOfTime
+]
+PeriodOfTime --|> PossibleWorld  #000 
+Card WholeLifeIndividual #fff [
+WholeLifeIndividual
+]
+WholeLifeIndividual --|> PossibleWorld  #000 
+@enduml

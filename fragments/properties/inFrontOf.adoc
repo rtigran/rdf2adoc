@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= inFrontOf
+
+//Include information from owl files
+
+The following model provides an overview of :inFrontOf
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|inFrontOf
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#inFrontOf
+
+|Subproperty of
+|:hasRelativePosition
+
+|Characteristic
+|Asymmetric
+
+|===

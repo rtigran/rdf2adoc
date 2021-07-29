@@ -1,0 +1,34 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= defines
+
+//Include information from owl files
+
+The following model provides an overview of :defines
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|defines
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#defines
+
+|Has domain
+|:PhysicalQuantity
+
+|Has range
+|:PhysicalQuantity
+
+|Characteristic
+|Transitive
+
+|Comment
+|defines = isDeterminedBy / isDependentOn: used to relate numerical parameters >> dependsOn(Quantity, Quantity)
+
+|===

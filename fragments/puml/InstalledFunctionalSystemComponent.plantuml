@@ -1,0 +1,15 @@
+@startuml
+Title InstalledFunctionalSystemComponent 
+
+Card InstalledFunctionalSystemComponent #fff [
+InstalledFunctionalSystemComponent
+]
+Card FunctionalSystemComponentState #fff [
+FunctionalSystemComponentState
+]
+FunctionalSystemComponentState --|> InstalledFunctionalSystemComponent  #000 
+Card InstalledObject #fff [
+InstalledObject
+]
+InstalledObject --|> InstalledFunctionalSystemComponent  #000 
+@enduml

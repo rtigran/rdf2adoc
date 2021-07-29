@@ -1,0 +1,25 @@
+@startuml
+Title RelativeLocation 
+
+Card RelativeLocation #fff [
+RelativeLocation
+----
+- hasEdgeAlignment : EdgeAlignmentType 
+- hasXoffset : LengthQuantity 
+- hasYoffset : LengthQuantity 
+
+]
+Card SpatialLocation #fff [
+SpatialLocation
+]
+SpatialLocation --|> RelativeLocation  #000 
+Card SpatialRelation #fff [
+SpatialRelation
+----
+- hasRelationDirection : DirectionQuantity 
+- hasSpatialObject : PhysicalObjectState 
+- hasSpatialSubject : PhysicalObjectState 
+
+]
+SpatialRelation --|> RelativeLocation  #000 
+@enduml

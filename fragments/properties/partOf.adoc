@@ -1,0 +1,29 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= partOf
+
+//Include information from owl files
+
+The following model provides an overview of :partOf
+
+|===
+|Element |Description
+
+|Type
+|owl:ObjectProperty
+
+|Name
+|partOf
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#partOf
+
+|Subproperty of
+|:aggregatedInto
+
+|Comment
+|An aggregatedInto relationship type where a SpatioTemporalExtent may be part of another and the whole has emergent properties and is more than just the sum of its parts
+Note: This relationship has the same meaning but is a different representation of the composition entity type.
+
+|===

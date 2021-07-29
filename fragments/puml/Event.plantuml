@@ -1,0 +1,18 @@
+@startuml
+Title Event 
+
+Card Event #fff [
+Event
+----
+- hasRelativeTime : Event 
+
+]
+Card SpatioTemporalExtent #fff [
+SpatioTemporalExtent
+----
+- aggregatedInto : SpatioTemporalExtent 
+- hasPart : SpatioTemporalExtent 
+
+]
+SpatioTemporalExtent --|> Event  #000 
+@enduml

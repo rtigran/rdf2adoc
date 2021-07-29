@@ -1,0 +1,11 @@
+@startuml
+Title SystemState 
+
+Card SystemState #fff [
+SystemState
+]
+Card OrdinaryPhysicalObjectState #fff [
+OrdinaryPhysicalObjectState
+]
+OrdinaryPhysicalObjectState --|> SystemState  #000 
+@enduml

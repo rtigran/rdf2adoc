@@ -1,0 +1,28 @@
+// This file was created automatically by title Untitled No version .
+// DO NOT EDIT!
+
+= Pedestrian
+
+//Include information from owl files
+
+The following model provides an overview of :Pedestrian
+
+|===
+|Element |Description
+
+|Type
+|owl:Class
+
+|Name
+|Pedestrian
+
+|IRI
+|http://ontology.asam.net/ontologies/OpenXCorePlusV1#Pedestrian
+
+|Subclass of
+|TrafficParticipant
+
+|Comment
+|this will be moved to domain ontology
+
+|===
