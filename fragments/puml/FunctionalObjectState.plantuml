@@ -20,13 +20,13 @@ PhysicalObjectState --|> FunctionalObjectState  #00008B
 Card FunctionalSystemComponentState #F0F8FF [
 FunctionalSystemComponentState
 ]
-FunctionalSystemComponentState <|-- FunctionalObjectState  #00008B 
+FunctionalObjectState --|> FunctionalSystemComponentState  #00008B 
 Card FunctionalSystemState #F0F8FF [
 FunctionalSystemState
 ]
-FunctionalSystemState <|-- FunctionalObjectState  #00008B 
+FunctionalObjectState --|> FunctionalSystemState  #00008B 
 Card WholeLifeFunctionalObject #F0F8FF [
 WholeLifeFunctionalObject
 ]
-WholeLifeFunctionalObject <|-- FunctionalObjectState  #00008B 
+FunctionalObjectState --|> WholeLifeFunctionalObject  #00008B 
 @enduml

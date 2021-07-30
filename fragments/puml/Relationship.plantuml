@@ -14,17 +14,17 @@ Aggregation
 - part : SpatioTemporalExtent 
 - whole : SpatioTemporalExtent 
 ]
-Aggregation <|-- Relationship  #00008B 
+Relationship --|> Aggregation  #00008B 
 Card Classification #F0F8FF [
 Classification
 ----
 - classifier : Set 
 ]
-Classification <|-- Relationship  #00008B 
+Relationship --|> Classification  #00008B 
 Card DefinedRelationship #F0F8FF [
 DefinedRelationship
 ----
 - involves : Classification 
 ]
-DefinedRelationship <|-- Relationship  #00008B 
+Relationship --|> DefinedRelationship  #00008B 
 @enduml

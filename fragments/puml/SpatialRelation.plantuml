@@ -21,15 +21,15 @@ RelativeLocation
 - hasXoffset : LengthQuantity 
 - hasYoffset : LengthQuantity 
 ]
-RelativeLocation <|-- SpatialRelation  #00008B 
+SpatialRelation --|> RelativeLocation  #00008B 
 Card SeparationDistance #F0F8FF [
 SeparationDistance
 ----
 - occludedBy : PhysicalObjectState 
 ]
-SeparationDistance <|-- SpatialRelation  #00008B 
+SpatialRelation --|> SeparationDistance  #00008B 
 Card SpatialConnection #F0F8FF [
 SpatialConnection
 ]
-SpatialConnection <|-- SpatialRelation  #00008B 
+SpatialRelation --|> SpatialConnection  #00008B 
 @enduml

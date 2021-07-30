@@ -11,17 +11,17 @@ State --|> WholeLifeIndividual  #00008B
 Card PossibleWorld #F0F8FF [
 PossibleWorld
 ]
-PossibleWorld <|-- WholeLifeIndividual  #00008B 
+WholeLifeIndividual --|> PossibleWorld  #00008B 
 Card WholeLifeActivity #F0F8FF [
 WholeLifeActivity
 ]
-WholeLifeActivity <|-- WholeLifeIndividual  #00008B 
+WholeLifeIndividual --|> WholeLifeActivity  #00008B 
 Card WholeLifeIntentionallyConstructedObject #F0F8FF [
 WholeLifeIntentionallyConstructedObject
 ]
-WholeLifeIntentionallyConstructedObject <|-- WholeLifeIndividual  #00008B 
+WholeLifeIndividual --|> WholeLifeIntentionallyConstructedObject  #00008B 
 Card WholeLifePhysicalObject #F0F8FF [
 WholeLifePhysicalObject
 ]
-WholeLifePhysicalObject <|-- WholeLifeIndividual  #00008B 
+WholeLifeIndividual --|> WholeLifePhysicalObject  #00008B 
 @enduml

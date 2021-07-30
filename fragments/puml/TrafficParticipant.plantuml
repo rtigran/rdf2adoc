@@ -13,9 +13,9 @@ Participant --|> TrafficParticipant  #00008B
 Card Pedestrian #F0F8FF [
 Pedestrian
 ]
-Pedestrian <|-- TrafficParticipant  #00008B 
+TrafficParticipant --|> Pedestrian  #00008B 
 Card Vehicle #F0F8FF [
 Vehicle
 ]
-Vehicle <|-- TrafficParticipant  #00008B 
+TrafficParticipant --|> Vehicle  #00008B 
 @enduml

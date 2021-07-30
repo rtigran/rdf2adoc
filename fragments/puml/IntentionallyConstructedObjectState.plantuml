@@ -13,9 +13,9 @@ FunctionalObjectState
 ----
 - intendedRole : Role 
 ]
-FunctionalObjectState <|-- IntentionallyConstructedObjectState  #00008B 
+IntentionallyConstructedObjectState --|> FunctionalObjectState  #00008B 
 Card WholeLifeIntentionallyConstructedObject #F0F8FF [
 WholeLifeIntentionallyConstructedObject
 ]
-WholeLifeIntentionallyConstructedObject <|-- IntentionallyConstructedObjectState  #00008B 
+IntentionallyConstructedObjectState --|> WholeLifeIntentionallyConstructedObject  #00008B 
 @enduml

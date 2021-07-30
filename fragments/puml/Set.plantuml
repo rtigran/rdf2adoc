@@ -11,9 +11,9 @@ AbstractObject --|> Set  #00008B
 Card Kind #F0F8FF [
 Kind
 ]
-Kind <|-- Set  #00008B 
+Set --|> Kind  #00008B 
 Card SetOfSpatioTemporalExtents #F0F8FF [
 SetOfSpatioTemporalExtents
 ]
-SetOfSpatioTemporalExtents <|-- Set  #00008B 
+Set --|> SetOfSpatioTemporalExtents  #00008B 
 @enduml

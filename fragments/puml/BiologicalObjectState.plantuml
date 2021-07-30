@@ -14,5 +14,5 @@ PhysicalObjectState --|> BiologicalObjectState  #00008B
 Card WholeLifeBiologicalObject #F0F8FF [
 WholeLifeBiologicalObject
 ]
-WholeLifeBiologicalObject <|-- BiologicalObjectState  #00008B 
+BiologicalObjectState --|> WholeLifeBiologicalObject  #00008B 
 @enduml

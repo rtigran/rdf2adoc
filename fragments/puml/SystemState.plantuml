@@ -11,9 +11,9 @@ OrdinaryPhysicalObjectState --|> SystemState  #00008B
 Card FunctionalSystemState #F0F8FF [
 FunctionalSystemState
 ]
-FunctionalSystemState <|-- SystemState  #00008B 
+SystemState --|> FunctionalSystemState  #00008B 
 Card WholeLifeSystem #F0F8FF [
 WholeLifeSystem
 ]
-WholeLifeSystem <|-- SystemState  #00008B 
+SystemState --|> WholeLifeSystem  #00008B 
 @enduml

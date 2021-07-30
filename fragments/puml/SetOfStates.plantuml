@@ -11,17 +11,17 @@ SetOfSpatioTemporalExtents --|> SetOfStates  #00008B
 Card PhysicalProperty #F0F8FF [
 PhysicalProperty
 ]
-PhysicalProperty <|-- SetOfStates  #00008B 
+SetOfStates --|> PhysicalProperty  #00008B 
 Card SetOfActivityStates #F0F8FF [
 SetOfActivityStates
 ]
-SetOfActivityStates <|-- SetOfStates  #00008B 
+SetOfStates --|> SetOfActivityStates  #00008B 
 Card SetOfPhysicalObjectStates #F0F8FF [
 SetOfPhysicalObjectStates
 ]
-SetOfPhysicalObjectStates <|-- SetOfStates  #00008B 
+SetOfStates --|> SetOfPhysicalObjectStates  #00008B 
 Card SetOfWholeLifeIndividuals #F0F8FF [
 SetOfWholeLifeIndividuals
 ]
-SetOfWholeLifeIndividuals <|-- SetOfStates  #00008B 
+SetOfStates --|> SetOfWholeLifeIndividuals  #00008B 
 @enduml

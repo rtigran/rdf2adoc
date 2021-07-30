@@ -15,5 +15,5 @@ RelativeLocation
 - hasXoffset : LengthQuantity 
 - hasYoffset : LengthQuantity 
 ]
-RelativeLocation <|-- SpatialLocation  #00008B 
+SpatialLocation --|> RelativeLocation  #00008B 
 @enduml

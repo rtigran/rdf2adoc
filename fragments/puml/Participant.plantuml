@@ -16,5 +16,5 @@ PhysicalObjectState --|> Participant  #00008B
 Card TrafficParticipant #F0F8FF [
 TrafficParticipant
 ]
-TrafficParticipant <|-- Participant  #00008B 
+Participant --|> TrafficParticipant  #00008B 
 @enduml

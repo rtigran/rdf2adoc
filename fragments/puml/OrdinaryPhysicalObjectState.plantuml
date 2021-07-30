@@ -14,13 +14,13 @@ PhysicalObjectState --|> OrdinaryPhysicalObjectState  #00008B
 Card InstalledObject #F0F8FF [
 InstalledObject
 ]
-InstalledObject <|-- OrdinaryPhysicalObjectState  #00008B 
+OrdinaryPhysicalObjectState --|> InstalledObject  #00008B 
 Card SystemState #F0F8FF [
 SystemState
 ]
-SystemState <|-- OrdinaryPhysicalObjectState  #00008B 
+OrdinaryPhysicalObjectState --|> SystemState  #00008B 
 Card WholeLifeOrdinaryPhysicalObject #F0F8FF [
 WholeLifeOrdinaryPhysicalObject
 ]
-WholeLifeOrdinaryPhysicalObject <|-- OrdinaryPhysicalObjectState  #00008B 
+OrdinaryPhysicalObjectState --|> WholeLifeOrdinaryPhysicalObject  #00008B 
 @enduml

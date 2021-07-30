@@ -11,5 +11,5 @@ SetOfStates --|> SetOfActivityStates  #00008B
 Card KindOfActivityStates #F0F8FF [
 KindOfActivityStates
 ]
-KindOfActivityStates <|-- SetOfActivityStates  #00008B 
+SetOfActivityStates --|> KindOfActivityStates  #00008B 
 @enduml

@@ -19,5 +19,5 @@ SpatialRelation --|> SpatialConnection  #00008B
 Card DrivableConnection #F0F8FF [
 DrivableConnection
 ]
-DrivableConnection <|-- SpatialConnection  #00008B 
+SpatialConnection --|> DrivableConnection  #00008B 
 @enduml

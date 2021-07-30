@@ -27,7 +27,8 @@ def main(ont_inpath, class_outpath, prop_outpath, diag_outpath):
     rdoc.gen_class_adoc()
     rdoc.gen_prop_adoc()
     rdoc.gen_puml()
-    rdoc.gen_diag()
+
+    #rdoc.gen_diag()
 
 if __name__ == '__main__':
     main(ont_inpath, class_outpath, prop_outpath, diag_outpath)

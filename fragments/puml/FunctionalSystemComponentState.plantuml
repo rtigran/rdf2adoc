@@ -19,7 +19,7 @@ SystemComponentState --|> FunctionalSystemComponentState  #00008B
 Card InstalledFunctionalSystemComponent #F0F8FF [
 InstalledFunctionalSystemComponent
 ]
-InstalledFunctionalSystemComponent <|-- FunctionalSystemComponentState  #00008B 
+FunctionalSystemComponentState --|> InstalledFunctionalSystemComponent  #00008B 
 Card RoadObject #F0F8FF [
 RoadObject
 ----
@@ -27,5 +27,5 @@ RoadObject
 - hasPredecessor : RoadObject 
 - hasSuccessor : RoadObject 
 ]
-RoadObject <|-- FunctionalSystemComponentState  #00008B 
+FunctionalSystemComponentState --|> RoadObject  #00008B 
 @enduml

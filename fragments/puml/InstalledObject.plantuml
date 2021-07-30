@@ -11,5 +11,5 @@ OrdinaryPhysicalObjectState --|> InstalledObject  #00008B
 Card InstalledFunctionalSystemComponent #F0F8FF [
 InstalledFunctionalSystemComponent
 ]
-InstalledFunctionalSystemComponent <|-- InstalledObject  #00008B 
+InstalledObject --|> InstalledFunctionalSystemComponent  #00008B 
 @enduml

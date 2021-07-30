@@ -16,9 +16,9 @@ Event
 ----
 - hasRelativeTime : Event 
 ]
-Event <|-- SpatioTemporalExtent  #00008B 
+SpatioTemporalExtent --|> Event  #00008B 
 Card State #F0F8FF [
 State
 ]
-State <|-- SpatioTemporalExtent  #00008B 
+SpatioTemporalExtent --|> State  #00008B 
 @enduml

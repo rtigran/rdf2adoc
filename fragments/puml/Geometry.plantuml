@@ -11,11 +11,11 @@ PhysicalProperty --|> Geometry  #00008B
 Card SpatialLocation #F0F8FF [
 SpatialLocation
 ]
-SpatialLocation <|-- Geometry  #00008B 
+Geometry --|> SpatialLocation  #00008B 
 Card Trajectory #F0F8FF [
 Trajectory
 ----
 - obstructedBy : PhysicalObjectState 
 ]
-Trajectory <|-- Geometry  #00008B 
+Geometry --|> Trajectory  #00008B 
 @enduml

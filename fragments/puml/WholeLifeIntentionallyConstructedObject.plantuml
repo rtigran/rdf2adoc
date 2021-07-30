@@ -15,5 +15,5 @@ WholeLifeIndividual --|> WholeLifeIntentionallyConstructedObject  #00008B
 Card WholeLifeFunctionalObject #F0F8FF [
 WholeLifeFunctionalObject
 ]
-WholeLifeFunctionalObject <|-- WholeLifeIntentionallyConstructedObject  #00008B 
+WholeLifeIntentionallyConstructedObject --|> WholeLifeFunctionalObject  #00008B 
 @enduml

@@ -14,5 +14,5 @@ State --|> ActivityState  #00008B
 Card WholeLifeActivity #F0F8FF [
 WholeLifeActivity
 ]
-WholeLifeActivity <|-- ActivityState  #00008B 
+ActivityState --|> WholeLifeActivity  #00008B 
 @enduml

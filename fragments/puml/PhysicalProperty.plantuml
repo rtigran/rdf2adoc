@@ -11,11 +11,11 @@ SetOfStates --|> PhysicalProperty  #00008B
 Card EdgeAlignmentType #F0F8FF [
 EdgeAlignmentType
 ]
-EdgeAlignmentType <|-- PhysicalProperty  #00008B 
+PhysicalProperty --|> EdgeAlignmentType  #00008B 
 Card Geometry #F0F8FF [
 Geometry
 ]
-Geometry <|-- PhysicalProperty  #00008B 
+PhysicalProperty --|> Geometry  #00008B 
 Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
@@ -29,5 +29,5 @@ PhysicalQuantity
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
 ]
-PhysicalQuantity <|-- PhysicalProperty  #00008B 
+PhysicalProperty --|> PhysicalQuantity  #00008B 
 @enduml

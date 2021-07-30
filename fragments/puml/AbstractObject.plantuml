@@ -11,9 +11,9 @@ Thing --|> AbstractObject  #00008B
 Card Relationship #F0F8FF [
 Relationship
 ]
-Relationship <|-- AbstractObject  #00008B 
+AbstractObject --|> Relationship  #00008B 
 Card Set #F0F8FF [
 Set
 ]
-Set <|-- AbstractObject  #00008B 
+AbstractObject --|> Set  #00008B 
 @enduml

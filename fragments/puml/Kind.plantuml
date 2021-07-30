@@ -11,13 +11,13 @@ Set --|> Kind  #00008B
 Card KindOfActivityStates #F0F8FF [
 KindOfActivityStates
 ]
-KindOfActivityStates <|-- Kind  #00008B 
+Kind --|> KindOfActivityStates  #00008B 
 Card KindOfPhysicalObjectStates #F0F8FF [
 KindOfPhysicalObjectStates
 ]
-KindOfPhysicalObjectStates <|-- Kind  #00008B 
+Kind --|> KindOfPhysicalObjectStates  #00008B 
 Card Role #F0F8FF [
 Role
 ]
-Role <|-- Kind  #00008B 
+Kind --|> Role  #00008B 
 @enduml

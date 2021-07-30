@@ -11,5 +11,5 @@ SetOfPhysicalObjectStates --|> SetOfParticipants  #00008B
 Card Role #F0F8FF [
 Role
 ]
-Role <|-- SetOfParticipants  #00008B 
+SetOfParticipants --|> Role  #00008B 
 @enduml

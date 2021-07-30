@@ -13,5 +13,5 @@ DefinedRelationship --|> ConnectionRelation  #00008B
 Card SpatialConnection #F0F8FF [
 SpatialConnection
 ]
-SpatialConnection <|-- ConnectionRelation  #00008B 
+ConnectionRelation --|> SpatialConnection  #00008B 
 @enduml

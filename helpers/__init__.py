@@ -132,7 +132,7 @@ class RDF2adoc:
                         plant_uml += f'{superclass_item} --|> {class_name}  #00008B \n'
                     for subclass_item in subclass:
                         plant_uml += self._get_puml_properties(subclass_item)
-                        plant_uml += f'{subclass_item} <|-- {class_name}  #00008B \n'
+                        plant_uml += f'{class_name} --|> {subclass_item}  #00008B \n'
                     plant_uml += '@enduml'
 
                     fobj.write(plant_uml)

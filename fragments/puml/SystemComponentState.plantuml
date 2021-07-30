@@ -16,9 +16,9 @@ PhysicalObjectState --|> SystemComponentState  #00008B
 Card FunctionalSystemComponentState #F0F8FF [
 FunctionalSystemComponentState
 ]
-FunctionalSystemComponentState <|-- SystemComponentState  #00008B 
+SystemComponentState --|> FunctionalSystemComponentState  #00008B 
 Card WholeLifeSystemComponent #F0F8FF [
 WholeLifeSystemComponent
 ]
-WholeLifeSystemComponent <|-- SystemComponentState  #00008B 
+SystemComponentState --|> WholeLifeSystemComponent  #00008B 
 @enduml

@@ -14,5 +14,5 @@ Relationship --|> Aggregation  #00008B
 Card Composition #F0F8FF [
 Composition
 ]
-Composition <|-- Aggregation  #00008B 
+Aggregation --|> Composition  #00008B 
 @enduml

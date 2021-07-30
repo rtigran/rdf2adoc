@@ -11,5 +11,5 @@ State --|> PeriodOfTime  #00008B
 Card PossibleWorld #F0F8FF [
 PossibleWorld
 ]
-PossibleWorld <|-- PeriodOfTime  #00008B 
+PeriodOfTime --|> PossibleWorld  #00008B 
 @enduml

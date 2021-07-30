@@ -11,9 +11,9 @@ SetOfStates --|> SetOfPhysicalObjectStates  #00008B
 Card KindOfPhysicalObjectStates #F0F8FF [
 KindOfPhysicalObjectStates
 ]
-KindOfPhysicalObjectStates <|-- SetOfPhysicalObjectStates  #00008B 
+SetOfPhysicalObjectStates --|> KindOfPhysicalObjectStates  #00008B 
 Card SetOfParticipants #F0F8FF [
 SetOfParticipants
 ]
-SetOfParticipants <|-- SetOfPhysicalObjectStates  #00008B 
+SetOfPhysicalObjectStates --|> SetOfParticipants  #00008B 
 @enduml

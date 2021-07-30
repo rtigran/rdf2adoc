@@ -16,5 +16,5 @@ SpatioTemporalExtent --|> Event  #00008B
 Card PointInTime #F0F8FF [
 PointInTime
 ]
-PointInTime <|-- Event  #00008B 
+Event --|> PointInTime  #00008B 
 @enduml

@@ -13,7 +13,7 @@ Relationship --|> DefinedRelationship  #00008B
 Card ConnectionRelation #F0F8FF [
 ConnectionRelation
 ]
-ConnectionRelation <|-- DefinedRelationship  #00008B 
+DefinedRelationship --|> ConnectionRelation  #00008B 
 Card SpatialRelation #F0F8FF [
 SpatialRelation
 ----
@@ -21,9 +21,9 @@ SpatialRelation
 - hasSpatialObject : PhysicalObjectState 
 - hasSpatialSubject : PhysicalObjectState 
 ]
-SpatialRelation <|-- DefinedRelationship  #00008B 
+DefinedRelationship --|> SpatialRelation  #00008B 
 Card TemporalRelation #F0F8FF [
 TemporalRelation
 ]
-TemporalRelation <|-- DefinedRelationship  #00008B 
+DefinedRelationship --|> TemporalRelation  #00008B 
 @enduml

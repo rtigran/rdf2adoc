@@ -14,5 +14,5 @@ Aggregation --|> Composition  #00008B
 Card TemporalComposition #F0F8FF [
 TemporalComposition
 ]
-TemporalComposition <|-- Composition  #00008B 
+Composition --|> TemporalComposition  #00008B 
 @enduml
