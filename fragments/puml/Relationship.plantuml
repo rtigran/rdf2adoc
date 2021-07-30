@@ -1,11 +1,30 @@
 @startuml
 Title Relationship 
 
-Card Relationship #fff [
+Card Relationship #F0F8FF [
 Relationship
 ]
-Card AbstractObject #fff [
+Card AbstractObject #F0F8FF [
 AbstractObject
 ]
-AbstractObject --|> Relationship  #000 
+AbstractObject --|> Relationship  #00008B 
+Card Aggregation #F0F8FF [
+Aggregation
+----
+- part : SpatioTemporalExtent 
+- whole : SpatioTemporalExtent 
+]
+Aggregation <|-- Relationship  #00008B 
+Card Classification #F0F8FF [
+Classification
+----
+- classifier : Set 
+]
+Classification <|-- Relationship  #00008B 
+Card DefinedRelationship #F0F8FF [
+DefinedRelationship
+----
+- involves : Classification 
+]
+DefinedRelationship <|-- Relationship  #00008B 
 @enduml

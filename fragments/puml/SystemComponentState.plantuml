@@ -1,18 +1,24 @@
 @startuml
 Title SystemComponentState 
 
-Card SystemComponentState #fff [
+Card SystemComponentState #F0F8FF [
 SystemComponentState
 ----
 - componentOf : SystemState 
-
 ]
-Card PhysicalObjectState #fff [
+Card PhysicalObjectState #F0F8FF [
 PhysicalObjectState
 ----
 - connectedTo : PhysicalObjectState 
 - hasRelativePosition : PhysicalObjectState 
-
 ]
-PhysicalObjectState --|> SystemComponentState  #000 
+PhysicalObjectState --|> SystemComponentState  #00008B 
+Card FunctionalSystemComponentState #F0F8FF [
+FunctionalSystemComponentState
+]
+FunctionalSystemComponentState <|-- SystemComponentState  #00008B 
+Card WholeLifeSystemComponent #F0F8FF [
+WholeLifeSystemComponent
+]
+WholeLifeSystemComponent <|-- SystemComponentState  #00008B 
 @enduml

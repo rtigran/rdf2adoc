@@ -1,10 +1,10 @@
 @startuml
 Title AngleQuantity 
 
-Card AngleQuantity #fff [
+Card AngleQuantity #F0F8FF [
 AngleQuantity
 ]
-Card PhysicalQuantity #fff [
+Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
 - approximatelyEqualTo : PhysicalQuantity 
@@ -16,7 +16,6 @@ PhysicalQuantity
 - quantityLessThan : PhysicalQuantity 
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
-
 ]
-PhysicalQuantity --|> AngleQuantity  #000 
+PhysicalQuantity --|> AngleQuantity  #00008B 
 @enduml

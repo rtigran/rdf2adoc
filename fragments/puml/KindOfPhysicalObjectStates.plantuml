@@ -1,15 +1,15 @@
 @startuml
 Title KindOfPhysicalObjectStates 
 
-Card KindOfPhysicalObjectStates #fff [
+Card KindOfPhysicalObjectStates #F0F8FF [
 KindOfPhysicalObjectStates
 ]
-Card Kind #fff [
+Card Kind #F0F8FF [
 Kind
 ]
-Kind --|> KindOfPhysicalObjectStates  #000 
-Card SetOfPhysicalObjectStates #fff [
+Kind --|> KindOfPhysicalObjectStates  #00008B 
+Card SetOfPhysicalObjectStates #F0F8FF [
 SetOfPhysicalObjectStates
 ]
-SetOfPhysicalObjectStates --|> KindOfPhysicalObjectStates  #000 
+SetOfPhysicalObjectStates --|> KindOfPhysicalObjectStates  #00008B 
 @enduml

@@ -1,18 +1,17 @@
 @startuml
 Title WholeLifeSystemComponent 
 
-Card WholeLifeSystemComponent #fff [
+Card WholeLifeSystemComponent #F0F8FF [
 WholeLifeSystemComponent
 ]
-Card SystemComponentState #fff [
+Card SystemComponentState #F0F8FF [
 SystemComponentState
 ----
 - componentOf : SystemState 
-
 ]
-SystemComponentState --|> WholeLifeSystemComponent  #000 
-Card WholeLifePhysicalObject #fff [
+SystemComponentState --|> WholeLifeSystemComponent  #00008B 
+Card WholeLifePhysicalObject #F0F8FF [
 WholeLifePhysicalObject
 ]
-WholeLifePhysicalObject --|> WholeLifeSystemComponent  #000 
+WholeLifePhysicalObject --|> WholeLifeSystemComponent  #00008B 
 @enduml

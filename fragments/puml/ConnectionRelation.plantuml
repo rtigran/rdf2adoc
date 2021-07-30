@@ -1,14 +1,17 @@
 @startuml
 Title ConnectionRelation 
 
-Card ConnectionRelation #fff [
+Card ConnectionRelation #F0F8FF [
 ConnectionRelation
 ]
-Card DefinedRelationship #fff [
+Card DefinedRelationship #F0F8FF [
 DefinedRelationship
 ----
 - involves : Classification 
-
 ]
-DefinedRelationship --|> ConnectionRelation  #000 
+DefinedRelationship --|> ConnectionRelation  #00008B 
+Card SpatialConnection #F0F8FF [
+SpatialConnection
+]
+SpatialConnection <|-- ConnectionRelation  #00008B 
 @enduml

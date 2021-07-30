@@ -1,22 +1,21 @@
 @startuml
 Title WholeLifeFunctionalObject 
 
-Card WholeLifeFunctionalObject #fff [
+Card WholeLifeFunctionalObject #F0F8FF [
 WholeLifeFunctionalObject
 ]
-Card FunctionalObjectState #fff [
+Card FunctionalObjectState #F0F8FF [
 FunctionalObjectState
 ----
 - intendedRole : Role 
-
 ]
-FunctionalObjectState --|> WholeLifeFunctionalObject  #000 
-Card WholeLifeIntentionallyConstructedObject #fff [
+FunctionalObjectState --|> WholeLifeFunctionalObject  #00008B 
+Card WholeLifeIntentionallyConstructedObject #F0F8FF [
 WholeLifeIntentionallyConstructedObject
 ]
-WholeLifeIntentionallyConstructedObject --|> WholeLifeFunctionalObject  #000 
-Card WholeLifePhysicalObject #fff [
+WholeLifeIntentionallyConstructedObject --|> WholeLifeFunctionalObject  #00008B 
+Card WholeLifePhysicalObject #F0F8FF [
 WholeLifePhysicalObject
 ]
-WholeLifePhysicalObject --|> WholeLifeFunctionalObject  #000 
+WholeLifePhysicalObject --|> WholeLifeFunctionalObject  #00008B 
 @enduml

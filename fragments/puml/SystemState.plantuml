@@ -1,11 +1,19 @@
 @startuml
 Title SystemState 
 
-Card SystemState #fff [
+Card SystemState #F0F8FF [
 SystemState
 ]
-Card OrdinaryPhysicalObjectState #fff [
+Card OrdinaryPhysicalObjectState #F0F8FF [
 OrdinaryPhysicalObjectState
 ]
-OrdinaryPhysicalObjectState --|> SystemState  #000 
+OrdinaryPhysicalObjectState --|> SystemState  #00008B 
+Card FunctionalSystemState #F0F8FF [
+FunctionalSystemState
+]
+FunctionalSystemState <|-- SystemState  #00008B 
+Card WholeLifeSystem #F0F8FF [
+WholeLifeSystem
+]
+WholeLifeSystem <|-- SystemState  #00008B 
 @enduml

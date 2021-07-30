@@ -1,14 +1,13 @@
 @startuml
 Title DirectionQuantity 
 
-Card DirectionQuantity #fff [
+Card DirectionQuantity #F0F8FF [
 DirectionQuantity
 ----
 - oppositeOf : DirectionQuantity 
 - parallelTo : DirectionQuantity 
-
 ]
-Card PhysicalQuantity #fff [
+Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
 - approximatelyEqualTo : PhysicalQuantity 
@@ -20,7 +19,6 @@ PhysicalQuantity
 - quantityLessThan : PhysicalQuantity 
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
-
 ]
-PhysicalQuantity --|> DirectionQuantity  #000 
+PhysicalQuantity --|> DirectionQuantity  #00008B 
 @enduml

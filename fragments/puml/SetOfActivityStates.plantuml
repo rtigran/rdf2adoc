@@ -1,11 +1,15 @@
 @startuml
 Title SetOfActivityStates 
 
-Card SetOfActivityStates #fff [
+Card SetOfActivityStates #F0F8FF [
 SetOfActivityStates
 ]
-Card SetOfStates #fff [
+Card SetOfStates #F0F8FF [
 SetOfStates
 ]
-SetOfStates --|> SetOfActivityStates  #000 
+SetOfStates --|> SetOfActivityStates  #00008B 
+Card KindOfActivityStates #F0F8FF [
+KindOfActivityStates
+]
+KindOfActivityStates <|-- SetOfActivityStates  #00008B 
 @enduml

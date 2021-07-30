@@ -1,15 +1,15 @@
 @startuml
 Title Role 
 
-Card Role #fff [
+Card Role #F0F8FF [
 Role
 ]
-Card Kind #fff [
+Card Kind #F0F8FF [
 Kind
 ]
-Kind --|> Role  #000 
-Card SetOfParticipants #fff [
+Kind --|> Role  #00008B 
+Card SetOfParticipants #F0F8FF [
 SetOfParticipants
 ]
-SetOfParticipants --|> Role  #000 
+SetOfParticipants --|> Role  #00008B 
 @enduml

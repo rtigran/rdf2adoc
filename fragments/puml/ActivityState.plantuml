@@ -1,15 +1,18 @@
 @startuml
 Title ActivityState 
 
-Card ActivityState #fff [
+Card ActivityState #F0F8FF [
 ActivityState
 ----
 - causes : Event 
 - hasParticipant : Participant 
-
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> ActivityState  #000 
+State --|> ActivityState  #00008B 
+Card WholeLifeActivity #F0F8FF [
+WholeLifeActivity
+]
+WholeLifeActivity <|-- ActivityState  #00008B 
 @enduml

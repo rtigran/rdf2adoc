@@ -1,14 +1,13 @@
 @startuml
 Title Trajectory 
 
-Card Trajectory #fff [
+Card Trajectory #F0F8FF [
 Trajectory
 ----
 - obstructedBy : PhysicalObjectState 
-
 ]
-Card Geometry #fff [
+Card Geometry #F0F8FF [
 Geometry
 ]
-Geometry --|> Trajectory  #000 
+Geometry --|> Trajectory  #00008B 
 @enduml

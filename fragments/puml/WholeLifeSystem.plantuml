@@ -1,11 +1,11 @@
 @startuml
 Title WholeLifeSystem 
 
-Card WholeLifeSystem #fff [
+Card WholeLifeSystem #F0F8FF [
 WholeLifeSystem
 ]
-Card SystemState #fff [
+Card SystemState #F0F8FF [
 SystemState
 ]
-SystemState --|> WholeLifeSystem  #000 
+SystemState --|> WholeLifeSystem  #00008B 
 @enduml

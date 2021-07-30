@@ -1,11 +1,27 @@
 @startuml
 Title WholeLifeIndividual 
 
-Card WholeLifeIndividual #fff [
+Card WholeLifeIndividual #F0F8FF [
 WholeLifeIndividual
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> WholeLifeIndividual  #000 
+State --|> WholeLifeIndividual  #00008B 
+Card PossibleWorld #F0F8FF [
+PossibleWorld
+]
+PossibleWorld <|-- WholeLifeIndividual  #00008B 
+Card WholeLifeActivity #F0F8FF [
+WholeLifeActivity
+]
+WholeLifeActivity <|-- WholeLifeIndividual  #00008B 
+Card WholeLifeIntentionallyConstructedObject #F0F8FF [
+WholeLifeIntentionallyConstructedObject
+]
+WholeLifeIntentionallyConstructedObject <|-- WholeLifeIndividual  #00008B 
+Card WholeLifePhysicalObject #F0F8FF [
+WholeLifePhysicalObject
+]
+WholeLifePhysicalObject <|-- WholeLifeIndividual  #00008B 
 @enduml

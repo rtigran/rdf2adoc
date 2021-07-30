@@ -1,11 +1,19 @@
 @startuml
 Title SetOfPhysicalObjectStates 
 
-Card SetOfPhysicalObjectStates #fff [
+Card SetOfPhysicalObjectStates #F0F8FF [
 SetOfPhysicalObjectStates
 ]
-Card SetOfStates #fff [
+Card SetOfStates #F0F8FF [
 SetOfStates
 ]
-SetOfStates --|> SetOfPhysicalObjectStates  #000 
+SetOfStates --|> SetOfPhysicalObjectStates  #00008B 
+Card KindOfPhysicalObjectStates #F0F8FF [
+KindOfPhysicalObjectStates
+]
+KindOfPhysicalObjectStates <|-- SetOfPhysicalObjectStates  #00008B 
+Card SetOfParticipants #F0F8FF [
+SetOfParticipants
+]
+SetOfParticipants <|-- SetOfPhysicalObjectStates  #00008B 
 @enduml

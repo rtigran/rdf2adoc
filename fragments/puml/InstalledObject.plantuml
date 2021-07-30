@@ -1,11 +1,15 @@
 @startuml
 Title InstalledObject 
 
-Card InstalledObject #fff [
+Card InstalledObject #F0F8FF [
 InstalledObject
 ]
-Card OrdinaryPhysicalObjectState #fff [
+Card OrdinaryPhysicalObjectState #F0F8FF [
 OrdinaryPhysicalObjectState
 ]
-OrdinaryPhysicalObjectState --|> InstalledObject  #000 
+OrdinaryPhysicalObjectState --|> InstalledObject  #00008B 
+Card InstalledFunctionalSystemComponent #F0F8FF [
+InstalledFunctionalSystemComponent
+]
+InstalledFunctionalSystemComponent <|-- InstalledObject  #00008B 
 @enduml

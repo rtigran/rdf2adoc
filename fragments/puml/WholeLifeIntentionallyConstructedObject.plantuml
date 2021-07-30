@@ -1,15 +1,19 @@
 @startuml
 Title WholeLifeIntentionallyConstructedObject 
 
-Card WholeLifeIntentionallyConstructedObject #fff [
+Card WholeLifeIntentionallyConstructedObject #F0F8FF [
 WholeLifeIntentionallyConstructedObject
 ]
-Card IntentionallyConstructedObjectState #fff [
+Card IntentionallyConstructedObjectState #F0F8FF [
 IntentionallyConstructedObjectState
 ]
-IntentionallyConstructedObjectState --|> WholeLifeIntentionallyConstructedObject  #000 
-Card WholeLifeIndividual #fff [
+IntentionallyConstructedObjectState --|> WholeLifeIntentionallyConstructedObject  #00008B 
+Card WholeLifeIndividual #F0F8FF [
 WholeLifeIndividual
 ]
-WholeLifeIndividual --|> WholeLifeIntentionallyConstructedObject  #000 
+WholeLifeIndividual --|> WholeLifeIntentionallyConstructedObject  #00008B 
+Card WholeLifeFunctionalObject #F0F8FF [
+WholeLifeFunctionalObject
+]
+WholeLifeFunctionalObject <|-- WholeLifeIntentionallyConstructedObject  #00008B 
 @enduml

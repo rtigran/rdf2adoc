@@ -1,19 +1,17 @@
 @startuml
 Title SeparationDistance 
 
-Card SeparationDistance #fff [
+Card SeparationDistance #F0F8FF [
 SeparationDistance
 ----
 - occludedBy : PhysicalObjectState 
-
 ]
-Card SpatialRelation #fff [
+Card SpatialRelation #F0F8FF [
 SpatialRelation
 ----
 - hasRelationDirection : DirectionQuantity 
 - hasSpatialObject : PhysicalObjectState 
 - hasSpatialSubject : PhysicalObjectState 
-
 ]
-SpatialRelation --|> SeparationDistance  #000 
+SpatialRelation --|> SeparationDistance  #00008B 
 @enduml

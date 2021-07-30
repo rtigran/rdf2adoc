@@ -1,11 +1,11 @@
 @startuml
 Title SetOfEvents 
 
-Card SetOfEvents #fff [
+Card SetOfEvents #F0F8FF [
 SetOfEvents
 ]
-Card SetOfSpatioTemporalExtents #fff [
+Card SetOfSpatioTemporalExtents #F0F8FF [
 SetOfSpatioTemporalExtents
 ]
-SetOfSpatioTemporalExtents --|> SetOfEvents  #000 
+SetOfSpatioTemporalExtents --|> SetOfEvents  #00008B 
 @enduml

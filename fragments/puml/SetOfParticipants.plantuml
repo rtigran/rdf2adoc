@@ -1,11 +1,15 @@
 @startuml
 Title SetOfParticipants 
 
-Card SetOfParticipants #fff [
+Card SetOfParticipants #F0F8FF [
 SetOfParticipants
 ]
-Card SetOfPhysicalObjectStates #fff [
+Card SetOfPhysicalObjectStates #F0F8FF [
 SetOfPhysicalObjectStates
 ]
-SetOfPhysicalObjectStates --|> SetOfParticipants  #000 
+SetOfPhysicalObjectStates --|> SetOfParticipants  #00008B 
+Card Role #F0F8FF [
+Role
+]
+Role <|-- SetOfParticipants  #00008B 
 @enduml

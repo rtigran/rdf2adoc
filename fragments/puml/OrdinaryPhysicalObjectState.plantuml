@@ -1,15 +1,26 @@
 @startuml
 Title OrdinaryPhysicalObjectState 
 
-Card OrdinaryPhysicalObjectState #fff [
+Card OrdinaryPhysicalObjectState #F0F8FF [
 OrdinaryPhysicalObjectState
 ]
-Card PhysicalObjectState #fff [
+Card PhysicalObjectState #F0F8FF [
 PhysicalObjectState
 ----
 - connectedTo : PhysicalObjectState 
 - hasRelativePosition : PhysicalObjectState 
-
 ]
-PhysicalObjectState --|> OrdinaryPhysicalObjectState  #000 
+PhysicalObjectState --|> OrdinaryPhysicalObjectState  #00008B 
+Card InstalledObject #F0F8FF [
+InstalledObject
+]
+InstalledObject <|-- OrdinaryPhysicalObjectState  #00008B 
+Card SystemState #F0F8FF [
+SystemState
+]
+SystemState <|-- OrdinaryPhysicalObjectState  #00008B 
+Card WholeLifeOrdinaryPhysicalObject #F0F8FF [
+WholeLifeOrdinaryPhysicalObject
+]
+WholeLifeOrdinaryPhysicalObject <|-- OrdinaryPhysicalObjectState  #00008B 
 @enduml

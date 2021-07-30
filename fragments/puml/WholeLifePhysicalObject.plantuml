@@ -1,19 +1,34 @@
 @startuml
 Title WholeLifePhysicalObject 
 
-Card WholeLifePhysicalObject #fff [
+Card WholeLifePhysicalObject #F0F8FF [
 WholeLifePhysicalObject
 ]
-Card PhysicalObjectState #fff [
+Card PhysicalObjectState #F0F8FF [
 PhysicalObjectState
 ----
 - connectedTo : PhysicalObjectState 
 - hasRelativePosition : PhysicalObjectState 
-
 ]
-PhysicalObjectState --|> WholeLifePhysicalObject  #000 
-Card WholeLifeIndividual #fff [
+PhysicalObjectState --|> WholeLifePhysicalObject  #00008B 
+Card WholeLifeIndividual #F0F8FF [
 WholeLifeIndividual
 ]
-WholeLifeIndividual --|> WholeLifePhysicalObject  #000 
+WholeLifeIndividual --|> WholeLifePhysicalObject  #00008B 
+Card WholeLifeBiologicalObject #F0F8FF [
+WholeLifeBiologicalObject
+]
+WholeLifeBiologicalObject <|-- WholeLifePhysicalObject  #00008B 
+Card WholeLifeFunctionalObject #F0F8FF [
+WholeLifeFunctionalObject
+]
+WholeLifeFunctionalObject <|-- WholeLifePhysicalObject  #00008B 
+Card WholeLifeOrdinaryPhysicalObject #F0F8FF [
+WholeLifeOrdinaryPhysicalObject
+]
+WholeLifeOrdinaryPhysicalObject <|-- WholeLifePhysicalObject  #00008B 
+Card WholeLifeSystemComponent #F0F8FF [
+WholeLifeSystemComponent
+]
+WholeLifeSystemComponent <|-- WholeLifePhysicalObject  #00008B 
 @enduml

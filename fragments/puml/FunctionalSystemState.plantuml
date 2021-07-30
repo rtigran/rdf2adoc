@@ -1,18 +1,17 @@
 @startuml
 Title FunctionalSystemState 
 
-Card FunctionalSystemState #fff [
+Card FunctionalSystemState #F0F8FF [
 FunctionalSystemState
 ]
-Card FunctionalObjectState #fff [
+Card FunctionalObjectState #F0F8FF [
 FunctionalObjectState
 ----
 - intendedRole : Role 
-
 ]
-FunctionalObjectState --|> FunctionalSystemState  #000 
-Card SystemState #fff [
+FunctionalObjectState --|> FunctionalSystemState  #00008B 
+Card SystemState #F0F8FF [
 SystemState
 ]
-SystemState --|> FunctionalSystemState  #000 
+SystemState --|> FunctionalSystemState  #00008B 
 @enduml

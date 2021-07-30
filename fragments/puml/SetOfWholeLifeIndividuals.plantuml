@@ -1,11 +1,11 @@
 @startuml
 Title SetOfWholeLifeIndividuals 
 
-Card SetOfWholeLifeIndividuals #fff [
+Card SetOfWholeLifeIndividuals #F0F8FF [
 SetOfWholeLifeIndividuals
 ]
-Card SetOfStates #fff [
+Card SetOfStates #F0F8FF [
 SetOfStates
 ]
-SetOfStates --|> SetOfWholeLifeIndividuals  #000 
+SetOfStates --|> SetOfWholeLifeIndividuals  #00008B 
 @enduml

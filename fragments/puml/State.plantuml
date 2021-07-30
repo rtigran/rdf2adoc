@@ -1,15 +1,52 @@
 @startuml
 Title State 
 
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-Card SpatioTemporalExtent #fff [
+Card SpatioTemporalExtent #F0F8FF [
 SpatioTemporalExtent
 ----
 - aggregatedInto : SpatioTemporalExtent 
 - hasPart : SpatioTemporalExtent 
-
 ]
-SpatioTemporalExtent --|> State  #000 
+SpatioTemporalExtent --|> State  #00008B 
+Card ActivityState #F0F8FF [
+ActivityState
+----
+- causes : Event 
+- hasParticipant : Participant 
+]
+ActivityState <|-- State  #00008B 
+Card ControllerObject #F0F8FF [
+ControllerObject
+----
+- controls : SpatioTemporalExtent 
+]
+ControllerObject <|-- State  #00008B 
+Card IntentionallyConstructedObjectState #F0F8FF [
+IntentionallyConstructedObjectState
+]
+IntentionallyConstructedObjectState <|-- State  #00008B 
+Card PeriodOfTime #F0F8FF [
+PeriodOfTime
+]
+PeriodOfTime <|-- State  #00008B 
+Card PhysicalObjectState #F0F8FF [
+PhysicalObjectState
+----
+- connectedTo : PhysicalObjectState 
+- hasRelativePosition : PhysicalObjectState 
+]
+PhysicalObjectState <|-- State  #00008B 
+Card RuleViolatingEntity #F0F8FF [
+RuleViolatingEntity
+----
+- violatesTrafficRule : TrafficRule 
+]
+RuleViolatingEntity <|-- State  #00008B 
+Card WholeLifeIndividual #F0F8FF [
+WholeLifeIndividual
+]
+WholeLifeIndividual <|-- State  #00008B 
 @enduml

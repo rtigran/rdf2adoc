@@ -1,22 +1,32 @@
 @startuml
 Title FunctionalObjectState 
 
-Card FunctionalObjectState #fff [
+Card FunctionalObjectState #F0F8FF [
 FunctionalObjectState
 ----
 - intendedRole : Role 
-
 ]
-Card IntentionallyConstructedObjectState #fff [
+Card IntentionallyConstructedObjectState #F0F8FF [
 IntentionallyConstructedObjectState
 ]
-IntentionallyConstructedObjectState --|> FunctionalObjectState  #000 
-Card PhysicalObjectState #fff [
+IntentionallyConstructedObjectState --|> FunctionalObjectState  #00008B 
+Card PhysicalObjectState #F0F8FF [
 PhysicalObjectState
 ----
 - connectedTo : PhysicalObjectState 
 - hasRelativePosition : PhysicalObjectState 
-
 ]
-PhysicalObjectState --|> FunctionalObjectState  #000 
+PhysicalObjectState --|> FunctionalObjectState  #00008B 
+Card FunctionalSystemComponentState #F0F8FF [
+FunctionalSystemComponentState
+]
+FunctionalSystemComponentState <|-- FunctionalObjectState  #00008B 
+Card FunctionalSystemState #F0F8FF [
+FunctionalSystemState
+]
+FunctionalSystemState <|-- FunctionalObjectState  #00008B 
+Card WholeLifeFunctionalObject #F0F8FF [
+WholeLifeFunctionalObject
+]
+WholeLifeFunctionalObject <|-- FunctionalObjectState  #00008B 
 @enduml

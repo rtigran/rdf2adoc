@@ -1,11 +1,27 @@
 @startuml
 Title SetOfStates 
 
-Card SetOfStates #fff [
+Card SetOfStates #F0F8FF [
 SetOfStates
 ]
-Card SetOfSpatioTemporalExtents #fff [
+Card SetOfSpatioTemporalExtents #F0F8FF [
 SetOfSpatioTemporalExtents
 ]
-SetOfSpatioTemporalExtents --|> SetOfStates  #000 
+SetOfSpatioTemporalExtents --|> SetOfStates  #00008B 
+Card PhysicalProperty #F0F8FF [
+PhysicalProperty
+]
+PhysicalProperty <|-- SetOfStates  #00008B 
+Card SetOfActivityStates #F0F8FF [
+SetOfActivityStates
+]
+SetOfActivityStates <|-- SetOfStates  #00008B 
+Card SetOfPhysicalObjectStates #F0F8FF [
+SetOfPhysicalObjectStates
+]
+SetOfPhysicalObjectStates <|-- SetOfStates  #00008B 
+Card SetOfWholeLifeIndividuals #F0F8FF [
+SetOfWholeLifeIndividuals
+]
+SetOfWholeLifeIndividuals <|-- SetOfStates  #00008B 
 @enduml

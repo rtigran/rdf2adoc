@@ -1,10 +1,10 @@
 @startuml
 Title SpeedQuantity 
 
-Card SpeedQuantity #fff [
+Card SpeedQuantity #F0F8FF [
 SpeedQuantity
 ]
-Card PhysicalQuantity #fff [
+Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
 - approximatelyEqualTo : PhysicalQuantity 
@@ -16,7 +16,6 @@ PhysicalQuantity
 - quantityLessThan : PhysicalQuantity 
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
-
 ]
-PhysicalQuantity --|> SpeedQuantity  #000 
+PhysicalQuantity --|> SpeedQuantity  #00008B 
 @enduml

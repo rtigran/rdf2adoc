@@ -9,6 +9,7 @@ from helpers import ont_version as v
 from helpers import filehelper as f
 from datetime import datetime
 
+
 class RDF2adoc:
     def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, diag_outpath : str, format='turtle'):
         self.__filepath = filepath
@@ -33,7 +34,7 @@ class RDF2adoc:
         if self.__classes:
             f.logprint("Ontology has {} classes.".format(len(self.__classes)))
             self.__classes.sort()
-            for owl_class, prefix, class_name, label, comment, superclass, restrictions, disjoints, properties in self.__classes:
+            for owl_class, prefix, class_name, label, comment, superclass, restrictions, disjoints, properties, subclass in self.__classes:
                 with open(f"{self.__class_outpath}{class_name}.adoc", 'w', encoding="utf-8") as fobj:
 
                     fobj.write(f"// This file was created automatically by {self.__version}.\n// DO NOT EDIT!\n\n")
@@ -113,29 +114,36 @@ class RDF2adoc:
         if self.__classes:
             self.__classes.sort()
             path=f.get_puml_inpath()
-            for class_uri, prefix, class_name, label, comment, superclass, restrictions, disjoints, properties in self.__classes:
+            for class_uri, prefix, class_name, label, comment, superclass, restrictions, disjoints, properties, subclass in self.__classes:
                 puml_filename = os.path.join(path, class_name)
 
                 with open(f"{puml_filename}.plantuml", 'w', encoding="utf-8") as fobj:
                     plant_uml = '@startuml\n'
+
                     plant_uml += f'Title {class_name} \n\n'
-                    plant_uml += f'Card {class_name} #fff [\n'
+                    plant_uml += f'Card {class_name} #F0F8FF [\n'
                     plant_uml += f'{class_name}\n'
                     if properties != '':
                         plant_uml += '----\n'
-                        plant_uml += f'{properties}\n'
+                        plant_uml += f'{properties}'
                     plant_uml += ']\n'
                     for superclass_item in superclass:
-                        plant_uml += f'Card {superclass_item} #fff [\n'
-                        plant_uml += f'{superclass_item}\n'
-                        for class_uri2, prefix2,  class_name2, label2, comment2, superclass2, restrictions2, disjoints2, properties2 in self.__classes:
-                            if superclass_item==class_name2:
-                                if properties2 != '':
-                                    plant_uml += '----\n'
-                                    plant_uml += f'{properties2}\n'
-                            continue
-                        plant_uml += ']\n'
-                        plant_uml += f'{superclass_item} --|> {class_name}  #000 \n'
+                        plant_uml +=self._get_puml_properties(superclass_item)
+                        plant_uml += f'{superclass_item} --|> {class_name}  #00008B \n'
+                    for subclass_item in subclass:
+                        plant_uml += self._get_puml_properties(subclass_item)
+                        plant_uml += f'{subclass_item} <|-- {class_name}  #00008B \n'
                     plant_uml += '@enduml'
 
                     fobj.write(plant_uml)
+
+    def _get_puml_properties(self, class_item):
+        plant_uml = f'Card {class_item} #F0F8FF [\n'
+        plant_uml += f'{class_item}\n'
+        for class_uri, prefix, class_name, label, comment, superclass, restrictions, disjoints, properties, subclass in self.__classes:
+            if class_item == class_name:
+                if properties != '':
+                    plant_uml += '----\n'
+                    plant_uml += f'{properties}'
+        plant_uml += ']\n'
+        return plant_uml

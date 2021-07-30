@@ -1,11 +1,19 @@
 @startuml
 Title AbstractObject 
 
-Card AbstractObject #fff [
+Card AbstractObject #F0F8FF [
 AbstractObject
 ]
-Card Thing #fff [
+Card Thing #F0F8FF [
 Thing
 ]
-Thing --|> AbstractObject  #000 
+Thing --|> AbstractObject  #00008B 
+Card Relationship #F0F8FF [
+Relationship
+]
+Relationship <|-- AbstractObject  #00008B 
+Card Set #F0F8FF [
+Set
+]
+Set <|-- AbstractObject  #00008B 
 @enduml

@@ -1,15 +1,24 @@
 @startuml
 Title SpatioTemporalExtent 
 
-Card SpatioTemporalExtent #fff [
+Card SpatioTemporalExtent #F0F8FF [
 SpatioTemporalExtent
 ----
 - aggregatedInto : SpatioTemporalExtent 
 - hasPart : SpatioTemporalExtent 
-
 ]
-Card Thing #fff [
+Card Thing #F0F8FF [
 Thing
 ]
-Thing --|> SpatioTemporalExtent  #000 
+Thing --|> SpatioTemporalExtent  #00008B 
+Card Event #F0F8FF [
+Event
+----
+- hasRelativeTime : Event 
+]
+Event <|-- SpatioTemporalExtent  #00008B 
+Card State #F0F8FF [
+State
+]
+State <|-- SpatioTemporalExtent  #00008B 
 @enduml

@@ -1,11 +1,11 @@
 @startuml
 Title DrivableConnection 
 
-Card DrivableConnection #fff [
+Card DrivableConnection #F0F8FF [
 DrivableConnection
 ]
-Card SpatialConnection #fff [
+Card SpatialConnection #F0F8FF [
 SpatialConnection
 ]
-SpatialConnection --|> DrivableConnection  #000 
+SpatialConnection --|> DrivableConnection  #00008B 
 @enduml

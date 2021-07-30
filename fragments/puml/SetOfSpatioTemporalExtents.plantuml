@@ -1,11 +1,19 @@
 @startuml
 Title SetOfSpatioTemporalExtents 
 
-Card SetOfSpatioTemporalExtents #fff [
+Card SetOfSpatioTemporalExtents #F0F8FF [
 SetOfSpatioTemporalExtents
 ]
-Card Set #fff [
+Card Set #F0F8FF [
 Set
 ]
-Set --|> SetOfSpatioTemporalExtents  #000 
+Set --|> SetOfSpatioTemporalExtents  #00008B 
+Card SetOfEvents #F0F8FF [
+SetOfEvents
+]
+SetOfEvents <|-- SetOfSpatioTemporalExtents  #00008B 
+Card SetOfStates #F0F8FF [
+SetOfStates
+]
+SetOfStates <|-- SetOfSpatioTemporalExtents  #00008B 
 @enduml

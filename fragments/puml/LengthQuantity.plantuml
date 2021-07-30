@@ -1,10 +1,10 @@
 @startuml
 Title LengthQuantity 
 
-Card LengthQuantity #fff [
+Card LengthQuantity #F0F8FF [
 LengthQuantity
 ]
-Card PhysicalQuantity #fff [
+Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
 - approximatelyEqualTo : PhysicalQuantity 
@@ -16,7 +16,6 @@ PhysicalQuantity
 - quantityLessThan : PhysicalQuantity 
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
-
 ]
-PhysicalQuantity --|> LengthQuantity  #000 
+PhysicalQuantity --|> LengthQuantity  #00008B 
 @enduml

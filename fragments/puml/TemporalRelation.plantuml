@@ -1,14 +1,13 @@
 @startuml
 Title TemporalRelation 
 
-Card TemporalRelation #fff [
+Card TemporalRelation #F0F8FF [
 TemporalRelation
 ]
-Card DefinedRelationship #fff [
+Card DefinedRelationship #F0F8FF [
 DefinedRelationship
 ----
 - involves : Classification 
-
 ]
-DefinedRelationship --|> TemporalRelation  #000 
+DefinedRelationship --|> TemporalRelation  #00008B 
 @enduml

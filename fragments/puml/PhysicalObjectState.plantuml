@@ -1,15 +1,44 @@
 @startuml
 Title PhysicalObjectState 
 
-Card PhysicalObjectState #fff [
+Card PhysicalObjectState #F0F8FF [
 PhysicalObjectState
 ----
 - connectedTo : PhysicalObjectState 
 - hasRelativePosition : PhysicalObjectState 
-
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> PhysicalObjectState  #000 
+State --|> PhysicalObjectState  #00008B 
+Card BiologicalObjectState #F0F8FF [
+BiologicalObjectState
+]
+BiologicalObjectState <|-- PhysicalObjectState  #00008B 
+Card FunctionalObjectState #F0F8FF [
+FunctionalObjectState
+----
+- intendedRole : Role 
+]
+FunctionalObjectState <|-- PhysicalObjectState  #00008B 
+Card OrdinaryPhysicalObjectState #F0F8FF [
+OrdinaryPhysicalObjectState
+]
+OrdinaryPhysicalObjectState <|-- PhysicalObjectState  #00008B 
+Card Participant #F0F8FF [
+Participant
+----
+- participantOf : ActivityState 
+]
+Participant <|-- PhysicalObjectState  #00008B 
+Card SystemComponentState #F0F8FF [
+SystemComponentState
+----
+- componentOf : SystemState 
+]
+SystemComponentState <|-- PhysicalObjectState  #00008B 
+Card WholeLifePhysicalObject #F0F8FF [
+WholeLifePhysicalObject
+]
+WholeLifePhysicalObject <|-- PhysicalObjectState  #00008B 
 @enduml

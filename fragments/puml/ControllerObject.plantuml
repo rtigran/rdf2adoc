@@ -1,14 +1,13 @@
 @startuml
 Title ControllerObject 
 
-Card ControllerObject #fff [
+Card ControllerObject #F0F8FF [
 ControllerObject
 ----
 - controls : SpatioTemporalExtent 
-
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> ControllerObject  #000 
+State --|> ControllerObject  #00008B 
 @enduml

@@ -1,14 +1,13 @@
 @startuml
 Title PointInTime 
 
-Card PointInTime #fff [
+Card PointInTime #F0F8FF [
 PointInTime
 ]
-Card Event #fff [
+Card Event #F0F8FF [
 Event
 ----
 - hasRelativeTime : Event 
-
 ]
-Event --|> PointInTime  #000 
+Event --|> PointInTime  #00008B 
 @enduml

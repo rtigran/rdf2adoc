@@ -1,11 +1,15 @@
 @startuml
 Title PeriodOfTime 
 
-Card PeriodOfTime #fff [
+Card PeriodOfTime #F0F8FF [
 PeriodOfTime
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> PeriodOfTime  #000 
+State --|> PeriodOfTime  #00008B 
+Card PossibleWorld #F0F8FF [
+PossibleWorld
+]
+PossibleWorld <|-- PeriodOfTime  #00008B 
 @enduml

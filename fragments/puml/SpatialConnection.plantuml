@@ -1,20 +1,23 @@
 @startuml
 Title SpatialConnection 
 
-Card SpatialConnection #fff [
+Card SpatialConnection #F0F8FF [
 SpatialConnection
 ]
-Card ConnectionRelation #fff [
+Card ConnectionRelation #F0F8FF [
 ConnectionRelation
 ]
-ConnectionRelation --|> SpatialConnection  #000 
-Card SpatialRelation #fff [
+ConnectionRelation --|> SpatialConnection  #00008B 
+Card SpatialRelation #F0F8FF [
 SpatialRelation
 ----
 - hasRelationDirection : DirectionQuantity 
 - hasSpatialObject : PhysicalObjectState 
 - hasSpatialSubject : PhysicalObjectState 
-
 ]
-SpatialRelation --|> SpatialConnection  #000 
+SpatialRelation --|> SpatialConnection  #00008B 
+Card DrivableConnection #F0F8FF [
+DrivableConnection
+]
+DrivableConnection <|-- SpatialConnection  #00008B 
 @enduml

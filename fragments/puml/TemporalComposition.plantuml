@@ -1,11 +1,11 @@
 @startuml
 Title TemporalComposition 
 
-Card TemporalComposition #fff [
+Card TemporalComposition #F0F8FF [
 TemporalComposition
 ]
-Card Composition #fff [
+Card Composition #F0F8FF [
 Composition
 ]
-Composition --|> TemporalComposition  #000 
+Composition --|> TemporalComposition  #00008B 
 @enduml

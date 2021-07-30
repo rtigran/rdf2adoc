@@ -1,19 +1,18 @@
 @startuml
 Title WholeLifeActivity 
 
-Card WholeLifeActivity #fff [
+Card WholeLifeActivity #F0F8FF [
 WholeLifeActivity
 ]
-Card ActivityState #fff [
+Card ActivityState #F0F8FF [
 ActivityState
 ----
 - causes : Event 
 - hasParticipant : Participant 
-
 ]
-ActivityState --|> WholeLifeActivity  #000 
-Card WholeLifeIndividual #fff [
+ActivityState --|> WholeLifeActivity  #00008B 
+Card WholeLifeIndividual #F0F8FF [
 WholeLifeIndividual
 ]
-WholeLifeIndividual --|> WholeLifeActivity  #000 
+WholeLifeIndividual --|> WholeLifeActivity  #00008B 
 @enduml

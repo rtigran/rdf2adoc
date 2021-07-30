@@ -1,11 +1,21 @@
 @startuml
 Title Geometry 
 
-Card Geometry #fff [
+Card Geometry #F0F8FF [
 Geometry
 ]
-Card PhysicalProperty #fff [
+Card PhysicalProperty #F0F8FF [
 PhysicalProperty
 ]
-PhysicalProperty --|> Geometry  #000 
+PhysicalProperty --|> Geometry  #00008B 
+Card SpatialLocation #F0F8FF [
+SpatialLocation
+]
+SpatialLocation <|-- Geometry  #00008B 
+Card Trajectory #F0F8FF [
+Trajectory
+----
+- obstructedBy : PhysicalObjectState 
+]
+Trajectory <|-- Geometry  #00008B 
 @enduml

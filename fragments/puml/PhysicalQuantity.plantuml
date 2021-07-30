@@ -1,7 +1,7 @@
 @startuml
 Title PhysicalQuantity 
 
-Card PhysicalQuantity #fff [
+Card PhysicalQuantity #F0F8FF [
 PhysicalQuantity
 ----
 - approximatelyEqualTo : PhysicalQuantity 
@@ -13,10 +13,28 @@ PhysicalQuantity
 - quantityLessThan : PhysicalQuantity 
 - quantityLessThanOrEqualTo : PhysicalQuantity 
 - quantityNotEqualTo : PhysicalQuantity 
-
 ]
-Card PhysicalProperty #fff [
+Card PhysicalProperty #F0F8FF [
 PhysicalProperty
 ]
-PhysicalProperty --|> PhysicalQuantity  #000 
+PhysicalProperty --|> PhysicalQuantity  #00008B 
+Card AngleQuantity #F0F8FF [
+AngleQuantity
+]
+AngleQuantity <|-- PhysicalQuantity  #00008B 
+Card DirectionQuantity #F0F8FF [
+DirectionQuantity
+----
+- oppositeOf : DirectionQuantity 
+- parallelTo : DirectionQuantity 
+]
+DirectionQuantity <|-- PhysicalQuantity  #00008B 
+Card LengthQuantity #F0F8FF [
+LengthQuantity
+]
+LengthQuantity <|-- PhysicalQuantity  #00008B 
+Card SpeedQuantity #F0F8FF [
+SpeedQuantity
+]
+SpeedQuantity <|-- PhysicalQuantity  #00008B 
 @enduml

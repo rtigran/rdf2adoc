@@ -1,11 +1,19 @@
 @startuml
 Title SpatialLocation 
 
-Card SpatialLocation #fff [
+Card SpatialLocation #F0F8FF [
 SpatialLocation
 ]
-Card Geometry #fff [
+Card Geometry #F0F8FF [
 Geometry
 ]
-Geometry --|> SpatialLocation  #000 
+Geometry --|> SpatialLocation  #00008B 
+Card RelativeLocation #F0F8FF [
+RelativeLocation
+----
+- hasEdgeAlignment : EdgeAlignmentType 
+- hasXoffset : LengthQuantity 
+- hasYoffset : LengthQuantity 
+]
+RelativeLocation <|-- SpatialLocation  #00008B 
 @enduml

@@ -1,11 +1,33 @@
 @startuml
 Title PhysicalProperty 
 
-Card PhysicalProperty #fff [
+Card PhysicalProperty #F0F8FF [
 PhysicalProperty
 ]
-Card SetOfStates #fff [
+Card SetOfStates #F0F8FF [
 SetOfStates
 ]
-SetOfStates --|> PhysicalProperty  #000 
+SetOfStates --|> PhysicalProperty  #00008B 
+Card EdgeAlignmentType #F0F8FF [
+EdgeAlignmentType
+]
+EdgeAlignmentType <|-- PhysicalProperty  #00008B 
+Card Geometry #F0F8FF [
+Geometry
+]
+Geometry <|-- PhysicalProperty  #00008B 
+Card PhysicalQuantity #F0F8FF [
+PhysicalQuantity
+----
+- approximatelyEqualTo : PhysicalQuantity 
+- defines : PhysicalQuantity 
+- hasQuantityRelation : PhysicalQuantity 
+- quantityEqualTo : PhysicalQuantity 
+- quantityGreaterThan : PhysicalQuantity 
+- quantityGreaterThanOrEqualTo : PhysicalQuantity 
+- quantityLessThan : PhysicalQuantity 
+- quantityLessThanOrEqualTo : PhysicalQuantity 
+- quantityNotEqualTo : PhysicalQuantity 
+]
+PhysicalQuantity <|-- PhysicalProperty  #00008B 
 @enduml

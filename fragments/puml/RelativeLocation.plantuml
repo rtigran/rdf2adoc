@@ -1,25 +1,23 @@
 @startuml
 Title RelativeLocation 
 
-Card RelativeLocation #fff [
+Card RelativeLocation #F0F8FF [
 RelativeLocation
 ----
 - hasEdgeAlignment : EdgeAlignmentType 
 - hasXoffset : LengthQuantity 
 - hasYoffset : LengthQuantity 
-
 ]
-Card SpatialLocation #fff [
+Card SpatialLocation #F0F8FF [
 SpatialLocation
 ]
-SpatialLocation --|> RelativeLocation  #000 
-Card SpatialRelation #fff [
+SpatialLocation --|> RelativeLocation  #00008B 
+Card SpatialRelation #F0F8FF [
 SpatialRelation
 ----
 - hasRelationDirection : DirectionQuantity 
 - hasSpatialObject : PhysicalObjectState 
 - hasSpatialSubject : PhysicalObjectState 
-
 ]
-SpatialRelation --|> RelativeLocation  #000 
+SpatialRelation --|> RelativeLocation  #00008B 
 @enduml

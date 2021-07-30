@@ -1,19 +1,35 @@
 @startuml
 Title SpatialRelation 
 
-Card SpatialRelation #fff [
+Card SpatialRelation #F0F8FF [
 SpatialRelation
 ----
 - hasRelationDirection : DirectionQuantity 
 - hasSpatialObject : PhysicalObjectState 
 - hasSpatialSubject : PhysicalObjectState 
-
 ]
-Card DefinedRelationship #fff [
+Card DefinedRelationship #F0F8FF [
 DefinedRelationship
 ----
 - involves : Classification 
-
 ]
-DefinedRelationship --|> SpatialRelation  #000 
+DefinedRelationship --|> SpatialRelation  #00008B 
+Card RelativeLocation #F0F8FF [
+RelativeLocation
+----
+- hasEdgeAlignment : EdgeAlignmentType 
+- hasXoffset : LengthQuantity 
+- hasYoffset : LengthQuantity 
+]
+RelativeLocation <|-- SpatialRelation  #00008B 
+Card SeparationDistance #F0F8FF [
+SeparationDistance
+----
+- occludedBy : PhysicalObjectState 
+]
+SeparationDistance <|-- SpatialRelation  #00008B 
+Card SpatialConnection #F0F8FF [
+SpatialConnection
+]
+SpatialConnection <|-- SpatialRelation  #00008B 
 @enduml

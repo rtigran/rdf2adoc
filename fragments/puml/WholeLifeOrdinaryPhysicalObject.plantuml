@@ -1,15 +1,15 @@
 @startuml
 Title WholeLifeOrdinaryPhysicalObject 
 
-Card WholeLifeOrdinaryPhysicalObject #fff [
+Card WholeLifeOrdinaryPhysicalObject #F0F8FF [
 WholeLifeOrdinaryPhysicalObject
 ]
-Card OrdinaryPhysicalObjectState #fff [
+Card OrdinaryPhysicalObjectState #F0F8FF [
 OrdinaryPhysicalObjectState
 ]
-OrdinaryPhysicalObjectState --|> WholeLifeOrdinaryPhysicalObject  #000 
-Card WholeLifePhysicalObject #fff [
+OrdinaryPhysicalObjectState --|> WholeLifeOrdinaryPhysicalObject  #00008B 
+Card WholeLifePhysicalObject #F0F8FF [
 WholeLifePhysicalObject
 ]
-WholeLifePhysicalObject --|> WholeLifeOrdinaryPhysicalObject  #000 
+WholeLifePhysicalObject --|> WholeLifeOrdinaryPhysicalObject  #00008B 
 @enduml

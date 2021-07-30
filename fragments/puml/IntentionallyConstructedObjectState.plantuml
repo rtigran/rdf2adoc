@@ -1,11 +1,21 @@
 @startuml
 Title IntentionallyConstructedObjectState 
 
-Card IntentionallyConstructedObjectState #fff [
+Card IntentionallyConstructedObjectState #F0F8FF [
 IntentionallyConstructedObjectState
 ]
-Card State #fff [
+Card State #F0F8FF [
 State
 ]
-State --|> IntentionallyConstructedObjectState  #000 
+State --|> IntentionallyConstructedObjectState  #00008B 
+Card FunctionalObjectState #F0F8FF [
+FunctionalObjectState
+----
+- intendedRole : Role 
+]
+FunctionalObjectState <|-- IntentionallyConstructedObjectState  #00008B 
+Card WholeLifeIntentionallyConstructedObject #F0F8FF [
+WholeLifeIntentionallyConstructedObject
+]
+WholeLifeIntentionallyConstructedObject <|-- IntentionallyConstructedObjectState  #00008B 
 @enduml

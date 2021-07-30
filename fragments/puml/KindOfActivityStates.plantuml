@@ -1,15 +1,15 @@
 @startuml
 Title KindOfActivityStates 
 
-Card KindOfActivityStates #fff [
+Card KindOfActivityStates #F0F8FF [
 KindOfActivityStates
 ]
-Card Kind #fff [
+Card Kind #F0F8FF [
 Kind
 ]
-Kind --|> KindOfActivityStates  #000 
-Card SetOfActivityStates #fff [
+Kind --|> KindOfActivityStates  #00008B 
+Card SetOfActivityStates #F0F8FF [
 SetOfActivityStates
 ]
-SetOfActivityStates --|> KindOfActivityStates  #000 
+SetOfActivityStates --|> KindOfActivityStates  #00008B 
 @enduml

@@ -1,14 +1,13 @@
 @startuml
 Title Classification 
 
-Card Classification #fff [
+Card Classification #F0F8FF [
 Classification
 ----
 - classifier : Set 
-
 ]
-Card Relationship #fff [
+Card Relationship #F0F8FF [
 Relationship
 ]
-Relationship --|> Classification  #000 
+Relationship --|> Classification  #00008B 
 @enduml

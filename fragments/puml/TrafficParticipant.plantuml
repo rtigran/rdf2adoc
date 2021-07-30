@@ -1,14 +1,21 @@
 @startuml
 Title TrafficParticipant 
 
-Card TrafficParticipant #fff [
+Card TrafficParticipant #F0F8FF [
 TrafficParticipant
 ]
-Card Participant #fff [
+Card Participant #F0F8FF [
 Participant
 ----
 - participantOf : ActivityState 
-
 ]
-Participant --|> TrafficParticipant  #000 
+Participant --|> TrafficParticipant  #00008B 
+Card Pedestrian #F0F8FF [
+Pedestrian
+]
+Pedestrian <|-- TrafficParticipant  #00008B 
+Card Vehicle #F0F8FF [
+Vehicle
+]
+Vehicle <|-- TrafficParticipant  #00008B 
 @enduml

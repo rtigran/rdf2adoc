@@ -1,11 +1,11 @@
 @startuml
 Title EdgeAlignmentType 
 
-Card EdgeAlignmentType #fff [
+Card EdgeAlignmentType #F0F8FF [
 EdgeAlignmentType
 ]
-Card PhysicalProperty #fff [
+Card PhysicalProperty #F0F8FF [
 PhysicalProperty
 ]
-PhysicalProperty --|> EdgeAlignmentType  #000 
+PhysicalProperty --|> EdgeAlignmentType  #00008B 
 @enduml
