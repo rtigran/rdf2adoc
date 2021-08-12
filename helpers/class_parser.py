@@ -18,9 +18,13 @@ def get_class_definition(g, owl_class):
 def get_classes(g):
     classes = []
     for owl_class, _, _ in g.triples((None, RDF.type, OWL.Class)):
-        classes.append(get_class_definition(g, owl_class))
-        for _, _, equivalent_class in g.triples((owl_class, OWL.equivalentClass, None)):
-            classes.append(get_class_definition(g, equivalent_class))
+        parsed_uri = up._make_fragment_uri(g, owl_class)
+        owl_class_namespace = parsed_uri['namespace']
+
+        if owl_class_namespace !='':
+            classes.append(get_class_definition(g, owl_class))
+                #for _, _, equivalent_class in g.triples((owl_class, OWL.equivalentClass, None)):
+                #    classes.append(get_class_definition(g, equivalent_class))
     return classes
 
 
@@ -49,9 +53,11 @@ def _is_class_type_owl_restriction(super_class, g):
 
 
 def _convert_restriction(G, restriction_bn):
+    restriction=[]
     prop = None
     card = None
     cls = None
+    card_cls = None
 
     for p2, o2 in G.predicate_objects(subject=restriction_bn):
         if p2 != RDF.type:
@@ -80,14 +86,14 @@ def _convert_restriction(G, restriction_bn):
                 else:  # p2 == OWL.someValuesFrom
                     card = "some"
 
-                card = '**{}** {}'.format(card, up._get_last_segment_of_uri(o2))
-
+                card = '**{}**'.format(card)
+                card_cls = '{}'.format(up._get_last_segment_of_uri(o2))
             elif p2 == OWL.hasValue:
                 card = '**value** {}'.format(up._get_last_segment_of_uri(o2))
 
-    restriction = prop + " " + card if card is not None else prop
-    restriction = restriction + " " + cls if cls is not None else restriction
-
+    restriction = [prop, card, card_cls] if card_cls is not None else [prop, card, cls]
+    #restriction = restriction.append(cls) if cls is not None else restriction
+    
     return restriction
 
 
@@ -106,13 +112,11 @@ def get_restrictions(owl_class, g):
 
 def get_disjoints(owl_class, g):
     disjoints = []
-
     for _, _, disjoint_class in g.triples((owl_class, OWL.disjointWith, None)):
         parsed_uri = up._make_fragment_uri(g, disjoint_class)
         disjoint_class_prefix = parsed_uri['prefix']
         disjoint_class_name = parsed_uri['name']
-        disjoints.append(f"{disjoint_class_prefix}:{disjoint_class_name}")
-
+        disjoints.append(f"{disjoint_class_name}")
     return disjoints
 
 def get_properties(owl_class, g):
@@ -131,14 +135,11 @@ def get_properties(owl_class, g):
                     plant_uml += f'- {parsed_rdfs_rdf_property_name} : {parsed_rdfs_range_name} \n'
                 break
             break
-
     return plant_uml
 
 def get_subclass(owl_class, g):
     subclass = []
-
     for sub_class, _,_  in g.triples((None, RDFS.subClassOf, owl_class)):
-
         owl_restriction_bool = _is_class_type_owl_restriction(sub_class, g)
         if not owl_restriction_bool:
             parsed_uri = up._make_fragment_uri(g, sub_class)

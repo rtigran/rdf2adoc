@@ -9,7 +9,7 @@ def get_domain(owl_proprty, g):
             parsed_uri = up._make_fragment_uri(g, rdfs_domain)
             domain_prefix = parsed_uri['prefix']
             domain_name = parsed_uri['name']
-            domain.append(f"{domain_prefix}:{domain_name}")
+            domain.append(f"{domain_name}")
     return domain
 
 
@@ -21,7 +21,7 @@ def get_range(owl_proprty, g):
             parsed_uri = up._make_fragment_uri(g, rdfs_range)
             range_prefix = parsed_uri['prefix']
             range_name = parsed_uri['name']
-            range1.append(f"{range_prefix}:{range_name}")
+            range1.append(f"{range_name}")
     return range1
 
 
@@ -33,7 +33,7 @@ def get_super_property(owl_proprty, g):
             parsed_uri = up._make_fragment_uri(g, super_property)
             super_property_prefix = parsed_uri['prefix']
             super_property_name = parsed_uri['name']
-            superproperty.append(f"{super_property_prefix}:{super_property_name}")
+            superproperty.append(f"{super_property_name}")
 
     return superproperty
 
@@ -91,5 +91,5 @@ def get_inverse_of(owl_proprty, g):
             parsed_uri = up._make_fragment_uri(g, rdfs_inverseOf)
             inverseOf_prefix = parsed_uri['prefix']
             inverseOf_name = parsed_uri['name']
-            inverse_of.append(f"{inverseOf_prefix}:{inverseOf_name}")
+            inverse_of.append(f"{inverseOf_name}")
     return inverse_of

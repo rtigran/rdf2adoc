@@ -24,7 +24,7 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 Path where the generated class diagrams will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
-* **`puml_inpath: "./fragments/puml/"`**
+* **`puml_outpath: "./fragments/puml/"`**
 Path where the generated PlantUML files will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
