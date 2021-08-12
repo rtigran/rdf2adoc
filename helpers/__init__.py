@@ -51,7 +51,7 @@ class RDF2adoc:
                     class_adoc += (f"= {class_name}\n\n")
                     class_adoc += (f"//Include information from owl files\n\n")
                     class_adoc += (f"The following model provides an overview of {class_name}\n\n")
-                    class_adoc += (f"//include::{self.__puml_outpath}/{class_name}.plantuml[] \n\n")
+                    class_adoc += (f"include::{self.__puml_outpath}/{class_name}.plantuml[] \n\n")
                     class_adoc += ('|===\n|Element |Description\n\n')
                     class_adoc += (f"|Type\n|Class\n\n")
                     class_adoc += (f"|Name\n|{class_name}\n\n")
