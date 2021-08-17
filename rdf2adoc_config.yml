@@ -9,17 +9,20 @@ adoc_class_outpath: "./fragments/classes/"
 # CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 adoc_prop_outpath: "./fragments/properties/"
 
+# Path where the generated PlantUMl files will be stored
+# CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
+puml_outpath: "./fragments/puml/"
+
 # Path where the generated class diagrams will be stored
 # CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 diag_outpath: "./fragments/diagrams/"
 
-# Path where the generated PlantUMl files will be stored
-# CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
-puml_inpath: "./fragments/puml/"
-
 # Path to the plantuml.jar for png diagram creation
 # CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 plantuml_jar: "./plantuml.jar"
+
+# Set to True if you want to have diagram generation
+diag_gen: False
 
 # Set to True if you want to have logging in a logfile
 logging: True

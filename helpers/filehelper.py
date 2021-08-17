@@ -31,8 +31,11 @@ def get_adoc_class_outpath() -> str:
 def get_adoc_prop_outpath() -> str:
     return dic_config["adoc_prop_outpath"] if "adoc_class_outpath" in dic_config else ""
 
-def get_puml_inpath() ->str:
-    return os.path.abspath(dic_config["puml_inpath"]) if "puml_inpath" in dic_config else ""
+def get_puml_outpath() ->str:
+    return os.path.abspath(dic_config["puml_outpath"]) if "puml_outpath" in dic_config else ""
+
+def get_diag_gen() -> str:
+    return dic_config["diag_gen"] if "diag_gen" in dic_config else "False"
 
 def get_diag_outpath() -> str:
     return os.path.abspath(dic_config["diag_outpath"]) if "diag_outpath" in dic_config else ""
@@ -47,8 +50,8 @@ def prepare_filestructure() -> None:
         clean_filestructure(get_adoc_class_outpath())
     if get_adoc_prop_outpath():
         clean_filestructure(get_adoc_prop_outpath())
-    if get_puml_inpath():
-        clean_filestructure(get_puml_inpath())
+    if get_puml_outpath():
+        clean_filestructure(get_puml_outpath())
     if get_diag_outpath():
         clean_filestructure(get_diag_outpath())
 
