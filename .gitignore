@@ -3,3 +3,5 @@
 /fragments/diagrams/
 /fragments/properties/
 /fragments/puml/
+
+helpers/__pycache__/

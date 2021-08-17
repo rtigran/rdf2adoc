@@ -6,11 +6,21 @@ import sys
 config_ok = False
 
 try:
-    config_ok = f.load_config("./rdf2adoc_config.yml")
+    if len(sys.argv) == 2:
+        if sys.argv[1] == "-h" or sys.argv[1] == "--help":
+            # no logprint because we do not know where to log
+            print(C.VERSION)
+            print("This script generates adoc-fragments by parsing an ontology (.ttl) file.\n")
+        else:
+            config_ok = f.load_config(sys.argv[1])
+    else:
+        config_ok = f.load_config("./rdf2adoc_config.yml")
     f.logprint("rdf2adoc start at ", datetime.now().strftime("%H:%M:%S"))
+
 except:
     if not config_ok:
-        print("Please provide a config.yml file")
+        print("Please provide a config.yml file as an argument!")
+        print("Call: python rdf2adoc.py <config.yml>")
         sys.exit(-1)
 
 f.prepare_filestructure()
