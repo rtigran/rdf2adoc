@@ -8,8 +8,6 @@ config_ok = False
 try:
     if len(sys.argv) == 2:
         if sys.argv[1] == "-h" or sys.argv[1] == "--help":
-            # no logprint because we do not know where to log
-            print(C.VERSION)
             print("This script generates adoc-fragments by parsing an ontology (.ttl) file.\n")
         else:
             config_ok = f.load_config(sys.argv[1])
