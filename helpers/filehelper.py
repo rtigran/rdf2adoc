@@ -32,7 +32,7 @@ def get_adoc_prop_outpath() -> str:
     return dic_config["adoc_prop_outpath"] if "adoc_class_outpath" in dic_config else ""
 
 def get_puml_outpath() ->str:
-    return os.path.abspath(dic_config["puml_outpath"]) if "puml_outpath" in dic_config else ""
+    return dic_config["puml_outpath"] if "puml_outpath" in dic_config else ""
 
 def get_diag_gen() -> str:
     return dic_config["diag_gen"] if "diag_gen" in dic_config else "False"

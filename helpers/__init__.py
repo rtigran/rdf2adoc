@@ -49,11 +49,15 @@ class RDF2adoc:
                     in self.__classes:
                 with open(f"{self.__class_outpath}{class_name}.adoc", 'w', encoding="utf-8") as fobj:
 
-                    class_adoc = (f"// This file was created automatically by {self.__version}.\n// DO NOT EDIT!\n\n")
+                    class_adoc = (f"// This file was created automatically by {self.__version}.\n")
+                    class_adoc += (f"// DO NOT EDIT!\n\n")
                     class_adoc += (f"= {class_name}\n\n")
                     class_adoc += (f"//Include information from owl files\n\n")
                     class_adoc += (f"The following model provides an overview of {class_name}\n\n")
-                    class_adoc += (f"include::{self.__puml_outpath}/{class_name}.plantuml[] \n\n")
+                    class_adoc += '[plantuml, png]\n'
+                    class_adoc += '----\n'
+                    class_adoc += (f"include::../puml/{class_name}.plantuml[] \n")
+                    class_adoc += '----\n\n'
                     class_adoc += ('|===\n|Element |Description\n\n')
                     class_adoc += (f"|Type\n|Class\n\n")
                     class_adoc += (f"|Name\n|{class_name}\n\n")
