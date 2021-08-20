@@ -55,9 +55,9 @@ class RDF2adoc:
                     class_adoc += (f"//Include information from owl files\n\n")
                     class_adoc += (f"The following model provides an overview of {class_name}\n\n")
                     class_adoc += '[plantuml, png]\n'
-                    class_adoc += '----\n'
+                    class_adoc += '....\n'
                     class_adoc += (f"include::../puml/{class_name}.plantuml[] \n")
-                    class_adoc += '----\n\n'
+                    class_adoc += '....\n\n'
                     class_adoc += ('|===\n|Element |Description\n\n')
                     class_adoc += (f"|Type\n|Class\n\n")
                     class_adoc += (f"|Name\n|{class_name}\n\n")
@@ -159,7 +159,7 @@ class RDF2adoc:
                 with open(f"{puml_filename}.plantuml", 'w', encoding="utf-8") as fobj:
                     card = []
                     plant_uml = '@startuml\n'
-                    plant_uml += f'Title {class_name} \n'
+                    plant_uml = f'Title {class_name} \n'
                     card.append(class_name)
                     plant_uml += f'Card {class_name} #F0F8FF [\n'
                     plant_uml += f'{class_name}\n'
