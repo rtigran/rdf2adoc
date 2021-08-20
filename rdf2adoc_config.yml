@@ -18,7 +18,6 @@ puml_outpath: "./fragments/puml/"
 diag_outpath: "./fragments/diagrams/"
 
 # Path to the plantuml.jar for png diagram creation
-# CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 plantuml_jar: "./plantuml.jar"
 
 # Set to True if you want to have diagram generation

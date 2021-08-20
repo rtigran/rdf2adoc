@@ -8,6 +8,8 @@ from helpers import property_parser as pp
 from helpers import ont_version as v
 from helpers import filehelper as f
 from datetime import datetime
+from helpers.color import COLOR
+import random
 
 
 class RDF2adoc:
@@ -151,19 +153,34 @@ class RDF2adoc:
                     in self.__classes:
                 puml_filename = os.path.join(path, class_name)
                 with open(f"{puml_filename}.plantuml", 'w', encoding="utf-8") as fobj:
+                    card = []
                     plant_uml = '@startuml\n'
                     plant_uml += f'Title {class_name} \n'
+                    card.append(class_name)
                     plant_uml += f'Card {class_name} #F0F8FF [\n'
                     plant_uml += f'{class_name}\n'
                     if properties != '':
                         plant_uml += '----\n'
                         plant_uml += f'{properties}'
                     plant_uml += ']\n'
+
+                    if restrictions != []:
+                        for restrictions_item in restrictions:
+                            if restrictions_item[2] not in card:
+                                card.append(restrictions_item[2])
+                                plant_uml += self._get_puml_properties(restrictions_item[2])
+                            plant_uml += f'{class_name} ..> {restrictions_item[2]} {random.choice(COLOR)} : {restrictions_item[0]} {restrictions_item[1]}  \n'
+
                     for superclass_item in superclass:
-                        plant_uml +=self._get_puml_properties(superclass_item)
+                        if superclass_item not in card:
+                            card.append(superclass_item)
+                            plant_uml +=self._get_puml_properties(superclass_item)
                         plant_uml += f'{superclass_item} --|> {class_name}  #00008B \n'
+
                     for subclass_item in subclass:
-                        plant_uml += self._get_puml_properties(subclass_item)
+                        if subclass_item not in card:
+                            card.append(subclass_item)
+                            plant_uml += self._get_puml_properties(subclass_item)
                         plant_uml += f'{class_name} --|> {subclass_item}  #00008B \n'
                     plant_uml += '@enduml'
 
