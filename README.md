@@ -3,6 +3,12 @@ A python script used to generate adoc-fragments (classes and properties) and cla
 Used by the OpenXOntology project.
 `python rdf2adoc.py`
 
+## Install needed packages:
+rdf2adoc uses 'rdflib' to analyze RDF triplets in ontology. Install required packages with:
+```
+python -m pip install -r requirements.txt
+```
+
 ## Subfolder _'modules'_
 This folder contains ontology file for test.
 
@@ -34,4 +40,3 @@ Logging file name.
 * **`plantuml_jar: "./plantuml.jar"`**
 Path to the plantuml.jar for png diagram creation.
 
-Note: rdf2adoc uses 'rdflib' to analyze RDF triplets in ontology. You may have to install rdflib using `pip install rdflib`
