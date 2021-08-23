@@ -5,14 +5,14 @@ def get_class_definition(g, owl_class):
     parsed_uri = up._make_fragment_uri(g, owl_class)
     class_name = parsed_uri['name']
     prefix = parsed_uri['prefix']
-    label = g.label(owl_class)
-    comment = g.comment(owl_class)
+    #label = g.label(owl_class)
+    comments = get_comments(owl_class,g)
     superclass = get_superclass(owl_class, g)
     restrictions = get_restrictions(owl_class, g)
     disjoints = get_disjoints(owl_class, g)
     properties = get_properties(owl_class, g)
     subclass=get_subclass(owl_class, g)
-    return (owl_class, f"{prefix}", f"{class_name}", f"{label}", f"{comment}", superclass, restrictions, disjoints, properties, subclass)
+    return (owl_class, f"{prefix}", f"{class_name}", comments, superclass, restrictions, disjoints, properties, subclass)
 
 
 def get_classes(g):
@@ -147,3 +147,9 @@ def get_subclass(owl_class, g):
             sub_class_name = parsed_uri['name']
             subclass.append(f"{sub_class_name}")
     return subclass
+
+def get_comments(owl_class, g):
+    comments = []
+    for _, _, comment in g.triples((owl_class, RDFS.comment, None)):
+        comments.append(f"{comment}")
+    return comments

@@ -39,8 +39,7 @@ class RDF2adoc:
             for owl_class, \
                 prefix, \
                 class_name, \
-                label, \
-                comment, \
+                comments, \
                 superclass, \
                 restrictions, \
                 disjoints, \
@@ -63,7 +62,7 @@ class RDF2adoc:
                     class_adoc += (f"|Name\n|{class_name}\n\n")
                     class_adoc += (f"|IRI\n|{owl_class}\n\n")
 
-                    if label != '': class_adoc += (f"|Label\n|{label}\n\n")
+                    #if label != '': class_adoc += (f"|Label\n|{label}\n\n")
 
                     for superclass_item in superclass:
                         class_adoc += (f"|Subclass of\n|{superclass_item}\n\n")
@@ -74,7 +73,14 @@ class RDF2adoc:
                         for disjoints_item in disjoints:
                             class_adoc += (f"|Disjoint with\n|{disjoints_item}\n\n")
 
-                    if comment != '': class_adoc += (f"|Comment\n|{comment}\n\n")
+                    if comments != []:
+                        class_adoc += (f"|Comments\n|")
+                        for comments_item in comments:
+                            if comments_item.startswith("DEF") or comments_item.startswith("USAGE") or comments_item.startswith("EXAMPLE"):
+                                class_adoc += (f"{comments_item}\n\n")
+                            if comments_item.startswith("HQDM"):
+                                term = comments_item.removeprefix("HQDM ")
+                                class_adoc += (f"link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/{term}.htm[Reference to {comments_item}] \n\n")
                     class_adoc += ("|===")
 
                     fobj.write(class_adoc)
@@ -86,7 +92,7 @@ class RDF2adoc:
             for property_uri, \
                 prefix, \
                 property_name, \
-                label, comment, \
+                comments, \
                 subPropertyOf, \
                 domain, \
                 range1, \
@@ -120,8 +126,16 @@ class RDF2adoc:
                         for characteristics_item in characteristics:
                             prop_adoc += (f"|Characteristic\n|{characteristics_item}\n\n")
 
-                    if label != '': prop_adoc += (f"|Label\n|{label}\n\n")
-                    if comment != '': prop_adoc += (f"|Comment\n|{comment}\n\n")
+                    #if label != '': prop_adoc += (f"|Label\n|{label}\n\n")
+
+                    if comments != []:
+                        prop_adoc += (f"|Comments\n|")
+                        for comments_item in comments:
+                            if comments_item.startswith("DEF") or comments_item.startswith("USAGE") or comments_item.startswith("EXAMPLE"):
+                                prop_adoc += (f"{comments_item}\n\n")
+                            if comments_item.startswith("HQDM"):
+                                term=comments_item.removeprefix("HQDM ")
+                                prop_adoc += (f"link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/{term}.htm[Reference to {comments_item}] \n\n")
 
                     prop_adoc += ("|===")
 
@@ -147,7 +161,6 @@ class RDF2adoc:
             for class_uri,\
                 prefix, \
                 class_name, \
-                label, \
                 comment, \
                 superclass, \
                 restrictions, \
@@ -193,7 +206,7 @@ class RDF2adoc:
     def _get_puml_properties(self, class_item):
         plant_uml = f'Card {class_item} #F0F8FF [\n'
         plant_uml += f'{class_item}\n'
-        for class_uri, _, class_name, _, _, _, _, _, properties, _ in self.__classes:
+        for class_uri, _, class_name, _, _, _, _, properties, _ in self.__classes:
             if class_item == class_name:
                 if properties != '':
                     plant_uml += '----\n'

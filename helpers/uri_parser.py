@@ -35,3 +35,4 @@ def _get_uri_prefix(uri : str, g):
 
     # Nothing was found, just return an empty string.
     return prefix
+

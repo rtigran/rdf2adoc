@@ -44,14 +44,14 @@ def get_properties(g):
         parsed_uri = up._make_fragment_uri(g, owl_property)
         property_name = parsed_uri['name']
         prefix = parsed_uri['prefix']
-        label = g.label(owl_property)
-        comment = g.comment(owl_property)
+        #label = g.label(owl_property)
+        comments = get_comments(owl_property,g)
         domain = get_domain(owl_property, g)
         range1 = get_range(owl_property, g)
         super_property = get_super_property(owl_property, g)
         inverse_of = get_inverse_of(owl_property, g)
         characteristics = get_characteristics(owl_property, g)
-        properties.append((f"{str(owl_property)}", f"{prefix}", f"{property_name}", f"{label}", f"{comment}",
+        properties.append((f"{str(owl_property)}", f"{prefix}", f"{property_name}",  comments,
                            super_property, domain, range1, inverse_of, characteristics))
     return properties
 
@@ -93,3 +93,9 @@ def get_inverse_of(owl_proprty, g):
             inverseOf_name = parsed_uri['name']
             inverse_of.append(f"{inverseOf_name}")
     return inverse_of
+
+def get_comments(owl_proprty, g):
+    comments = []
+    for _, _, comment in g.triples((owl_proprty, RDFS.comment, None)):
+        comments.append(f"{comment}")
+    return comments
