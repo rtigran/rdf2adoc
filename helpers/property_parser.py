@@ -98,4 +98,5 @@ def get_comments(owl_proprty, g):
     comments = []
     for _, _, comment in g.triples((owl_proprty, RDFS.comment, None)):
         comments.append(f"{comment}")
+        comments.sort(key=lambda s: s.startswith("HQDM"))
     return comments
