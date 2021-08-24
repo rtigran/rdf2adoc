@@ -135,7 +135,7 @@ class RDF2adoc:
                                 prop_adoc += (f"{comments_item}\n\n")
                             if comments_item.startswith("HQDM"):
                                 term=comments_item.removeprefix("HQDM ")
-                                prop_adoc += (f"link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/{term}.htm[Reference to {comments_item}] \n\n")
+                                prop_adoc += (f"[Equivalent to {comments_item}] \n\n")
 
                     prop_adoc += ("|===")
 
