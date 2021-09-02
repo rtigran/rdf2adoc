@@ -7,17 +7,19 @@ from helpers import class_parser as cp
 from helpers import property_parser as pp
 from helpers import ont_version as v
 from helpers import filehelper as f
+from helpers import fragments_parser as fr
 from datetime import datetime
 from helpers.color import COLOR
 import random
 
 
 class RDF2adoc:
-    def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, puml_outpath : str, format='turtle'):
+    def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, puml_outpath : str, appendix_outpath : str, format='turtle'):
         self.__filepath = filepath
         self.__class_outpath = class_outpath
         self.__prop_outpath = prop_outpath
         self.__puml_outpath = puml_outpath
+        self.__appendix_outpath = appendix_outpath
 
         self.g = Graph().parse(self.__filepath, format=format)
         self.__version=v.get_version(self.g)
@@ -46,16 +48,18 @@ class RDF2adoc:
                 properties, \
                 subclass \
                     in self.__classes:
-                with open(f"{self.__class_outpath}{class_name}.adoc", 'w', encoding="utf-8") as fobj:
+
+                with open(f"{self.__class_outpath}{prefix}_{class_name}.adoc", 'w', encoding="utf-8") as fobj:
 
                     class_adoc = (f"// This file was created automatically by {self.__version}.\n")
                     class_adoc += (f"// DO NOT EDIT!\n\n")
-                    class_adoc += (f"= {class_name}\n\n")
+                    #class_adoc += (f"= {class_name}\n\n")
                     class_adoc += (f"//Include information from owl files\n\n")
-                    class_adoc += (f"The following model provides an overview of {class_name}\n\n")
-                    class_adoc += '[plantuml, png]\n'
+                    class_adoc += (f"[#{class_name}]\n")
+                    class_adoc += (f"==== {class_name}\n\n")
+                    class_adoc += '[plantuml]\n'
                     class_adoc += '....\n'
-                    class_adoc += (f"include::../puml/{class_name}.plantuml[] \n")
+                    class_adoc += (f"include::../puml/{prefix}_{class_name}.plantuml[] \n")
                     class_adoc += '....\n\n'
                     class_adoc += ('|===\n|Element |Description\n\n')
                     class_adoc += (f"|Type\n|Class\n\n")
@@ -99,12 +103,14 @@ class RDF2adoc:
                 inverse_of, \
                 characteristics \
                     in self.__properties:
-                with open(f"{self.__prop_outpath}{property_name}.adoc", 'w', encoding="utf-8") as fobj:
+                with open(f"{self.__prop_outpath}{prefix}_{property_name}.adoc", 'w', encoding="utf-8") as fobj:
 
                     prop_adoc=(f"// This file was created automatically by {self.__version}.\n// DO NOT EDIT!\n\n")
-                    prop_adoc += (f"= {property_name}\n\n")
+                    #prop_adoc += (f"= {property_name}\n\n")
                     prop_adoc += (f"//Include information from owl files\n\n")
-                    prop_adoc += (f"The following model provides an overview of {property_name}\n\n")
+
+                    prop_adoc += (f"[#{property_name}]\n")
+                    prop_adoc += (f"==== {property_name}\n\n")
                     prop_adoc += ('|===\n|Element |Description\n\n')
                     prop_adoc += (f"|Type\n|ObjectProperty\n\n")
                     prop_adoc += (f"|Name\n|{property_name}\n\n")
@@ -168,7 +174,8 @@ class RDF2adoc:
                 properties, \
                 subclass \
                     in self.__classes:
-                puml_filename = os.path.join(path, class_name)
+                puml_name=prefix+'_'+class_name
+                puml_filename = os.path.join(path, puml_name)
                 with open(f"{puml_filename}.plantuml", 'w', encoding="utf-8") as fobj:
                     card = []
                     plant_uml = '@startuml\n'
@@ -213,3 +220,58 @@ class RDF2adoc:
                     plant_uml += f'{properties}'
         plant_uml += ']\n'
         return plant_uml
+
+    def gen_appendix(self):
+        appendix_adoc=''
+        path=self.__appendix_outpath
+        appendix_filename = os.path.join(path, 'Appendix')
+        with open(f"{appendix_filename}.adoc", 'w', encoding="utf-8") as fobj:
+            appendix_adoc += (f"// This file was created automatically by {self.__version}.\n")
+            appendix_adoc += (f"// DO NOT EDIT!\n\n")
+            appendix_adoc += (f"= Appendix\n")
+            appendix_adoc +=':encoding: utf-8 \n'
+            appendix_adoc +=':lang: en \n'
+            appendix_adoc +=':table-stripes: even \n'
+            appendix_adoc +=':toc: \n'
+            appendix_adoc +=':toc-placement!: \n'
+            appendix_adoc +=':toclevels: 2 \n'
+            appendix_adoc +=':sectnumlevels: 4 \n'
+            appendix_adoc +=':sectanchors: \n'
+            appendix_adoc +=':figure-id: 0 \n'
+            appendix_adoc +=':table-id: 0 \n'
+            appendix_adoc +=':req-id: 0 \n'
+            appendix_adoc +=':rec-id: 0 \n'
+            appendix_adoc +=':per-id: 0 \n'
+            appendix_adoc +=':xrefstyle: short \n'
+            appendix_adoc +=':chapter-refsig: Clause \n'
+            appendix_adoc +=':idprefix: \n'
+            appendix_adoc +=':idseparator: \n\n'
+
+            appendix_adoc +='toc::[] \n'
+            appendix_adoc +='<<< \n'
+            appendix_adoc +='\n'
+            appendix_adoc +=':sectnums!: \n\n'
+            appendix_adoc += (f"== Core module\n\n")
+
+            appendix_adoc += (f"=== Classes\n\n")
+            appendix_adoc +=fr._add_appendix_links(self.__class_outpath, 'Core')
+            appendix_adoc +=fr._add_appendix_adoc(self.__class_outpath, 'Core')
+
+            appendix_adoc += (f"=== Properties\n\n")
+            appendix_adoc += fr._add_appendix_links(self.__prop_outpath, 'Core')
+            appendix_adoc += fr._add_appendix_adoc(self.__prop_outpath, 'Core')
+
+            appendix_adoc += (f"== Domain module\n\n")
+
+            appendix_adoc += (f"=== Classes\n\n")
+            appendix_adoc += fr._add_appendix_links(self.__class_outpath, 'Domain')
+            appendix_adoc += fr._add_appendix_adoc(self.__class_outpath, 'Domain')
+
+            appendix_adoc += (f"=== Properties\n\n")
+            appendix_adoc += fr._add_appendix_links(self.__prop_outpath, 'Domain')
+            appendix_adoc += fr._add_appendix_adoc(self.__prop_outpath, 'Domain')
+
+            fobj.write(appendix_adoc)
+
+
+

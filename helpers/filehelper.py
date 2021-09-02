@@ -22,7 +22,7 @@ def load_config(configfile : str) -> bool:
 
 def get_ont_inpath() ->str:
     path=dic_config["ont_inpath"]
-    ont_files=[f for f in listdir(path) if isfile(join(path,f))]
+    ont_files=[f for f in listdir(path) if isfile(join(path,f)) if f.startswith("OpenXCore")]
     return join(path,ont_files[0])
 
 def get_adoc_class_outpath() -> str:
@@ -33,6 +33,9 @@ def get_adoc_prop_outpath() -> str:
 
 def get_puml_outpath() ->str:
     return dic_config["puml_outpath"] if "puml_outpath" in dic_config else ""
+
+def get_appendix_outpath():
+    return dic_config["appendix_outpath"] if "appendix_outpath" in dic_config else ""
 
 def get_diag_gen() -> str:
     return dic_config["diag_gen"] if "diag_gen" in dic_config else "False"
@@ -52,6 +55,8 @@ def prepare_filestructure() -> None:
         clean_filestructure(get_adoc_prop_outpath())
     if get_puml_outpath():
         clean_filestructure(get_puml_outpath())
+    if get_appendix_outpath():
+        clean_filestructure(get_appendix_outpath())
     if get_diag_outpath():
         clean_filestructure(get_diag_outpath())
 

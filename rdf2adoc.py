@@ -28,14 +28,16 @@ def main():
     class_outpath = f.get_adoc_class_outpath()
     prop_outpath = f.get_adoc_prop_outpath()
     puml_outpath = f.get_puml_outpath()
+    appendix_outpath = f.get_appendix_outpath()
     diag_gen = f.get_diag_gen()
 
-    rdoc = r(ont_inpath, class_outpath, prop_outpath, puml_outpath)
+    rdoc = r(ont_inpath, class_outpath, prop_outpath, puml_outpath, appendix_outpath)
     f.logprint(rdoc.version)
     f.logprint(rdoc.stat)
     rdoc.gen_class_adoc()
     rdoc.gen_prop_adoc()
     rdoc.gen_puml()
+    rdoc.gen_appendix()
 
     if diag_gen:
         rdoc.gen_diag()

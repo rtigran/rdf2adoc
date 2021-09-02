@@ -26,6 +26,10 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 Path where the generated adoc-fragments for properties will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
+* **`appendix_outpath: "./appendix"`**
+Path where the generated appendix will be stored
+CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
+
 * **`diag_outpath: "./fragments/diagrams/"`**
 Path where the generated class diagrams will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
@@ -34,7 +38,7 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 Path where the generated PlantUML files will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
-*  **`logfile: "rdf2adoc.log"`**
+* **`logfile: "rdf2adoc.log"`**
 Logging file name.
 
 * **`plantuml_jar: "./plantuml.jar"`**

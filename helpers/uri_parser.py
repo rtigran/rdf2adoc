@@ -27,6 +27,7 @@ def _get_last_segment_of_uri(uri : str):
 def _get_uri_prefix(uri : str, g):
     # Get the prefix of the URI.
     prefix = ''
+    #print(uri)
     for k, v in CURIES.items():
         if v == uri:
             prefix = k
