@@ -19,3 +19,14 @@ def _add_appendix_links(path, prefix):
                 filename = filename.split('_')[1].split('.')[0]
                 appendix_adoc += (f"link:#{filename}[{filename}] \ \n")
     return appendix_adoc
+
+def _get_puml_properties(class_item, classes):
+    plant_uml = f'Card {class_item} #F0F8FF [\n'
+    plant_uml += f'{class_item}\n'
+    for class_uri, _, class_name, _, _, _, _, properties, _ in classes:
+        if class_item == class_name:
+            if properties != '':
+                plant_uml += '----\n'
+                plant_uml += f'{properties}'
+    plant_uml += ']\n'
+    return plant_uml

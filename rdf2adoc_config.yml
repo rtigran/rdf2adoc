@@ -15,7 +15,7 @@ puml_outpath: "./fragments/puml/"
 
 # Path where the generated appendix will be stored
 # CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
-appendix_outpath: "./appendix"
+appendix_outpath: "./appendix/"
 
 # Path where the generated class diagrams will be stored
 # CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!

@@ -192,34 +192,23 @@ class RDF2adoc:
                         for restrictions_item in restrictions:
                             if restrictions_item[2] not in card:
                                 card.append(restrictions_item[2])
-                                plant_uml += self._get_puml_properties(restrictions_item[2])
+                                plant_uml += fr._get_puml_properties(restrictions_item[2], self.__classes)
                             plant_uml += f'{class_name} ..> {restrictions_item[2]} {random.choice(COLOR)} : {restrictions_item[0]} {restrictions_item[1]}  \n'
 
                     for superclass_item in superclass:
                         if superclass_item not in card:
                             card.append(superclass_item)
-                            plant_uml +=self._get_puml_properties(superclass_item)
+                            plant_uml +=fr._get_puml_properties(superclass_item, self.__classes)
                         plant_uml += f'{superclass_item} --|> {class_name}  #00008B \n'
 
                     for subclass_item in subclass:
                         if subclass_item not in card:
                             card.append(subclass_item)
-                            plant_uml += self._get_puml_properties(subclass_item)
+                            plant_uml += fr._get_puml_properties(subclass_item, self.__classes)
                         plant_uml += f'{class_name} --|> {subclass_item}  #00008B \n'
                     plant_uml += '@enduml'
 
                     fobj.write(plant_uml)
-
-    def _get_puml_properties(self, class_item):
-        plant_uml = f'Card {class_item} #F0F8FF [\n'
-        plant_uml += f'{class_item}\n'
-        for class_uri, _, class_name, _, _, _, _, properties, _ in self.__classes:
-            if class_item == class_name:
-                if properties != '':
-                    plant_uml += '----\n'
-                    plant_uml += f'{properties}'
-        plant_uml += ']\n'
-        return plant_uml
 
     def gen_appendix(self):
         appendix_adoc=''
