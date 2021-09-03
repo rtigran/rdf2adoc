@@ -179,6 +179,7 @@ class RDF2adoc:
                 with open(f"{puml_filename}.plantuml", 'w', encoding="utf-8") as fobj:
                     card = []
                     plant_uml = '@startuml\n'
+                    plant_uml += 'scale max 350 height \n'
                     #plant_uml = f'Title {class_name} \n'
                     card.append(class_name)
                     plant_uml += f'Card {class_name} #F0F8FF [\n'
