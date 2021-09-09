@@ -2,25 +2,40 @@ from rdflib import Graph
 import os
 
 
-def _add_reference_adoc(path, prefix):
+def _add_reference_class_adoc(path, prefix):
     reference_adoc = ''
     if os.path.exists(path):
+        files = []
         for filename in os.listdir(path):
-            fullfilename = os.path.join(path, filename)
+            files.append(filename)
+        files.sort()
+        for filename in files:
+            #fullfilename = os.path.join(path, filename)
             if filename.startswith(prefix):
-                reference_adoc += (f"include::../.{fullfilename}[leveloffset=+1]\n\n")
+                reference_adoc += (f"include::../reference_classes/{filename}[leveloffset=+1]\n\n")
+    return reference_adoc
+
+def _add_reference_prop_adoc(path, prefix):
+    reference_adoc = ''
+    if os.path.exists(path):
+        files = []
+        for filename in os.listdir(path):
+            files.append(filename)
+        files.sort()
+        for filename in files:
+            #fullfilename = os.path.join(path, filename)
+            if filename.startswith(prefix):
+                reference_adoc += (f"include::../reference_properties/{filename}[leveloffset=+1]\n\n")
     return reference_adoc
 
 def _add_reference_links(path, prefix):
     reference_adoc = ''
     reference_adoc += "[%hardbreaks] \n"
     if os.path.exists(path):
-
         files = []
         for filename in os.listdir(path):
             files.append(filename)
         files.sort()
-
         for filename in files:
             if filename.startswith(prefix):
                 filename = filename.split('_')[1].split('.')[0]

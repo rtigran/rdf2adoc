@@ -194,21 +194,21 @@ class RDF2adoc:
             reference_adoc += (f"=== Classes\n\n")
 
             reference_adoc +=fr._add_reference_links(self.__reference_class_outpath, 'Core')
-            reference_adoc +=fr._add_reference_adoc(self.__reference_class_outpath, 'Core')
+            reference_adoc +=fr._add_reference_class_adoc(self.__reference_class_outpath, 'Core')
 
             reference_adoc += (f"=== Properties\n\n")
             reference_adoc += fr._add_reference_links(self.__reference_prop_outpath, 'Core')
-            reference_adoc += fr._add_reference_adoc(self.__reference_prop_outpath, 'Core')
+            reference_adoc += fr._add_reference_prop_adoc(self.__reference_prop_outpath, 'Core')
 
             reference_adoc += (f"== Domain Ontology Module\n\n")
 
             reference_adoc += (f"=== Classes\n\n")
             reference_adoc += fr._add_reference_links(self.__reference_class_outpath, 'Domain')
-            reference_adoc += fr._add_reference_adoc(self.__reference_class_outpath, 'Domain')
+            reference_adoc += fr._add_reference_class_adoc(self.__reference_class_outpath, 'Domain')
 
             reference_adoc += (f"=== Properties\n\n")
             reference_adoc += fr._add_reference_links(self.__reference_prop_outpath, 'Domain')
-            reference_adoc += fr._add_reference_adoc(self.__reference_prop_outpath, 'Domain')
+            reference_adoc += fr._add_reference_prop_adoc(self.__reference_prop_outpath, 'Domain')
 
             fobj.write(reference_adoc)
 
