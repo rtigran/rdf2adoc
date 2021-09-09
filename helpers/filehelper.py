@@ -28,14 +28,20 @@ def get_ont_inpath() ->str:
 def get_adoc_class_outpath() -> str:
     return dic_config["adoc_class_outpath"] if "adoc_class_outpath" in dic_config else ""
 
+def get_reference_class_outpath() -> str:
+    return dic_config["reference_class_outpath"] if "reference_class_outpath" in dic_config else ""
+
 def get_adoc_prop_outpath() -> str:
-    return dic_config["adoc_prop_outpath"] if "adoc_class_outpath" in dic_config else ""
+    return dic_config["adoc_prop_outpath"] if "adoc_prop_outpath" in dic_config else ""
+
+def get_reference_prop_outpath() -> str:
+    return dic_config["reference_prop_outpath"] if "reference_prop_outpath" in dic_config else ""
 
 def get_puml_outpath() ->str:
     return dic_config["puml_outpath"] if "puml_outpath" in dic_config else ""
 
-def get_appendix_outpath():
-    return dic_config["appendix_outpath"] if "appendix_outpath" in dic_config else ""
+def get_reference_outpath():
+    return dic_config["reference_outpath"] if "reference_outpath" in dic_config else ""
 
 def get_diag_gen() -> str:
     return dic_config["diag_gen"] if "diag_gen" in dic_config else "False"
@@ -51,12 +57,16 @@ def prepare_filestructure() -> None:
         os.remove(dic_config["logfile"])
     if get_adoc_class_outpath():
         clean_filestructure(get_adoc_class_outpath())
+    if get_reference_class_outpath():
+        clean_filestructure(get_reference_class_outpath())
     if get_adoc_prop_outpath():
         clean_filestructure(get_adoc_prop_outpath())
+    if get_reference_prop_outpath():
+        clean_filestructure(get_reference_prop_outpath())
     if get_puml_outpath():
         clean_filestructure(get_puml_outpath())
-    if get_appendix_outpath():
-        clean_filestructure(get_appendix_outpath())
+    if get_reference_outpath():
+        clean_filestructure(get_reference_outpath())
     if get_diag_outpath():
         clean_filestructure(get_diag_outpath())
 

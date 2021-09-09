@@ -14,12 +14,14 @@ import random
 
 
 class RDF2adoc:
-    def __init__(self, filepath : str, class_outpath : str, prop_outpath : str, puml_outpath : str, appendix_outpath : str, format='turtle'):
+    def __init__(self, filepath : str, class_outpath : str, reference_class_outpath : str, prop_outpath : str, reference_prop_outpath : str, puml_outpath : str, reference_outpath : str, format='turtle'):
         self.__filepath = filepath
         self.__class_outpath = class_outpath
+        self.__reference_class_outpath = reference_class_outpath
         self.__prop_outpath = prop_outpath
+        self.__reference_prop_outpath = reference_prop_outpath
         self.__puml_outpath = puml_outpath
-        self.__appendix_outpath = appendix_outpath
+        self.__reference_outpath = reference_outpath
 
         self.g = Graph().parse(self.__filepath, format=format)
         self.__version=v.get_version(self.g)
@@ -48,46 +50,15 @@ class RDF2adoc:
                 properties, \
                 subclass \
                     in self.__classes:
+                class_file_name=f"{self.__class_outpath}{prefix}_{class_name}.adoc"
+                reference_class_file_name = f"{self.__reference_class_outpath}{prefix}_{class_name}.adoc"
 
-                with open(f"{self.__class_outpath}{prefix}_{class_name}.adoc", 'w', encoding="utf-8") as fobj:
+                class_file_header=(f"**OWL definition of {class_name}**\n\n")
+                class_file_header += (f"The following model provides an overview of {class_name}:\n\n")
+                reference_class_file_header = (f"==== {class_name}\n\n")
 
-                    class_adoc = (f"// This file was created automatically by {self.__version}.\n")
-                    class_adoc += (f"// DO NOT EDIT!\n\n")
-                    #class_adoc += (f"= {class_name}\n\n")
-                    class_adoc += (f"//Include information from owl files\n\n")
-                    class_adoc += (f"[#{class_name}]\n")
-                    class_adoc += (f"==== {class_name}\n\n")
-                    class_adoc += '[plantuml]\n'
-                    class_adoc += '....\n'
-                    class_adoc += (f"include::../puml/{prefix}_{class_name}.plantuml[] \n")
-                    class_adoc += '....\n\n'
-                    class_adoc += ('|===\n|Element |Description\n\n')
-                    class_adoc += (f"|Type\n|Class\n\n")
-                    class_adoc += (f"|Name\n|{class_name}\n\n")
-                    class_adoc += (f"|IRI\n|{owl_class}\n\n")
-
-                    #if label != '': class_adoc += (f"|Label\n|{label}\n\n")
-
-                    for superclass_item in superclass:
-                        class_adoc += (f"|Subclass of\n|{superclass_item}\n\n")
-                    if restrictions != []:
-                        for restrictions_item in restrictions:
-                            class_adoc += (f"|Restriction\n|{restrictions_item[0]} {restrictions_item[1]} {restrictions_item[2]}\n\n")
-                    if disjoints != []:
-                        for disjoints_item in disjoints:
-                            class_adoc += (f"|Disjoint with\n|{disjoints_item}\n\n")
-
-                    if comments != []:
-                        class_adoc += (f"|Comments\n|")
-                        for comments_item in comments:
-                            if comments_item.startswith("DEF") or comments_item.startswith("USAGE") or comments_item.startswith("EXAMPLE"):
-                                class_adoc += (f"{comments_item}\n\n")
-                            if comments_item.startswith("HQDM"):
-                                term = comments_item.removeprefix("HQDM ")
-                                class_adoc += (f"link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/{term}.htm[Reference to {comments_item}] \n\n")
-                    class_adoc += ("|===")
-
-                    fobj.write(class_adoc)
+                fr._write_class_file(class_file_name, owl_class, prefix, class_name, class_file_header, self.__version, superclass, restrictions, disjoints, comments)
+                fr._write_class_file(reference_class_file_name, owl_class, prefix, class_name, reference_class_file_header, self.__version, superclass, restrictions, disjoints, comments)
 
     def gen_prop_adoc(self):
         if self.__properties:
@@ -103,49 +74,19 @@ class RDF2adoc:
                 inverse_of, \
                 characteristics \
                     in self.__properties:
-                with open(f"{self.__prop_outpath}{prefix}_{property_name}.adoc", 'w', encoding="utf-8") as fobj:
 
-                    prop_adoc=(f"// This file was created automatically by {self.__version}.\n// DO NOT EDIT!\n\n")
-                    #prop_adoc += (f"= {property_name}\n\n")
-                    prop_adoc += (f"//Include information from owl files\n\n")
+                prop_file_name = f"{self.__prop_outpath}{prefix}_{property_name}.adoc"
+                reference_prop_file_name = f"{self.__reference_prop_outpath}{prefix}_{property_name}.adoc"
 
-                    prop_adoc += (f"[#{property_name}]\n")
-                    prop_adoc += (f"==== {property_name}\n\n")
-                    prop_adoc += ('|===\n|Element |Description\n\n')
-                    prop_adoc += (f"|Type\n|ObjectProperty\n\n")
-                    prop_adoc += (f"|Name\n|{property_name}\n\n")
-                    prop_adoc += (f"|IRI\n|{property_uri}\n\n")
-                    if subPropertyOf != []:
-                        for subPropertyOf_item in subPropertyOf:
-                            prop_adoc += (f"|Subproperty of\n|{subPropertyOf_item}\n\n")
+                prop_file_header = (f"**OWL definition of {property_name}**\n\n")
+                prop_file_header += (f"The following model provides an overview of {property_name}:\n\n")
+                reference_prop_file_header = (f"==== {property_name}\n\n")
 
-                    if domain != []:
-                        for domain_item in domain:
-                            prop_adoc += (f"|Has domain\n|{domain_item}\n\n")
-                    if range1 != []:
-                        for range1_item in domain:
-                            prop_adoc += (f"|Has range\n|{range1_item}\n\n")
-                    if inverse_of != []:
-                        for inverse_of_item in inverse_of:
-                            prop_adoc += (f"|Inverse\n|{inverse_of_item}\n\n")
-                    if characteristics != []:
-                        for characteristics_item in characteristics:
-                            prop_adoc += (f"|Characteristic\n|{characteristics_item}\n\n")
-
-                    #if label != '': prop_adoc += (f"|Label\n|{label}\n\n")
-
-                    if comments != []:
-                        prop_adoc += (f"|Comments\n|")
-                        for comments_item in comments:
-                            if comments_item.startswith("DEF") or comments_item.startswith("USAGE") or comments_item.startswith("EXAMPLE"):
-                                prop_adoc += (f"{comments_item}\n\n")
-                            if comments_item.startswith("HQDM"):
-                                term=comments_item.removeprefix("HQDM ")
-                                prop_adoc += (f"[Equivalent to {comments_item}] \n\n")
-
-                    prop_adoc += ("|===")
-
-                    fobj.write(prop_adoc)
+                fr._write_prop_file(prop_file_name, property_uri, prefix, property_name, prop_file_header, self.__version,
+                                     subPropertyOf, domain, range1, inverse_of, characteristics, comments)
+                fr._write_prop_file(reference_prop_file_name, property_uri, prefix, property_name,
+                                     reference_prop_file_header, self.__version, subPropertyOf, domain, range1, inverse_of, characteristics,
+                                     comments)
 
     def gen_diag(self):
         try:
@@ -190,11 +131,16 @@ class RDF2adoc:
                     plant_uml += ']\n'
 
                     if restrictions != []:
+                        x=0
                         for restrictions_item in restrictions:
+                            color=COLOR[x]
                             if restrictions_item[2] not in card:
                                 card.append(restrictions_item[2])
                                 plant_uml += fr._get_puml_properties(restrictions_item[2], self.__classes)
-                            plant_uml += f'{class_name} ..> {restrictions_item[2]} {random.choice(COLOR)} : {restrictions_item[0]} {restrictions_item[1]}  \n'
+                            plant_uml += f'{class_name} ..> {restrictions_item[2]} {color} : {restrictions_item[0]} {restrictions_item[1]}  \n'
+                            x=x+1
+                            if x>12:
+                                x=0
 
                     for superclass_item in superclass:
                         if superclass_item not in card:
@@ -211,57 +157,60 @@ class RDF2adoc:
 
                     fobj.write(plant_uml)
 
-    def gen_appendix(self):
-        appendix_adoc=''
-        path=self.__appendix_outpath
-        appendix_filename = os.path.join(path, 'Appendix')
-        with open(f"{appendix_filename}.adoc", 'w', encoding="utf-8") as fobj:
-            appendix_adoc += (f"// This file was created automatically by {self.__version}.\n")
-            appendix_adoc += (f"// DO NOT EDIT!\n\n")
-            appendix_adoc += (f"= Appendix\n")
-            appendix_adoc +=':encoding: utf-8 \n'
-            appendix_adoc +=':lang: en \n'
-            appendix_adoc +=':table-stripes: even \n'
-            appendix_adoc +=':toc: \n'
-            appendix_adoc +=':toc-placement!: \n'
-            appendix_adoc +=':toclevels: 2 \n'
-            appendix_adoc +=':sectnumlevels: 4 \n'
-            appendix_adoc +=':sectanchors: \n'
-            appendix_adoc +=':figure-id: 0 \n'
-            appendix_adoc +=':table-id: 0 \n'
-            appendix_adoc +=':req-id: 0 \n'
-            appendix_adoc +=':rec-id: 0 \n'
-            appendix_adoc +=':per-id: 0 \n'
-            appendix_adoc +=':xrefstyle: short \n'
-            appendix_adoc +=':chapter-refsig: Clause \n'
-            appendix_adoc +=':idprefix: \n'
-            appendix_adoc +=':idseparator: \n\n'
+    def gen_reference(self):
+        reference_adoc=''
+        path=self.__reference_outpath
+        reference_filename = os.path.join(path, 'Reference')
+        with open(f"{reference_filename}.adoc", 'w', encoding="utf-8") as fobj:
+            reference_adoc += (f"// This file was created automatically by {self.__version}.\n")
+            reference_adoc += (f"// DO NOT EDIT!\n\n")
+            reference_adoc += (f"= OpenXOntology Model Reference\n")
+            reference_adoc +=':encoding: utf-8 \n'
+            reference_adoc +=':lang: en \n'
+            reference_adoc +=':table-stripes: even \n'
+            reference_adoc +=':toc: \n'
+            reference_adoc +=':toc-placement!: \n'
+            reference_adoc +=':toclevels: 2 \n'
+            reference_adoc +=':sectnumlevels: 4 \n'
+            reference_adoc +=':sectanchors: \n'
+            reference_adoc +=':figure-id: 0 \n'
+            reference_adoc +=':table-id: 0 \n'
+            reference_adoc +=':req-id: 0 \n'
+            reference_adoc +=':rec-id: 0 \n'
+            reference_adoc +=':per-id: 0 \n'
+            reference_adoc +=':xrefstyle: short \n'
+            reference_adoc +=':chapter-refsig: Clause \n'
+            reference_adoc +=':idprefix: \n'
+            reference_adoc +=':idseparator: \n\n'
+            reference_adoc +='<<< \n'
+            reference_adoc +='Version Information:: \n'
+            reference_adoc += (f"{self.__version}\n\n")
+            reference_adoc +='toc::[] \n'
+            reference_adoc +='<<< \n'
+            reference_adoc +='\n'
+            reference_adoc +=':sectnums!: \n\n'
+            reference_adoc += (f"== Core Ontology Module\n\n")
 
-            appendix_adoc +='toc::[] \n'
-            appendix_adoc +='<<< \n'
-            appendix_adoc +='\n'
-            appendix_adoc +=':sectnums!: \n\n'
-            appendix_adoc += (f"== Core module\n\n")
+            reference_adoc += (f"=== Classes\n\n")
 
-            appendix_adoc += (f"=== Classes\n\n")
-            appendix_adoc +=fr._add_appendix_links(self.__class_outpath, 'Core')
-            appendix_adoc +=fr._add_appendix_adoc(self.__class_outpath, 'Core')
+            reference_adoc +=fr._add_reference_links(self.__reference_class_outpath, 'Core')
+            reference_adoc +=fr._add_reference_adoc(self.__reference_class_outpath, 'Core')
 
-            appendix_adoc += (f"=== Properties\n\n")
-            appendix_adoc += fr._add_appendix_links(self.__prop_outpath, 'Core')
-            appendix_adoc += fr._add_appendix_adoc(self.__prop_outpath, 'Core')
+            reference_adoc += (f"=== Properties\n\n")
+            reference_adoc += fr._add_reference_links(self.__reference_prop_outpath, 'Core')
+            reference_adoc += fr._add_reference_adoc(self.__reference_prop_outpath, 'Core')
 
-            appendix_adoc += (f"== Domain module\n\n")
+            reference_adoc += (f"== Domain Ontology Module\n\n")
 
-            appendix_adoc += (f"=== Classes\n\n")
-            appendix_adoc += fr._add_appendix_links(self.__class_outpath, 'Domain')
-            appendix_adoc += fr._add_appendix_adoc(self.__class_outpath, 'Domain')
+            reference_adoc += (f"=== Classes\n\n")
+            reference_adoc += fr._add_reference_links(self.__reference_class_outpath, 'Domain')
+            reference_adoc += fr._add_reference_adoc(self.__reference_class_outpath, 'Domain')
 
-            appendix_adoc += (f"=== Properties\n\n")
-            appendix_adoc += fr._add_appendix_links(self.__prop_outpath, 'Domain')
-            appendix_adoc += fr._add_appendix_adoc(self.__prop_outpath, 'Domain')
+            reference_adoc += (f"=== Properties\n\n")
+            reference_adoc += fr._add_reference_links(self.__reference_prop_outpath, 'Domain')
+            reference_adoc += fr._add_reference_adoc(self.__reference_prop_outpath, 'Domain')
 
-            fobj.write(appendix_adoc)
+            fobj.write(reference_adoc)
 
 
 

@@ -26,12 +26,20 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 Path where the generated adoc-fragments for properties will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
-* **`appendix_outpath: "./appendix"`**
-Path where the generated appendix will be stored
+* **`adoc_class_outpath: "./fragments/reference_classes/"`**
+Path where the generated Reference document adoc-fragments for classes will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
-* **`diag_outpath: "./fragments/diagrams/"`**
-Path where the generated class diagrams will be stored
+* **`adoc_prop_outpath: "./fragments/reference_properties/"`**
+Path where the generated Reference document adoc-fragments for properties will be stored
+CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
+
+* **`reference_outpath: "./reference/"`**
+Path where the generated Reference document will be stored
+CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
+
+* **`diag_outpath: "./webvowl_diagrams/"`**
+Path where the generated WebVOWL diagrams will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
 * **`puml_outpath: "./fragments/puml/"`**
