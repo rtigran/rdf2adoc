@@ -8,7 +8,7 @@ def _add_reference_adoc(path, prefix):
         for filename in os.listdir(path):
             fullfilename = os.path.join(path, filename)
             if filename.startswith(prefix):
-                reference_adoc += (f"include::.{fullfilename}[leveloffset=+1]\n\n")
+                reference_adoc += (f"include::../.{fullfilename}[leveloffset=+1]\n\n")
     return reference_adoc
 
 def _add_reference_links(path, prefix):

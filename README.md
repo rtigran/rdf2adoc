@@ -34,11 +34,11 @@ CAUTION: The content of this path will be deleted every time rdf2adoc is started
 Path where the generated Reference document adoc-fragments for properties will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
-* **`reference_outpath: "./reference/"`**
+* **`reference_outpath: "./fragments/reference/"`**
 Path where the generated Reference document will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
 
-* **`diag_outpath: "./webvowl_diagrams/"`**
+* **`diag_outpath: "./fragments/webvowl_diagrams/"`**
 Path where the generated WebVOWL diagrams will be stored
 CAUTION: The content of this path will be deleted every time rdf2adoc is started!!!
   
