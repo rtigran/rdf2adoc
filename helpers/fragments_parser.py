@@ -15,7 +15,13 @@ def _add_reference_links(path, prefix):
     reference_adoc = ''
     reference_adoc += "[%hardbreaks] \n"
     if os.path.exists(path):
+
+        files = []
         for filename in os.listdir(path):
+            files.append(filename)
+        files.sort()
+
+        for filename in files:
             if filename.startswith(prefix):
                 filename = filename.split('_')[1].split('.')[0]
                 reference_adoc += (f"link:#{filename}[{filename}] \n" )
