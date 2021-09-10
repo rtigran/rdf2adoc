@@ -22,7 +22,7 @@ def load_config(configfile : str) -> bool:
 
 def get_ont_inpath() ->str:
     path=dic_config["ont_inpath"]
-    ont_files=[f for f in listdir(path) if isfile(join(path,f)) if f.startswith("OpenXCore")]
+    ont_files=[f for f in listdir(path) if isfile(join(path,f)) if f.startswith("OpenX")]
     return join(path,ont_files[0])
 
 def get_adoc_class_outpath() -> str:
