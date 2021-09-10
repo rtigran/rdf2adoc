@@ -63,7 +63,7 @@ def _write_class_file(class_file_name, owl_class, prefix, class_name, class_file
         class_adoc += (f"//Include information from owl files\n\n")
         class_adoc += (f"[#{class_name}]\n")
         class_adoc += class_file_header
-        class_adoc += '[plantuml]\n'
+        class_adoc += '[plantuml, svg]\n'
         class_adoc += '....\n'
         class_adoc += (f"include::../puml/{prefix}_{class_name}.plantuml[leveloffset=+1] \n")
         class_adoc += '....\n\n'
