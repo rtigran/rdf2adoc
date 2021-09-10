@@ -55,7 +55,7 @@ class RDF2adoc:
 
                 class_file_header=(f"**OWL definition of {class_name}**\n\n")
                 class_file_header += (f"The following model provides an overview of {class_name}:\n\n")
-                reference_class_file_header = (f"==== {class_name}\n\n")
+                reference_class_file_header = (f"= {class_name}\n\n")
 
                 fr._write_class_file(class_file_name, owl_class, prefix, class_name, class_file_header, self.__version, superclass, restrictions, disjoints, comments)
                 fr._write_class_file(reference_class_file_name, owl_class, prefix, class_name, reference_class_file_header, self.__version, superclass, restrictions, disjoints, comments)
@@ -80,7 +80,7 @@ class RDF2adoc:
 
                 prop_file_header = (f"**OWL definition of {property_name}**\n\n")
                 prop_file_header += (f"The following model provides an overview of {property_name}:\n\n")
-                reference_prop_file_header = (f"==== {property_name}\n\n")
+                reference_prop_file_header = (f"= {property_name}\n\n")
 
                 fr._write_prop_file(prop_file_name, property_uri, prefix, property_name, prop_file_header, self.__version,
                                      subPropertyOf, domain, range1, inverse_of, characteristics, comments)
@@ -172,16 +172,8 @@ class RDF2adoc:
             reference_adoc +=':toc-placement!: \n'
             reference_adoc +=':toclevels: 2 \n'
             reference_adoc +=':sectnumlevels: 4 \n'
-            reference_adoc +=':sectanchors: \n'
-            reference_adoc +=':figure-id: 0 \n'
-            reference_adoc +=':table-id: 0 \n'
-            reference_adoc +=':req-id: 0 \n'
-            reference_adoc +=':rec-id: 0 \n'
-            reference_adoc +=':per-id: 0 \n'
-            reference_adoc +=':xrefstyle: short \n'
-            reference_adoc +=':chapter-refsig: Clause \n'
-            reference_adoc +=':idprefix: \n'
-            reference_adoc +=':idseparator: \n\n'
+            reference_adoc +=':data-uri: \n\n'
+
             reference_adoc +='<<< \n'
             reference_adoc +='Version Information:: \n'
             reference_adoc += (f"{self.__version}\n\n")

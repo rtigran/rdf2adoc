@@ -12,7 +12,7 @@ def _add_reference_class_adoc(path, prefix):
         for filename in files:
             #fullfilename = os.path.join(path, filename)
             if filename.startswith(prefix):
-                reference_adoc += (f"include::../reference_classes/{filename}[leveloffset=+1]\n\n")
+                reference_adoc += (f"include::../reference_classes/{filename}[leveloffset=+3]\n\n")
     return reference_adoc
 
 def _add_reference_prop_adoc(path, prefix):
@@ -25,7 +25,7 @@ def _add_reference_prop_adoc(path, prefix):
         for filename in files:
             #fullfilename = os.path.join(path, filename)
             if filename.startswith(prefix):
-                reference_adoc += (f"include::../reference_properties/{filename}[leveloffset=+1]\n\n")
+                reference_adoc += (f"include::../reference_properties/{filename}[leveloffset=+3]\n\n")
     return reference_adoc
 
 def _add_reference_links(path, prefix):
@@ -39,7 +39,7 @@ def _add_reference_links(path, prefix):
         for filename in files:
             if filename.startswith(prefix):
                 filename = filename.split('_')[1].split('.')[0]
-                reference_adoc += (f"link:#{filename}[{filename}] \n" )
+                reference_adoc += (f"<<{filename}>> \n" )
     reference_adoc += "\n"
     return reference_adoc
 
@@ -65,7 +65,7 @@ def _write_class_file(class_file_name, owl_class, prefix, class_name, class_file
         class_adoc += class_file_header
         class_adoc += '[plantuml]\n'
         class_adoc += '....\n'
-        class_adoc += (f"include::../puml/{prefix}_{class_name}.plantuml[leveloffset=+1] \n")
+        class_adoc += (f"include::../puml/{prefix}_{class_name}.plantuml[] \n")
         class_adoc += '....\n\n'
         class_adoc += ('|===\n|Element |Description\n\n')
         class_adoc += (f"|Type\n|Class\n\n")
