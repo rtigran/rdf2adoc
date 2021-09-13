@@ -167,7 +167,7 @@ class RDF2adoc:
 
 
             reference_adoc +='<<< \n'
-            reference_adoc +='Version Information:: \n'
+            reference_adoc +='Ontology Version Information:: \n'
             reference_adoc += (f"{self.__version}\n\n")
             reference_adoc +='toc::[] \n'
             reference_adoc +='<<< \n'
