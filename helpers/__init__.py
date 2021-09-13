@@ -160,7 +160,7 @@ class RDF2adoc:
     def gen_reference(self):
         reference_adoc=''
         path=self.__reference_outpath
-        reference_filename = os.path.join(path, 'Ontology_reference_documentation')
+        reference_filename = os.path.join(path, 'ontology_reference_documentation')
         with open(f"{reference_filename}.adoc", 'w', encoding="utf-8") as fobj:
             reference_adoc += (f"// This file was created automatically by {self.__version}.\n")
             reference_adoc += (f"// DO NOT EDIT!\n\n")
