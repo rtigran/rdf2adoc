@@ -160,19 +160,11 @@ class RDF2adoc:
     def gen_reference(self):
         reference_adoc=''
         path=self.__reference_outpath
-        reference_filename = os.path.join(path, 'Reference')
+        reference_filename = os.path.join(path, 'Ontology_reference_documentation')
         with open(f"{reference_filename}.adoc", 'w', encoding="utf-8") as fobj:
             reference_adoc += (f"// This file was created automatically by {self.__version}.\n")
             reference_adoc += (f"// DO NOT EDIT!\n\n")
-            reference_adoc += (f"= OpenXOntology Model Reference\n")
-            reference_adoc +=':encoding: utf-8 \n'
-            reference_adoc +=':lang: en \n'
-            reference_adoc +=':table-stripes: even \n'
-            reference_adoc +=':toc: \n'
-            reference_adoc +=':toc-placement!: \n'
-            reference_adoc +=':toclevels: 2 \n'
-            reference_adoc +=':sectnumlevels: 4 \n'
-            reference_adoc +=':data-uri: \n\n'
+
 
             reference_adoc +='<<< \n'
             reference_adoc +='Version Information:: \n'
