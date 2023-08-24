@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#LengthQuantity]
+= LengthQuantity
+
+[plantuml]
+....
+include::../puml/Core_LengthQuantity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|LengthQuantity
+
+|IRI
+|http://www.ontology.asam.net/Core#LengthQuantity
+
+|Subclass of
+|PhysicalQuantity
+
+|Comments
+|DEF: A PhysicalQuantity that is a length value in meters.
+
+EXAMPLES:
+
+USAGE:
+
+|===

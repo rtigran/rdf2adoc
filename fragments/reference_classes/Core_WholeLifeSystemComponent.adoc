@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeSystemComponent]
+= WholeLifeSystemComponent
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeSystemComponent.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeSystemComponent
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeSystemComponent
+
+|Subclass of
+|SystemComponentState
+
+|Subclass of
+|WholeLifePhysicalObject
+
+|Restriction
+|componentOf **exactly** **1** WholeLifeSystem
+
+|Comments
+|DEF: A SystemComponentState that represents the whole life of the system component.
+
+EXAMPLES: the eye of a hurricane.
+
+USAGE: Use this class to specify the whole life of a component of a system that is not functional.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/system_component.htm[Reference to HQDM system_component] 
+
+|===

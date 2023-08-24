@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeFunctionalSystem]
+= WholeLifeFunctionalSystem
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeFunctionalSystem.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeFunctionalSystem
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeFunctionalSystem
+
+|Subclass of
+|FunctionalSystemState
+
+|Subclass of
+|WholeLifeSystem
+
+|Comments
+|DEF: A FunctionalSystemState that represents the whole life of the functional system.
+
+EXAMPLES: A vehicle from when it is manufactured to when it is destroyed.
+
+USAGE: Use this class for describing individual concrete (actual, materialized) systems that cease to exist when all of their parts are removed.  Often combined with WholeLifeOrdinaryBiologicalObject or WholeLifeOrdinaryFunctionalObject
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/functional_system.htm[Reference to HQDM functional_system] 
+
+|===

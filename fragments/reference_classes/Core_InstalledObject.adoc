@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#InstalledObject]
+= InstalledObject
+
+[plantuml]
+....
+include::../puml/Core_InstalledObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|InstalledObject
+
+|IRI
+|http://www.ontology.asam.net/Core#InstalledObject
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comments
+|DEF: An OrdinaryPhysicalObjectState that is installed in a system, meaning that is also a SystemComponentState. The state of the ordinary physical object is the temporal part that covers the time from when the ordinary physical object is installed in the system to when it is removed.
+
+EXAMPLES: The time that the traffic sign with the serial number 42 is installed at a specific location on highway 66. (note that this would actually be an InstalledFunctionalSystemComponent because the highway is a FunctionalSystem).
+
+USAGE: Use this class to describe the temporal part of a physical object when it is the actual component of a system.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/installed_object.htm[Reference to HQDM installed_object] 
+
+|===

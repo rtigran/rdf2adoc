@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SetOfPhysicalObjectStates]
+= SetOfPhysicalObjectStates
+
+[plantuml]
+....
+include::../puml/Core_SetOfPhysicalObjectStates.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SetOfPhysicalObjectStates
+
+|IRI
+|http://www.ontology.asam.net/Core#SetOfPhysicalObjectStates
+
+|Subclass of
+|SetOfStates
+
+|Comments
+|DEF: A SetOfStates that groups physical object states.
+
+EXAMPLES:
+
+USAGE: Use this class to describe specific sets or kinds of PhysicalObjectStates that are not available already as subclasses of PhysicalObjectState.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/class_of_state_of_physical_object_state.htm[Reference to HQDM class_of_state_of_physical_object_state] 
+
+|===

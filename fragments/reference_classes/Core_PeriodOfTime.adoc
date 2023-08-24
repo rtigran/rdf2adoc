@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PeriodOfTime]
+= PeriodOfTime
+
+[plantuml]
+....
+include::../puml/Core_PeriodOfTime.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PeriodOfTime
+
+|IRI
+|http://www.ontology.asam.net/Core#PeriodOfTime
+
+|Subclass of
+|State
+
+|Restriction
+|temporalPartOf **only** PossibleWorld
+
+|Comments
+|DEF: A State that is a temporal part of some PossibleWorld. That means the period of time is a temporal duration of some possible world, which could be the actual world.
+
+EXAMPLES:
+
+USAGE:
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/period_of_time.htm[Reference to HQDM period_of_time] 
+
+|===

@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeIndividual]
+= WholeLifeIndividual
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeIndividual.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeIndividual
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeIndividual
+
+|Subclass of
+|State
+
+|Comments
+|DEF: A State that is not a proper temporalPartOf any other individual of the same kind.
+
+EXAMPLES:
+
+USAGE: Use this class in combination with others to designate that a particular spatio-temporal extent is "its whole life"
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/individual.htm[Reference to HQDM individual] 
+
+|===

@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeOrdinaryFunctionalObject]
+= WholeLifeOrdinaryFunctionalObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeOrdinaryFunctionalObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeOrdinaryFunctionalObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeOrdinaryFunctionalObject
+
+|Subclass of
+|OrdinaryFunctionalObjectState
+
+|Subclass of
+|WholeLifeFunctionalObject
+
+|Comments
+|DEF: An OrdinaryFunctionalObjectState that represents the whole life of the ordinary functional object.
+
+EXAMPLES:
+
+USAGE: Use this class for describing individual manufactured things that were constructed for some purpose and that cease to exist when all of their parts are removed
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/ordinary_functional_object.htm[Reference to HQDM ordinary_functional_object] 
+
+|===

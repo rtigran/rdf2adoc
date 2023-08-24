@@ -1,0 +1,2495 @@
+@prefix : <http://www.ontology.asam.net/Core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix Core: <http://ontology.asam.net/Core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@base <http://www.ontology.asam.net/Core> .
+
+<http://www.ontology.asam.net/Core> rdf:type owl:Ontology ;
+                                     rdfs:label "OpenXCore" ;
+                                     owl:versionInfo "V 1.0 20210902" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontology.asam.net/Core#aggregatedInto
+:aggregatedInto rdf:type owl:ObjectProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain :SpatioTemporalExtent ;
+                rdfs:range :SpatioTemporalExtent ;
+                rdfs:comment "DEF: A relationship type where a SpatioTemporalExtent may be aggregated into one or more others. This object property has the same meaning as the class Aggregation, but a different representation."^^xsd:string ,
+                             "HQDM aggregated_into" .
+
+
+###  http://www.ontology.asam.net/Core#appliesTo
+:appliesTo rdf:type owl:ObjectProperty ;
+           rdfs:comment "DEF: This relation is used to describe that a specification or regularity applies to a particular object. For example, this relation can be used to describe which lanes a speed limit sign applies to."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#approximatelyEqualTo
+:approximatelyEqualTo rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :hasQuantityRelation ;
+                      rdf:type owl:SymmetricProperty ;
+                      rdfs:domain :PhysicalQuantity ;
+                      rdfs:range :PhysicalQuantity ;
+                      rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is within the range of the first quantity. The deviation between the values is no greater than +/- 10% of the first value." .
+
+
+###  http://www.ontology.asam.net/Core#beginningOf
+:beginningOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :temporalPartOf ;
+             owl:inverseOf :hasBeginning ;
+             rdfs:domain :Event ;
+             rdfs:comment "DEF: A temporalPartOf relationship type where a SpatioTemporalExtent has exactly one event that is its beginning."^^xsd:string ,
+                          "HQDM beginning" .
+
+
+###  http://www.ontology.asam.net/Core#behind
+:behind rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasRelativePosition ;
+        owl:inverseOf :inFrontOf ;
+        rdf:type owl:AsymmetricProperty ;
+        rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is behind the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#behindConnectedTo
+:behindConnectedTo rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :longitudinalConnectedTo ;
+                   rdfs:comment "DEF: A longitudinalConnectedTo relationship type where two PhysicalObjects are connected and the first PhysicalObject is behind the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#behindLeftOf
+:behindLeftOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasRelativePosition ;
+              owl:inverseOf :frontRightOf ;
+              rdf:type owl:AsymmetricProperty ;
+              rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is behind and to the left of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#behindRightOf
+:behindRightOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasRelativePosition ;
+               owl:inverseOf :frontLeftOf ;
+               rdf:type owl:AsymmetricProperty ;
+               rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is behind and to the right of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#causes
+:causes rdf:type owl:ObjectProperty ;
+        rdfs:domain :ActivityState ;
+        rdfs:range :Event ;
+        rdfs:comment "DEF: A relationship type where each activity is the cause of one or more events."^^xsd:string ,
+                     "HQDM causes" .
+
+
+###  http://www.ontology.asam.net/Core#componentOf
+:componentOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :partOf ;
+             owl:inverseOf :hasComponent ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :SystemComponentState ;
+             rdfs:range :SystemState ;
+             rdfs:comment "DEF: A partOf relationship type where each SystemComponent is partOf exactly one System." ,
+                          "HQDM component_of" .
+
+
+###  http://www.ontology.asam.net/Core#connectedTo
+:connectedTo rdf:type owl:ObjectProperty ,
+                      owl:SymmetricProperty ;
+             rdfs:domain :PhysicalObjectState ;
+             rdfs:range :PhysicalObjectState ;
+             rdfs:comment "DEF: A relationship type where two physical object have a spatial connection and touch each other. Spatial connections create bridges for the transfer of energy or other things between the objects. This object property has the same meaning as the class SpatialConnection, but a different representation."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#defines
+:defines rdf:type owl:ObjectProperty ,
+                  owl:TransitiveProperty ;
+         rdfs:domain :PhysicalQuantity ;
+         rdfs:range :PhysicalQuantity ;
+         rdfs:comment "DEF: A relationship type that relates two numeric parameters. It expresses that one parameter value is determined by the other parameter value."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#endingOf
+:endingOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :temporalPartOf ;
+          owl:inverseOf :hasEnding ;
+          rdfs:domain :Event ;
+          rdfs:comment "DEF: A temporalPartOf relationship type where a SpatioTemporalExtent has exactly one event that is its ending."^^xsd:string ,
+                       "HQDM ending" .
+
+
+###  http://www.ontology.asam.net/Core#frontConnectedTo
+:frontConnectedTo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :longitudinalConnectedTo ;
+                  rdfs:comment "DEF: A longitudinalConnectedTo relationship type where two PhysicalObjects are connected and the first PhysicalObject is in front of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#frontLeftOf
+:frontLeftOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasRelativePosition ;
+             rdf:type owl:AsymmetricProperty ;
+             rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is in front and to the left of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#frontRightOf
+:frontRightOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasRelativePosition ;
+              rdf:type owl:AsymmetricProperty ;
+              rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is in front and to the right of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasAngle
+:hasAngle rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasQuantity ;
+          rdfs:range :AngleQuantity ;
+          rdfs:comment "DEF: A hasQuantity relationship type that specifies an angle quantity of something."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasBeginning
+:hasBeginning rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasTemporalPart ;
+              rdfs:range :Event ;
+              rdfs:comment "DEF: Inverse relationship of beginningOf"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasColor
+:hasColor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasProperty ;
+          rdfs:comment "DEF: A hasPropertyrelationship type that specifies the color of something."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasPart ;
+              rdfs:comment "DEF: Inverse relationship of componentOf"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasDirection
+:hasDirection rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasQuantity ;
+              rdfs:range :DirectionQuantity ;
+              rdfs:comment "DEF: A hasQuantity relationship type that specifies a direction quantity of something."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasDistance
+:hasDistance rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasLength ;
+             rdfs:comment "DEF: A hasQuantity relationship type that specifies a distance quantity of something."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasEnding
+:hasEnding rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasTemporalPart ;
+           rdfs:range :Event ;
+           rdfs:comment "DEF: Inverse relationship of endingOf"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasProperty ;
+             rdfs:range :Geometry ;
+             rdfs:comment "DEF: A hasProperty relationship type that specifies the geometry of something, usually a physical object."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasHeading
+:hasHeading rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasDirection ;
+            rdfs:domain :PhysicalObjectState ;
+            rdfs:comment "DEF: A hasQuantity relationship type that specifies a direction that a moving object is heading in. This property is required for defining leftOf, rightOf, etc."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasLength
+:hasLength rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasQuantity ;
+           rdfs:range :LengthQuantity ;
+           rdfs:comment "DEF: A hasQuantity relationship type that specifies the length quantity of something."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           owl:inverseOf :memberOf ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:domain :Set ;
+           rdfs:comment "DEF: A relationship type stating that a Set has a particular thing as a member. A set can have anything of the respective type as a member."^^xsd:string ,
+                        "EXAMPLES: A SetOfActivityStates can have an ActivityState as a member."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasObject
+:hasObject rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasParticipant ;
+           owl:inverseOf :objectOf ;
+           rdfs:comment "DEF: A hasParticipant relationship type that relates some activity to a physical object as object of the activity. The object is a non-actor participant. Inverse relationship of objectOf."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :partOf ;
+         rdf:type owl:AsymmetricProperty ;
+         rdfs:domain :SpatioTemporalExtent ;
+         rdfs:range :SpatioTemporalExtent ;
+         rdfs:comment "DEF: A relationship type where a SpatioTemporalExtent may consist of one or more others. Inverse relationship of partOf."^^xsd:string ,
+                      "HQDM consists_of" .
+
+
+###  http://www.ontology.asam.net/Core#hasParticipant
+:hasParticipant rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasPart ;
+                owl:inverseOf :participantOf ;
+                rdfs:domain :ActivityState ;
+                rdfs:range :Participant ;
+                rdfs:comment "DEF: A hasPart relationship type where an ActivityState hasPart one or more Participants."^^xsd:string ,
+                             "HQDM consists_of_participant" .
+
+
+###  http://www.ontology.asam.net/Core#hasProperty
+:hasProperty rdf:type owl:ObjectProperty ;
+             rdfs:range :PhysicalProperty ;
+             rdfs:comment "DEF: Relationship type for specifying properties of particular things"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasQuantity
+:hasQuantity rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasProperty ;
+             rdfs:range :PhysicalQuantity ;
+             rdfs:comment "DEF: A relationship type for specifying quantities of particular things"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasQuantityRelation
+:hasQuantityRelation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :PhysicalQuantity ;
+                     rdfs:range :PhysicalQuantity ;
+                     rdfs:comment "DEF: A relationship type for basic arithmetic relationships between quantities"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasRelationDirection
+:hasRelationDirection rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :hasDirection ,
+                                         :relationProperty ;
+                      rdfs:domain :SpatialRelation ;
+                      rdfs:range :DirectionQuantity ;
+                      rdfs:comment "DEF: A hasQuantity relationship type that specifies the direction of a spatial relation."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasRelativePosition
+:hasRelativePosition rdf:type owl:ObjectProperty ;
+                     rdfs:domain :PhysicalObjectState ;
+                     rdfs:range :PhysicalObjectState ;
+                     rdfs:comment "DEF: Object properties derived from SpatialRelation"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasRelativeTime
+:hasRelativeTime rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Event ;
+                 rdfs:range :Event ;
+                 rdfs:comment "DEF: Object properties derived from TemporalRelation"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasSpatialObject
+:hasSpatialObject rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :relationProperty ;
+                  rdf:type owl:FunctionalProperty ,
+                           owl:InverseFunctionalProperty ;
+                  rdfs:domain :SpatialRelation ;
+                  rdfs:range :PhysicalObjectState ;
+                  rdfs:comment "DEF: A relationProperty designating the object, destination, or \"recepient\" in a SpatialRelation."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasSpatialSubject
+:hasSpatialSubject rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :relationProperty ;
+                   rdf:type owl:FunctionalProperty ,
+                            owl:InverseFunctionalProperty ;
+                   rdfs:domain :SpatialRelation ;
+                   rdfs:range :PhysicalObjectState ;
+                   rdfs:comment "DEF: A relationProperty designating the subject, origin, or \"owner\" in a SpatialRelation."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasSpeed
+:hasSpeed rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasQuantity ;
+          rdfs:range :SpeedQuantity ;
+          rdfs:comment "DEF: A hasQuantity relationship type that specifies speed."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasSubject
+:hasSubject rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasParticipant ;
+            owl:inverseOf :subjectOf ;
+            rdfs:comment "DEF: A hasParticipant relationship type that relates some activity to a physical object as subject of the activity. The subject is an actor participant. Inverse relationship of subjectOf."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#hasTemporalPart
+:hasTemporalPart rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasPart ;
+                 owl:inverseOf :temporalPartOf ;
+                 rdfs:comment "DEF: A hasPart relationship type where one spatio-temporal extent has another spatio-temporal extent as a temporal part.  This implies that the temporal extent of the part is within the temporal extent of the whole. Inverse relationship of temporalPartOf."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#inFrontOf
+:inFrontOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasRelativePosition ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is in front of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#intendedRole
+:intendedRole rdf:type owl:ObjectProperty ;
+              rdfs:domain :FunctionalObjectState ;
+              rdfs:range :Role ;
+              rdfs:comment "DEF: A relationship type where a FunctionalObject has one or more intended role(s)."^^xsd:string ,
+                           "HQDM intended_role" .
+
+
+###  http://www.ontology.asam.net/Core#involves
+:involves rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :relationProperty ;
+          rdf:type owl:FunctionalProperty ,
+                   owl:InverseFunctionalProperty ;
+          rdfs:domain :DefinedRelationship ;
+          rdfs:range :Classification ;
+          rdfs:comment "DEF: A relationProperty that states that the classification of some thing in a role is involved in a relationship."^^xsd:string ,
+                       "HQDM involves" .
+
+
+###  http://www.ontology.asam.net/Core#latitudinalConnectedTo
+:latitudinalConnectedTo rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :connectedTo ;
+                        rdfs:comment "DEF: A connectedTo relationship type where the connection is in the latitudinal (East-West) direction with reference to the reference coordinate system."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#leftConnectedTo
+:leftConnectedTo rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :latitudinalConnectedTo ;
+                 rdfs:comment "DEF: A latitudinalConnectedTo relationship type where two PhysicalObjects are connected and the first PhysicalObject is to the left of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#leftOf
+:leftOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :hasRelativePosition ;
+        owl:inverseOf :rightOf ;
+        rdf:type owl:AsymmetricProperty ;
+        rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is to the left of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#locatedOn
+:locatedOn rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :PhysicalObjectState ;
+           rdfs:comment "DEF: Object property version of RelativeLocation. Note that when using \"locatedOn\", it is not possible to describe the actual position of the located object on the location object (you need a RelativeLocation for that)."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#longitudinalConnectedTo
+:longitudinalConnectedTo rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :connectedTo ;
+                         rdfs:comment "DEF: A connectedTo relationship type where the connection is in the longitudinal (North-South) direction with reference to the reference coordinate system."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#memberOf
+:memberOf rdf:type owl:ObjectProperty ,
+                   owl:AsymmetricProperty ;
+          rdfs:range :Set ;
+          rdfs:comment "DEF: A relationship type stating that a thing is a member of some Set. A set can have anything of the respective type as a member, even other Sets."^^xsd:string ,
+                       "EXAMPLES: A SetOfActivityStates can have an ActivityState as a member."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#objectOf
+:objectOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :participantOf ;
+          rdfs:comment "DEF: A participantOf relationship type that relates some physical object as object to some activity. The object is a non-actor participant."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#occursAfter
+:occursAfter rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :occursAtDifferentTime ;
+             owl:inverseOf :occursBefore ;
+             rdfs:comment "DEF: A hasRelativeTime relationship type specifying that the first event (marking the beginning or ending of some activity of physical object) occurs after the second event."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#occursAtDifferentTime
+:occursAtDifferentTime rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :hasRelativeTime ;
+                       rdf:type owl:AsymmetricProperty ;
+                       rdfs:comment "DEF: A hasRelativeTime relationship type specifying that the first event (marking the beginning or ending of some activity of physical object) occurs at a different time from the second event."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#occursAtSameTime
+:occursAtSameTime rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasRelativeTime ;
+                  rdf:type owl:SymmetricProperty ;
+                  rdfs:comment "DEF: A hasRelativeTime relationship type specifying that the first event (marking the beginning or ending of some activity of physical object) occurs at the same this as the second event. Note that when two events occur at the same time, the events are both parts of the same PointInTime"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#occursBefore
+:occursBefore rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :occursAtDifferentTime ;
+              rdfs:comment "DEF: A hasRelativeTime relationship type specifying that the first event (marking the beginning or ending of some activity of physical object) occurs before the second event"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#part
+:part rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :relationProperty ;
+      rdf:type owl:FunctionalProperty ,
+               owl:InverseFunctionalProperty ;
+      rdfs:domain :Aggregation ;
+      rdfs:range :SpatioTemporalExtent ;
+      rdfs:comment "DEF: A relationProperty that states that each Aggregation has exactly one spatioTemporalExtent that is the part in the Aggregation."^^xsd:string ,
+                   "HQDM part" .
+
+
+###  http://www.ontology.asam.net/Core#partOf
+:partOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :aggregatedInto ;
+        rdfs:comment "DEF: An aggregatedInto relationship type where a SpatioTemporalExtent may be part of another and the whole has emergent properties and is more than just the sum of its parts. This object property has the same meaning as the class Composition, but a different representation."^^xsd:string ,
+                     "HQDM part__of" .
+
+
+###  http://www.ontology.asam.net/Core#partOfPossibleWorld
+:partOfPossibleWorld rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :partOf ;
+                     rdfs:range :PossibleWorld ;
+                     rdfs:comment "DEF: A partOf relationship type where a SpatioTemporalExtent may be partOf one or more PossibleWorld." ,
+                                  "HQDM part_of_possible_world" .
+
+
+###  http://www.ontology.asam.net/Core#participantOf
+:participantOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :partOf ;
+               rdfs:domain :Participant ;
+               rdfs:range :ActivityState ;
+               rdfs:comment "DEF: A relationship stating the participation of a physical object in an activity."^^xsd:string ,
+                            "HQDM participant_in" .
+
+
+###  http://www.ontology.asam.net/Core#quantityEqualTo
+:quantityEqualTo rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :hasQuantityRelation ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:domain :PhysicalQuantity ;
+                 rdfs:range :PhysicalQuantity ;
+                 rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is equal to the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#quantityGreaterThan
+:quantityGreaterThan rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasQuantityRelation ;
+                     owl:inverseOf :quantityLessThanOrEqualTo ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain :PhysicalQuantity ;
+                     rdfs:range :PhysicalQuantity ;
+                     rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is strictly greater than the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#quantityGreaterThanOrEqualTo
+:quantityGreaterThanOrEqualTo rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf :hasQuantityRelation ;
+                              owl:inverseOf :quantityLessThan ;
+                              rdf:type owl:TransitiveProperty ;
+                              rdfs:domain :PhysicalQuantity ;
+                              rdfs:range :PhysicalQuantity ;
+                              rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is greater than or equal to the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#quantityLessThan
+:quantityLessThan rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasQuantityRelation ;
+                  rdf:type owl:TransitiveProperty ;
+                  rdfs:domain :PhysicalQuantity ;
+                  rdfs:range :PhysicalQuantity ;
+                  rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is strictly less than the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#quantityLessThanOrEqualTo
+:quantityLessThanOrEqualTo rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :hasQuantityRelation ;
+                           rdf:type owl:TransitiveProperty ;
+                           rdfs:domain :PhysicalQuantity ;
+                           rdfs:range :PhysicalQuantity ;
+                           rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is less than or equal to the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#quantityNotEqualTo
+:quantityNotEqualTo rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :hasQuantityRelation ;
+                    rdf:type owl:SymmetricProperty ;
+                    rdfs:domain :PhysicalQuantity ;
+                    rdfs:range :PhysicalQuantity ;
+                    rdfs:comment "DEF: A hasQuantityRelation relationship type, where the value for the second quantity is not equal to the value of the first quantity." .
+
+
+###  http://www.ontology.asam.net/Core#relationProperty
+:relationProperty rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Relationship ;
+                  rdfs:comment "DEF: Relationship types that are generally used only to define other properties, for example, using SWRL."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#rightConnectedTo
+:rightConnectedTo rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :latitudinalConnectedTo ;
+                  rdfs:comment "DEF: A latitudinalConnectedTo relationship type where two PhysicalObjects are connected and the first PhysicalObject is to the right of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#rightOf
+:rightOf rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :hasRelativePosition ;
+         rdf:type owl:AsymmetricProperty ;
+         rdfs:comment "DEF: A hasRelativePosition relationship type where the first PhysicalObject is to the right of the second PhysicalObject."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#rolePlayedBy
+:rolePlayedBy rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :relationProperty ;
+              rdfs:domain :Role ;
+              rdfs:range :Participant ;
+              rdfs:comment "DEF: A relationProperty that states that a Role is the role of some Participant."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#roleUsedIn
+:roleUsedIn rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :relationProperty ;
+            rdfs:domain :Role ;
+            rdfs:range :ActivityState ;
+            rdfs:comment "DEF: A relationProperty that states that a Role is used in an Activity."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#subjectOf
+:subjectOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :participantOf ;
+           rdfs:comment "DEF: A participantOf relationship type that relates some physical object as subject to some activity. The subject is an actor participant."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#temporalPartOf
+:temporalPartOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :partOf ;
+                rdfs:comment "DEF: A partOf relationship type where a SpatioTemporalExtent may be a temporal part of one or more other SpatioTemporalExtent. This object property has the same meaning as the class TemporalComposition, but a different representation."^^xsd:string ,
+                             "HQDM temporal__part_of" .
+
+
+###  http://www.ontology.asam.net/Core#whole
+:whole rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :relationProperty ;
+       rdf:type owl:FunctionalProperty ,
+                owl:InverseFunctionalProperty ;
+       rdfs:domain :Aggregation ;
+       rdfs:range :SpatioTemporalExtent ;
+       rdfs:comment "DEF: A relationProperty that states that each Aggregation has exactly one spatioTemporalExtent that is the whole in the Aggregation."^^xsd:string ,
+                    "HQDM whole" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ontology.asam.net/Core#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :PhysicalQuantity ;
+          rdfs:range xsd:float ;
+          rdfs:comment "DEF: a datatype property for specifying the numerical value of a quantity as a float. Note that this is a temporary solution to the specification of quantities in OxO." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontology.asam.net/Core#AbstractObject
+:AbstractObject rdf:type owl:Class ;
+                owl:disjointWith :SpatioTemporalExtent ;
+                rdfs:comment "DEF: A thing that does not exist in space or time. Abstract objects are used to express characteristics of spatio-temporal extents, such as properties and roles."^^xsd:string ,
+                             "EXAMPLES: not applicable." ,
+                             "HQDM abstract_object" ,
+                             "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#ActivityState
+:ActivityState rdf:type owl:Class ;
+               rdfs:subClassOf :State ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :causes ;
+                                 owl:someValuesFrom :Event
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasParticipant ;
+                                 owl:someValuesFrom :Participant
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :memberOf ;
+                                 owl:allValuesFrom :SetOfActivityStates
+                               ] ;
+               rdfs:comment "DEF: A State that represents the whole life of an activity or a temporal part of an activity. Activities consist of their participants, which are members of PhysicalObjectState, and cause some event. The end event of an activity state is caused by that activity, which implies that the activity describes some change between the start event and end event."^^xsd:string ,
+                            "EXAMPLES: the movements of a cloud or an animal crossing a road." ,
+                            "HQDM state_of_activity" ,
+                            "USAGE: Use this class for (temporal parts of) activities that are not the direct result of some intent, for example, a person's intent."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#Aggregation
+:Aggregation rdf:type owl:Class ;
+             rdfs:subClassOf :Relationship ;
+             rdfs:comment "DEF: A Relationship where the whole is at least the sum of the parts. Basis for object property aggregatedInto."^^xsd:string ,
+                          "EXAMPLES: not applicable." ,
+                          "HQDM aggregation" ,
+                          "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#AngleQuantity
+:AngleQuantity rdf:type owl:Class ;
+               rdfs:subClassOf :PhysicalQuantity ;
+               rdfs:comment "DEF: A PhysicalQuantity that is an angle value in degrees, between 0 and 360."^^xsd:string ,
+                            "EXAMPLES:" ,
+                            "USAGE: Use this class instead of DirectionQuantity when specifying angles that are not actual directions respective to some coordinate system." .
+
+
+###  http://www.ontology.asam.net/Core#BiologicalObjectState
+:BiologicalObjectState rdf:type owl:Class ;
+                       rdfs:subClassOf :PhysicalObjectState ;
+                       rdfs:comment "DEF: A PhysicalObjectState that sustains itself and reproduces. A BiologicalObjectState may represent the whole life of the object or a temporal part of it."^^xsd:string ,
+                                    "EXAMPLES: a BiologicalObjectState that is not an OrdinaryBiologicalObjectState would be one that survives the replacement of all of its parts, so an example might be my dog (which might be a completely different dog over time)."^^xsd:string ,
+                                    "HQDM state_of_biological_object" ,
+                                    "USAGE: generally use OrdinaryBiologicalObjectState instead of this class" .
+
+
+###  http://www.ontology.asam.net/Core#Classification
+:Classification rdf:type owl:Class ;
+                rdfs:subClassOf :Relationship ;
+                rdfs:comment "DEF: A Relationship where a thing is a member of a class. Basis for object properties memberOf and hasMember."^^xsd:string ,
+                             "EXAMPLES: not applicable." ,
+                             "HQDM classification" ,
+                             "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#Composition
+:Composition rdf:type owl:Class ;
+             rdfs:subClassOf :Aggregation ;
+             rdfs:comment "DEF: An Aggregation where the whole is an arrangement of the parts that results in emergent properties. Basis for object properties partOf and hasPart."^^xsd:string ,
+                          "EXAMPLES: not applicable." ,
+                          "HQDM composition" ,
+                          "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#ConnectionRelation
+:ConnectionRelation rdf:type owl:Class ;
+                    rdfs:subClassOf :DefinedRelationship ;
+                    rdfs:comment "DEF: A DefinedRelationship for relations between things that are connected in any way, physically or otherwise. Basis for the object property connectedTo."^^xsd:string ,
+                                 "EXAMPLES:" ,
+                                 "USAGE: Use this class to express a connection between two things as a reified relationship, e.g. in order to specify characteristics such as the angle of the connection." .
+
+
+###  http://www.ontology.asam.net/Core#DefinedRelationship
+:DefinedRelationship rdf:type owl:Class ;
+                     rdfs:subClassOf :Relationship ;
+                     rdfs:comment "DEF: A Relationship of a certain kind. This may be temporal, spatial, compositional, or other other relationships."^^xsd:string ,
+                                  "EXAMPLES: not applicable." ,
+                                  "HQDM defined_relationship" ,
+                                  "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#DirectionQuantity
+:DirectionQuantity rdf:type owl:Class ;
+                   rdfs:subClassOf :PhysicalQuantity ;
+                   rdfs:comment "DEF: A PhysicalQuantity that defines a direction in degrees, between 0 and 360. May be used to quantify the direction of a vector described by a SpatialRelation, a SeparationDistance, or similar."^^xsd:string ,
+                                "EXAMPLES:" ,
+                                "USAGE: Use this class instead of AngleQuantity when specifying actual directions respective to some coordinate system." .
+
+
+###  http://www.ontology.asam.net/Core#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf :SpatioTemporalExtent ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :memberOf ;
+                         owl:allValuesFrom :SetOfEvents
+                       ] ;
+       owl:disjointWith :State ;
+       rdfs:comment "DEF: A SpatioTemporalExtent with a time extension of zero, but with an extension in space. Events mark changes in states and are used for something instantaneous."^^xsd:string ,
+                    "EXAMPLES:" ,
+                    "HQDM event" ,
+                    "USAGE: Use this class to specify the state and/or end of activities and temporal parts of physical objects." .
+
+
+###  http://www.ontology.asam.net/Core#FunctionalObjectState
+:FunctionalObjectState rdf:type owl:Class ;
+                       rdfs:subClassOf :IntentionallyConstructedObjectState ,
+                                       :PhysicalObjectState ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :intendedRole ;
+                                         owl:someValuesFrom :Role
+                                       ] ;
+                       rdfs:comment "DEF: An IntentionallyConstructedObjectState and PhysicalObjectState that has an intendedRole. A FunctionalObjectState may represent the whole life of the object or a temporal part of it."^^xsd:string ,
+                                    "EXAMPLES: a FunctionalObjectState that is not an OrdinaryFunctionalObjectState would be one that survives the replacement of all of its parts, so an example might be my car (which might be a completely different car over time)."^^xsd:string ,
+                                    "HQDM state_of_functional_object" ,
+                                    "USAGE: generally use OrdinaryFunctionalObjectState instead of this class" .
+
+
+###  http://www.ontology.asam.net/Core#FunctionalSystemComponentState
+:FunctionalSystemComponentState rdf:type owl:Class ;
+                                rdfs:subClassOf :FunctionalObjectState ,
+                                                :SystemComponentState ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :componentOf ;
+                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass :FunctionalSystemState
+                                                ] ;
+                                rdfs:comment "DEF: An IntentionallyConstructedObjectState that represents a replaceable component of a FunctionalSystem. The object property componentOf is used to relate the object to the FunctionalSystem. A FunctionalSystemComponentState may be the whole life of the component or a temporal part of it."^^xsd:string ,
+                                             "EXAMPLES: markings of road or engines of vehicles" ,
+                                             "HQDM state_of_functional_system_component" ,
+                                             "USAGE: Use this class to represent the components of things that were created for a specific purpose, for example markings of road or engines of vehicles."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#FunctionalSystemState
+:FunctionalSystemState rdf:type owl:Class ;
+                       rdfs:subClassOf :OrdinaryFunctionalObjectState ,
+                                       :SystemState ;
+                       rdfs:comment "DEF: An OrdinaryFunctionalObjectState that is also a SystemState."^^xsd:string ,
+                                    "EXAMPLES: Vehicles, traffic infrastructure, buildings, traffic lights." ,
+                                    "HQDM state_of_functional_system" ,
+                                    "USAGE: Use this class for describing (temporal parts) of concrete (actual, materialized) systems that cease to exist when all of their parts are removed.  Often combined with OrdinaryBiologicalObjectState or OrdinaryFunctionalObjectState" .
+
+
+###  http://www.ontology.asam.net/Core#Geometry
+:Geometry rdf:type owl:Class ;
+          rdfs:subClassOf :PhysicalProperty ;
+          rdfs:comment "DEF: A PhysicalProperty that describes a spatial characteristic of an Object in a 1D, 2D or 3D space. Unlike \"shape\", which only refers to the outer surface, \"geometry\" can include other characteristics, e.g. different kind of projections like cross section, road geometry."^^xsd:string ,
+                       "EXAMPLES:" ,
+                       "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#InstalledFunctionalSystemComponent
+:InstalledFunctionalSystemComponent rdf:type owl:Class ;
+                                    rdfs:subClassOf :FunctionalSystemComponentState ,
+                                                    :InstalledObject ,
+                                                    :OrdinaryFunctionalObjectState ;
+                                    rdfs:comment "DEF: An InstalledObject that is also a OrdinaryFunctionalObjectState and a FunctionalSystemComponentState."^^xsd:string ,
+                                                 "EXAMPLES: the particular tire that was installed on car42's right front wheel between time1 and time2"^^xsd:string ,
+                                                 "HQDM installed_functional_system_component" ,
+                                                 "USAGE: Use this class for describing the actual, materialized installed components of a system."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#InstalledObject
+:InstalledObject rdf:type owl:Class ;
+                 rdfs:subClassOf :OrdinaryPhysicalObjectState ;
+                 rdfs:comment "DEF: An OrdinaryPhysicalObjectState that is installed in a system, meaning that is also a SystemComponentState. The state of the ordinary physical object is the temporal part that covers the time from when the ordinary physical object is installed in the system to when it is removed."^^xsd:string ,
+                              "EXAMPLES: The time that the traffic sign with the serial number 42 is installed at a specific location on highway 66. (note that this would actually be an InstalledFunctionalSystemComponent because the highway is a FunctionalSystem)." ,
+                              "HQDM installed_object" ,
+                              "USAGE: Use this class to describe the temporal part of a physical object when it is the actual component of a system." .
+
+
+###  http://www.ontology.asam.net/Core#IntentionallyConstructedActivityState
+:IntentionallyConstructedActivityState rdf:type owl:Class ;
+                                       rdfs:subClassOf :ActivityState ,
+                                                       :IntentionallyConstructedObjectState ;
+                                       rdfs:comment "DEF: An ActivityState that is also an IntentionallyConstructedObjectState." ,
+                                                    "EXAMPLES: the changing of a signal state by a device in an intelligent transportation system" ,
+                                                    "USAGE: Use this class to describe planned activities by single persons or intelligent devices, such as the changing of a signal state by a device in an intelligent transportation system."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#IntentionallyConstructedObjectState
+:IntentionallyConstructedObjectState rdf:type owl:Class ;
+                                     rdfs:subClassOf :State ;
+                                     rdfs:comment "DEF: A State that exists because of an act of will or agreement. That means that IntentionallyConstructedObjects are constructed intentionally by one or more things that have intent, usually humans or robots."^^xsd:string ,
+                                                  "EXAMPLES:" ,
+                                                  "HQDM state_of_intentionally_constructed_object" ,
+                                                  "USAGE: Generally use FunctionalObjectState or one of its subclasses rather than this class." .
+
+
+###  http://www.ontology.asam.net/Core#LengthQuantity
+:LengthQuantity rdf:type owl:Class ;
+                rdfs:subClassOf :PhysicalQuantity ;
+                rdfs:comment "DEF: A PhysicalQuantity that is a length value in meters."^^xsd:string ,
+                             "EXAMPLES:" ,
+                             "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#OrdinaryBiologicalObjectState
+:OrdinaryBiologicalObjectState rdf:type owl:Class ;
+                               rdfs:subClassOf :BiologicalObjectState ,
+                                               :OrdinaryPhysicalObjectState ;
+                               rdfs:comment "DEF: A BiologicalObjectState that describes biological objects that do not survive changing all their parts at once.  An OrdinaryBiologicalObjectState may represent the whole life of the object or a temporal part of it."^^xsd:string ,
+                                            "EXAMPLES: humans, animals, and trees"^^xsd:string ,
+                                            "HQDM state_of_ordinary_biological_object" ,
+                                            "USAGE: Use this class for describing temporal parts of living things that cease to exist when all of their parts are removed."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#OrdinaryFunctionalObjectState
+:OrdinaryFunctionalObjectState rdf:type owl:Class ;
+                               rdfs:subClassOf :FunctionalObjectState ,
+                                               :OrdinaryPhysicalObjectState ;
+                               rdfs:comment "DEF: A FunctionalObjectState that describes functional objects that do not survive changing all their parts at once.  An OrdinaryFunctionalObjectState may represent the whole life of the object or a temporal part of it."^^xsd:string ,
+                                            "EXAMPLES: A steel bar with no components and is not a component of any other thing but was created for a specific purpose could be an OrdinaryFunctionalObjectState." ,
+                                            "HQDM state_of_ordinary_functional_object" ,
+                                            "USAGE: Use this class for temporal parts of manufactured things that were constructed for some purpose and that cease to exist when all of their parts are removed.  However, if the thing is a system and/or a system component, it is preferable to use the corresponding subclass."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#OrdinaryPhysicalObjectState
+:OrdinaryPhysicalObjectState rdf:type owl:Class ;
+                             rdfs:subClassOf :PhysicalObjectState ;
+                             rdfs:comment "DEF: A PhysicalObjectState that describes physical objects that do not survive changing all their parts at once.  An OrdinaryPhysicalObjectState may represent the whole life of the object or a temporal part of it."^^xsd:string ,
+                                          "EXAMPLES: cloud, raindrop, rock, sunlight"^^xsd:string ,
+                                          "HQDM state_of_ordinary_physical_object" ,
+                                          "USAGE: Use this class for temporal parts of physical objects that cease to exist when all of their parts are removed and that are neither biological objects (OrdinaryBiologicalObjectState) nor manufactured things constructed for some purpose (OrdinaryFunctionalObjectState)."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#Participant
+:Participant rdf:type owl:Class ;
+             rdfs:subClassOf :PhysicalObjectState ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :memberOf ;
+                               owl:allValuesFrom :SetOfParticipants
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :participantOf ;
+                               owl:allValuesFrom :ActivityState
+                             ] ;
+             rdfs:comment "DEF: A PhysicalObjectState that represents a participant of an ActivityState. The ActivityState consists of these Participants, where each Participant is a member of the Role in which it is participating."^^xsd:string ,
+                          "EXAMPLES: The state (temporal part) of a vehicle that is making a left turn." ,
+                          "HQDM participant" ,
+                          "USAGE: Use this class for describing the temporal part of physical objects that are participating in activities.  Usually combined with OrdinaryBiologicalObjectState or OrdinaryFunctionalObjectState" .
+
+
+###  http://www.ontology.asam.net/Core#PeriodOfTime
+:PeriodOfTime rdf:type owl:Class ;
+              rdfs:subClassOf :State ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :temporalPartOf ;
+                                owl:allValuesFrom :PossibleWorld
+                              ] ;
+              rdfs:comment "DEF: A State that is a temporal part of some PossibleWorld. That means the period of time is a temporal duration of some possible world, which could be the actual world."^^xsd:string ,
+                           "EXAMPLES:" ,
+                           "HQDM period_of_time" ,
+                           "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#PhysicalObjectState
+:PhysicalObjectState rdf:type owl:Class ;
+                     rdfs:subClassOf :State ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :memberOf ;
+                                       owl:allValuesFrom :SetOfPhysicalObjectStates
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :temporalPartOf ;
+                                       owl:allValuesFrom :WholeLifePhysicalObject
+                                     ] ;
+                     rdfs:comment "DEF: A State that consists of a distribution of matter and/or energy. A PhysicalObjectState is understood to have a bounded distribution, and so it can be identified as that parcel of matter and/or energy over time.  A PhysicalObjectState can be thought of as characterizing what does not change over time of a State."^^xsd:string ,
+                                  "EXAMPLES:" ,
+                                  "HQDM state_of_physical_object" ,
+                                  "USAGE: Generally use a subclass of this class." .
+
+
+###  http://www.ontology.asam.net/Core#PhysicalProperty
+:PhysicalProperty rdf:type owl:Class ;
+                  rdfs:subClassOf :SetOfStates ;
+                  rdfs:comment "DEF: A SetOfStates is some characteristic that is the same for each state that possesses it (is a memberOf it). More accurately, a PhysicalProperty is a Set that groups states by a specific characteristic, but PhysicalProperty is understood to be the specific characteristic shared by its members."^^xsd:string ,
+                               "EXAMPLES: The color red is a PhysicalProperty." ,
+                               "HQDM physical_property" ,
+                               "USAGE: Use this class for physical properties of both physical objects, for example mass and length, and activities, for example speed and duration."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#PhysicalQuantity
+:PhysicalQuantity rdf:type owl:Class ;
+                  rdfs:subClassOf :PhysicalProperty ;
+                  rdfs:comment "DEF: A PhysicalProperty that represents a measurable quantity of a characteristic. "^^xsd:string ,
+                               "EXAMPLES: length, speed, and angle."^^xsd:string ,
+                               "HQDM physical_quantity" ,
+                               "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#PointInTime
+:PointInTime rdf:type owl:Class ;
+             rdfs:subClassOf :Event ;
+             rdfs:comment "DEF: An Event that is the whole of space at an instant from some viewpoint."^^xsd:string ,
+                          "EXAMPLES:" ,
+                          "HQDM point_in_time" ,
+                          "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#PossibleWorld
+:PossibleWorld rdf:type owl:Class ;
+               rdfs:subClassOf :PeriodOfTime ,
+                               :WholeLifeIndividual ;
+               rdfs:comment "DEF: A WholeLifeIndividual that is a complete spatio-temporal history of some possible world. The actual world is one of the possible worlds."^^xsd:string ,
+                            "EXAMPLES: a description could contain two PossibleWorlds, the possible world where carA stopped at the pedestrian crossing and where carA did not stop. " ,
+                            "HQDM possible_world" ,
+                            "USAGE: Use this class to model modality (modal realism rather than modal logic), such as several possible planned futures or alternative pasts. " .
+
+
+###  http://www.ontology.asam.net/Core#Relationship
+:Relationship rdf:type owl:Class ;
+              rdfs:subClassOf :AbstractObject ;
+              rdfs:comment "DEF: Relationships form the basis for many object properties."^^xsd:string ,
+                           "EXAMPLES: not applicable." ,
+                           "HQDM relationship" ,
+                           "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#RelativeLocation
+:RelativeLocation rdf:type owl:Class ;
+                  rdfs:subClassOf :SpatialRelation ;
+                  rdfs:comment "DEF: A SpatialRelation that describes that the subject is located on the object. Basis for the object property locatedOn."^^xsd:string ,
+                               "EXAMPLES:" ,
+                               "USAGE: Use this class to express the location of one thing with respect to another as a reified relationship, e.g. in order to specify characteristics such as the precise position of location." .
+
+
+###  http://www.ontology.asam.net/Core#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf :SetOfParticipants ;
+      rdfs:comment "DEF: A SetOfParticipants where each member participates in the same way in an ActivityState. In HQDM, a role is a kind of participant.  So subclasses of Participant are members of the class Role, including TrafficParticipant, Owner, Employer, and Asset." ,
+                   "EXAMPLES: subclasses of Participant, including TrafficParticipant, Owner, Employer, and Asset" ,
+                   "HQDM role" ,
+                   "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#SeparationDistance
+:SeparationDistance rdf:type owl:Class ;
+                    rdfs:subClassOf :SpatialRelation ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasDistance ;
+                                      owl:someValuesFrom :LengthQuantity
+                                    ] ;
+                    rdfs:comment "DEF: A SpatialRelation that also describes a distance between two connected objects. Gives a complete description of a vector and an exact relative position."^^xsd:string ,
+                                 "EXAMPLES:" ,
+                                 "USAGE: Use this class to express the separation distance between two things as a reified relationship, e.g. in order to specify characteristics such as the distance and direction of the separation." .
+
+
+###  http://www.ontology.asam.net/Core#Set
+:Set rdf:type owl:Class ;
+     rdfs:subClassOf :AbstractObject ;
+     rdfs:comment "DEF: An AbstractObject that has members and whose identity is defined by those members. The members may be other sets as well as specific spatio-temporal extents."^^xsd:string ,
+                  "EXAMPLES: not applicable." ,
+                  "HQDM class" ,
+                  "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfActivityStates
+:SetOfActivityStates rdf:type owl:Class ;
+                     rdfs:subClassOf :SetOfStates ;
+                     rdfs:comment "DEF: A SetOfStates that groups activities."^^xsd:string ,
+                                  "EXAMPLES:" ,
+                                  "HQDM class_of_state_of_activity" ,
+                                  "USAGE: Use this class to describe specific sets or kinds of ActivityStates that are not available already as subclasses of ActivityState." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfEvents
+:SetOfEvents rdf:type owl:Class ;
+             rdfs:subClassOf :SetOfSpatioTemporalExtents ;
+             rdfs:comment "DEF: A SetOfSpatioTemporalExtents that groups kinds of events. "^^xsd:string ,
+                          "EXAMPLES: triggered and absolute events, start and end events, etc." ,
+                          "HQDM class_of_event" ,
+                          "USAGE: Use this class to describe specific sets or kinds of Events that are not available already as subclasses of Event." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfParticipants
+:SetOfParticipants rdf:type owl:Class ;
+                   rdfs:subClassOf :SetOfPhysicalObjectStates ;
+                   rdfs:comment "DEF: A SetOfPhysicalObjectStates that groups participants of activities."^^xsd:string ,
+                                "EXAMPLES:" ,
+                                "HQDM class_of_participant" ,
+                                "USAGE: Generally use Role rather than this class." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfPhysicalObjectStates
+:SetOfPhysicalObjectStates rdf:type owl:Class ;
+                           rdfs:subClassOf :SetOfStates ;
+                           rdfs:comment "DEF: A SetOfStates that groups physical object states."^^xsd:string ,
+                                        "EXAMPLES:" ,
+                                        "HQDM class_of_state_of_physical_object_state" ,
+                                        "USAGE: Use this class to describe specific sets or kinds of PhysicalObjectStates that are not available already as subclasses of PhysicalObjectState." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfSpatioTemporalExtents
+:SetOfSpatioTemporalExtents rdf:type owl:Class ;
+                            rdfs:subClassOf :Set ;
+                            rdfs:comment "DEF: A Set whose members are spatio-temporal extents."^^xsd:string ,
+                                         "EXAMPLES:" ,
+                                         "HQDM class_of_spatio_temporal_extent" ,
+                                         "USAGE: Use this class to describe specific sets or kinds of SpatioTemporalExtents that are not available already as subclasses of SpatioTemporalExtent." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfStates
+:SetOfStates rdf:type owl:Class ;
+             rdfs:subClassOf :SetOfSpatioTemporalExtents ;
+             rdfs:comment "DEF: A SetOfSpatioTemporalExtents that groups states."^^xsd:string ,
+                          "EXAMPLES:" ,
+                          "HQDM class_of_state" ,
+                          "USAGE: Use this class to describe specific sets or kinds of States that are not available already as subclasses of State." .
+
+
+###  http://www.ontology.asam.net/Core#SetOfWholeLifeIndividuals
+:SetOfWholeLifeIndividuals rdf:type owl:Class ;
+                           rdfs:subClassOf :SetOfStates ;
+                           rdfs:comment "DEF: A SetOfStates that groups whole-life individuals."^^xsd:string ,
+                                        "EXAMPLES:" ,
+                                        "HQDM class_of_individual" ,
+                                        "USAGE: Use this class to describe specific sets or kinds of WholeLifeIndividuals that are not available already as subclasses of WholeLifeIndividual." .
+
+
+###  http://www.ontology.asam.net/Core#SociallyConstructedActivityState
+:SociallyConstructedActivityState rdf:type owl:Class ;
+                                  rdfs:subClassOf :IntentionallyConstructedActivityState ,
+                                                  :SociallyConstructedObjectState ;
+                                  rdfs:comment "DEF: An ActivityState that is also a SociallyConstructedObjectState." ,
+                                               "EXAMPLES: planned activities between multiple people such as meetings; the coordination of multiple traffic signals in an intelligent transportation system." ,
+                                               "HQDM state_of_socially_constructed_activity" ,
+                                               "USAGE: Use this class to describe planned activities by a group of persons or intelligent devices."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#SociallyConstructedObjectState
+:SociallyConstructedObjectState rdf:type owl:Class ;
+                                rdfs:subClassOf :IntentionallyConstructedObjectState ;
+                                rdfs:comment "DEF: An IntentionallyConstructedObjectState that is necessarily constructed by agreement of or acceptance by many people."^^xsd:string ,
+                                             "EXAMPLES: contracts, companies, and money"^^xsd:string ,
+                                             "HQDM state_of_socially_constructed_object" ,
+                                             "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#SpatialConnection
+:SpatialConnection rdf:type owl:Class ;
+                   rdfs:subClassOf :ConnectionRelation ,
+                                   :SpatialRelation ;
+                   rdfs:comment "DEF: A ConnectionRelation for relations between things that touch. Spatial connections create bridges for the transfer of energy or other things between the objects. Basis for the object property connectedTo."^^xsd:string ,
+                                "EXAMPLES:" ,
+                                "USAGE: Use this class to express a spatial connection between two things as a reified relationship, e.g. in order to specify characteristics such as the surface area of the connecting surface." .
+
+
+###  http://www.ontology.asam.net/Core#SpatialLocation
+:SpatialLocation rdf:type owl:Class ;
+                 rdfs:subClassOf :State ;
+                 rdfs:comment "DEF: A State that describes the relative continuity of a position, an area or a space that is important in a defined context. The type of description of a SpatialLocation can be topological, topographical, coordinates, or any other type."^^xsd:string ,
+                              "EXAMPLES: the position of an object, a country where certain regulations apply." ,
+                              "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#SpatialRelation
+:SpatialRelation rdf:type owl:Class ;
+                 rdfs:subClassOf :DefinedRelationship ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasRelationDirection ;
+                                   owl:someValuesFrom :DirectionQuantity
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSpatialObject ;
+                                   owl:someValuesFrom :PhysicalObjectState
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSpatialSubject ;
+                                   owl:someValuesFrom :PhysicalObjectState
+                                 ] ;
+                 owl:disjointWith :TemporalRelation ;
+                 rdfs:comment "DEF: A DefinedRelationship between two physical objects that describes their directional relationship, not the distance. Basis for object properties such as rightOf, leftOf, inFrontOf, behind, etc."^^xsd:string ,
+                              "EXAMPLES:" ,
+                              "USAGE: Use this class to express a general spatial relation between two things as a reified relationship, giving only the direction of the relationship." .
+
+
+###  http://www.ontology.asam.net/Core#SpatioTemporalExtent
+:SpatioTemporalExtent rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :partOfPossibleWorld ;
+                                        owl:someValuesFrom :PossibleWorld
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :memberOf ;
+                                        owl:allValuesFrom :SetOfSpatioTemporalExtents
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasBeginning ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Event
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasEnding ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :Event
+                                      ] ;
+                      rdfs:comment "DEF: A thing that exists in time and space, meaning in four dimensions. Each spatio-temporal extent has a start event and an end event."^^xsd:string ,
+                                   "EXAMPLES: not applicable." ,
+                                   "HQDM spatio_temporal_extent" ,
+                                   "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#SpeedQuantity
+:SpeedQuantity rdf:type owl:Class ;
+               rdfs:subClassOf :PhysicalQuantity ;
+               rdfs:comment "DEF: A PhysicalQuantity that is a speed value in meters per second."^^xsd:string ,
+                            "EXAMPLES:" ,
+                            "USAGE:" .
+
+
+###  http://www.ontology.asam.net/Core#State
+:State rdf:type owl:Class ;
+       rdfs:subClassOf :SpatioTemporalExtent ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :temporalPartOf ;
+                         owl:someValuesFrom :WholeLifeIndividual
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :memberOf ;
+                         owl:allValuesFrom :SetOfStates
+                       ] ;
+       rdfs:comment "DEF: A SpatioTemporalExtent with non-zero extension in both space and time. Used to describe, for example, the state of a vehicle, a person, or a manufactured system like a factory. States can apply to the whole life of a thing or represent temporal parts of a thing,"^^xsd:string ,
+                    "EXAMPLES:" ,
+                    "HQDM state" ,
+                    "USAGE: Use this class to describe the temporal part of a whole-life individual to which some property applies or to describe the temporal part of a whole-life individual that participates in an activity."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#SystemComponentState
+:SystemComponentState rdf:type owl:Class ;
+                      rdfs:subClassOf :PhysicalObjectState ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :componentOf ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :SystemState
+                                      ] ;
+                      rdfs:comment "DEF: A PhysicalObjectState that represents a component of a system. The state may represent the whole life of the component or a temporal part of it. The state can be completely replaced without losing its identity. A SystemComponentState can only exist when the System exists.  On the other hand, the OrdinaryPhysicalObject that is installed as the component may exist before or after the System."^^xsd:string ,
+                                   "EXAMPLES: vehicles and pedestrians are components of the traffic system (actually FunctionalSystemComponentStates - not WholeLifeIndividuals because the whole life of a vehicle or pedestrian would include temporal parts that are not components of the same traffic system)" ,
+                                   "HQDM state_of_system_component" ,
+                                   "USAGE: Use this class only for physical objects that are components of systems that do not have specific functions (are not FunctionalSystems)" .
+
+
+###  http://www.ontology.asam.net/Core#SystemState
+:SystemState rdf:type owl:Class ;
+             rdfs:subClassOf :OrdinaryPhysicalObjectState ;
+             rdfs:comment "DEF: An OrdinaryPhysicalObjectState that represents a concrete materialized system. Systems are defined as an organized or connected group of physical objects. A SystemState may represent the whole life of the system or a temporal part of it."^^xsd:string ,
+                          "EXAMPLES: A natural weather system." ,
+                          "HQDM state_of_system" ,
+                          "USAGE: Use this class only for systems that do not have specific functions" .
+
+
+###  http://www.ontology.asam.net/Core#TemporalComposition
+:TemporalComposition rdf:type owl:Class ;
+                     rdfs:subClassOf :Composition ;
+                     rdfs:comment "DEF: A Composition where the part is the entire whole spatially, but part of the whole temporally."^^xsd:string ,
+                                  "EXAMPLES: not applicable." ,
+                                  "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#TemporalRelation
+:TemporalRelation rdf:type owl:Class ;
+                  rdfs:subClassOf :DefinedRelationship ;
+                  rdfs:comment "DEF: A DefinedRelationship that describes a temporal relationship between two things, usually between events. Basis for the object properties occursBefore, occursAfter, and similar."^^xsd:string ,
+                               "EXAMPLES: not applicable." ,
+                               "USAGE: This class will generally not be used directly in the OpenX domain." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeActivity
+:WholeLifeActivity rdf:type owl:Class ;
+                   rdfs:subClassOf :ActivityState ,
+                                   :WholeLifeIndividual ;
+                   rdfs:comment "DEF: An ActivityState that represents the whole life of the activity."^^xsd:string ,
+                                "EXAMPLES: the entire activity of overtaking another vehicle." ,
+                                "HQDM activity" ,
+                                "USAGE: Use this class for an activity that is its temporal whole." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeBiologicalObject
+:WholeLifeBiologicalObject rdf:type owl:Class ;
+                           rdfs:subClassOf :BiologicalObjectState ,
+                                           :WholeLifePhysicalObject ;
+                           rdfs:comment "DEF: A BiologicalObjectState that represents the whole life of the biological object."^^xsd:string ,
+                                        "EXAMPLES: a person from their birth to their death." ,
+                                        "HQDM biological_object" ,
+                                        "USAGE: Use this class for a biological object that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeOrdinaryBiologicalObject." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeFunctionalObject
+:WholeLifeFunctionalObject rdf:type owl:Class ;
+                           rdfs:subClassOf :FunctionalObjectState ,
+                                           :WholeLifePhysicalObject ;
+                           rdfs:comment "DEF: A FunctionalObjectState that represents the whole life of the functional object."^^xsd:string ,
+                                        "EXAMPLES: " ,
+                                        "HQDM functional_object" ,
+                                        "USAGE: Use this class for a functional object that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeOrdinaryFunctionalObject." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeFunctionalSystem
+:WholeLifeFunctionalSystem rdf:type owl:Class ;
+                           rdfs:subClassOf :FunctionalSystemState ,
+                                           :WholeLifeSystem ;
+                           rdfs:comment "DEF: A FunctionalSystemState that represents the whole life of the functional system."^^xsd:string ,
+                                        "EXAMPLES: A vehicle from when it is manufactured to when it is destroyed." ,
+                                        "HQDM functional_system" ,
+                                        "USAGE: Use this class for describing individual concrete (actual, materialized) systems that cease to exist when all of their parts are removed.  Often combined with WholeLifeOrdinaryBiologicalObject or WholeLifeOrdinaryFunctionalObject" .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeFunctionalSystemComponent
+:WholeLifeFunctionalSystemComponent rdf:type owl:Class ;
+                                    rdfs:subClassOf :FunctionalSystemComponentState ,
+                                                    :WholeLifeSystemComponent ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :componentOf ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onClass :WholeLifeFunctionalSystem
+                                                    ] ;
+                                    rdfs:comment "DEF: A FunctionalSystemComponentState that represents the whole life of the functional system component." ,
+                                                 "EXAMPLES: The component of a junction that is the a traffic light, which functions as a signal at a junction (not the individual traffic lights with their serial numbers and dates of production, but the traffic light as a functional component)." ,
+                                                 "HQDM functional_system_component" ,
+                                                 "USAGE: Use this class to specify the whole life of a component of a functional system, which could be temporally divided into FunctionalSystemComponentStates for each of the InstalledObjects that acted as the component over the lifetime of the functional system."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeIndividual
+:WholeLifeIndividual rdf:type owl:Class ;
+                     rdfs:subClassOf :State ;
+                     rdfs:comment "DEF: A State that is not a proper temporalPartOf any other individual of the same kind." ,
+                                  "EXAMPLES:" ,
+                                  "HQDM individual" ,
+                                  "USAGE: Use this class in combination with others to designate that a particular spatio-temporal extent is \"its whole life\"" .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeIntentionallyConstructedActivity
+:WholeLifeIntentionallyConstructedActivity rdf:type owl:Class ;
+                                           rdfs:subClassOf :IntentionallyConstructedActivityState ,
+                                                           :WholeLifeActivity ;
+                                           rdfs:comment "DEF: A WholeLifeIntentionallyConstructedObject that is also a WholeLifeActivity."^^xsd:string ,
+                                                        "EXAMPLES:" ,
+                                                        "USAGE:" ,
+                                                        "USAGE: Use this class for an intentional constructed activity that is its temporal whole." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeIntentionallyConstructedObject
+:WholeLifeIntentionallyConstructedObject rdf:type owl:Class ;
+                                         rdfs:subClassOf :IntentionallyConstructedObjectState ,
+                                                         :WholeLifeIndividual ;
+                                         rdfs:comment "DEF: An IntentionallyConstructedObjectState that represents the whole life of the intentionally constructed object."^^xsd:string ,
+                                                      "EXAMPLES:" ,
+                                                      "HQDM intentionally_constructed_object" ,
+                                                      "USAGE: Use this class for an intentionally constructed object that is its temporal whole. Note that usually it is preferable to use one of the subclasses." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeOrdinaryBiologicalObject
+:WholeLifeOrdinaryBiologicalObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :OrdinaryBiologicalObjectState ,
+                                                   :WholeLifeBiologicalObject ;
+                                   rdfs:comment "DEF: An OrdinaryBiologicalObjectState that represents the whole life of the ordinary biological object."^^xsd:string ,
+                                                "EXAMPLES:" ,
+                                                "HQDM ordinary_biological_object" ,
+                                                "USAGE: Use this class for describing individual living things that cease to exist when all of their parts are removed."^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeOrdinaryFunctionalObject
+:WholeLifeOrdinaryFunctionalObject rdf:type owl:Class ;
+                                   rdfs:subClassOf :OrdinaryFunctionalObjectState ,
+                                                   :WholeLifeFunctionalObject ;
+                                   rdfs:comment "DEF: An OrdinaryFunctionalObjectState that represents the whole life of the ordinary functional object."^^xsd:string ,
+                                                "EXAMPLES:" ,
+                                                "HQDM ordinary_functional_object" ,
+                                                "USAGE: Use this class for describing individual manufactured things that were constructed for some purpose and that cease to exist when all of their parts are removed"^^xsd:string .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeOrdinaryPhysicalObject
+:WholeLifeOrdinaryPhysicalObject rdf:type owl:Class ;
+                                 rdfs:subClassOf :OrdinaryPhysicalObjectState ,
+                                                 :WholeLifePhysicalObject ;
+                                 rdfs:comment "DEF: A OrdinaryPhysicalObjectState that represents the whole life of the ordinary physical object."^^xsd:string ,
+                                              "EXAMPLES:" ,
+                                              "HQDM ordinary_physical_object" ,
+                                              "USAGE: Use this class for an ordinary physical object that is its temporal whole. " .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifePhysicalObject
+:WholeLifePhysicalObject rdf:type owl:Class ;
+                         rdfs:subClassOf :PhysicalObjectState ,
+                                         :WholeLifeIndividual ;
+                         rdfs:comment "DEF: A PhysicalObjectState that represents the whole life of the physical object."^^xsd:string ,
+                                      "EXAMPLES:" ,
+                                      "HQDM physical_object" ,
+                                      "USAGE: Use this class for a physical object that is its temporal whole. Note that it is generally preferable to use one of the subclasses." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeSociallyConstructedActivity
+:WholeLifeSociallyConstructedActivity rdf:type owl:Class ;
+                                      rdfs:subClassOf :SociallyConstructedActivityState ,
+                                                      :WholeLifeIntentionallyConstructedActivity ,
+                                                      :WholeLifeSociallyConstructedObject ;
+                                      rdfs:comment "DEF: A WholeLifeSociallyConstructedObject that is also a WholeLifeActivity."^^xsd:string ,
+                                                   "EXAMPLES:" ,
+                                                   "HQDM socially_constructed_activity" ,
+                                                   "USAGE: Use this class for an socially constructed activity that is its temporal whole." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeSociallyConstructedObject
+:WholeLifeSociallyConstructedObject rdf:type owl:Class ;
+                                    rdfs:subClassOf :SociallyConstructedObjectState ,
+                                                    :WholeLifeIndividual ;
+                                    rdfs:comment "DEF: A SociallyConstructedObjectState that represents the whole life of the socially constructed object."^^xsd:string ,
+                                                 "EXAMPLES:" ,
+                                                 "HQDM socially_constructed_object" ,
+                                                 "USAGE: Use this class for an socially constructed object that is its temporal whole." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeSystem
+:WholeLifeSystem rdf:type owl:Class ;
+                 rdfs:subClassOf :SystemState ,
+                                 :WholeLifeOrdinaryPhysicalObject ;
+                 rdfs:comment "DEF: An OrdinaryPhysicalObject that is an organized or connected group of PhysicalObjects that are SystemComponents and each have a role in how the overall system functions."^^xsd:string ,
+                              "EXAMPLES: The entire life of a hurricane from when it was formed to when it ceases to exist." ,
+                              "HQDM system" ,
+                              "USAGE: Use this class for a system that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeFunctionalSystem for systems that are intentionally constructed for some purpose." .
+
+
+###  http://www.ontology.asam.net/Core#WholeLifeSystemComponent
+:WholeLifeSystemComponent rdf:type owl:Class ;
+                          rdfs:subClassOf :SystemComponentState ,
+                                          :WholeLifePhysicalObject ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :componentOf ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :WholeLifeSystem
+                                          ] ;
+                          rdfs:comment "DEF: A SystemComponentState that represents the whole life of the system component."^^xsd:string ,
+                                       "EXAMPLES: the eye of a hurricane." ,
+                                       "HQDM system_component" ,
+                                       "USAGE: Use this class to specify the whole life of a component of a system that is not functional."^^xsd:string .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AngleQuantity
+                :DirectionQuantity
+                :LengthQuantity
+                :SpeedQuantity
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir2> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2> rdf:type swrl:Variable .
+
+<http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> rdf:type swrl:Variable .
+
+<http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val> rdf:type swrl:Variable .
+
+<http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> rdf:type swrl:Variable .
+
+<http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1val> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qdiff> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmax> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmin> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> rdf:type swrl:Variable .
+
+<http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z> rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "new behind"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :SpatialRelation ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :DirectionQuantity ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir2>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                            swrl:propertyPredicate :hasValue ;
+                                                            swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1> ;
+                                                            swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                       swrl:classPredicate :DirectionQuantity ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                  swrl:classPredicate :PhysicalObjectState ;
+                                                                                  swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                             swrl:propertyPredicate :hasHeading ;
+                                                                                             swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1> ;
+                                                                                             swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                           ] ;
+                                                                                 rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                        swrl:classPredicate :PhysicalObjectState ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                      ] ;
+                                                                                            rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                       rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                   swrl:builtin swrlb:subtract ;
+                                                                                                                   swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff>
+                                                                                                                                    <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                                                                                    <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                                                                                                                  )
+                                                                                                                 ] ;
+                                                                                                       rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                  rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                              swrl:builtin swrlb:lessThan ;
+                                                                                                                              swrl:arguments [ rdf:type rdf:List ;
+                                                                                                                                               rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                          rdf:first 195 ;
+                                                                                                                                                          rdf:rest rdf:nil
+                                                                                                                                                        ]
+                                                                                                                                             ]
+                                                                                                                            ] ;
+                                                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                             rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                         swrl:propertyPredicate :hasSpatialObject ;
+                                                                                                                                         swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                         swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                                       ] ;
+                                                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                    swrl:propertyPredicate :hasSpatialSubject ;
+                                                                                                                                                    swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                    swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                                                                                  ] ;
+                                                                                                                                        rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                   rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                               swrl:propertyPredicate :hasRelationDirection ;
+                                                                                                                                                               swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                               swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                                                                                             ] ;
+                                                                                                                                                   rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                              rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                                                                          swrl:classPredicate :DirectionQuantity ;
+                                                                                                                                                                          swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                                                                                        ] ;
+                                                                                                                                                              rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                                         rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                                                                                     swrl:builtin swrlb:greaterThan ;
+                                                                                                                                                                                     swrl:arguments [ rdf:type rdf:List ;
+                                                                                                                                                                                                      rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                 rdf:first 165 ;
+                                                                                                                                                                                                                 rdf:rest rdf:nil
+                                                                                                                                                                                                               ]
+                                                                                                                                                                                                    ]
+                                                                                                                                                                                   ] ;
+                                                                                                                                                                         rdf:rest rdf:nil
+                                                                                                                                                                       ]
+                                                                                                                                                            ]
+                                                                                                                                                 ]
+                                                                                                                                      ]
+                                                                                                                           ]
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :behind ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "new right of"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :SpatialRelation ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                      swrl:builtin swrlb:greaterThan ;
+                                      swrl:arguments [ rdf:type rdf:List ;
+                                                       rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first 75 ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :hasValue ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :DirectionQuantity ;
+                                                            swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir2>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                       swrl:propertyPredicate :hasValue ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1> ;
+                                                                       swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                  swrl:classPredicate :DirectionQuantity ;
+                                                                                  swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                             swrl:classPredicate :PhysicalObjectState ;
+                                                                                             swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                           ] ;
+                                                                                 rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                        swrl:propertyPredicate :hasHeading ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1> ;
+                                                                                                        swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                      ] ;
+                                                                                            rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                       rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                   swrl:classPredicate :PhysicalObjectState ;
+                                                                                                                   swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                 ] ;
+                                                                                                       rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                  rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                              swrl:builtin swrlb:subtract ;
+                                                                                                                              swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff>
+                                                                                                                                               <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                                                                                               <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                                                                                                                             )
+                                                                                                                            ] ;
+                                                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                             rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                         swrl:propertyPredicate :hasSpatialObject ;
+                                                                                                                                         swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                         swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                                       ] ;
+                                                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                        rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                                                    swrl:builtin swrlb:lessThan ;
+                                                                                                                                                    swrl:arguments [ rdf:type rdf:List ;
+                                                                                                                                                                     rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                rdf:first 105 ;
+                                                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                                                              ]
+                                                                                                                                                                   ]
+                                                                                                                                                  ] ;
+                                                                                                                                        rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                   rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                               swrl:propertyPredicate :hasSpatialSubject ;
+                                                                                                                                                               swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                               swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                                                                                             ] ;
+                                                                                                                                                   rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                              rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                                          swrl:propertyPredicate :hasRelationDirection ;
+                                                                                                                                                                          swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                                          swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                                                                                                        ] ;
+                                                                                                                                                              rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                                         rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                                                                                     swrl:classPredicate :DirectionQuantity ;
+                                                                                                                                                                                     swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                                                                                                   ] ;
+                                                                                                                                                                         rdf:rest rdf:nil
+                                                                                                                                                                       ]
+                                                                                                                                                            ]
+                                                                                                                                                 ]
+                                                                                                                                      ]
+                                                                                                                           ]
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :rightOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity greater than"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate :hasValue ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                                      swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :PhysicalQuantity ;
+                                                 swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :PhysicalQuantity ;
+                                                            swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                       swrl:builtin swrlb:greaterThan ;
+                                                                       swrl:arguments ( <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                                                                        <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                                                                      )
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityGreaterThan ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "greater than or equal to"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate :hasValue ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                                      swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :PhysicalQuantity ;
+                                                 swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :PhysicalQuantity ;
+                                                            swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                       swrl:builtin swrlb:greaterThanOrEqual ;
+                                                                       swrl:arguments ( <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                                                                        <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                                                                      )
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityGreaterThanOrEqualTo ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity less than"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate :hasValue ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                                      swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :PhysicalQuantity ;
+                                                 swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :PhysicalQuantity ;
+                                                            swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                       swrl:builtin swrlb:lessThan ;
+                                                                       swrl:arguments ( <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                                                                        <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                                                                      )
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityLessThan ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity less than or equal to"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:BuiltinAtom ;
+                           swrl:builtin swrlb:lessThanOrEqual ;
+                           swrl:arguments ( <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                            <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                          )
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> ;
+                                      swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :hasValue ;
+                                                 swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                                                 swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :PhysicalQuantity ;
+                                                            swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                       swrl:classPredicate :PhysicalQuantity ;
+                                                                       swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityLessThanOrEqualTo ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity not equal to"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate :hasValue ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate :hasValue ;
+                                      swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                                      swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                 swrl:builtin swrlb:notEqual ;
+                                                 swrl:arguments ( <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1val>
+                                                                  <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2val>
+                                                                )
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :PhysicalQuantity ;
+                                                            swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                       swrl:classPredicate :PhysicalQuantity ;
+                                                                       swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityNotEqualTo ;
+                           swrl:argument1 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q2> ;
+                           swrl:argument2 <http://ontology.asam.net/ontologies/OpenXCorePlusV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity equal to"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:BuiltinAtom ;
+                           swrl:builtin swrlb:add ;
+                           swrl:arguments [ rdf:type rdf:List ;
+                                            rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val> ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1val> ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first 0.0 ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                          ]
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate :PhysicalQuantity ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1>
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :PhysicalQuantity ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                            swrl:propertyPredicate :hasValue ;
+                                                            swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2> ;
+                                                            swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                       swrl:propertyPredicate :hasValue ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1> ;
+                                                                       swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1val>
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :quantityEqualTo ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "quantity approximately equal to"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:BuiltinAtom ;
+                           swrl:builtin swrlb:lessThan ;
+                           swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qdiff>
+                                            <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmax>
+                                          )
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                      swrl:builtin swrlb:subtract ;
+                                      swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qdiff>
+                                                       <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val>
+                                                       <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1val>
+                                                     )
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate :PhysicalQuantity ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                            swrl:builtin swrlb:multiply ;
+                                                            swrl:arguments [ rdf:type rdf:List ;
+                                                                             rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmin> ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val> ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first -0.1 ;
+                                                                                                   rdf:rest rdf:nil
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                       swrl:classPredicate :PhysicalQuantity ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2>
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                  swrl:builtin swrlb:multiply ;
+                                                                                  swrl:arguments [ rdf:type rdf:List ;
+                                                                                                   rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmax> ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val> ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first 0.1 ;
+                                                                                                                         rdf:rest rdf:nil
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                                 ]
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                             swrl:builtin swrlb:greaterThan ;
+                                                                                             swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qdiff>
+                                                                                                              <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#qmin>
+                                                                                                            )
+                                                                                           ] ;
+                                                                                 rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                            rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                                                        swrl:propertyPredicate :hasValue ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2> ;
+                                                                                                        swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2val>
+                                                                                                      ] ;
+                                                                                            rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                       rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                                                                   swrl:propertyPredicate :hasValue ;
+                                                                                                                   swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1> ;
+                                                                                                                   swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1val>
+                                                                                                                 ] ;
+                                                                                                       rdf:rest rdf:nil
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :approximatelyEqualTo ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#q1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "new left of"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :SpatialRelation ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                      swrl:builtin swrlb:lessThan ;
+                                      swrl:arguments [ rdf:type rdf:List ;
+                                                       rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first -75 ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :hasValue ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :DirectionQuantity ;
+                                                            swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir2>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                       swrl:propertyPredicate :hasValue ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1> ;
+                                                                       swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                  swrl:classPredicate :DirectionQuantity ;
+                                                                                  swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                             swrl:classPredicate :PhysicalObjectState ;
+                                                                                             swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                           ] ;
+                                                                                 rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                        swrl:propertyPredicate :hasHeading ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1> ;
+                                                                                                        swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                      ] ;
+                                                                                            rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                       rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                   swrl:classPredicate :PhysicalObjectState ;
+                                                                                                                   swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                 ] ;
+                                                                                                       rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                  rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                              swrl:builtin swrlb:greaterThan ;
+                                                                                                                              swrl:arguments [ rdf:type rdf:List ;
+                                                                                                                                               rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                          rdf:first -105 ;
+                                                                                                                                                          rdf:rest rdf:nil
+                                                                                                                                                        ]
+                                                                                                                                             ]
+                                                                                                                            ] ;
+                                                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                             rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                                         swrl:builtin swrlb:subtract ;
+                                                                                                                                         swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff>
+                                                                                                                                                          <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                                                                                                          <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                                                                                                                                        )
+                                                                                                                                       ] ;
+                                                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                    swrl:propertyPredicate :hasSpatialObject ;
+                                                                                                                                                    swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                    swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                                                  ] ;
+                                                                                                                                        rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                   rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                               swrl:propertyPredicate :hasSpatialSubject ;
+                                                                                                                                                               swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                               swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                                                                                             ] ;
+                                                                                                                                                   rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                              rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                                          swrl:propertyPredicate :hasRelationDirection ;
+                                                                                                                                                                          swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                                          swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                                                                                                        ] ;
+                                                                                                                                                              rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                                         rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                                                                                     swrl:classPredicate :DirectionQuantity ;
+                                                                                                                                                                                     swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                                                                                                   ] ;
+                                                                                                                                                                         rdf:rest rdf:nil
+                                                                                                                                                                       ]
+                                                                                                                                                            ]
+                                                                                                                                                 ]
+                                                                                                                                      ]
+                                                                                                                           ]
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :leftOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "behind transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :behind ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :behind ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :behind ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "front of transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :inFrontOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :inFrontOf ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :inFrontOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "left of transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :leftOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :leftOf ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :leftOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "occurs after transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :occursAfter ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :occursAfter ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :occursAfter ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "occurs before transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :occursBefore ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :occursBefore ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :occursBefore ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "right of transitivity"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :rightOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate :rightOf ;
+                                      swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#y> ;
+                                      swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :rightOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#x> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#z>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "new in front of"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate :SpatialRelation ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r>
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                      swrl:builtin swrlb:lessThan ;
+                                      swrl:arguments [ rdf:type rdf:List ;
+                                                       rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first 15 ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate :hasValue ;
+                                                 swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h> ;
+                                                 swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:ClassAtom ;
+                                                            swrl:classPredicate :DirectionQuantity ;
+                                                            swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir2>
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                       swrl:propertyPredicate :hasValue ;
+                                                                       swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1> ;
+                                                                       swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                     ] ;
+                                                           rdf:rest [ rdf:type swrl:AtomList ;
+                                                                      rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                  swrl:classPredicate :DirectionQuantity ;
+                                                                                  swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                ] ;
+                                                                      rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                 rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                             swrl:builtin swrlb:greaterThan ;
+                                                                                             swrl:arguments [ rdf:type rdf:List ;
+                                                                                                              rdf:first <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff> ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first -15 ;
+                                                                                                                         rdf:rest rdf:nil
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                           ] ;
+                                                                                 rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                        swrl:classPredicate :PhysicalObjectState ;
+                                                                                                        swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                                      ] ;
+                                                                                            rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                       rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                   swrl:propertyPredicate :hasHeading ;
+                                                                                                                   swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1> ;
+                                                                                                                   swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                                 ] ;
+                                                                                                       rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                  rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                              swrl:classPredicate :PhysicalObjectState ;
+                                                                                                                              swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                            ] ;
+                                                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                             rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                                                                                                         swrl:builtin swrlb:subtract ;
+                                                                                                                                         swrl:arguments ( <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#dirDiff>
+                                                                                                                                                          <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1value>
+                                                                                                                                                          <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1hvalue>
+                                                                                                                                                        )
+                                                                                                                                       ] ;
+                                                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                    swrl:propertyPredicate :hasSpatialObject ;
+                                                                                                                                                    swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                    swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2>
+                                                                                                                                                  ] ;
+                                                                                                                                        rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                   rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                               swrl:propertyPredicate :hasSpatialSubject ;
+                                                                                                                                                               swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                               swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                                                                                                                                                             ] ;
+                                                                                                                                                   rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                              rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                                          swrl:propertyPredicate :hasRelationDirection ;
+                                                                                                                                                                          swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#r> ;
+                                                                                                                                                                          swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#rdir1>
+                                                                                                                                                                        ] ;
+                                                                                                                                                              rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                                                         rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                                                                                                     swrl:classPredicate :DirectionQuantity ;
+                                                                                                                                                                                     swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1h>
+                                                                                                                                                                                   ] ;
+                                                                                                                                                                         rdf:rest rdf:nil
+                                                                                                                                                                       ]
+                                                                                                                                                            ]
+                                                                                                                                                 ]
+                                                                                                                                      ]
+                                                                                                                           ]
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate :inFrontOf ;
+                           swrl:argument1 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p2> ;
+                           swrl:argument2 <http://www.semanticweb.org/stevek/ontologies/2021/6/objectPropertiesV1#p1>
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

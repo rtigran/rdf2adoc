@@ -1,0 +1,27 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#frontConnectedTo]
+= frontConnectedTo
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|frontConnectedTo
+
+|IRI
+|http://www.ontology.asam.net/Core#frontConnectedTo
+
+|Subproperty of
+|longitudinalConnectedTo
+
+|Comments
+|DEF: A longitudinalConnectedTo relationship type where two PhysicalObjects are connected and the first PhysicalObject is in front of the second PhysicalObject.
+
+|===

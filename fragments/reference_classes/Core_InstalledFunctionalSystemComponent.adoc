@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#InstalledFunctionalSystemComponent]
+= InstalledFunctionalSystemComponent
+
+[plantuml]
+....
+include::../puml/Core_InstalledFunctionalSystemComponent.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|InstalledFunctionalSystemComponent
+
+|IRI
+|http://www.ontology.asam.net/Core#InstalledFunctionalSystemComponent
+
+|Subclass of
+|FunctionalSystemComponentState
+
+|Subclass of
+|InstalledObject
+
+|Subclass of
+|OrdinaryFunctionalObjectState
+
+|Comments
+|DEF: An InstalledObject that is also a OrdinaryFunctionalObjectState and a FunctionalSystemComponentState.
+
+EXAMPLES: the particular tire that was installed on car42's right front wheel between time1 and time2
+
+USAGE: Use this class for describing the actual, materialized installed components of a system.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/installed_functional_system_component.htm[Reference to HQDM installed_functional_system_component] 
+
+|===

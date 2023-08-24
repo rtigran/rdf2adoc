@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#OrdinaryBiologicalObjectState]
+= OrdinaryBiologicalObjectState
+
+[plantuml]
+....
+include::../puml/Core_OrdinaryBiologicalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|OrdinaryBiologicalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#OrdinaryBiologicalObjectState
+
+|Subclass of
+|BiologicalObjectState
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comments
+|DEF: A BiologicalObjectState that describes biological objects that do not survive changing all their parts at once.  An OrdinaryBiologicalObjectState may represent the whole life of the object or a temporal part of it.
+
+EXAMPLES: humans, animals, and trees
+
+USAGE: Use this class for describing temporal parts of living things that cease to exist when all of their parts are removed.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_ordinary_biological_object.htm[Reference to HQDM state_of_ordinary_biological_object] 
+
+|===

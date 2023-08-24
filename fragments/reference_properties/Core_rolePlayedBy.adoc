@@ -1,0 +1,33 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#rolePlayedBy]
+= rolePlayedBy
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|rolePlayedBy
+
+|IRI
+|http://www.ontology.asam.net/Core#rolePlayedBy
+
+|Subproperty of
+|relationProperty
+
+|Has domain
+|Role
+
+|Has range
+|Role
+
+|Comments
+|DEF: A relationProperty that states that a Role is the role of some Participant.
+
+|===

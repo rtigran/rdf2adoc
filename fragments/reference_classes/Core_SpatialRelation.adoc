@@ -1,0 +1,48 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SpatialRelation]
+= SpatialRelation
+
+[plantuml]
+....
+include::../puml/Core_SpatialRelation.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SpatialRelation
+
+|IRI
+|http://www.ontology.asam.net/Core#SpatialRelation
+
+|Subclass of
+|DefinedRelationship
+
+|Restriction
+|hasRelationDirection **some** DirectionQuantity
+
+|Restriction
+|hasSpatialObject **some** PhysicalObjectState
+
+|Restriction
+|hasSpatialSubject **some** PhysicalObjectState
+
+|Disjoint with
+|TemporalRelation
+
+|Comments
+|DEF: A DefinedRelationship between two physical objects that describes their directional relationship, not the distance. Basis for object properties such as rightOf, leftOf, inFrontOf, behind, etc.
+
+EXAMPLES:
+
+USAGE: Use this class to express a general spatial relation between two things as a reified relationship, giving only the direction of the relationship.
+
+|===

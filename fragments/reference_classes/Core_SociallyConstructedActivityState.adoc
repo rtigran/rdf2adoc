@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SociallyConstructedActivityState]
+= SociallyConstructedActivityState
+
+[plantuml]
+....
+include::../puml/Core_SociallyConstructedActivityState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SociallyConstructedActivityState
+
+|IRI
+|http://www.ontology.asam.net/Core#SociallyConstructedActivityState
+
+|Subclass of
+|IntentionallyConstructedActivityState
+
+|Subclass of
+|SociallyConstructedObjectState
+
+|Comments
+|DEF: An ActivityState that is also a SociallyConstructedObjectState.
+
+EXAMPLES: planned activities between multiple people such as meetings; the coordination of multiple traffic signals in an intelligent transportation system.
+
+USAGE: Use this class to describe planned activities by a group of persons or intelligent devices.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_socially_constructed_activity.htm[Reference to HQDM state_of_socially_constructed_activity] 
+
+|===

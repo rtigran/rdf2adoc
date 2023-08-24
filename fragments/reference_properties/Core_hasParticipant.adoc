@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasParticipant]
+= hasParticipant
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasParticipant
+
+|IRI
+|http://www.ontology.asam.net/Core#hasParticipant
+
+|Subproperty of
+|hasPart
+
+|Has domain
+|ActivityState
+
+|Has range
+|ActivityState
+
+|Inverse
+|participantOf
+
+|Comments
+|DEF: A hasPart relationship type where an ActivityState hasPart one or more Participants.
+
+[Equivalent to HQDM consists_of_participant] 
+
+|===

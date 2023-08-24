@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasTemporalPart]
+= hasTemporalPart
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasTemporalPart
+
+|IRI
+|http://www.ontology.asam.net/Core#hasTemporalPart
+
+|Subproperty of
+|hasPart
+
+|Inverse
+|temporalPartOf
+
+|Comments
+|DEF: A hasPart relationship type where one spatio-temporal extent has another spatio-temporal extent as a temporal part.  This implies that the temporal extent of the part is within the temporal extent of the whole. Inverse relationship of temporalPartOf.
+
+|===

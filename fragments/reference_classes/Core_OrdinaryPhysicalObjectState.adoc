@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#OrdinaryPhysicalObjectState]
+= OrdinaryPhysicalObjectState
+
+[plantuml]
+....
+include::../puml/Core_OrdinaryPhysicalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|OrdinaryPhysicalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#OrdinaryPhysicalObjectState
+
+|Subclass of
+|PhysicalObjectState
+
+|Comments
+|DEF: A PhysicalObjectState that describes physical objects that do not survive changing all their parts at once.  An OrdinaryPhysicalObjectState may represent the whole life of the object or a temporal part of it.
+
+EXAMPLES: cloud, raindrop, rock, sunlight
+
+USAGE: Use this class for temporal parts of physical objects that cease to exist when all of their parts are removed and that are neither biological objects (OrdinaryBiologicalObjectState) nor manufactured things constructed for some purpose (OrdinaryFunctionalObjectState).
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_ordinary_physical_object.htm[Reference to HQDM state_of_ordinary_physical_object] 
+
+|===

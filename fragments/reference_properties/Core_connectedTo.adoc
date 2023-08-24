@@ -1,0 +1,33 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#connectedTo]
+= connectedTo
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|connectedTo
+
+|IRI
+|http://www.ontology.asam.net/Core#connectedTo
+
+|Has domain
+|PhysicalObjectState
+
+|Has range
+|PhysicalObjectState
+
+|Characteristic
+|Symmetric
+
+|Comments
+|DEF: A relationship type where two physical object have a spatial connection and touch each other. Spatial connections create bridges for the transfer of energy or other things between the objects. This object property has the same meaning as the class SpatialConnection, but a different representation.
+
+|===

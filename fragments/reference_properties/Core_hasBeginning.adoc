@@ -1,0 +1,27 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasBeginning]
+= hasBeginning
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasBeginning
+
+|IRI
+|http://www.ontology.asam.net/Core#hasBeginning
+
+|Subproperty of
+|hasTemporalPart
+
+|Comments
+|DEF: Inverse relationship of beginningOf
+
+|===

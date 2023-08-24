@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeIntentionallyConstructedObject]
+= WholeLifeIntentionallyConstructedObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeIntentionallyConstructedObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeIntentionallyConstructedObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeIntentionallyConstructedObject
+
+|Subclass of
+|IntentionallyConstructedObjectState
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comments
+|DEF: An IntentionallyConstructedObjectState that represents the whole life of the intentionally constructed object.
+
+EXAMPLES:
+
+USAGE: Use this class for an intentionally constructed object that is its temporal whole. Note that usually it is preferable to use one of the subclasses.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/intentionally_constructed_object.htm[Reference to HQDM intentionally_constructed_object] 
+
+|===

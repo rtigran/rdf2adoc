@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasObject]
+= hasObject
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasObject
+
+|IRI
+|http://www.ontology.asam.net/Core#hasObject
+
+|Subproperty of
+|hasParticipant
+
+|Inverse
+|objectOf
+
+|Comments
+|DEF: A hasParticipant relationship type that relates some activity to a physical object as object of the activity. The object is a non-actor participant. Inverse relationship of objectOf.
+
+|===

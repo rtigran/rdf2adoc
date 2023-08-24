@@ -1,0 +1,39 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#IntentionallyConstructedActivityState]
+= IntentionallyConstructedActivityState
+
+[plantuml]
+....
+include::../puml/Core_IntentionallyConstructedActivityState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|IntentionallyConstructedActivityState
+
+|IRI
+|http://www.ontology.asam.net/Core#IntentionallyConstructedActivityState
+
+|Subclass of
+|ActivityState
+
+|Subclass of
+|IntentionallyConstructedObjectState
+
+|Comments
+|DEF: An ActivityState that is also an IntentionallyConstructedObjectState.
+
+EXAMPLES: the changing of a signal state by a device in an intelligent transportation system
+
+USAGE: Use this class to describe planned activities by single persons or intelligent devices, such as the changing of a signal state by a device in an intelligent transportation system.
+
+|===

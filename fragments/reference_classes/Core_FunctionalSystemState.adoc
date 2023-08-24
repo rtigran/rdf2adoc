@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#FunctionalSystemState]
+= FunctionalSystemState
+
+[plantuml]
+....
+include::../puml/Core_FunctionalSystemState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|FunctionalSystemState
+
+|IRI
+|http://www.ontology.asam.net/Core#FunctionalSystemState
+
+|Subclass of
+|OrdinaryFunctionalObjectState
+
+|Subclass of
+|SystemState
+
+|Comments
+|DEF: An OrdinaryFunctionalObjectState that is also a SystemState.
+
+EXAMPLES: Vehicles, traffic infrastructure, buildings, traffic lights.
+
+USAGE: Use this class for describing (temporal parts) of concrete (actual, materialized) systems that cease to exist when all of their parts are removed.  Often combined with OrdinaryBiologicalObjectState or OrdinaryFunctionalObjectState
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_functional_system.htm[Reference to HQDM state_of_functional_system] 
+
+|===

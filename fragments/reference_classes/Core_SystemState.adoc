@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SystemState]
+= SystemState
+
+[plantuml]
+....
+include::../puml/Core_SystemState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SystemState
+
+|IRI
+|http://www.ontology.asam.net/Core#SystemState
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comments
+|DEF: An OrdinaryPhysicalObjectState that represents a concrete materialized system. Systems are defined as an organized or connected group of physical objects. A SystemState may represent the whole life of the system or a temporal part of it.
+
+EXAMPLES: A natural weather system.
+
+USAGE: Use this class only for systems that do not have specific functions
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_system.htm[Reference to HQDM state_of_system] 
+
+|===

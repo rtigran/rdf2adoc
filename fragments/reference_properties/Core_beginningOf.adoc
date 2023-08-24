@@ -1,0 +1,35 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#beginningOf]
+= beginningOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|beginningOf
+
+|IRI
+|http://www.ontology.asam.net/Core#beginningOf
+
+|Subproperty of
+|temporalPartOf
+
+|Has domain
+|Event
+
+|Inverse
+|hasBeginning
+
+|Comments
+|DEF: A temporalPartOf relationship type where a SpatioTemporalExtent has exactly one event that is its beginning.
+
+[Equivalent to HQDM beginning] 
+
+|===

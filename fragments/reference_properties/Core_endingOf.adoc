@@ -1,0 +1,35 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#endingOf]
+= endingOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|endingOf
+
+|IRI
+|http://www.ontology.asam.net/Core#endingOf
+
+|Subproperty of
+|temporalPartOf
+
+|Has domain
+|Event
+
+|Inverse
+|hasEnding
+
+|Comments
+|DEF: A temporalPartOf relationship type where a SpatioTemporalExtent has exactly one event that is its ending.
+
+[Equivalent to HQDM ending] 
+
+|===

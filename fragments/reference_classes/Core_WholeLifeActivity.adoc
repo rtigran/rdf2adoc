@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeActivity]
+= WholeLifeActivity
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeActivity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeActivity
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeActivity
+
+|Subclass of
+|ActivityState
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comments
+|DEF: An ActivityState that represents the whole life of the activity.
+
+EXAMPLES: the entire activity of overtaking another vehicle.
+
+USAGE: Use this class for an activity that is its temporal whole.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/activity.htm[Reference to HQDM activity] 
+
+|===

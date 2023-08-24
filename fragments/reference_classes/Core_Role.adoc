@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Role]
+= Role
+
+[plantuml]
+....
+include::../puml/Core_Role.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Role
+
+|IRI
+|http://www.ontology.asam.net/Core#Role
+
+|Subclass of
+|SetOfParticipants
+
+|Comments
+|DEF: A SetOfParticipants where each member participates in the same way in an ActivityState. In HQDM, a role is a kind of participant.  So subclasses of Participant are members of the class Role, including TrafficParticipant, Owner, Employer, and Asset.
+
+EXAMPLES: subclasses of Participant, including TrafficParticipant, Owner, Employer, and Asset
+
+USAGE:
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/role.htm[Reference to HQDM role] 
+
+|===

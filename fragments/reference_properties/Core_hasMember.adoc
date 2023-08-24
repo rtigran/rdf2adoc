@@ -1,0 +1,35 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasMember]
+= hasMember
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasMember
+
+|IRI
+|http://www.ontology.asam.net/Core#hasMember
+
+|Has domain
+|Set
+
+|Inverse
+|memberOf
+
+|Characteristic
+|Asymmetric
+
+|Comments
+|DEF: A relationship type stating that a Set has a particular thing as a member. A set can have anything of the respective type as a member.
+
+EXAMPLES: A SetOfActivityStates can have an ActivityState as a member.
+
+|===

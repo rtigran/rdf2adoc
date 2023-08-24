@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#involves]
+= involves
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|involves
+
+|IRI
+|http://www.ontology.asam.net/Core#involves
+
+|Subproperty of
+|relationProperty
+
+|Has domain
+|DefinedRelationship
+
+|Has range
+|DefinedRelationship
+
+|Characteristic
+|Functional
+
+|Characteristic
+|Inverse Functional
+
+|Comments
+|DEF: A relationProperty that states that the classification of some thing in a role is involved in a relationship.
+
+[Equivalent to HQDM involves] 
+
+|===

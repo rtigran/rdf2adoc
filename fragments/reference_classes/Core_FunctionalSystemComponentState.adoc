@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#FunctionalSystemComponentState]
+= FunctionalSystemComponentState
+
+[plantuml]
+....
+include::../puml/Core_FunctionalSystemComponentState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|FunctionalSystemComponentState
+
+|IRI
+|http://www.ontology.asam.net/Core#FunctionalSystemComponentState
+
+|Subclass of
+|FunctionalObjectState
+
+|Subclass of
+|SystemComponentState
+
+|Restriction
+|componentOf **exactly** **1** FunctionalSystemState
+
+|Comments
+|DEF: An IntentionallyConstructedObjectState that represents a replaceable component of a FunctionalSystem. The object property componentOf is used to relate the object to the FunctionalSystem. A FunctionalSystemComponentState may be the whole life of the component or a temporal part of it.
+
+EXAMPLES: markings of road or engines of vehicles
+
+USAGE: Use this class to represent the components of things that were created for a specific purpose, for example markings of road or engines of vehicles.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_functional_system_component.htm[Reference to HQDM state_of_functional_system_component] 
+
+|===

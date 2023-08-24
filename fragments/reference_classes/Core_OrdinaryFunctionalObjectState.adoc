@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#OrdinaryFunctionalObjectState]
+= OrdinaryFunctionalObjectState
+
+[plantuml]
+....
+include::../puml/Core_OrdinaryFunctionalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|OrdinaryFunctionalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#OrdinaryFunctionalObjectState
+
+|Subclass of
+|FunctionalObjectState
+
+|Subclass of
+|OrdinaryPhysicalObjectState
+
+|Comments
+|DEF: A FunctionalObjectState that describes functional objects that do not survive changing all their parts at once.  An OrdinaryFunctionalObjectState may represent the whole life of the object or a temporal part of it.
+
+EXAMPLES: A steel bar with no components and is not a component of any other thing but was created for a specific purpose could be an OrdinaryFunctionalObjectState.
+
+USAGE: Use this class for temporal parts of manufactured things that were constructed for some purpose and that cease to exist when all of their parts are removed.  However, if the thing is a system and/or a system component, it is preferable to use the corresponding subclass.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_ordinary_functional_object.htm[Reference to HQDM state_of_ordinary_functional_object] 
+
+|===

@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Geometry]
+= Geometry
+
+[plantuml]
+....
+include::../puml/Core_Geometry.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Geometry
+
+|IRI
+|http://www.ontology.asam.net/Core#Geometry
+
+|Subclass of
+|PhysicalProperty
+
+|Comments
+|DEF: A PhysicalProperty that describes a spatial characteristic of an Object in a 1D, 2D or 3D space. Unlike "shape", which only refers to the outer surface, "geometry" can include other characteristics, e.g. different kind of projections like cross section, road geometry.
+
+EXAMPLES:
+
+USAGE:
+
+|===

@@ -1,0 +1,33 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#behindRightOf]
+= behindRightOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|behindRightOf
+
+|IRI
+|http://www.ontology.asam.net/Core#behindRightOf
+
+|Subproperty of
+|hasRelativePosition
+
+|Inverse
+|frontLeftOf
+
+|Characteristic
+|Asymmetric
+
+|Comments
+|DEF: A hasRelativePosition relationship type where the first PhysicalObject is behind and to the right of the second PhysicalObject.
+
+|===

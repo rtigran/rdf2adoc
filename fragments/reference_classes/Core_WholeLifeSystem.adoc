@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeSystem]
+= WholeLifeSystem
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeSystem.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeSystem
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeSystem
+
+|Subclass of
+|SystemState
+
+|Subclass of
+|WholeLifeOrdinaryPhysicalObject
+
+|Comments
+|DEF: An OrdinaryPhysicalObject that is an organized or connected group of PhysicalObjects that are SystemComponents and each have a role in how the overall system functions.
+
+EXAMPLES: The entire life of a hurricane from when it was formed to when it ceases to exist.
+
+USAGE: Use this class for a system that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeFunctionalSystem for systems that are intentionally constructed for some purpose.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/system.htm[Reference to HQDM system] 
+
+|===

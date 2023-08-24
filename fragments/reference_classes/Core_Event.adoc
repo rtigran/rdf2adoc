@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Event]
+= Event
+
+[plantuml]
+....
+include::../puml/Core_Event.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Event
+
+|IRI
+|http://www.ontology.asam.net/Core#Event
+
+|Subclass of
+|SpatioTemporalExtent
+
+|Restriction
+|memberOf **only** SetOfEvents
+
+|Disjoint with
+|State
+
+|Comments
+|DEF: A SpatioTemporalExtent with a time extension of zero, but with an extension in space. Events mark changes in states and are used for something instantaneous.
+
+EXAMPLES:
+
+USAGE: Use this class to specify the state and/or end of activities and temporal parts of physical objects.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/event.htm[Reference to HQDM event] 
+
+|===

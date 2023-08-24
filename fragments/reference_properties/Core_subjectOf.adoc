@@ -1,0 +1,27 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#subjectOf]
+= subjectOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|subjectOf
+
+|IRI
+|http://www.ontology.asam.net/Core#subjectOf
+
+|Subproperty of
+|participantOf
+
+|Comments
+|DEF: A participantOf relationship type that relates some physical object as subject to some activity. The subject is an actor participant.
+
+|===

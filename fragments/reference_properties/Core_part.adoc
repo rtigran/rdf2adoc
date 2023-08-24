@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#part]
+= part
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|part
+
+|IRI
+|http://www.ontology.asam.net/Core#part
+
+|Subproperty of
+|relationProperty
+
+|Has domain
+|Aggregation
+
+|Has range
+|Aggregation
+
+|Characteristic
+|Functional
+
+|Characteristic
+|Inverse Functional
+
+|Comments
+|DEF: A relationProperty that states that each Aggregation has exactly one spatioTemporalExtent that is the part in the Aggregation.
+
+[Equivalent to HQDM part] 
+
+|===

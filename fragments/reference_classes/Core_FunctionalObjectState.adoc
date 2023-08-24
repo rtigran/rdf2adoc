@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#FunctionalObjectState]
+= FunctionalObjectState
+
+[plantuml]
+....
+include::../puml/Core_FunctionalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|FunctionalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#FunctionalObjectState
+
+|Subclass of
+|IntentionallyConstructedObjectState
+
+|Subclass of
+|PhysicalObjectState
+
+|Restriction
+|intendedRole **some** Role
+
+|Comments
+|DEF: An IntentionallyConstructedObjectState and PhysicalObjectState that has an intendedRole. A FunctionalObjectState may represent the whole life of the object or a temporal part of it.
+
+EXAMPLES: a FunctionalObjectState that is not an OrdinaryFunctionalObjectState would be one that survives the replacement of all of its parts, so an example might be my car (which might be a completely different car over time).
+
+USAGE: generally use OrdinaryFunctionalObjectState instead of this class
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_functional_object.htm[Reference to HQDM state_of_functional_object] 
+
+|===

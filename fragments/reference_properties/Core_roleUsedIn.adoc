@@ -1,0 +1,33 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#roleUsedIn]
+= roleUsedIn
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|roleUsedIn
+
+|IRI
+|http://www.ontology.asam.net/Core#roleUsedIn
+
+|Subproperty of
+|relationProperty
+
+|Has domain
+|Role
+
+|Has range
+|Role
+
+|Comments
+|DEF: A relationProperty that states that a Role is used in an Activity.
+
+|===

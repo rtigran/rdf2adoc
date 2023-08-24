@@ -1,0 +1,24 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#appliesTo]
+= appliesTo
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|appliesTo
+
+|IRI
+|http://www.ontology.asam.net/Core#appliesTo
+
+|Comments
+|DEF: This relation is used to describe that a specification or regularity applies to a particular object. For example, this relation can be used to describe which lanes a speed limit sign applies to.
+
+|===

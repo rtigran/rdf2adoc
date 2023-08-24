@@ -1,0 +1,50 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SpatioTemporalExtent]
+= SpatioTemporalExtent
+
+[plantuml]
+....
+include::../puml/Core_SpatioTemporalExtent.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SpatioTemporalExtent
+
+|IRI
+|http://www.ontology.asam.net/Core#SpatioTemporalExtent
+
+|Subclass of
+|Thing
+
+|Restriction
+|partOfPossibleWorld **some** PossibleWorld
+
+|Restriction
+|memberOf **only** SetOfSpatioTemporalExtents
+
+|Restriction
+|hasBeginning **exactly** **1** Event
+
+|Restriction
+|hasEnding **exactly** **1** Event
+
+|Comments
+|DEF: A thing that exists in time and space, meaning in four dimensions. Each spatio-temporal extent has a start event and an end event.
+
+EXAMPLES: not applicable.
+
+USAGE: This class will generally not be used directly in the OpenX domain.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/spatio_temporal_extent.htm[Reference to HQDM spatio_temporal_extent] 
+
+|===

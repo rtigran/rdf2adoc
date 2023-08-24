@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasQuantityRelation]
+= hasQuantityRelation
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasQuantityRelation
+
+|IRI
+|http://www.ontology.asam.net/Core#hasQuantityRelation
+
+|Has domain
+|PhysicalQuantity
+
+|Has range
+|PhysicalQuantity
+
+|Comments
+|DEF: A relationship type for basic arithmetic relationships between quantities
+
+|===

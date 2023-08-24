@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#ConnectionRelation]
+= ConnectionRelation
+
+[plantuml]
+....
+include::../puml/Core_ConnectionRelation.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|ConnectionRelation
+
+|IRI
+|http://www.ontology.asam.net/Core#ConnectionRelation
+
+|Subclass of
+|DefinedRelationship
+
+|Comments
+|DEF: A DefinedRelationship for relations between things that are connected in any way, physically or otherwise. Basis for the object property connectedTo.
+
+EXAMPLES:
+
+USAGE: Use this class to express a connection between two things as a reified relationship, e.g. in order to specify characteristics such as the angle of the connection.
+
+|===

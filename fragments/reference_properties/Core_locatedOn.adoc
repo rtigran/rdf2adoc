@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#locatedOn]
+= locatedOn
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|locatedOn
+
+|IRI
+|http://www.ontology.asam.net/Core#locatedOn
+
+|Has domain
+|PhysicalObjectState
+
+|Characteristic
+|Asymmetric
+
+|Comments
+|DEF: Object property version of RelativeLocation. Note that when using "locatedOn", it is not possible to describe the actual position of the located object on the location object (you need a RelativeLocation for that).
+
+|===

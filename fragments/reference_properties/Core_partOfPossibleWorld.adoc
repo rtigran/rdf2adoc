@@ -1,0 +1,29 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#partOfPossibleWorld]
+= partOfPossibleWorld
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|partOfPossibleWorld
+
+|IRI
+|http://www.ontology.asam.net/Core#partOfPossibleWorld
+
+|Subproperty of
+|partOf
+
+|Comments
+|DEF: A partOf relationship type where a SpatioTemporalExtent may be partOf one or more PossibleWorld.
+
+[Equivalent to HQDM part_of_possible_world] 
+
+|===

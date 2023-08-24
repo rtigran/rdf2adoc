@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeSociallyConstructedObject]
+= WholeLifeSociallyConstructedObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeSociallyConstructedObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeSociallyConstructedObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeSociallyConstructedObject
+
+|Subclass of
+|SociallyConstructedObjectState
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comments
+|DEF: A SociallyConstructedObjectState that represents the whole life of the socially constructed object.
+
+EXAMPLES:
+
+USAGE: Use this class for an socially constructed object that is its temporal whole.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/socially_constructed_object.htm[Reference to HQDM socially_constructed_object] 
+
+|===

@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#RelativeLocation]
+= RelativeLocation
+
+[plantuml]
+....
+include::../puml/Core_RelativeLocation.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|RelativeLocation
+
+|IRI
+|http://www.ontology.asam.net/Core#RelativeLocation
+
+|Subclass of
+|SpatialRelation
+
+|Comments
+|DEF: A SpatialRelation that describes that the subject is located on the object. Basis for the object property locatedOn.
+
+EXAMPLES:
+
+USAGE: Use this class to express the location of one thing with respect to another as a reified relationship, e.g. in order to specify characteristics such as the precise position of location.
+
+|===

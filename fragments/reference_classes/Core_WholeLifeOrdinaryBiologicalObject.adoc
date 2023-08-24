@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeOrdinaryBiologicalObject]
+= WholeLifeOrdinaryBiologicalObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeOrdinaryBiologicalObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeOrdinaryBiologicalObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeOrdinaryBiologicalObject
+
+|Subclass of
+|OrdinaryBiologicalObjectState
+
+|Subclass of
+|WholeLifeBiologicalObject
+
+|Comments
+|DEF: An OrdinaryBiologicalObjectState that represents the whole life of the ordinary biological object.
+
+EXAMPLES:
+
+USAGE: Use this class for describing individual living things that cease to exist when all of their parts are removed.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/ordinary_biological_object.htm[Reference to HQDM ordinary_biological_object] 
+
+|===

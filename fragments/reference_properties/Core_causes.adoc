@@ -1,0 +1,32 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#causes]
+= causes
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|causes
+
+|IRI
+|http://www.ontology.asam.net/Core#causes
+
+|Has domain
+|ActivityState
+
+|Has range
+|ActivityState
+
+|Comments
+|DEF: A relationship type where each activity is the cause of one or more events.
+
+[Equivalent to HQDM causes] 
+
+|===

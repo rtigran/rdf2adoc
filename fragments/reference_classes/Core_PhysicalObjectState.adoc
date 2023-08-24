@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PhysicalObjectState]
+= PhysicalObjectState
+
+[plantuml]
+....
+include::../puml/Core_PhysicalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PhysicalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#PhysicalObjectState
+
+|Subclass of
+|State
+
+|Restriction
+|memberOf **only** SetOfPhysicalObjectStates
+
+|Restriction
+|temporalPartOf **only** WholeLifePhysicalObject
+
+|Comments
+|DEF: A State that consists of a distribution of matter and/or energy. A PhysicalObjectState is understood to have a bounded distribution, and so it can be identified as that parcel of matter and/or energy over time.  A PhysicalObjectState can be thought of as characterizing what does not change over time of a State.
+
+EXAMPLES:
+
+USAGE: Generally use a subclass of this class.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_physical_object.htm[Reference to HQDM state_of_physical_object] 
+
+|===

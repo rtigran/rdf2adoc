@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SociallyConstructedObjectState]
+= SociallyConstructedObjectState
+
+[plantuml]
+....
+include::../puml/Core_SociallyConstructedObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SociallyConstructedObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#SociallyConstructedObjectState
+
+|Subclass of
+|IntentionallyConstructedObjectState
+
+|Comments
+|DEF: An IntentionallyConstructedObjectState that is necessarily constructed by agreement of or acceptance by many people.
+
+EXAMPLES: contracts, companies, and money
+
+USAGE:
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_socially_constructed_object.htm[Reference to HQDM state_of_socially_constructed_object] 
+
+|===

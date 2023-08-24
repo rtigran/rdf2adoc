@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SystemComponentState]
+= SystemComponentState
+
+[plantuml]
+....
+include::../puml/Core_SystemComponentState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SystemComponentState
+
+|IRI
+|http://www.ontology.asam.net/Core#SystemComponentState
+
+|Subclass of
+|PhysicalObjectState
+
+|Restriction
+|componentOf **exactly** **1** SystemState
+
+|Comments
+|DEF: A PhysicalObjectState that represents a component of a system. The state may represent the whole life of the component or a temporal part of it. The state can be completely replaced without losing its identity. A SystemComponentState can only exist when the System exists.  On the other hand, the OrdinaryPhysicalObject that is installed as the component may exist before or after the System.
+
+EXAMPLES: vehicles and pedestrians are components of the traffic system (actually FunctionalSystemComponentStates - not WholeLifeIndividuals because the whole life of a vehicle or pedestrian would include temporal parts that are not components of the same traffic system)
+
+USAGE: Use this class only for physical objects that are components of systems that do not have specific functions (are not FunctionalSystems)
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_system_component.htm[Reference to HQDM state_of_system_component] 
+
+|===

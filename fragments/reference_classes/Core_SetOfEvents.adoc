@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SetOfEvents]
+= SetOfEvents
+
+[plantuml]
+....
+include::../puml/Core_SetOfEvents.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SetOfEvents
+
+|IRI
+|http://www.ontology.asam.net/Core#SetOfEvents
+
+|Subclass of
+|SetOfSpatioTemporalExtents
+
+|Comments
+|DEF: A SetOfSpatioTemporalExtents that groups kinds of events. 
+
+EXAMPLES: triggered and absolute events, start and end events, etc.
+
+USAGE: Use this class to describe specific sets or kinds of Events that are not available already as subclasses of Event.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/class_of_event.htm[Reference to HQDM class_of_event] 
+
+|===

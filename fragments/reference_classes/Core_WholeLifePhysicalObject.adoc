@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifePhysicalObject]
+= WholeLifePhysicalObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifePhysicalObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifePhysicalObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifePhysicalObject
+
+|Subclass of
+|PhysicalObjectState
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comments
+|DEF: A PhysicalObjectState that represents the whole life of the physical object.
+
+EXAMPLES:
+
+USAGE: Use this class for a physical object that is its temporal whole. Note that it is generally preferable to use one of the subclasses.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/physical_object.htm[Reference to HQDM physical_object] 
+
+|===

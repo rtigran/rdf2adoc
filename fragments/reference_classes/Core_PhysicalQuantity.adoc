@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PhysicalQuantity]
+= PhysicalQuantity
+
+[plantuml]
+....
+include::../puml/Core_PhysicalQuantity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PhysicalQuantity
+
+|IRI
+|http://www.ontology.asam.net/Core#PhysicalQuantity
+
+|Subclass of
+|PhysicalProperty
+
+|Comments
+|DEF: A PhysicalProperty that represents a measurable quantity of a characteristic. 
+
+EXAMPLES: length, speed, and angle.
+
+USAGE:
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/physical_quantity.htm[Reference to HQDM physical_quantity] 
+
+|===

@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SpeedQuantity]
+= SpeedQuantity
+
+[plantuml]
+....
+include::../puml/Core_SpeedQuantity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SpeedQuantity
+
+|IRI
+|http://www.ontology.asam.net/Core#SpeedQuantity
+
+|Subclass of
+|PhysicalQuantity
+
+|Comments
+|DEF: A PhysicalQuantity that is a speed value in meters per second.
+
+EXAMPLES:
+
+USAGE:
+
+|===

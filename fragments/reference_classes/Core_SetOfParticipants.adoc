@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SetOfParticipants]
+= SetOfParticipants
+
+[plantuml]
+....
+include::../puml/Core_SetOfParticipants.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SetOfParticipants
+
+|IRI
+|http://www.ontology.asam.net/Core#SetOfParticipants
+
+|Subclass of
+|SetOfPhysicalObjectStates
+
+|Comments
+|DEF: A SetOfPhysicalObjectStates that groups participants of activities.
+
+EXAMPLES:
+
+USAGE: Generally use Role rather than this class.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/class_of_participant.htm[Reference to HQDM class_of_participant] 
+
+|===

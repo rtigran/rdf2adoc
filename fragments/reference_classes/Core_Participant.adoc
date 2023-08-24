@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Participant]
+= Participant
+
+[plantuml]
+....
+include::../puml/Core_Participant.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Participant
+
+|IRI
+|http://www.ontology.asam.net/Core#Participant
+
+|Subclass of
+|PhysicalObjectState
+
+|Restriction
+|memberOf **only** SetOfParticipants
+
+|Restriction
+|participantOf **only** ActivityState
+
+|Comments
+|DEF: A PhysicalObjectState that represents a participant of an ActivityState. The ActivityState consists of these Participants, where each Participant is a member of the Role in which it is participating.
+
+EXAMPLES: The state (temporal part) of a vehicle that is making a left turn.
+
+USAGE: Use this class for describing the temporal part of physical objects that are participating in activities.  Usually combined with OrdinaryBiologicalObjectState or OrdinaryFunctionalObjectState
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/participant.htm[Reference to HQDM participant] 
+
+|===

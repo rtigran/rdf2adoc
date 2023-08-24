@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeIntentionallyConstructedActivity]
+= WholeLifeIntentionallyConstructedActivity
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeIntentionallyConstructedActivity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeIntentionallyConstructedActivity
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeIntentionallyConstructedActivity
+
+|Subclass of
+|IntentionallyConstructedActivityState
+
+|Subclass of
+|WholeLifeActivity
+
+|Comments
+|DEF: A WholeLifeIntentionallyConstructedObject that is also a WholeLifeActivity.
+
+EXAMPLES:
+
+USAGE:
+
+USAGE: Use this class for an intentional constructed activity that is its temporal whole.
+
+|===

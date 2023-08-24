@@ -1,0 +1,35 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#aggregatedInto]
+= aggregatedInto
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|aggregatedInto
+
+|IRI
+|http://www.ontology.asam.net/Core#aggregatedInto
+
+|Has domain
+|SpatioTemporalExtent
+
+|Has range
+|SpatioTemporalExtent
+
+|Characteristic
+|Asymmetric
+
+|Comments
+|DEF: A relationship type where a SpatioTemporalExtent may be aggregated into one or more others. This object property has the same meaning as the class Aggregation, but a different representation.
+
+[Equivalent to HQDM aggregated_into] 
+
+|===

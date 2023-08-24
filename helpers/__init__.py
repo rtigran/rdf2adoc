@@ -165,6 +165,15 @@ class RDF2adoc:
             reference_adoc += (f"// This file was created automatically by {self.__version}.\n")
             reference_adoc += (f"// DO NOT EDIT!\n\n")
 
+            reference_adoc += (f"= OpenXOntology Model Reference\n")
+            reference_adoc += ":asciidoc-resources: ../../asciidoc-resources"
+            reference_adoc += "include::{asciidoc-resources}/preamble.adoc[]"
+            reference_adoc += "// standard version"
+            reference_adoc += ":revnumber: 1.0.0"
+            reference_adoc += ":description: OpenXOntology Model Reference for ASAM simulation standards"
+            reference_adoc += ":release_date: {docdate}"
+            reference_adoc += ":doc_version: Document Version: 1.0.0"
+            #reference_adoc += ":bibtex-file: Bibliography/Bibliography_ontology.adoc"
 
             reference_adoc +='<<< \n'
             reference_adoc +='Ontology Version Information:: \n'

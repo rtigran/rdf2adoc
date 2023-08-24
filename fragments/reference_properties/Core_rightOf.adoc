@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#rightOf]
+= rightOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|rightOf
+
+|IRI
+|http://www.ontology.asam.net/Core#rightOf
+
+|Subproperty of
+|hasRelativePosition
+
+|Characteristic
+|Asymmetric
+
+|Comments
+|DEF: A hasRelativePosition relationship type where the first PhysicalObject is to the right of the second PhysicalObject.
+
+|===

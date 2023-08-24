@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#approximatelyEqualTo]
+= approximatelyEqualTo
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|approximatelyEqualTo
+
+|IRI
+|http://www.ontology.asam.net/Core#approximatelyEqualTo
+
+|Subproperty of
+|hasQuantityRelation
+
+|Has domain
+|PhysicalQuantity
+
+|Has range
+|PhysicalQuantity
+
+|Characteristic
+|Symmetric
+
+|Comments
+|DEF: A hasQuantityRelation relationship type, where the value for the second quantity is within the range of the first quantity. The deviation between the values is no greater than +/- 10% of the first value.
+
+|===

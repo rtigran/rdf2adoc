@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#State]
+= State
+
+[plantuml]
+....
+include::../puml/Core_State.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|State
+
+|IRI
+|http://www.ontology.asam.net/Core#State
+
+|Subclass of
+|SpatioTemporalExtent
+
+|Restriction
+|temporalPartOf **some** WholeLifeIndividual
+
+|Restriction
+|memberOf **only** SetOfStates
+
+|Comments
+|DEF: A SpatioTemporalExtent with non-zero extension in both space and time. Used to describe, for example, the state of a vehicle, a person, or a manufactured system like a factory. States can apply to the whole life of a thing or represent temporal parts of a thing,
+
+EXAMPLES:
+
+USAGE: Use this class to describe the temporal part of a whole-life individual to which some property applies or to describe the temporal part of a whole-life individual that participates in an activity.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state.htm[Reference to HQDM state] 
+
+|===

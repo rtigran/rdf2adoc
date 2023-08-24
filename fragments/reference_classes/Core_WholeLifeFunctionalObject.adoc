@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeFunctionalObject]
+= WholeLifeFunctionalObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeFunctionalObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeFunctionalObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeFunctionalObject
+
+|Subclass of
+|FunctionalObjectState
+
+|Subclass of
+|WholeLifePhysicalObject
+
+|Comments
+|DEF: A FunctionalObjectState that represents the whole life of the functional object.
+
+EXAMPLES: 
+
+USAGE: Use this class for a functional object that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeOrdinaryFunctionalObject.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/functional_object.htm[Reference to HQDM functional_object] 
+
+|===

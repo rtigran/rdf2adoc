@@ -1,0 +1,24 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasProperty]
+= hasProperty
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasProperty
+
+|IRI
+|http://www.ontology.asam.net/Core#hasProperty
+
+|Comments
+|DEF: Relationship type for specifying properties of particular things
+
+|===

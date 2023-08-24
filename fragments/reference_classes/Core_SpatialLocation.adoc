@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SpatialLocation]
+= SpatialLocation
+
+[plantuml]
+....
+include::../puml/Core_SpatialLocation.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SpatialLocation
+
+|IRI
+|http://www.ontology.asam.net/Core#SpatialLocation
+
+|Subclass of
+|State
+
+|Comments
+|DEF: A State that describes the relative continuity of a position, an area or a space that is important in a defined context. The type of description of a SpatialLocation can be topological, topographical, coordinates, or any other type.
+
+EXAMPLES: the position of an object, a country where certain regulations apply.
+
+USAGE:
+
+|===

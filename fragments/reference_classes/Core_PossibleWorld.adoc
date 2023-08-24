@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PossibleWorld]
+= PossibleWorld
+
+[plantuml]
+....
+include::../puml/Core_PossibleWorld.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PossibleWorld
+
+|IRI
+|http://www.ontology.asam.net/Core#PossibleWorld
+
+|Subclass of
+|PeriodOfTime
+
+|Subclass of
+|WholeLifeIndividual
+
+|Comments
+|DEF: A WholeLifeIndividual that is a complete spatio-temporal history of some possible world. The actual world is one of the possible worlds.
+
+EXAMPLES: a description could contain two PossibleWorlds, the possible world where carA stopped at the pedestrian crossing and where carA did not stop. 
+
+USAGE: Use this class to model modality (modal realism rather than modal logic), such as several possible planned futures or alternative pasts. 
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/possible_world.htm[Reference to HQDM possible_world] 
+
+|===

@@ -1,0 +1,44 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeFunctionalSystemComponent]
+= WholeLifeFunctionalSystemComponent
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeFunctionalSystemComponent.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeFunctionalSystemComponent
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeFunctionalSystemComponent
+
+|Subclass of
+|FunctionalSystemComponentState
+
+|Subclass of
+|WholeLifeSystemComponent
+
+|Restriction
+|componentOf **exactly** **1** WholeLifeFunctionalSystem
+
+|Comments
+|DEF: A FunctionalSystemComponentState that represents the whole life of the functional system component.
+
+EXAMPLES: The component of a junction that is the a traffic light, which functions as a signal at a junction (not the individual traffic lights with their serial numbers and dates of production, but the traffic light as a functional component).
+
+USAGE: Use this class to specify the whole life of a component of a functional system, which could be temporally divided into FunctionalSystemComponentStates for each of the InstalledObjects that acted as the component over the lifetime of the functional system.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/functional_system_component.htm[Reference to HQDM functional_system_component] 
+
+|===

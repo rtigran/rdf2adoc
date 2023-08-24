@@ -1,0 +1,39 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SeparationDistance]
+= SeparationDistance
+
+[plantuml]
+....
+include::../puml/Core_SeparationDistance.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SeparationDistance
+
+|IRI
+|http://www.ontology.asam.net/Core#SeparationDistance
+
+|Subclass of
+|SpatialRelation
+
+|Restriction
+|hasDistance **some** LengthQuantity
+
+|Comments
+|DEF: A SpatialRelation that also describes a distance between two connected objects. Gives a complete description of a vector and an exact relative position.
+
+EXAMPLES:
+
+USAGE: Use this class to express the separation distance between two things as a reified relationship, e.g. in order to specify characteristics such as the distance and direction of the separation.
+
+|===

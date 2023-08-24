@@ -1,0 +1,39 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#quantityGreaterThanOrEqualTo]
+= quantityGreaterThanOrEqualTo
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|quantityGreaterThanOrEqualTo
+
+|IRI
+|http://www.ontology.asam.net/Core#quantityGreaterThanOrEqualTo
+
+|Subproperty of
+|hasQuantityRelation
+
+|Has domain
+|PhysicalQuantity
+
+|Has range
+|PhysicalQuantity
+
+|Inverse
+|quantityLessThan
+
+|Characteristic
+|Transitive
+
+|Comments
+|DEF: A hasQuantityRelation relationship type, where the value for the second quantity is greater than or equal to the value of the first quantity.
+
+|===

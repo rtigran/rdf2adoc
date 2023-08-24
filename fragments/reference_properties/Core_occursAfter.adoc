@@ -1,0 +1,30 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#occursAfter]
+= occursAfter
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|occursAfter
+
+|IRI
+|http://www.ontology.asam.net/Core#occursAfter
+
+|Subproperty of
+|occursAtDifferentTime
+
+|Inverse
+|occursBefore
+
+|Comments
+|DEF: A hasRelativeTime relationship type specifying that the first event (marking the beginning or ending of some activity of physical object) occurs after the second event.
+
+|===

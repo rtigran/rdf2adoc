@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PhysicalProperty]
+= PhysicalProperty
+
+[plantuml]
+....
+include::../puml/Core_PhysicalProperty.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PhysicalProperty
+
+|IRI
+|http://www.ontology.asam.net/Core#PhysicalProperty
+
+|Subclass of
+|SetOfStates
+
+|Comments
+|DEF: A SetOfStates is some characteristic that is the same for each state that possesses it (is a memberOf it). More accurately, a PhysicalProperty is a Set that groups states by a specific characteristic, but PhysicalProperty is understood to be the specific characteristic shared by its members.
+
+EXAMPLES: The color red is a PhysicalProperty.
+
+USAGE: Use this class for physical properties of both physical objects, for example mass and length, and activities, for example speed and duration.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/physical_property.htm[Reference to HQDM physical_property] 
+
+|===

@@ -1,0 +1,29 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#partOf]
+= partOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|partOf
+
+|IRI
+|http://www.ontology.asam.net/Core#partOf
+
+|Subproperty of
+|aggregatedInto
+
+|Comments
+|DEF: An aggregatedInto relationship type where a SpatioTemporalExtent may be part of another and the whole has emergent properties and is more than just the sum of its parts. This object property has the same meaning as the class Composition, but a different representation.
+
+[Equivalent to HQDM part__of] 
+
+|===

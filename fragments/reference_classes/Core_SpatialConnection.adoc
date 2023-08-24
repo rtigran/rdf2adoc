@@ -1,0 +1,39 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#SpatialConnection]
+= SpatialConnection
+
+[plantuml]
+....
+include::../puml/Core_SpatialConnection.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|SpatialConnection
+
+|IRI
+|http://www.ontology.asam.net/Core#SpatialConnection
+
+|Subclass of
+|ConnectionRelation
+
+|Subclass of
+|SpatialRelation
+
+|Comments
+|DEF: A ConnectionRelation for relations between things that touch. Spatial connections create bridges for the transfer of energy or other things between the objects. Basis for the object property connectedTo.
+
+EXAMPLES:
+
+USAGE: Use this class to express a spatial connection between two things as a reified relationship, e.g. in order to specify characteristics such as the surface area of the connecting surface.
+
+|===

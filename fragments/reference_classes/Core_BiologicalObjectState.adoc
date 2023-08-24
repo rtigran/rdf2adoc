@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#BiologicalObjectState]
+= BiologicalObjectState
+
+[plantuml]
+....
+include::../puml/Core_BiologicalObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|BiologicalObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#BiologicalObjectState
+
+|Subclass of
+|PhysicalObjectState
+
+|Comments
+|DEF: A PhysicalObjectState that sustains itself and reproduces. A BiologicalObjectState may represent the whole life of the object or a temporal part of it.
+
+EXAMPLES: a BiologicalObjectState that is not an OrdinaryBiologicalObjectState would be one that survives the replacement of all of its parts, so an example might be my dog (which might be a completely different dog over time).
+
+USAGE: generally use OrdinaryBiologicalObjectState instead of this class
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_biological_object.htm[Reference to HQDM state_of_biological_object] 
+
+|===

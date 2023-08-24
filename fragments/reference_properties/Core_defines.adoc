@@ -1,0 +1,33 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#defines]
+= defines
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|defines
+
+|IRI
+|http://www.ontology.asam.net/Core#defines
+
+|Has domain
+|PhysicalQuantity
+
+|Has range
+|PhysicalQuantity
+
+|Characteristic
+|Transitive
+
+|Comments
+|DEF: A relationship type that relates two numeric parameters. It expresses that one parameter value is determined by the other parameter value.
+
+|===

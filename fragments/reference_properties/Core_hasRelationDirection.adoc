@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#hasRelationDirection]
+= hasRelationDirection
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|hasRelationDirection
+
+|IRI
+|http://www.ontology.asam.net/Core#hasRelationDirection
+
+|Subproperty of
+|hasDirection
+
+|Subproperty of
+|relationProperty
+
+|Has domain
+|SpatialRelation
+
+|Has range
+|SpatialRelation
+
+|Comments
+|DEF: A hasQuantity relationship type that specifies the direction of a spatial relation.
+
+|===

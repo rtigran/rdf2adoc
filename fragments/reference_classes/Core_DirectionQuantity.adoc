@@ -1,0 +1,36 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#DirectionQuantity]
+= DirectionQuantity
+
+[plantuml]
+....
+include::../puml/Core_DirectionQuantity.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|DirectionQuantity
+
+|IRI
+|http://www.ontology.asam.net/Core#DirectionQuantity
+
+|Subclass of
+|PhysicalQuantity
+
+|Comments
+|DEF: A PhysicalQuantity that defines a direction in degrees, between 0 and 360. May be used to quantify the direction of a vector described by a SpatialRelation, a SeparationDistance, or similar.
+
+EXAMPLES:
+
+USAGE: Use this class instead of AngleQuantity when specifying actual directions respective to some coordinate system.
+
+|===

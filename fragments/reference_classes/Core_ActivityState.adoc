@@ -1,0 +1,47 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#ActivityState]
+= ActivityState
+
+[plantuml]
+....
+include::../puml/Core_ActivityState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|ActivityState
+
+|IRI
+|http://www.ontology.asam.net/Core#ActivityState
+
+|Subclass of
+|State
+
+|Restriction
+|causes **some** Event
+
+|Restriction
+|hasParticipant **some** Participant
+
+|Restriction
+|memberOf **only** SetOfActivityStates
+
+|Comments
+|DEF: A State that represents the whole life of an activity or a temporal part of an activity. Activities consist of their participants, which are members of PhysicalObjectState, and cause some event. The end event of an activity state is caused by that activity, which implies that the activity describes some change between the start event and end event.
+
+EXAMPLES: the movements of a cloud or an animal crossing a road.
+
+USAGE: Use this class for (temporal parts of) activities that are not the direct result of some intent, for example, a person's intent.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_activity.htm[Reference to HQDM state_of_activity] 
+
+|===

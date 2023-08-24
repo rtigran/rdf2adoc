@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Aggregation]
+= Aggregation
+
+[plantuml]
+....
+include::../puml/Core_Aggregation.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Aggregation
+
+|IRI
+|http://www.ontology.asam.net/Core#Aggregation
+
+|Subclass of
+|Relationship
+
+|Comments
+|DEF: A Relationship where the whole is at least the sum of the parts. Basis for object property aggregatedInto.
+
+EXAMPLES: not applicable.
+
+USAGE: This class will generally not be used directly in the OpenX domain.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/aggregation.htm[Reference to HQDM aggregation] 
+
+|===

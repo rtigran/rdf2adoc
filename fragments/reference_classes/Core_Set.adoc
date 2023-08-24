@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#Set]
+= Set
+
+[plantuml]
+....
+include::../puml/Core_Set.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|Set
+
+|IRI
+|http://www.ontology.asam.net/Core#Set
+
+|Subclass of
+|AbstractObject
+
+|Comments
+|DEF: An AbstractObject that has members and whose identity is defined by those members. The members may be other sets as well as specific spatio-temporal extents.
+
+EXAMPLES: not applicable.
+
+USAGE: This class will generally not be used directly in the OpenX domain.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/class.htm[Reference to HQDM class] 
+
+|===

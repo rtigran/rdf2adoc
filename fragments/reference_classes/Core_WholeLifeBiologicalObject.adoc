@@ -1,0 +1,41 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#WholeLifeBiologicalObject]
+= WholeLifeBiologicalObject
+
+[plantuml]
+....
+include::../puml/Core_WholeLifeBiologicalObject.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|WholeLifeBiologicalObject
+
+|IRI
+|http://www.ontology.asam.net/Core#WholeLifeBiologicalObject
+
+|Subclass of
+|BiologicalObjectState
+
+|Subclass of
+|WholeLifePhysicalObject
+
+|Comments
+|DEF: A BiologicalObjectState that represents the whole life of the biological object.
+
+EXAMPLES: a person from their birth to their death.
+
+USAGE: Use this class for a biological object that is its temporal whole. Note that usually it is preferable to use the subclass WholeLifeOrdinaryBiologicalObject.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/biological_object.htm[Reference to HQDM biological_object] 
+
+|===

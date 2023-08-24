@@ -1,0 +1,29 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#temporalPartOf]
+= temporalPartOf
+
+|===
+|Element |Description
+
+|Type
+|ObjectProperty
+
+|Name
+|temporalPartOf
+
+|IRI
+|http://www.ontology.asam.net/Core#temporalPartOf
+
+|Subproperty of
+|partOf
+
+|Comments
+|DEF: A partOf relationship type where a SpatioTemporalExtent may be a temporal part of one or more other SpatioTemporalExtent. This object property has the same meaning as the class TemporalComposition, but a different representation.
+
+[Equivalent to HQDM temporal__part_of] 
+
+|===

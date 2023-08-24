@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#IntentionallyConstructedObjectState]
+= IntentionallyConstructedObjectState
+
+[plantuml]
+....
+include::../puml/Core_IntentionallyConstructedObjectState.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|IntentionallyConstructedObjectState
+
+|IRI
+|http://www.ontology.asam.net/Core#IntentionallyConstructedObjectState
+
+|Subclass of
+|State
+
+|Comments
+|DEF: A State that exists because of an act of will or agreement. That means that IntentionallyConstructedObjects are constructed intentionally by one or more things that have intent, usually humans or robots.
+
+EXAMPLES:
+
+USAGE: Generally use FunctionalObjectState or one of its subclasses rather than this class.
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/state_of_intentionally_constructed_object.htm[Reference to HQDM state_of_intentionally_constructed_object] 
+
+|===

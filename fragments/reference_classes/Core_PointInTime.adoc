@@ -1,0 +1,38 @@
+// This file was created automatically by OpenXCore V 1.0 20210902.
+// DO NOT EDIT!
+
+//Include information from owl files
+
+[#PointInTime]
+= PointInTime
+
+[plantuml]
+....
+include::../puml/Core_PointInTime.plantuml[] 
+....
+
+|===
+|Element |Description
+
+|Type
+|Class
+
+|Name
+|PointInTime
+
+|IRI
+|http://www.ontology.asam.net/Core#PointInTime
+
+|Subclass of
+|Event
+
+|Comments
+|DEF: An Event that is the whole of space at an instant from some viewpoint.
+
+EXAMPLES:
+
+USAGE:
+
+link:http://www.informationjunction.co.uk/hqdm_framework/hqdm_framework/lexical/point_in_time.htm[Reference to HQDM point_in_time] 
+
+|===
